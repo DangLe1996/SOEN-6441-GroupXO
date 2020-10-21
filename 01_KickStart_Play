@@ -12,3 +12,15 @@ Test Access
 10. After the build finishes, enter the following URL in a browser to view the app: http://localhost:9000/
 11. Check out the README.md file in the top level project directory to learn more about the example.
 Source: https://www.playframework.com/getting-started
+
+
+To Create a new application using SBT you must have sbt 0.13.13 or higher installed (download from here https://www.scala-sbt.org/) open terminal and type following command to generate java project.
+
+ sbt new playframework/play-java-seed.g8 
+ 
+ if you are on windows platform use sbt.bat instead of sbt
+
+ sbt.bat new playframework/play-java-seed.g8 
+ 
+ Follow : https://stackoverflow.com/questions/20780568/how-to-make-a-play-framework-based-project-into-a-eclipse-project-in-a-better-fo
+ 
