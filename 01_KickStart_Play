@@ -1,0 +1,14 @@
+Test Access
+
+1. Check that your Java version is 8 or higher with the java -version command and if needed, install it from Oracle's site.
+2. Choose an example from Lightbend's Tech Hub.
+3. Click "CREATE A PROJECT FOR ME" to download the zipped project.
+4. Unzip the project in a convenient location.
+5. In a command window, navigate to the top level project directory.
+6. Enter one of the following commands:
+7. On macOS or Linux systems: ./sbt run or ./gradlew runPlayBinary
+8. On Windows systems: sbt.bat run or gradlew.bat runPlayBinary
+9. The build tool downloads dependencies and compiles the project.
+10. After the build finishes, enter the following URL in a browser to view the app: http://localhost:9000/
+11. Check out the README.md file in the top level project directory to learn more about the example.
+Source: https://www.playframework.com/getting-started
