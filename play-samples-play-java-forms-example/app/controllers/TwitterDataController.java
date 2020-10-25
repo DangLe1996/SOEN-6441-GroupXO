@@ -1,7 +1,6 @@
 package controllers;
 import models.TwitterSearch;
 import models.TwitterDataFetcher;
-import twitter4j.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,12 +62,15 @@ public class TwitterDataController extends Controller {
 
             }
 
-
-
-
             //tweets.add(new TwitterSearch(data.getSearchString(), "dummy"));
             return redirect(routes.TwitterDataController.searchTweets())
                     .flashing("info", "Searched!");
         }
     }
+
+
+    public Result searchTweetsByLocation(Http.Request request){
+        return ok(views.html.Location.render());
+    }
+
 }
