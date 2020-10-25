@@ -60,18 +60,19 @@ class TwitterDataFetcherTest {
         keywords.add("shoe");
         keywords.add("protein");
 
+
         long start = System.nanoTime();
 
         CompletableFuture[] futures = keywords.stream()
                 .map(keyword-> CompletableFuture.supplyAsync(() -> {
                     try {
-                        return test.fetchTwitterSearch(new Query(keyword));
+                        return test.fetchTwitterSearch(new Query().geoCode(new GeoLocation(100,100),10, Query.Unit.km));
                     } catch (TwitterException e) {
                         e.printStackTrace();
                     }
 
                     return null;
-                })).toArray(size -> new CompletableFuture[size]);
+                })).map(f -> f.thenAccept(System.out::println)).toArray(size -> new CompletableFuture[size]);
 
         CompletableFuture.allOf(futures).join();
 
