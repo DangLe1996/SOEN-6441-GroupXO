@@ -1,6 +1,7 @@
 package models;
 
 import com.google.common.base.Stopwatch;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import twitter4j.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -38,7 +40,8 @@ class TwitterDataFetcherTest {
         TwitterDataFetcher test = new TwitterDataFetcher();
         List<Status> results =  test.fetchTwitterByLocation("test",Montreal);
         results.parallelStream().map(r -> r.getUser().getLocation()).forEach(System.out::println);
-
+        var x = results.parallelStream().map(r -> r.getText()).collect(Collectors.toList());
+        String result = StringUtils.join(x, ", ");
     }
 
 

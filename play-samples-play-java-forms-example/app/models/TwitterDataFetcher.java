@@ -1,10 +1,15 @@
 package models;
+
 import twitter4j.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -15,6 +20,21 @@ public class TwitterDataFetcher {
 
 
 
+    public CompletionStage<String> fetchTwitterSearchCompleted(String requestString ) throws TwitterException {
+
+        Twitter twitter = new TwitterFactory().getInstance();
+        Query query = new Query(requestString);
+        BinaryOperator<String> adder = (a, b) -> {
+            return a + b;
+        };
+        query.count(10);
+        QueryResult result;
+        return CompletableFuture.completedFuture( String.join("\n \n",twitter.search(query).getTweets()
+                .parallelStream().map(r -> r.getText()).collect(Collectors.toList())));
+
+
+
+    }
 
 
 

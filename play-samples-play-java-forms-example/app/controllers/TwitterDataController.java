@@ -13,6 +13,8 @@ import twitter4j.Status;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import static play.libs.Scala.asScala;
 @Singleton
@@ -20,7 +22,7 @@ public class TwitterDataController extends Controller {
 
     private final Form<TwitterData> form;
     private MessagesApi messagesApi;
-    private final List<TwitterSearch> tweets;
+    private List<TwitterSearch> tweets;
 
     private final Logger logger = LoggerFactory.getLogger(getClass()) ;
 
@@ -43,28 +45,56 @@ public class TwitterDataController extends Controller {
         return ok(views.html.listTweets.render(asScala(tweets), form, request, messagesApi.preferred(request)));
     }
 
-    public Result postTweets(Http.Request request) {
+
+    public Result postTweets2(Http.Request request){
+        final Form<TwitterData> boundForm = form.bindFromRequest(request);
+
+        if (boundForm.hasErrors()) {
+            logger.error("errors = {}", boundForm.errors());
+            return badRequest(views.html.listTweets.render(asScala(tweets), boundForm, request, messagesApi.preferred(request)));
+        } else{
+            TwitterDataFetcher a= new TwitterDataFetcher();
+            TwitterData data = boundForm.get();
+//            a.fetchTwitterSearchCompleteable(data.getSearchString()).thenAccept(r -> r.getTweets().parallelStream()
+//                    .map(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) ))
+//                    ;
+            return redirect(routes.TwitterDataController.searchTweets())
+                    .flashing("info", "Searched!");
+        }
+
+
+    }
+
+    public Result postTweets(Http.Request request) throws ExecutionException, InterruptedException {
         final Form<TwitterData> boundForm = form.bindFromRequest(request);
 
         if (boundForm.hasErrors()) {
             logger.error("errors = {}", boundForm.errors());
             return badRequest(views.html.listTweets.render(asScala(tweets), boundForm, request, messagesApi.preferred(request)));
         } else {
-             TwitterData data = boundForm.get();
-             TwitterDataFetcher a= new TwitterDataFetcher();
-             List<Status> tweet2=a.fetchTwitterSearch(data.getSearchString());
 
-            tweets.clear();
-            for (Status tweet1 : tweet2) {
+            tweets = null;
 
-                tweets.add(new TwitterSearch(tweet1.getUser().getScreenName().toString(), tweet1.getText().toString()));
+            TwitterDataFetcher a= new TwitterDataFetcher();
+            TwitterData data = boundForm.get();
 
 
-            }
 
-            //tweets.add(new TwitterSearch(data.getSearchString(), "dummy"));
+//            a.fetchTwitterSearchCompleteable(data.getSearchString()).thenAccept(r -> r.getTweets().parallelStream()
+//                    .map(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) )).get()
+//            ;
             return redirect(routes.TwitterDataController.searchTweets())
                     .flashing("info", "Searched!");
+
+
+//            TwitterDataFetcher a= new TwitterDataFetcher();
+//            TwitterData data = boundForm.get();
+//            CompletableFuture.supplyAsync(() -> new TwitterDataFetcher().fetchTwitterSearch(data.getSearchString()))
+//                    .thenAccept(r -> r.forEach(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) ))
+//                    .get();
+//
+//            return redirect(routes.TwitterDataController.searchTweets())
+//                    .flashing("info", "Searched!");
         }
     }
 

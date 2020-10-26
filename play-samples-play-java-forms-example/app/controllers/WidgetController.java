@@ -11,6 +11,7 @@ import play.mvc.*;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
+import java.util.concurrent.CompletionStage;
 
 import static play.libs.Scala.asScala;
 
@@ -43,8 +44,10 @@ public class WidgetController extends Controller {
         return ok(views.html.index.render());
     }
 
+
     public Result listWidgets(Http.Request request) {
         return ok(views.html.listWidgets.render(asScala(widgets), form, request, messagesApi.preferred(request)));
+
     }
 
     public Result createWidget(Http.Request request) {
