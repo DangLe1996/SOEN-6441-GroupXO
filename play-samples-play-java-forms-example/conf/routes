@@ -13,9 +13,6 @@ GET     /tweets                    controllers.TwitterDataController.searchTweet
 POST    /tweets                    controllers.TwitterDataController.postTweets(request: Request)
 
 
-GET      /locations                 controllers.TwitterDataController.searchTweetsByLocation(request: Request)
-
-GET      /tweetsAsync               controllers.MyController.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

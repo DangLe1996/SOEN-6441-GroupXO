@@ -7,13 +7,16 @@ import org.slf4j.LoggerFactory;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
+import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.*;
 import twitter4j.Status;
+import twitter4j.TwitterException;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 
 import static play.libs.Scala.asScala;
@@ -25,14 +28,16 @@ public class TwitterDataController extends Controller {
     private List<TwitterSearch> tweets;
 
     private final Logger logger = LoggerFactory.getLogger(getClass()) ;
+    private HttpExecutionContext httpExecutionContext;
 
     @Inject
-    public TwitterDataController(FormFactory formFactory, MessagesApi messagesApi) {
+    public TwitterDataController(FormFactory formFactory, MessagesApi messagesApi,HttpExecutionContext ec) {
         this.form = formFactory.form(TwitterData.class);
         this.messagesApi = messagesApi;
-
+        this.httpExecutionContext = ec;
         this.tweets = com.google.common.collect.Lists.newArrayList(
             new TwitterSearch(null, null)
+
 
         );
     }
@@ -46,61 +51,23 @@ public class TwitterDataController extends Controller {
     }
 
 
-    public Result postTweets2(Http.Request request){
+    public CompletionStage<Result> postTweets(Http.Request request) throws TwitterException {
+        // Use a different task with explicit EC
         final Form<TwitterData> boundForm = form.bindFromRequest(request);
+        TwitterData data = boundForm.get();
+        request.session().adding("test","abcd");
+        request.flash().adding("test","abcd");
+        return new TwitterDataFetcher().fetchTwitterSearchCompleted(data.getSearchString()).thenApplyAsync(
+                answer -> {
+                    return ok(views.html.listTweets.render(asScala(answer), form, request, messagesApi.preferred(request)));
 
-        if (boundForm.hasErrors()) {
-            logger.error("errors = {}", boundForm.errors());
-            return badRequest(views.html.listTweets.render(asScala(tweets), boundForm, request, messagesApi.preferred(request)));
-        } else{
-            TwitterDataFetcher a= new TwitterDataFetcher();
-            TwitterData data = boundForm.get();
-//            a.fetchTwitterSearchCompleteable(data.getSearchString()).thenAccept(r -> r.getTweets().parallelStream()
-//                    .map(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) ))
-//                    ;
-            return redirect(routes.TwitterDataController.searchTweets())
-                    .flashing("info", "Searched!");
-        }
-
-
-    }
-
-    public Result postTweets(Http.Request request) throws ExecutionException, InterruptedException {
-        final Form<TwitterData> boundForm = form.bindFromRequest(request);
-
-        if (boundForm.hasErrors()) {
-            logger.error("errors = {}", boundForm.errors());
-            return badRequest(views.html.listTweets.render(asScala(tweets), boundForm, request, messagesApi.preferred(request)));
-        } else {
-
-            tweets = null;
-
-            TwitterDataFetcher a= new TwitterDataFetcher();
-            TwitterData data = boundForm.get();
-
-
-
-//            a.fetchTwitterSearchCompleteable(data.getSearchString()).thenAccept(r -> r.getTweets().parallelStream()
-//                    .map(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) )).get()
-//            ;
-            return redirect(routes.TwitterDataController.searchTweets())
-                    .flashing("info", "Searched!");
-
-
-//            TwitterDataFetcher a= new TwitterDataFetcher();
-//            TwitterData data = boundForm.get();
-//            CompletableFuture.supplyAsync(() -> new TwitterDataFetcher().fetchTwitterSearch(data.getSearchString()))
-//                    .thenAccept(r -> r.forEach(tweet -> tweets.add(new TwitterSearch(tweet.getUser().getScreenName().toString(), tweet.getText().toString())) ))
-//                    .get();
-//
-//            return redirect(routes.TwitterDataController.searchTweets())
-//                    .flashing("info", "Searched!");
-        }
+                },
+                httpExecutionContext.current());
     }
 
 
-    public Result searchTweetsByLocation(Http.Request request){
-        return ok(views.html.Location.render());
-    }
+
+
+
 
 }

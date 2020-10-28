@@ -20,18 +20,15 @@ public class TwitterDataFetcher {
 
 
 
-    public CompletionStage<String> fetchTwitterSearchCompleted(String requestString ) throws TwitterException {
+    public CompletionStage<List<TwitterSearch>> fetchTwitterSearchCompleted(String requestString ) throws TwitterException {
 
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(requestString);
-        BinaryOperator<String> adder = (a, b) -> {
-            return a + b;
-        };
+
         query.count(10);
         QueryResult result;
-        return CompletableFuture.completedFuture( String.join("\n \n",twitter.search(query).getTweets()
-                .parallelStream().map(r -> r.getText()).collect(Collectors.toList())));
-
+        return CompletableFuture.completedFuture( twitter.search(query).getTweets()
+                .parallelStream().map(status -> new TwitterSearch(status.getUser().getScreenName(),status.getText())).collect(Collectors.toList()));
 
 
     }
@@ -90,46 +87,5 @@ public class TwitterDataFetcher {
     }
 
 
-    public List<Status> fetchTwitterByLocation(String stringQuery, GeoLocation searchLocationInput){
-
-
-
-
-
-        List<Status> tweets=new ArrayList<>();
-
-        //logger.info("","location:  " + System.getProperty("user.dir"));
-
-//        if (searchWord.length() < 1) {
-//            //logger.info("a","hello");
-//            //logger.info("b","java twitter4j.examples.search.SearchTweets [query]");
-//            System.exit(-1);
-//        }
-        Twitter twitter = new TwitterFactory().getInstance();
-        try {
-
-            Query query = new Query(stringQuery);
-            query.count(10);
-            query.geoCode(searchLocationInput,10, Query.Unit.km);
-            QueryResult result;
-            //do {
-
-            result = twitter.search(query);
-
-            tweets = result.getTweets();
-            return tweets;
-
-
-            //} while ((query = result.nextQuery()) != null);
-            //
-            // System.exit(0);
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            //logger.error("","Failed to search tweets->"+te.getMessage());
-            System.exit(-1);
-        }
-
-        return tweets;
-    }
 
 }
