@@ -7,10 +7,13 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
 import play.mvc.*;
+import twitter4j.User;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CompletionStage;
 
 import static play.libs.Scala.asScala;
@@ -23,6 +26,8 @@ import static play.libs.Scala.asScala;
 @Singleton
 public class WidgetController extends Controller {
 
+    Random random;
+    Integer UserID;
     private final Form<WidgetData> form;
     private MessagesApi messagesApi;
     private final List<Widget> widgets;
@@ -31,6 +36,8 @@ public class WidgetController extends Controller {
 
     @Inject
     public WidgetController(FormFactory formFactory, MessagesApi messagesApi) {
+        random = new Random();
+        UserID = 0;
         this.form = formFactory.form(WidgetData.class);
         this.messagesApi = messagesApi;
         this.widgets = com.google.common.collect.Lists.newArrayList(
@@ -41,7 +48,10 @@ public class WidgetController extends Controller {
     }
 
     public Result index() {
-        return ok(views.html.index.render());
+        UserID ++;
+        return ok(views.html.index.render())
+                .withCookies((Http.Cookie.builder("sessionID", String.valueOf(UserID)))
+                        .withMaxAge(Duration.ofSeconds(900)).build());
     }
 
 

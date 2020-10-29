@@ -4,6 +4,7 @@ import models.TwitterDataFetcher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import play.api.mvc.Cookie;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
@@ -14,6 +15,7 @@ import twitter4j.TwitterException;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -52,6 +54,11 @@ public class TwitterDataController extends Controller {
 
 
     public CompletionStage<Result> postTweets(Http.Request request) throws TwitterException {
+
+
+
+        request.session().adding("test","123");
+
         // Use a different task with explicit EC
         final Form<TwitterData> boundForm = form.bindFromRequest(request);
         TwitterData data = boundForm.get();
@@ -59,7 +66,9 @@ public class TwitterDataController extends Controller {
         request.flash().adding("test","abcd");
         return new TwitterDataFetcher().fetchTwitterSearchCompleted(data.getSearchString()).thenApplyAsync(
                 answer -> {
-                    return ok(views.html.listTweets.render(asScala(answer), form, request, messagesApi.preferred(request)));
+                    return ok(views.html.listTweets.render(asScala(answer), form, request, messagesApi.preferred(request)))
+                            .withCookies((Http.Cookie.builder("test","123").withMaxAge(Duration.ofSeconds(900)).build()))
+                            ;
 
                 },
                 httpExecutionContext.current());
