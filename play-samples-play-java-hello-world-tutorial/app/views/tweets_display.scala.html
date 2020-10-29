@@ -1,0 +1,59 @@
+
+@import play.mvc.Http.Request
+
+@import twitter4j.Status
+
+
+@(tweets: List[String], cache: LinkedHashMap[String,List[Status]], form: Form[Search])(implicit request: Request, messages: play.i18n.Messages)
+
+<!DOCTYPE html>
+<html>
+<head>
+<div id="header">
+	<h1 align=center>Welcome to TweeterLytics</h1>
+</div>
+</head>
+
+@helper.form(routes.HomeController.gettweet()) { 
+	@helper.CSRF.formField
+	
+	<p align="center">
+		<input type="text" name="searchString" placeholder="Enter search term"
+			value="@form("searchString").value">
+	</p>
+	<p align="center">
+		<button type="submit">Search Tweet</button>
+	</p>
+
+}
+<body>
+
+	<table>
+		@for(key <- tweets){
+		<tr>
+			<th>Search terms:</th>
+			<th><a href="@routes.HomeController.word(key)">@key</a></th>
+		</tr>
+		<tr>
+			<th>User</th>
+			<th>Location</th>
+			<th>Tweet Text</th>
+		</tr>
+
+		@for(tweet <- cache.get(key)){
+		<tr>
+			<td><a
+				href="@routes.HomeController.user(tweet.getUser().getName())">@tweet.getUser().getName()</a></td>
+			<td><a
+				href="@routes.HomeController.location(tweet.getUser().getLocation())">@tweet.getUser().getLocation()</a></td>
+			<td>@tweet.getText()</td>
+
+		</tr>
+		} }
+		<tr class="blank_row">
+			<td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+		</tr>
+	</table>
+</body>
+
+</html>
