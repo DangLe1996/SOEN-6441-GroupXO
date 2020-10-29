@@ -9,17 +9,15 @@ import twitter4j.*;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
-import play.mvc.Http.Cookie;
 import play.mvc.*;
+import views.html.tweets_display;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Optional;
 
 import static play.libs.Scala.asScala;
 
@@ -75,7 +73,7 @@ public class HomeController extends Controller {
         } else {
             Search searchquery = boundForm.get();
              
-	        String current_user = request.session().get("Twitter").get(); 
+	        String current_user = request.session().get("Twitter").get();
 	        session_data current_session = this.sessions.get(current_user);
 	
 	        if (current_session != null) {
@@ -113,13 +111,13 @@ public class HomeController extends Controller {
     	return request
     		      .session()
     		      .get("Twitter")
-    		      .map(user -> { 
-    		    	  			String current_user = request.session().get("Twitter").get();
+    		      .map(current_user -> {
+					  			System.out.println("Current user is "+ current_user);
     		    	  			session_data current_session = this.sessions.get(current_user);
 			        			if (current_session != null) {
 				        			List<String> query = current_session.getQuery();
 				        			LinkedHashMap<String,List<Status>> cache = current_session.getCache();
-				        			return CompletableFuture.completedFuture(ok(views.html.tweets_display.render(query,cache , form, request, messagesApi.preferred(request)))
+				        			return CompletableFuture.completedFuture(ok(tweets_display.render(query,cache , form, request, messagesApi.preferred(request)))
 				        					.addingToSession(request, "Twitter", current_user)
 				        					)
 				       				     ;
@@ -127,7 +125,7 @@ public class HomeController extends Controller {
 			        			else {
 				        				List<String> query = new ArrayList<String>();;
 				            			LinkedHashMap<String,List<Status>> cache = new LinkedHashMap<String, List<Status>>();
-				            			return CompletableFuture.completedFuture(ok(views.html.tweets_display.render(query,cache , form, request, messagesApi.preferred(request)))
+				            			return CompletableFuture.completedFuture(ok(tweets_display.render(query,cache , form, request, messagesApi.preferred(request)))
 				            					.addingToSession(request, "Twitter", current_user)
 				           				     );
 				        			}
@@ -135,6 +133,7 @@ public class HomeController extends Controller {
         						})
     		      .orElseGet(() ->{
 					        	 LinkedHashMap<String,List<Status>> newcache =  new LinkedHashMap<String, List<Status>>();
+
 					        	 List<String> newquery = new ArrayList<String>();
 					    		 List<Object> newsession = new ArrayList<Object>();
 					    		 newsession.add(newquery);
@@ -142,6 +141,7 @@ public class HomeController extends Controller {
 					    		 this.session_count += 1;
 					    		 session_data s = new session_data(newquery,newcache);
 					    		 String newuser = "play" + Integer.toString(this.session_count);
+					    		 System.out.println("New user is "+ newuser);
 					    		 this.sessions.put(newuser,s);
 					    		 return CompletableFuture.completedFuture(ok(views.html.tweets_display.render(newquery,newcache , form, request, messagesApi.preferred(request)))
 					    				.addingToSession(request, "Twitter", newuser));
@@ -156,6 +156,47 @@ public class HomeController extends Controller {
     	return ok("in location " + g);
     	
     }
+    
+    public CompletionStage<Result> hashtag(Http.Request request, String searchHashtag) throws TwitterException {
+
+
+
+
+
+			String current_user = request.session().get("Twitter").get();
+			session_data current_session = this.sessions.get(current_user);
+
+			if (current_session != null) {
+
+				LinkedHashMap<String,List<Status>> cache = current_session.getCache();
+				boolean alreadySearched = cache.containsKey(searchHashtag);
+				if (alreadySearched) {
+					return CompletableFuture.completedFuture(ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
+							.addingToSession(request, "Twitter", current_user));
+
+				}
+				else {
+					List<String> query = current_session.getQuery();
+					query.add(searchHashtag);
+					return (GetTweets.GetTweets_keyword(searchHashtag)
+							.thenApply(status -> {cache.put(searchHashtag,status);
+								return ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
+										.addingToSession(request, "Twitter", current_user)
+										;}));
+
+				}
+			}
+			else {
+				return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage())
+						.addingToSession(request, "Twitter", current_user)
+				);
+
+			}
+
+
+	}
+    
+    
     public Result word(String g) {
     	return ok("in word " + g);
     	

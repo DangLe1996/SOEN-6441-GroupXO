@@ -23,10 +23,9 @@ public class GetTweets {
             System.exit(-1);
         }
         Twitter twitter = new TwitterFactory().getInstance();
-        Query query = new Query(keyword);
+        Query query = new Query(keyword + " -filter:retweets");
         query.count(10);
         query.lang("en");
-        QueryResult result; 
 
         return CompletableFuture.completedFuture(twitter.search(query).getTweets()
 				.parallelStream()

@@ -3,7 +3,8 @@
 
 @import twitter4j.Status
 
-
+@import scala.xml.NodeSeq.Empty.text
+@import javax.swing.text.html.HTML
 @(tweets: List[String], cache: LinkedHashMap[String,List[Status]], form: Form[Search])(implicit request: Request, messages: play.i18n.Messages)
 
 <!DOCTYPE html>
@@ -26,6 +27,10 @@
 	</p>
 
 }
+@hashtagReaplce(text: String) = {@Html( text.replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>"))}
+
+
+
 <body>
 
 	<table>
@@ -46,7 +51,11 @@
 				href="@routes.HomeController.user(tweet.getUser().getName())">@tweet.getUser().getName()</a></td>
 			<td><a
 				href="@routes.HomeController.location(tweet.getUser().getLocation())">@tweet.getUser().getLocation()</a></td>
-			<td>@tweet.getText()</td>
+
+
+
+			<td >  @hashtagReaplce(tweet.getText()) </td>
+
 
 		</tr>
 		} }
