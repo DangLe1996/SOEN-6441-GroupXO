@@ -8,9 +8,10 @@
 GET   /							controllers.HomeController.searchPage(request: Request)
 POST  /                    controllers.HomeController.gettweet(request: Request)
 
-GET   /user							controllers.HomeController.user(s: String)
-GET   /location							controllers.HomeController.location(s: String)
-GET   /word							controllers.HomeController.word(s: String)
+GET   /user							controllers.HomeController.user(request: Request, s: String)
+GET   /location							controllers.HomeController.location(request: Request, s: String)
+GET   /keyword							controllers.HomeController.keyword(request: Request,s: String)
+GET   /hashtag							controllers.HomeController.hashtag(request: Request,s: String)
 
 
 # Map static resources from the /public folder to the /assets URL path
