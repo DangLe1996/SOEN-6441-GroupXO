@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import models.Search;
 import twitter4j.*;
-
+import java.util.Map;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
@@ -93,7 +93,7 @@ public class HomeController extends Controller {
 			    return new GetTweets().GetTweets_keyword(searchquery.getSearchString())
 			        	   .thenApply(tweet -> {tweet = "		<tr>\n" + 
 								        				"			<th>Search terms:</th>\n" + 
-								        				"			<th><a href=/keyword?s=" + searchquery.getSearchString().replaceAll(" ", "+") + "'>" + searchquery.getSearchString() + "</a></th>\n" + 
+								        				"			<th><a href=/keyword?s=" + searchquery.getSearchString().replaceAll(" ", "+") + ">" + searchquery.getSearchString() + "</a></th>\n" + 
 								        				"		</tr>\n" + 
 								        				"		<tr>\n" + 
 								        				"			<th>User</th>\n" + 
@@ -166,9 +166,23 @@ public class HomeController extends Controller {
     	return ok("in location " + g);
     	
     }
-    public Result keyword(Http.Request request,String g) {
-    	return ok("in keyword " + g);
-    	
+    public CompletionStage<Result> keyword(Http.Request request,String g) throws TwitterException{
+    	return new GetTweets().GetKeywordStats(g)
+	        	   .thenApply(wc -> { 
+	        		   				 LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
+				        	         wc.entrySet()
+				        	         .parallelStream()
+				        	         .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+				        	         .forEachOrdered(swc -> sortedwc.put(swc.getKey(), swc.getValue()));
+				        	         
+				        	        String result = "";
+					   				for(String s:sortedwc.keySet()) {
+					   					result = result + "\n" + s + " \t\t: \t\t" + sortedwc.get(s);
+				   					}
+				        		   	return ok(views.html.wordstats.render(g,result));
+				        		   	}
+	        			   	);
+
     }
     public Result hashtag(Http.Request request,String g) {
     	return ok("in hashtag " + g);
