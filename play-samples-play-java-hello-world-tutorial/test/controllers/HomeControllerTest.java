@@ -28,5 +28,18 @@ public class HomeControllerTest extends WithApplication {
         Result result = route(app, request);
         assertEquals(OK, result.status());
     }
+    @Test
+    public void testGetTweets() {
+        Http.RequestBuilder request = Helpers.fakeRequest()
+                .method(POST)
+                .session("Twitter","Twitter")
+                .bodyForm(ImmutableMap.of("searchString", "A SEARCH STRING"))
+                .uri("/");
+
+        Result result = route(app, request);
+        assertEquals(SEE_OTHER, result.status());
+
+
+    }
 
 }
