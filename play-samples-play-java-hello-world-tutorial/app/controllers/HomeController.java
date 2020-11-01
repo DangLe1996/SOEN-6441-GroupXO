@@ -5,14 +5,15 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import models.Search;
 import twitter4j.*;
-
+import java.util.Map;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
+import play.mvc.Http.Cookie;
 import play.mvc.*;
-import views.html.tweets_display;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Optional;
 
 import static play.libs.Scala.asScala;
 
@@ -91,7 +93,7 @@ public class HomeController extends Controller {
 			    return new GetTweets().GetTweets_keyword(searchquery.getSearchString())
 			        	   .thenApply(tweet -> {tweet = "		<tr>\n" + 
 								        				"			<th>Search terms:</th>\n" + 
-								        				"			<th><a href=/keyword?s=" + searchquery.getSearchString().replaceAll(" ", "+") + "'>" + searchquery.getSearchString() + "</a></th>\n" + 
+								        				"			<th><a href=/keyword?s=" + searchquery.getSearchString().replaceAll(" ", "+") + ">" + searchquery.getSearchString() + "</a></th>\n" + 
 								        				"		</tr>\n" + 
 								        				"		<tr>\n" + 
 								        				"			<th>User</th>\n" + 
@@ -164,52 +166,23 @@ public class HomeController extends Controller {
     	return ok("in location " + g);
     	
     }
-    public Result keyword(Http.Request request,String g) {
-    	return ok("in keyword " + g);
-	}
-    public CompletionStage<Result> hashtag(Http.Request request, String searchHashtag) throws TwitterException {
+    public CompletionStage<Result> keyword(Http.Request request,String g) throws TwitterException{
+    	return new GetTweets().GetKeywordStats(g)
+	        	   .thenApply(wc -> { 
+	        		   				 LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
+				        	         wc.entrySet()
+				        	         .parallelStream()
+				        	         .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+				        	         .forEachOrdered(swc -> sortedwc.put(swc.getKey(), swc.getValue()));
+				        	         
+				        	        String result = "";
+					   				for(String s:sortedwc.keySet()) {
+					   					result = result + "\n" + s + " \t\t: \t\t" + sortedwc.get(s);
+				   					}
+				        		   	return ok(views.html.wordstats.render(g,result));
+				        		   	}
+	        			   	);
 
-
-
-
-
-			String current_user = request.session().get("Twitter").get();
-			session_data current_session = this.sessions.get(current_user);
-
-			if (current_session != null) {
-
-				LinkedHashMap<String,List<Status>> cache = current_session.getCache();
-				boolean alreadySearched = cache.containsKey(searchHashtag);
-				if (alreadySearched) {
-					return CompletableFuture.completedFuture(ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
-							.addingToSession(request, "Twitter", current_user));
-
-				}
-				else {
-					List<String> query = current_session.getQuery();
-					query.add(searchHashtag);
-					return (GetTweets.GetTweets_keyword(searchHashtag)
-							.thenApply(status -> {cache.put(searchHashtag,status);
-								return ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
-										.addingToSession(request, "Twitter", current_user)
-										;}));
-
-				}
-			}
-			else {
-				return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage())
-						.addingToSession(request, "Twitter", current_user)
-				);
-
-			}
-
-
-	}
-    
-    
-    public Result word(String g) {
-    	return ok("in word " + g);
-    	
     }
     public Result hashtag(Http.Request request,String g) {
     	return ok("in hashtag " + g);
