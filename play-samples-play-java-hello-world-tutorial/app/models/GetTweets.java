@@ -56,7 +56,6 @@ public class GetTweets {
         Query query = new Query(keyword + " -filter:retweets");
         query.count(10);
         query.lang("en");
-        QueryResult result; 
 
         return CompletableFuture.completedFuture(twitter.search(query).getTweets()
 				.parallelStream()

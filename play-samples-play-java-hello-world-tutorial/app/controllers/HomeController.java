@@ -9,11 +9,10 @@ import java.util.Map;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
-import play.mvc.Http.Cookie;
 import play.mvc.*;
+import views.html.tweets_display;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Optional;
 
 import static play.libs.Scala.asScala;
 
@@ -183,7 +181,10 @@ public class HomeController extends Controller {
 				        		   	}
 	        			   	);
 
-    }
+    public Result keyword(Http.Request request,String g) {
+    	return ok("in keyword " + g);
+	}
+
     public Result hashtag(Http.Request request,String g) {
     	return ok("in hashtag " + g);
     	
