@@ -9,11 +9,10 @@ import twitter4j.*;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
-import play.mvc.Http.Cookie;
 import play.mvc.*;
+import views.html.tweets_display;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Optional;
 
 import static play.libs.Scala.asScala;
 
@@ -168,6 +166,49 @@ public class HomeController extends Controller {
     }
     public Result keyword(Http.Request request,String g) {
     	return ok("in keyword " + g);
+	}
+    public CompletionStage<Result> hashtag(Http.Request request, String searchHashtag) throws TwitterException {
+
+
+
+
+
+			String current_user = request.session().get("Twitter").get();
+			session_data current_session = this.sessions.get(current_user);
+
+			if (current_session != null) {
+
+				LinkedHashMap<String,List<Status>> cache = current_session.getCache();
+				boolean alreadySearched = cache.containsKey(searchHashtag);
+				if (alreadySearched) {
+					return CompletableFuture.completedFuture(ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
+							.addingToSession(request, "Twitter", current_user));
+
+				}
+				else {
+					List<String> query = current_session.getQuery();
+					query.add(searchHashtag);
+					return (GetTweets.GetTweets_keyword(searchHashtag)
+							.thenApply(status -> {cache.put(searchHashtag,status);
+								return ok(views.html.tweets_hashtag_display.render(searchHashtag,cache.get(searchHashtag)))
+										.addingToSession(request, "Twitter", current_user)
+										;}));
+
+				}
+			}
+			else {
+				return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage())
+						.addingToSession(request, "Twitter", current_user)
+				);
+
+			}
+
+
+	}
+    
+    
+    public Result word(String g) {
+    	return ok("in word " + g);
     	
     }
     public Result hashtag(Http.Request request,String g) {

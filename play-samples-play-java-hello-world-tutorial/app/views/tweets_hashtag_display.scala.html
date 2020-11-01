@@ -1,0 +1,55 @@
+
+@import play.mvc.Http.Request
+
+@import twitter4j.Status
+
+@import scala.xml.NodeSeq.Empty.text
+@import javax.swing.text.html.HTML
+@(hashTag: String, result: List[Status])
+
+<!DOCTYPE html>
+<html>
+<head>
+<div id="header">
+	<h1 align=center>Welcome to TweeterLytics</h1>
+</div>
+</head>
+
+
+@hashtagReaplce(text: String) = {@Html( text.replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>"))}
+
+<body>
+
+	<table>
+
+		<tr>
+			<th>Search Hashtag:</th>
+			<th><a href="@routes.HomeController.word(hashTag)">#@hashTag</a></th>
+		</tr>
+		<tr>
+			<th>User</th>
+			<th>Location</th>
+			<th>Tweet Text</th>
+		</tr>
+
+		@for(tweet <- result){
+		<tr>
+			<td><a
+				href="@routes.HomeController.user(tweet.getUser().getName())">@tweet.getUser().getName()</a></td>
+			<td><a
+				href="@routes.HomeController.location(tweet.getUser().getLocation())">@tweet.getUser().getLocation()</a></td>
+
+
+
+			<td >  @hashtagReaplce(tweet.getText()) </td>
+
+
+		</tr>
+		}
+		<tr class="blank_row">
+			<td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+		</tr>
+	</table>
+</body>
+
+</html>
