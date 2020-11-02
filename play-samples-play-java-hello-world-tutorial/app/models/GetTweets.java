@@ -83,7 +83,6 @@ public class GetTweets {
 			return CompletableFuture.completedFuture(currentUser);
 		}
 
-
 		if(GlobalCache.containsKey(searchQuery)){
 			List<String> userQuery = currentUser.getQuery();
 			if(userQuery.contains(searchQuery)){

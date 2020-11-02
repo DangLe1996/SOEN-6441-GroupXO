@@ -5,7 +5,7 @@
 # An example controller showing a sample home page
 
 
-GET   /							controllers.HomeController.searchPage(request: Request)
+GET   /							controllers.HomeController.homePage(request: Request)
 POST  /                    controllers.HomeController.gettweet(request: Request)
 
 GET   /user							controllers.HomeController.user(request: Request, s: String)

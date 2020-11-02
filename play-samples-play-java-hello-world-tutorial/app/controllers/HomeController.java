@@ -54,8 +54,7 @@ public class HomeController extends Controller {
 					.addingToSession(request, "Twitter", currentUser.toString());
 
 	/**
-	 * This method handle user request for searching new keywords. It takes the sent directly from play.mvc, extract search keywords
-	 * and user session information, then call GetTweets_keyword method from GetTweets class to retrieve user information
+	 * Handle user request to see the last 10 tweets for a given keyword.
 	 * @param request : Http request contains search query and session information.
 	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session.
 	 * @throws TwitterException: exception from twitter4j server.
@@ -65,8 +64,8 @@ public class HomeController extends Controller {
     	final Form<Search> boundForm = form.bindFromRequest(request);
 
         if (boundForm.hasErrors()) {
-			System.out.println("Error with bound form in gettweet method");
-            return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage()).withNewSession());
+			System.out.println("Error with bound form in HomeController.gettweet method");
+            return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()).withNewSession());
         } else {
         	try {
 				Search searchquery = boundForm.get();
@@ -77,7 +76,7 @@ public class HomeController extends Controller {
 
 			}catch (NullPointerException ex){
 				System.out.println("Null pointer exception in gettweet method");
-        		return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage()).withNewSession());
+        		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()).withNewSession());
 			}
 
         }      
@@ -90,7 +89,7 @@ public class HomeController extends Controller {
 	 * @return CompletionStage<Result> that display the homePage.
 	 * @see models.sessionData#getUser(String)
 	 */
-    public CompletionStage<Result> searchPage(Http.Request request) {
+    public CompletionStage<Result> homePage(Http.Request request) {
 
 		sessionData currenUser = null;
 		String currentUserID = null;
@@ -125,7 +124,7 @@ public class HomeController extends Controller {
     }
 
 	/**
-	 * 
+	 * Handle user request to see the word-level statistics of the last 250 tweets with a search term.
 	 * @author: Girish
 	 * @param searchQuery: the term that user want to see word analysis
 	 * @return: A new page that display word-level statistics.
@@ -152,6 +151,7 @@ public class HomeController extends Controller {
 //
 
 	/**
+	 * Handle user request to see latest 10 tweets with a given hashtag
 	 * @author: Dang Le
 	 * @param searchQuery : the hashtag that user want to search for
 	 * @return: A new page that display the last 10 tweets that use that hashtag

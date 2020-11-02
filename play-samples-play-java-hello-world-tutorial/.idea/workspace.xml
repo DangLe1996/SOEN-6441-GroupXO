@@ -10,6 +10,8 @@
       <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tweets_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_display.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +159,7 @@
       <updated>1604263487533</updated>
       <workItem from="1604263488974" duration="17739000" />
       <workItem from="1604293784476" duration="1450000" />
-      <workItem from="1604332907827" duration="4800000" />
+      <workItem from="1604332907827" duration="6105000" />
     </task>
     <task id="LOCAL-00001" summary="Code refradtoring, add sessionData class to move logic into models.">
       <created>1604290983686</created>
@@ -166,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604290983686</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added JavaDoc for implemented methods">
+      <created>1604337782008</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604337782008</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +183,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code refradtoring, add sessionData class to move logic into models." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refradtoring, add sessionData class to move logic into models." />
+    <MESSAGE value="Added JavaDoc for implemented methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc for implemented methods" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604267003069">
@@ -185,10 +195,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604286130620" />
-    <state x="372" y="88" key="CommitChangelistDialog2" timestamp="1604290978893">
+    <state x="372" y="88" key="CommitChangelistDialog2" timestamp="1604337780550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="372" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604290978893" />
+    <state x="372" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604337780550" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604291169070">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -225,18 +235,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="203" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861969" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604295249436">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604337790922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604295249436" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604337790922" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604263991620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604263991620" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604266596966">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604339059439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604266596966" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339059439" />
     <state x="1920" y="0" width="1216" height="717" maximized="true" key="dock-window-1" timestamp="1604336547563">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
@@ -247,7 +257,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>73</line>
+          <line>72</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -257,7 +267,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>104</line>
+          <line>103</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

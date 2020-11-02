@@ -45,14 +45,16 @@ public class sessionData {
     }
 
     /**
-     * This method takes a userID as parameter. If the user exist in userCache, it return that user information type sessionData.
-     * If that user does not exist, it create and return a new sessionData. If the userID exist in userCache but the object is corrupted,
-     * it remove user key from userCache and return a new user sessionData.
+     * Return user information with given userID
+     * If user exist in userCache, returns that sessionData.
+     * If user does not exist, creates and returns a new sessionData.
+     * If the userID exist in userCache but the object is corrupted,
+     * removes user key from userCache and return a new user sessionData.
      * @param userID : key to retrieve user information from userCache
      * @return: sessionData object of the user with given userID
      */
     public static sessionData getUser(String userID){
-        if(userCache.containsValue(userID) == false) return new sessionData();
+        if(userCache.containsValue(userID)) return new sessionData();
         if(userCache.get(userID) == null){
             userCache.remove(userID);
             return new sessionData();
