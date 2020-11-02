@@ -10,9 +10,9 @@
         <option value="_root_.play.twirl.api.Txt" />
         <option value="play.data._" />
         <option value="play.api.data.Field" />
+        <option value="scala.jdk.CollectionConverters._" />
         <option value="play.api.templates.PlayMagic._" />
         <option value="_root_.play.twirl.api.JavaScript" />
-        <option value="scala.jdk.CollectionConverters._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />

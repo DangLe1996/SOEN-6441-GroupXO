@@ -3,7 +3,7 @@
   <component name="Play2ExcludedModulesSettings">
     <option name="INFO">
       <map>
-        <entry key="play-java-hello-world-tutorial">
+        <entry key="SOEN-6441-Project">
           <value>
             <ProjectSettingsEntry>
               <option name="playDistrPath" value="$PROJECT_DIR$/null/Coursier/cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.13/2.8.2/play_2.13-2.8.2.jar" />
@@ -13,8 +13,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\play-samples-play-java-hello-world-tutorial\app" />
-              <option name="confDir" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\play-samples-play-java-hello-world-tutorial\app" />
+              <option name="sourceDir" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\app" />
+              <option name="confDir" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -44,7 +44,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Users/Zean%20Le/Documents/GitHub/SOEN-6441-GroupXO/play-samples-play-java-hello-world-tutorial" />
+              <option name="uri" value="/C:/Users/Zean%20Le/Documents/GitHub/SOEN-6441-GroupXO/SOEN-6441-Project" />
             </ProjectSettingsEntry>
           </value>
         </entry>

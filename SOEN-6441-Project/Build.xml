@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generateDoc">
+    <record name = "build.log" loglevel="verbose" append="false"/>
+
+
+    <target name="compile">
+        <javac srcdir="./src" destdir="staging" includeantruntime="false">
+        </javac>
+    </target>
+    <target name="run" depends="compile">
+        <java classname="Demo">
+            <classpath path="staging" />
+        </java>
+        <javadoc sourcepath="." destdir="./JavaDocWithAnt">
+            <fileset dir=".">
+            </fileset>
+        </javadoc>
+    </target>
+
+</project>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="play-samples-play-java-hello-world-tutorial_594" />
-    <profile name="sbt 2" modules="play-java-hello-world-tutorial">
+    <profile name="sbt 1" modules="soen-6441-project_605" />
+    <profile name="sbt 2" modules="SOEN-6441-Project">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <parameters>
