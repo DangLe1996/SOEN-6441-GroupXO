@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3229ac65-1efc-46fc-a6e8-bb155b9be984" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_display.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +152,7 @@
       <updated>1604263487533</updated>
       <workItem from="1604263488974" duration="17739000" />
       <workItem from="1604293784476" duration="1450000" />
-      <workItem from="1604332907827" duration="6105000" />
+      <workItem from="1604332907827" duration="6789000" />
     </task>
     <task id="LOCAL-00001" summary="Code refradtoring, add sessionData class to move logic into models.">
       <created>1604290983686</created>
@@ -175,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604337782008</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added JavaDoc for implemented methods">
+      <created>1604339305213</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604339305213</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,30 +195,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604286130620" />
-    <state x="372" y="88" key="CommitChangelistDialog2" timestamp="1604337780550">
+    <state x="372" y="88" key="CommitChangelistDialog2" timestamp="1604339304523">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="372" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604337780550" />
+    <state x="372" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339304523" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604291169070">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291169070" />
-    <state width="1877" height="203" key="GridCell.Tab.0.bottom" timestamp="1604291861969">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604339575383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861969" />
-    <state width="1877" height="203" key="GridCell.Tab.0.center" timestamp="1604291861969">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339575383" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604339575382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="203" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861969" />
-    <state width="1877" height="203" key="GridCell.Tab.0.left" timestamp="1604291861968">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339575382" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604339575382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="203" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861968" />
-    <state width="1877" height="203" key="GridCell.Tab.0.right" timestamp="1604291861969">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339575382" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604339575382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="203" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861969" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339575382" />
     <state width="1877" height="203" key="GridCell.Tab.1.bottom" timestamp="1604291861969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -235,10 +235,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="203" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604291861969" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604337790922">
+    <state x="259" y="86" key="MergeDialog" timestamp="1604339703816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604337790922" />
+    <state x="259" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339703816" />
+    <state x="598" y="281" width="873" height="477" key="MultipleFileMergeDialog" timestamp="1604339703823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" width="873" height="477" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339703823" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604339735842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339735842" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604263991620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -251,23 +259,27 @@
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
     <state x="1920" y="0" width="1216" height="717" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604336547563" />
+    <state x="543" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1604339512827">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="543" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604339512827" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>72</line>
+          <line>89</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>84</line>
+          <line>107</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>103</line>
+          <line>115</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
