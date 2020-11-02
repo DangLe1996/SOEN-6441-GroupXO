@@ -21,82 +21,75 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 import static play.libs.Scala.asScala;
 
 /**
  * This controller contains an action to handle HTTP requests
- * to the application's home page.
+ * to the application.
  */
 public class HomeController extends Controller {
 
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
-	
-	private class session_data{
-		private List<String> queries;
-	    private LinkedHashMap<String,String> cache;
-		
-		session_data(List<String> query,LinkedHashMap<String,String> cache){
-			this.queries = query;
-			this.cache = cache;
-		}
-		private List<String> getQuery(){
-			return this.queries;
-		}
-		private LinkedHashMap<String,String> getCache(){
-			return this.cache;
-		}
-		
-	}
+
 	
     private Form<Search> form ;
     private MessagesApi messagesApi;
-    public static HashMap<String,session_data> sessions;
-    public static Integer session_count;
 
 
-    private HashMap<String,String> GlobalHashtagCache;
 
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
-    	this.GlobalHashtagCache = new HashMap<>();
+
         this.form = formFactory.form(Search.class);
         this.messagesApi = messagesApi;
-        this.session_count = 0;
-        this.sessions =  new HashMap<String,session_data>();
+
     }
 
-	private final BiFunction<sessionData, Http.Request,Result> displayTweetPage =
+	/**
+	 * Lambda function to render tweets_display view.
+	 */
+	private final BiFunction<sessionData, Http.Request,Result> displayHomePage =
 			(currentUser,request) ->ok(tweets_display
 					.render(currentUser.getQuery(), currentUser.getCache(), form, request, messagesApi.preferred(request)))
 					.addingToSession(request, "Twitter", currentUser.toString());
 
+	/**
+	 * This method handle user request for searching new keywords. It takes the sent directly from play.mvc, extract search keywords
+	 * and user session information, then call GetTweets_keyword method from GetTweets class to retrieve user information
+	 * @param request : Http request contains search query and session information.
+	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session.
+	 * @throws TwitterException: exception from twitter4j server.
+	 * @see models.GetTweets#GetTweets_keyword(String)
+	 */
     public CompletionStage<Result> gettweet(Http.Request request) throws TwitterException{
     	final Form<Search> boundForm = form.bindFromRequest(request);
 
         if (boundForm.hasErrors()) {
-            return CompletableFuture.completedFuture(badRequest(views.html.tweets_display.render(new ArrayList<String>(),new LinkedHashMap<String,String>(), boundForm, request, messagesApi.preferred(request))));
+			System.out.println("Error with bound form in gettweet method");
+            return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage()).withNewSession());
         } else {
         	try {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
 				return GetTweets.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
-						.thenApply(currentUser -> displayTweetPage.apply(currentUser,request));
+						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
 
 
 			}catch (NullPointerException ex){
+				System.out.println("Null pointer exception in gettweet method");
         		return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage()).withNewSession());
 			}
 
         }      
     }
-    
+
+	/**
+	 * This method display the Home Page. If the request does not contain any user information, a new user session will be created and attached.
+	 * Else, user information (terms that user already searched for) is retrieved from the userCache in sessionData class.
+	 * @param request
+	 * @return CompletionStage<Result> that display the homePage.
+	 * @see models.sessionData#getUser(String)
+	 */
     public CompletionStage<Result> searchPage(Http.Request request) {
 
 		sessionData currenUser = null;
@@ -114,20 +107,12 @@ public class HomeController extends Controller {
 		}
 		System.out.println("Current user: " + currentUserID);
 
-		return CompletableFuture.completedFuture(displayTweetPage.apply(currenUser,request));
+		return CompletableFuture.completedFuture(displayHomePage.apply(currenUser,request));
 
 
 
     }
 
-
-    private session_data getNewSession(String userID){
-		LinkedHashMap<String,String> newcache =  new LinkedHashMap<String, String>();
-		List<String> newquery = new ArrayList<String>();
-		session_data new_session = new session_data(newquery,newcache);
-		sessions.put(userID,new_session);
-		return new_session;
-	}
 
 
     public Result user(Http.Request request,String g) {
@@ -138,8 +123,17 @@ public class HomeController extends Controller {
     	return ok("in location " + g);
     	
     }
-    public CompletionStage<Result> keyword(Http.Request request,String g) throws TwitterException {
-		return new GetTweets().GetKeywordStats(g)
+
+	/**
+	 * 
+	 * @author: Girish
+	 * @param searchQuery: the term that user want to see word analysis
+	 * @return: A new page that display word-level statistics.
+	 * @throws TwitterException
+	 * @see models.GetTweets#GetKeywordStats(String) 
+	 */
+    public CompletionStage<Result> keyword(String searchQuery) throws TwitterException {
+		return GetTweets.GetKeywordStats(searchQuery)
 				.thenApply(wc -> {
 							LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
 							wc.entrySet()
@@ -151,18 +145,24 @@ public class HomeController extends Controller {
 							for (String s : sortedwc.keySet()) {
 								result = result + "\n" + s + " \t\t: \t\t" + sortedwc.get(s);
 							}
-							return ok(views.html.wordstats.render(g, result));
+							return ok(views.html.wordstats.render(searchQuery, result));
 						}
 				);
 	}
 //
 
-    public CompletionStage<Result> hashtag(String searchquery) throws TwitterException {
+	/**
+	 * @author: Dang Le
+	 * @param searchQuery : the hashtag that user want to search for
+	 * @return: A new page that display the last 10 tweets that use that hashtag
+	 * @throws TwitterException: exception from twitter4j if the tweets are not retrieved successfully.
+	 */
+    public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
 
-		return new GetTweets().GetTweets_keyword(searchquery)
+		return new GetTweets().GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
-					return ok(views.html.tweets_hashtag_display.render(searchquery, tweet));
+					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 
 				});
     }

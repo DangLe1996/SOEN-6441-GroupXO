@@ -10,7 +10,7 @@ POST  /                    controllers.HomeController.gettweet(request: Request)
 
 GET   /user							controllers.HomeController.user(request: Request, s: String)
 GET   /location							controllers.HomeController.location(request: Request, s: String)
-GET   /keyword							controllers.HomeController.keyword(request: Request,s: String)
+GET   /keyword							controllers.HomeController.keyword(s: String)
 GET   /hashtag							controllers.HomeController.hashtag(s: String)
 
 
