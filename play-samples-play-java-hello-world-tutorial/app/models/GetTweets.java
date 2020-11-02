@@ -53,7 +53,7 @@ public class GetTweets {
 			"		</tr>\n" + tweet;
 
 
-	public static CompletionStage<Boolean> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
+	public static CompletionStage<sessionData> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
 		
 		if (searchQuery.length() < 1) {
 			System.exit(-1);
@@ -69,7 +69,7 @@ public class GetTweets {
 			else{
 				currentUser.insertCache(searchQuery,GlobalCache.get(searchQuery));
 			}
-			return CompletableFuture.completedFuture(true);
+			return CompletableFuture.completedFuture(currentUser);
 
 		}
 		else{
@@ -79,7 +79,7 @@ public class GetTweets {
 			return GetTweets_keyword(searchQuery).thenApply(result -> {
 				GlobalCache.put(searchQuery,result);
 				currentUser.insertCache(searchQuery,result);
-				return true;
+				return currentUser;
 			});
 		}
 

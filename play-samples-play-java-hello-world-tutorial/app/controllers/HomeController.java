@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 import static play.libs.Scala.asScala;
 
@@ -54,7 +55,7 @@ public class HomeController extends Controller {
 		
 	}
 	
-    private final Form<Search> form;
+    private Form<Search> form ;
     private MessagesApi messagesApi;
     public static HashMap<String,session_data> sessions;
     public static Integer session_count;
@@ -71,7 +72,10 @@ public class HomeController extends Controller {
         this.sessions =  new HashMap<String,session_data>();
     }
 
-
+	private final BiFunction<sessionData, Http.Request,Result> displayTweetPage =
+			(currentUser,request) ->ok(tweets_display
+					.render(currentUser.getQuery(), currentUser.getCache(), form, request, messagesApi.preferred(request)))
+					.addingToSession(request, "Twitter", currentUser.toString());
 
     public CompletionStage<Result> gettweet(Http.Request request) throws TwitterException{
     	final Form<Search> boundForm = form.bindFromRequest(request);
@@ -81,12 +85,10 @@ public class HomeController extends Controller {
         } else {
         	try {
 				Search searchquery = boundForm.get();
-				String current_user = request.session().get("Twitter").get();
+				String currentUserID = request.session().get("Twitter").get();
+				return GetTweets.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
+						.thenApply(currentUser -> displayTweetPage.apply(currentUser,request));
 
-				return GetTweets.GetTweets_keyword(searchquery.getSearchString(),current_user)
-						.thenApply(result -> redirect(routes.HomeController.searchPage())
-						.addingToSession(request, "Twitter", current_user)
-				 );
 
 			}catch (NullPointerException ex){
         		return CompletableFuture.completedFuture(redirect(routes.HomeController.searchPage()).withNewSession());
@@ -100,12 +102,8 @@ public class HomeController extends Controller {
 		sessionData currenUser = null;
 		String currentUserID = null;
     	if(request.session().get("Twitter").isPresent()){
-
-
 			 currentUserID = request.session().get("Twitter").get();
-
 			 currenUser  = sessionData.getUser(currentUserID);
-
 			if(currenUser == null) {
 				currenUser = new sessionData();
 			}
@@ -116,8 +114,8 @@ public class HomeController extends Controller {
 		}
 		System.out.println("Current user: " + currentUserID);
 
-		return CompletableFuture.completedFuture(ok(tweets_display.render(currenUser.getQuery(), currenUser.getCache(), form, request, messagesApi.preferred(request)))
-				.addingToSession(request, "Twitter", currentUserID));
+		return CompletableFuture.completedFuture(displayTweetPage.apply(currenUser,request));
+
 
 
     }
@@ -167,10 +165,6 @@ public class HomeController extends Controller {
 					return ok(views.html.tweets_hashtag_display.render(searchquery, tweet));
 
 				});
-
-
-
     }
     
-
 }
