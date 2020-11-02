@@ -8,8 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_display.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +106,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="playRun" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="play-java-hello-world-tutorial" />
       <option name="allowRunningInParallel" value="false" />
@@ -145,6 +157,7 @@
       <updated>1604263487533</updated>
       <workItem from="1604263488974" duration="17739000" />
       <workItem from="1604293784476" duration="1450000" />
+      <workItem from="1604332907827" duration="4800000" />
     </task>
     <task id="LOCAL-00001" summary="Code refradtoring, add sessionData class to move logic into models.">
       <created>1604290983686</created>
@@ -224,27 +237,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604266596966" />
-    <state x="473" y="255" width="1216" height="712" maximized="true" key="dock-window-1" timestamp="1604294941675">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1920" y="0" width="1216" height="717" maximized="true" key="dock-window-1" timestamp="1604336547563">
+      <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="473" y="255" width="1216" height="712" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604294941675" />
+    <state x="1920" y="0" width="1216" height="717" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604336547563" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>88</line>
+          <line>73</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>60</line>
+          <line>84</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>111</line>
+          <line>104</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

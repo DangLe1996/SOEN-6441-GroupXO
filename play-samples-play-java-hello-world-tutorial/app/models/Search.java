@@ -9,7 +9,5 @@ public class Search {
         return searchString;
     }
 
-    public void setSearchString(String searchString) {
-        this.searchString = searchString;
-    }
+
 }
