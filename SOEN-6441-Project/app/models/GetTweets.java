@@ -113,6 +113,15 @@ public class GetTweets {
 
 
 
+	
+	public static Twitter twitter = new TwitterFactory().getInstance();
+
+	public GetTweets(){
+
+	}
+	public GetTweets(Twitter object){
+		twitter = object;
+	}
 
 
 	/**
@@ -129,45 +138,79 @@ public class GetTweets {
 
 		if(GlobalCache.containsKey(keyword)){
 
+			System.out.println("Data retrieved from Global Cache");
 			return CompletableFuture.completedFuture(
 				GlobalCache.get(keyword)
 			);
 		}
 
-
-
-        Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(keyword + " -filter:retweets");
         query.count(10);
         query.lang("en");
 
+		System.out.println("New look up event");
 
-        return CompletableFuture.supplyAsync( () -> {
-			try {
-				return twitter.search(query).getTweets()
-						.parallelStream()
-						.map(s -> {
-							return "\n" +
-								   "<tr>\n" +
-									"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
-									"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
-									"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
-									"</tr>\n";
-								})
-						.reduce("",
-								String::concat);
-			} catch (TwitterException e) {
-				e.printStackTrace();
-				return "No available result";
-			}
-		}).thenApply(tweet ->{
-			GlobalCache.put(keyword,tweetDisplayPageFormat.apply(keyword, tweet));
+
+		return invokeTwitterServer(query).thenApply(result -> {
+			return result.getTweets().parallelStream()
+					.map(s -> {
+						return "\n" +
+								"<tr>\n" +
+								"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+								"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+								"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+								"</tr>\n";
+					})
+					.reduce("",
+							String::concat);
+		}).thenApply(tweet -> {
+			GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
 			return GlobalCache.get(keyword);
-
 		});
+
+
+//        return CompletableFuture.supplyAsync( () -> {
+//			try {
+//				return twitter.search(query).getTweets()
+//						.parallelStream()
+//						.map(s -> {
+//							return "\n" +
+//								   "<tr>\n" +
+//									"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+//									"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+//									"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+//									"</tr>\n";
+//								})
+//						.reduce("",
+//								String::concat);
+//			} catch (TwitterException e) {
+//				e.printStackTrace();
+//				return "No available result";
+//			}
+//		}).thenApply(tweet ->{
+//			GlobalCache.put(keyword,tweetDisplayPageFormat.apply(keyword, tweet));
+//			return GlobalCache.get(keyword);
+//
+//		});
         
 
     }
+
+
+    private static CompletableFuture<QueryResult> invokeTwitterServer(Query query){
+
+		return CompletableFuture.supplyAsync( () -> {
+			try {
+				return twitter.search(query);
+			} catch (TwitterException e) {
+				e.printStackTrace();
+				return null;
+			}
+		});
+
+
+	}
+
 
 }
 	

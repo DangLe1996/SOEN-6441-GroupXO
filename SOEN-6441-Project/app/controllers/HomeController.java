@@ -65,7 +65,7 @@ public class HomeController extends Controller {
 
         if (boundForm.hasErrors()) {
 			System.out.println("Error with bound form in HomeController.gettweet method");
-            return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()).withNewSession());
+            return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
         } else {
         	try {
 				Search searchquery = boundForm.get();
@@ -76,7 +76,7 @@ public class HomeController extends Controller {
 
 			}catch (NullPointerException ex){
 				System.out.println("Null pointer exception in gettweet method");
-        		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()).withNewSession());
+        		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
 			}
 
         }      
@@ -160,7 +160,7 @@ public class HomeController extends Controller {
     public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
 
-		return new GetTweets().GetTweets_keyword(searchQuery)
+		return  GetTweets.GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 
