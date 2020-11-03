@@ -151,19 +151,10 @@ public class GetTweets {
 		System.out.println("New look up event");
 
 
-		return invokeTwitterServer(query).thenApply(result -> {
-			return result.getTweets().parallelStream()
-					.map(s -> {
-						return "\n" +
-								"<tr>\n" +
-								"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
-								"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
-								"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
-								"</tr>\n";
-					})
-					.reduce("",
-							String::concat);
-		}).thenApply(tweet -> {
+
+		return invokeTwitterServer(query)
+				.thenApply(result -> formatResult.apply(result))
+				.thenApply(tweet -> {
 			GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
 			return GlobalCache.get(keyword);
 		});
@@ -195,6 +186,41 @@ public class GetTweets {
         
 
     }
+
+    private static int analyzeSentimental(String input){
+
+		/*
+		-1 if sad
+		0 neutral
+		1 good
+		 */
+
+		return 0;
+	}
+
+    private static Function<QueryResult,Integer> formatSentimental = (result) -> {
+
+		return 1;
+//		return result.getTweets().parallelStream()
+//				.map(tweet -> analyzeSentimental(tweet.getText())).
+//				.mapToInt(Integer::sum);
+
+	};
+
+    private static Function<QueryResult,String> formatResult = (result) -> {
+		return result.getTweets().parallelStream()
+				.map(s -> {
+					return "\n" +
+							"<tr>\n" +
+							"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+							"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+							"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+							"</tr>\n";
+				})
+				.reduce("",
+						String::concat);
+	};
+
 
 
     private static CompletableFuture<QueryResult> invokeTwitterServer(Query query){
