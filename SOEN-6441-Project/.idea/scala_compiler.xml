@@ -8,7 +8,11 @@
       <parameters>
         <parameter value="-encoding" />
         <parameter value="utf8" />
+        <parameter value="-P:genjavadoc:out=C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\target/java" />
       </parameters>
+      <plugins>
+        <plugin path="C:\Users\Zean Le\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\genjavadoc\genjavadoc-plugin_2.13.1\0.16\genjavadoc-plugin_2.13.1-0.16.jar" />
+      </plugins>
     </profile>
   </component>
 </project>

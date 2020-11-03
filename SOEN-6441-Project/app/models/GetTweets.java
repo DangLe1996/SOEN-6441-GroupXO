@@ -1,13 +1,16 @@
 package models;
 
 
+import java.time.LocalTime;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ExecutionException;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import twitter4j.*;
@@ -109,6 +112,9 @@ public class GetTweets {
 	}
 
 
+
+
+
 	/**
 	 * Takes a string keyword and return a HTML formatted string showing the last 10 tweets contains the given keyword.
 	 * Only returns tweets with language of english.
@@ -116,9 +122,9 @@ public class GetTweets {
 	 * @return : HTML formatter string
 	 * @throws TwitterException
 	 */
-	public static CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException{
+	public static CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException {
         if (keyword.length() < 1) {
-            System.exit(-1);
+            return CompletableFuture.completedFuture("Cannot process empty string");
         }
 
 		if(GlobalCache.containsKey(keyword)){
@@ -128,23 +134,33 @@ public class GetTweets {
 			);
 		}
 
+
+
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(keyword + " -filter:retweets");
         query.count(10);
         query.lang("en");
 
-        return CompletableFuture.completedFuture(twitter.search(query).getTweets()
-				.parallelStream()
-				.map(s -> {
-					return "\n" +
-						   "<tr>\n" + 
-							"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" + 
-							"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" + 
-							"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
-							"</tr>\n"; 
-						})
-        		.reduce("",
-        				String::concat)).thenApply(tweet -> {
+
+        return CompletableFuture.supplyAsync( () -> {
+			try {
+				return twitter.search(query).getTweets()
+						.parallelStream()
+						.map(s -> {
+							return "\n" +
+								   "<tr>\n" +
+									"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+									"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+									"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+									"</tr>\n";
+								})
+						.reduce("",
+								String::concat);
+			} catch (TwitterException e) {
+				e.printStackTrace();
+				return "No available result";
+			}
+		}).thenApply(tweet ->{
 			GlobalCache.put(keyword,tweetDisplayPageFormat.apply(keyword, tweet));
 			return GlobalCache.get(keyword);
 
