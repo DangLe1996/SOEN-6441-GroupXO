@@ -3,8 +3,8 @@
 
 @import twitter4j.Status
 
-
-@(tweets: List[String], cache: LinkedHashMap[String,String], form: Form[Search])(implicit request: Request, messages: play.i18n.Messages)
+@import java.util
+@(tweets: List[String], cache: util.Hashtable[String,String], form: Form[Search])(implicit request: Request, messages: play.i18n.Messages)
 
 <!DOCTYPE html>
 <html>

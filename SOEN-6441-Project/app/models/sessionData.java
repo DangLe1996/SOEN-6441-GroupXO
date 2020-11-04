@@ -2,9 +2,7 @@ package models;
 
 import scala.math.Equiv;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 public class sessionData {
 
@@ -12,11 +10,12 @@ public class sessionData {
     /**
      * Incrementor that increase every time a new user enter the application. Used to create unique identification.
      */
-    public static int currentID = 0;
+    private static int currentID = 0;
+    private int maximumCacheSize = 10;
     /**
      * Store userSession of all user entered the system, using user's sessionID as key.
      */
-    public static LinkedHashMap<String,sessionData> userCache = new LinkedHashMap<>();
+    public static Hashtable<String,sessionData> userCache = new Hashtable<>();
 
 
     /**
@@ -26,7 +25,7 @@ public class sessionData {
     /**
      * Store the result of the latest 10 keywords user looks up in a LinkedHashMap, using the search keyword as key
      */
-    private LinkedHashMap<String,String> localCache;
+    private Hashtable<String,String> localCache;
     /**
      * Unique identification string for user.
      */
@@ -38,12 +37,16 @@ public class sessionData {
      */
     public sessionData(){
         queries = new ArrayList<>();
-        localCache = new LinkedHashMap<>();
+        localCache = new Hashtable<>();
         currentID ++;
         this.sessionID =  "play" + currentID;
         userCache.put(this.toString(),this);
     }
 
+    public static void cleanUpSessions(){
+        userCache = new Hashtable<>();
+        currentID =  0;
+    }
     /**
      * Return user information with given userID
      * If user exist in userCache, returns that sessionData.
@@ -54,14 +57,17 @@ public class sessionData {
      * @return: sessionData object of the user with given userID
      */
     public static sessionData getUser(String userID){
-        if(userCache.containsValue(userID)) return new sessionData();
-        if(userCache.get(userID) == null){
-            userCache.remove(userID);
-            return new sessionData();
-        }else {
-            return userCache.get(userID);
-        }
+
+
+
+        if(userID == null )return new sessionData();
+        if(userCache.containsKey(userID) == false) return new sessionData();
+        return userCache.get(userID);
+
     }
+
+
+    public String getSessionID() {return sessionID;}
 
     /**
      * @return "sessionData{" + "sessionID='" + sessionID + '\'' + '}'
@@ -84,7 +90,7 @@ public class sessionData {
      * @return User's search history, which stored in localCache.
      * @see models.sessionData#localCache
      */
-    public LinkedHashMap<String,String> getCache(){
+    public Hashtable<String,String> getCache(){
         return this.localCache;
     }
 
@@ -98,10 +104,14 @@ public class sessionData {
      * @see models.sessionData#queries
      */
     public void insertCache(String searchTerm, String result){
-        if(localCache.size()>=10){
-            String key = this.queries.get(10);
+        while(localCache.size() >= maximumCacheSize){
+            String key = this.queries.get(localCache.size() - 1);
             this.localCache.remove(key);
             this.queries.remove(key);
+        }
+        if(this.queries.contains(searchTerm)){
+            this.queries.remove(searchTerm);
+
         }
         this.localCache.put(searchTerm,result);
         this.queries.add(0,searchTerm);

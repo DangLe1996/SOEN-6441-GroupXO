@@ -4,7 +4,6 @@ package models;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Stream;
 
 
 import org.junit.After;
@@ -30,10 +28,6 @@ import play.Application;
 import play.inject.guice.GuiceApplicationBuilder;
 import play.test.WithApplication;
 import twitter4j.*;
-import org.junit.Test;
-import play.Application;
-import play.inject.guice.GuiceApplicationBuilder;
-import play.test.WithApplication;
 import twitter4j.conf.ConfigurationBuilder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -49,13 +43,26 @@ public class GetTweetsTest extends WithApplication {
     @Mock
     private Twitter twitter;
 
+   @Mock
+    private QueryResult queryResult;
+
+   private Query inputQuery;
+
     @InjectMocks
     private GetTweets aGetTwitter = null;
 
     @Before
     public void setUp() throws Exception {
 
-        aGetTwitter = new GetTweets(twitter);
+//        aGetTwitter = new GetTweets(twitter);
+
+        when(queryResult.getTweets()).thenReturn(buildStatusList(3));
+
+        inputQuery = new Query(SIMPLE_QUERY_STRING + " -filter:retweets");
+        inputQuery.count(10);
+        inputQuery.lang("en");
+        when(twitter.search(inputQuery)).thenReturn(queryResult);
+
     }
 
     @After
@@ -82,12 +89,24 @@ public class GetTweetsTest extends WithApplication {
         return statuses;
     }
 
+
+    @Test
+    public void getTextTest() throws ExecutionException, InterruptedException, TwitterException {
+
+//        CompletableFuture<QueryResult> statuses = GetTweets.invokeTwitterServer(new Query(SIMPLE_QUERY_STRING));
+//
+//        statuses.get().getTweets().forEach(System.out::println);
+
+        CompletionStage test2 = GetTweets.GetTweets_keyword(SIMPLE_QUERY_STRING);
+        System.out.println(test2.toCompletableFuture().get());
+    }
+
    @Test
     public void test_invokeTwitterServer() throws TwitterException, ExecutionException, InterruptedException {
         QueryResult queryResult = mock(QueryResult.class);
         //QueryResult queryResult = new QueryResult() ;
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        when(twitter.search(new Query(SIMPLE_QUERY_STRING))).thenReturn(queryResult);
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        when(twitter.search(new Query(SIMPLE_QUERY_STRING))).thenReturn(queryResult);
         when(queryResult.getTweets()).thenReturn(buildStatusList(SIMPLE_RETURN_ONE));
 
         CompletableFuture<QueryResult> statuses = aGetTwitter.invokeTwitterServer(new Query(SIMPLE_QUERY_STRING));
@@ -135,7 +154,7 @@ public class GetTweetsTest extends WithApplication {
         QueryResult queryResult = mock(QueryResult.class);
 
         when(twitter.search(new Query(SIMPLE_QUERY_STRING))).thenReturn(queryResult);
-        when(queryResult.getTweets()).thenReturn(buildStatusList(SIMPLE_RETURN_ONE));
+//        when(queryResult.getTweets()).thenReturn(buildStatusList(SIMPLE_RETURN_ONE));
 
 
         CompletionStage<String> statuses = aGetTwitter.GetTweets_keyword(SIMPLE_QUERY_STRING);

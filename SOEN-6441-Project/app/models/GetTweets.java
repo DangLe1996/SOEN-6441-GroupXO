@@ -152,13 +152,22 @@ public class GetTweets {
         query.count(10);
         query.lang("en");
 
-        System.out.println("New look up event");
-        return invokeTwitterServer(query)
-                .thenApply(result -> formatResult.apply(result))
-                .thenApply(tweet -> {
-                    GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
-                    return GlobalCache.get(keyword);
-                });
+		System.out.println("New look up event");
+
+/*
+sentimental useage later.
+.thenApply(result -> {
+					 return CompletableFuture.supplyAsync(() ->  formatSentimental.apply(result))
+							 .thenApply(sentimental -> formatResult2.apply(result,sentimental));
+				})
+ */
+
+		return invokeTwitterServer(query)
+				.thenApply(result -> formatResult.apply(result))
+				.thenApply(tweet -> {
+			GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
+			return GlobalCache.get(keyword);
+		});
 
 
 //        return CompletableFuture.supplyAsync( () -> {
@@ -199,14 +208,27 @@ public class GetTweets {
         return 0;
     }
 
-    private static Function<QueryResult,Integer> formatSentimental = (result) -> {
+    private static Function<QueryResult,String> formatSentimental = (result) -> {
 
-        return 1;
+		return "test";
 //		return result.getTweets().parallelStream()
 //				.map(tweet -> analyzeSentimental(tweet.getText())).
 //				.mapToInt(Integer::sum);
 
-    };
+	};
+	private static BiFunction<QueryResult,String,String> formatResult2 = (result,semantic) -> {
+		return result.getTweets().parallelStream()
+				.map(s -> {
+					return "\n" +
+							"<tr>\n" +
+							"		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+							"		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+							"		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+							"</tr>\n";
+				})
+				.reduce("",
+						String::concat);
+	};
 
     private static Function<QueryResult,String> formatResult = (result) -> {
         try {
@@ -227,21 +249,20 @@ public class GetTweets {
         {
             e.printStackTrace();
             return null;
-        } 
+        }
     };
-
 
 
     public static CompletableFuture<QueryResult> invokeTwitterServer(Query query){
 
         return CompletableFuture.supplyAsync( () -> {
             try {
-                
-                
+                System.out.println("Tweets return successfully");
+
                 return twitter.search(query);
             } catch (TwitterException e) {
                 e.printStackTrace();
-                
+                System.out.println("Error while getting tweets" + e.getErrorMessage());
                 return null;
             }
         });
