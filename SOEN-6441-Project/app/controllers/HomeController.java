@@ -11,7 +11,6 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
 import play.mvc.*;
-import views.html.tweets_display;
 
 import javax.inject.Inject;
 
@@ -36,7 +35,6 @@ public class HomeController extends Controller {
     private MessagesApi messagesApi;
 
 
-
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
@@ -49,7 +47,7 @@ public class HomeController extends Controller {
 	 * Lambda function to render tweets_display view.
 	 */
 	private final BiFunction<sessionData, Http.Request,Result> displayHomePage =
-			(currentUser,request) ->ok(tweets_display
+			(currentUser,request) ->ok(views.html.tweets_display
 					.render(currentUser.getQuery(), currentUser.getCache(), form, request, messagesApi.preferred(request)))
 					.addingToSession(request, "Twitter", currentUser.toString());
 
