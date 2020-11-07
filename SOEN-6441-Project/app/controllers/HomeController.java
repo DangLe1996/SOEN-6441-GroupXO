@@ -35,6 +35,8 @@ public class HomeController extends Controller {
     private MessagesApi messagesApi;
 
 
+
+
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
@@ -68,7 +70,7 @@ public class HomeController extends Controller {
         	try {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
-				return GetTweets.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
+				return new GetTweets().GetTweets_keyword(searchquery.getSearchString(),currentUserID)
 						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
 
 
@@ -130,7 +132,7 @@ public class HomeController extends Controller {
 	 * @see models.GetTweets#GetKeywordStats(String) 
 	 */
     public CompletionStage<Result> keyword(String searchQuery) throws TwitterException {
-		return GetTweets.GetKeywordStats(searchQuery)
+		return new GetTweets().GetKeywordStats(searchQuery)
 				.thenApply(wc -> {
 							LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
 							wc.entrySet()
@@ -158,7 +160,7 @@ public class HomeController extends Controller {
     public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
 
-		return  GetTweets.GetTweets_keyword(searchQuery)
+		return  new GetTweets().GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 

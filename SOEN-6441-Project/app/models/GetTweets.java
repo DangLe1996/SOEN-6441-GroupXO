@@ -17,6 +17,16 @@ import twitter4j.*;
 
 public class GetTweets {
 
+
+
+    private Twitter twitter;
+    public GetTweets(Twitter inputTwitter){
+        twitter = inputTwitter;
+    };
+    public GetTweets(){
+        twitter = new TwitterFactory().getInstance();
+    }
+
     /**
      * Store results of all searched queries in a formatted HTML string, using searched keyword as key.
      * This GlobalCache reduce the needs to connect to Twitter4J if the
@@ -32,7 +42,7 @@ public class GetTweets {
      * @return
      * @throws TwitterException
      */
-    public static CompletionStage<Map<String, Integer>> GetKeywordStats(String SearchQuery) throws TwitterException{
+    public CompletionStage<Map<String, Integer>> GetKeywordStats(String SearchQuery) throws TwitterException{
 
 
         Twitter twitter = new TwitterFactory().getInstance();
@@ -60,7 +70,7 @@ public class GetTweets {
      * Lambda BiFunction that takes a search query and its result, then return a formatted HTML string.
      *
      */
-    private static final BiFunction<String,String,String> tweetDisplayPageFormat = (searchquery, result) -> "		<tr>\n" +
+    private final BiFunction<String,String,String> tweetDisplayPageFormat = (searchquery, result) -> "		<tr>\n" +
             "			<th>Search terms:</th>\n" +
             "			<th><a href=/keyword?s=" + searchquery.replaceAll(" ", "+") + ">" + searchquery + "</a></th>\n" +
             "		</tr>\n" +
@@ -83,7 +93,7 @@ public class GetTweets {
      * @throws TwitterException
      * @see models.GetTweets#GetTweets_keyword(String)
      */
-    public static CompletionStage<sessionData> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
+    public CompletionStage<sessionData> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
 
         sessionData currentUser = sessionData.getUser(UserID);
         if (searchQuery.length() < 1) {
@@ -118,14 +128,7 @@ public class GetTweets {
 
 
 
-    public static Twitter twitter = new TwitterFactory().getInstance();
 
-    public GetTweets(){
-
-    }
-    public GetTweets(Twitter object){
-        twitter = object;
-    }
 
 
     /**
@@ -135,7 +138,7 @@ public class GetTweets {
      * @return : HTML formatter string
      * @throws TwitterException
      */
-    public static CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException {
+    public CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException {
         if (keyword.length() < 1) {
             return CompletableFuture.completedFuture("Cannot process empty string");
         }
@@ -165,7 +168,7 @@ sentimental useage later.
 		return invokeTwitterServer(query)
 				.thenApply(result -> formatResult.apply(result))
 				.thenApply(tweet -> {
-			GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
+			GlobalCache.put(keyword, this.tweetDisplayPageFormat.apply(keyword, tweet));
 			return GlobalCache.get(keyword);
 		});
 
@@ -230,7 +233,7 @@ sentimental useage later.
 						String::concat);
 	};
 
-    private static Function<QueryResult,String> formatResult = (result) -> {
+    private  Function<QueryResult,String> formatResult = (result) -> {
         try {
             //System.out.println("1234 "+result.toString());
             return result.getTweets().parallelStream()
@@ -253,12 +256,10 @@ sentimental useage later.
     };
 
 
-    public static CompletableFuture<QueryResult> invokeTwitterServer(Query query){
+    private CompletableFuture<QueryResult> invokeTwitterServer(Query query){
 
         return CompletableFuture.supplyAsync( () -> {
             try {
-                System.out.println("Tweets return successfully");
-
                 return twitter.search(query);
             } catch (TwitterException e) {
                 e.printStackTrace();

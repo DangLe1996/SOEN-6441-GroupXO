@@ -1,10 +1,16 @@
 package controllers;
 
 import com.google.common.collect.ImmutableMap;
+import models.GetTweets;
+import models.GetTweetsTest;
 import org.eclipse.jetty.util.Callback;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
+import org.mockito.*;
+import org.mockito.junit.MockitoJUnitRunner;
 import play.Application;
 import play.inject.guice.GuiceApplicationBuilder;
 import play.mvc.Http;
@@ -30,20 +36,31 @@ import static play.test.Helpers.POST;
 import static play.test.Helpers.route;
 import static play.test.Helpers.*;
 
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+
+@ExtendWith(MockitoExtension.class)
 public class HomeControllerTest extends WithApplication {
 
     private static String testHashtag = "zonauang";
 
     @Mock
-    private static Twitter twitter = mock(Twitter.class);
+    Twitter twitter = mock(Twitter.class);
 
     @Mock
-    private static QueryResult queryResult = mock(QueryResult.class);
+    QueryResult queryResult = mock(QueryResult.class);
 
     @Mock
-    private static Status status = mock(Status.class);
+    Status status = mock(Status.class);
 
-    private static List<Status> results = new ArrayList<>();
+    @Spy
+     List<Status> results ;
+
+    @InjectMocks
+     GetTweets theMock = new GetTweets(twitter);
 
     @Override
     protected Application provideApplication() {
@@ -51,30 +68,23 @@ public class HomeControllerTest extends WithApplication {
     }
 
 
-    private static void setUp() throws ExecutionException, InterruptedException {
+    private void setUp() throws ExecutionException, InterruptedException, TwitterException {
 
         List<CompletableFuture> tasks = new ArrayList<>();
-        tasks.add(CompletableFuture.supplyAsync(() -> when(status.getText()).thenReturn("this is a test")));
+
+        results = new ArrayList<>();
+       when(status.getText()).thenReturn("this is a test");
         results.add(status);
         results.add(status);
         results.add(status);
 
-        tasks.add(CompletableFuture.supplyAsync(() ->  when(queryResult.getTweets()).thenReturn(results)));
+         when(queryResult.getTweets()).thenReturn(results);
         Query inputQuery = new Query(testHashtag + " -filter:retweets");
         inputQuery.count(10);
         inputQuery.lang("en");
-        tasks.add(CompletableFuture.supplyAsync(() -> {
-            try {
-                return when(twitter.search(inputQuery)).thenReturn(queryResult);
-            } catch (TwitterException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }));
 
-        CompletableFuture<Void> allFuturesResult =
-                CompletableFuture.allOf(tasks.toArray(new CompletableFuture[tasks.size()]));
-        allFuturesResult.get();
+
+        when(twitter.search(inputQuery)).thenReturn(queryResult);
 
 
     }
@@ -128,10 +138,8 @@ public class HomeControllerTest extends WithApplication {
 
     }
 
-
-
     @Test
-    public void testHashTag() throws ExecutionException, InterruptedException {
+    public void testHashTag() throws ExecutionException, InterruptedException, TwitterException {
 
         setUp();
         Http.RequestBuilder request = new Http.RequestBuilder()
@@ -143,6 +151,20 @@ public class HomeControllerTest extends WithApplication {
 
     }
 
+
+    @Test
+    public void testGetLocation(){
+
+        String location = "Montreal";
+
+        Http.RequestBuilder request = new Http.RequestBuilder()
+                .method(GET)
+                .uri("/location?s="+ location);
+        Result result = route(app, request);
+
+        assertEquals(OK, result.status());
+        assertThat(contentAsString(result).contains(location),is(true));
+    }
 
 
     @Test

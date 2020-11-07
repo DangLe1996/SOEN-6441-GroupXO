@@ -100,6 +100,7 @@
     <orderEntry type="library" scope="TEST" name="sbt: org.apache.httpcomponents:httpclient:4.5.9:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.apache.httpcomponents:httpcore:4.4.11:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.apache.httpcomponents:httpmime:4.5.9:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.apiguardian:apiguardian-api:1.1.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.atteo.classindex:classindex:3.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.brotli:dec:0.1.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.checkerframework:checker-qual:2.10.0:jar" level="project" />
@@ -116,8 +117,16 @@
     <orderEntry type="library" name="sbt: org.hibernate.validator:hibernate-validator:6.1.5.Final:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.jacoco:org.jacoco.agent:0.8.2:runtime:jar" level="project" />
     <orderEntry type="library" name="sbt: org.jboss.logging:jboss-logging:3.3.2.Final:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.jupiter:junit-jupiter-api:5.7.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.platform:junit-platform-commons:1.7.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.platform:junit-platform-engine:1.7.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.platform:junit-platform-launcher:1.7.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.platform:junit-platform-runner:1.7.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.junit.platform:junit-platform-suite-api:1.7.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.mockito:mockito-core:3.6.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.mockito:mockito-junit-jupiter:3.6.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.objenesis:objenesis:3.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.opentest4j:opentest4j:1.2.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.13:0.9.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.13:1.1.2:jar" level="project" />
