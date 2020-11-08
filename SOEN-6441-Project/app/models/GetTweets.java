@@ -38,13 +38,13 @@ public class GetTweets {
 
 
     /**
-     * User Defined List of words which when present marks a tweet as happy
+     * User Defined array of words which when present marks a tweet as happy
      */
-    private final static String[] happy = {"HAPPY", ":)", ":D", "<3", "PARTY", "😀"};
+    private final static String[] happy = {"HAPPY", ":)", ":D", "<3", "PARTY", "😭","💜", "😀","\uD83D\uDC97\uD83D\uDC93","APPRECIATE","\uD83D\uDC9A","\uD83D\uDC4F","\uD83E\uDDE1","\uD83D\uDC9B","\uD83D\uDC9A","\uD83D\uDC9C","\uD83E\uDD70","\uD83D\uDDA4"};
     /**
-     * User Defined List of words which when present marks a tweet as sad
+     * User Defined array of words which when present marks a tweet as sad
      */
-    private final static String[] sad = {"SAD", "ANGRY", ":(", "MAD", "DISAPPOINTMENT", "IRCC"};
+    private final static String[] sad = {"SAD", "ANGRY", ":(", "MAD", "DISAPPOINTMENT", "BAD DAY","\uD83D\uDCCA","\uD83D\uDE1E","\uD83D\uDE14"};
 
     /**
      * enum of mode of a tweet HAPPY, SAD , NEUTRAL
@@ -66,7 +66,6 @@ public class GetTweets {
      * @throws TwitterException
      */
     public CompletionStage<Map<String, Integer>> GetKeywordStats(String SearchQuery) throws TwitterException{
-
 
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(SearchQuery + " -filter:retweets");
@@ -91,8 +90,9 @@ public class GetTweets {
      * Lambda BiFunction that takes a search query and its result, then return a formatted HTML string.
      */
     private static final BiFunction<String, String, String> tweetDisplayPageFormat = (searchquery, result) -> "		<tr>\n" +
-            "			<th>Search terms:</th>\n" + getTweetSentiments(searchquery) +
-            "			<th><a href=/keyword?s=" + searchquery.replaceAll(" ", "+") + ">" + searchquery + "</a></th>\n" +
+            "			<th>Search terms:</th>\n" +
+            "			<th><a href=/keyword?s=" + searchquery.replaceAll(" ", "+") + ">" + searchquery  + "</a></th>\n" +
+            "	<th>"+ getTweetSentiments(searchquery) +"</th>" +
             "		</tr>\n" +
             "		<tr>\n" +
             "			<th>User</th>\n" +
@@ -132,7 +132,6 @@ public class GetTweets {
             return CompletableFuture.completedFuture(currentUser);
 
         } else {
-
             System.out.println("Current User is " + currentUser);
 
             return GetTweets_keyword(searchQuery).thenApply(result -> {
@@ -143,6 +142,8 @@ public class GetTweets {
         }
 
     }
+
+
 
 
 
@@ -189,11 +190,9 @@ public class GetTweets {
     //Suhel Starts --
     private static Function<QueryResult, QueryResult> formatSentimental = (result) -> {
 
-        //System.out.println(" the query : " + result.getQuery().toString());
+
         String modeString = "";
         int queryResultSize = result.getTweets().size();
-        //System.out.println("How many Tweets being analyzed " +queryResultSize);
-
         Map<Mode, List<Status>> analyse;
 
         //Stream Grouping based on tweet Text
@@ -207,33 +206,65 @@ public class GetTweets {
         if (analyse.containsKey(Mode.HAPPY)) {
             double indicator = (analyse.get(Mode.HAPPY).size() * 100 / queryResultSize);
             if (indicator >= 70) {
-                modeString = " :) " + indicator + "% Tweets are HAPPY.out of total tweets analysed : " + queryResultSize;
+                modeString=renderSentimentsHTML(Mode.HAPPY.toString(),indicator);
+
             }
         }
         if (analyse.containsKey(Mode.SAD)) {
             double indicator = (analyse.get(Mode.SAD).size() * 100 / queryResultSize);
             if (indicator >= 70) {
-                modeString = " :()) " + indicator + "% Tweets are SAD.out of total tweets analysed + " + queryResultSize;
+                modeString=renderSentimentsHTML(Mode.SAD.toString(),indicator);
+
             }
         }
         if ("".equals(modeString)) {
-            modeString = " :-|  tweets are NEUTRAL.out of total tweets analysed + " + queryResultSize;
+            modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),0);
+
         }
-        GlobalSentiments.put(result.getQuery().toString(), modeString); //cache with a key
+        GlobalSentiments.put(result.getQuery(), modeString); //cache with a key
         return result;
     };
 
+    /**
+     * Returns a boolean after matching a tweet text with provided list of happy/sad strings
+     * @param inputStr ,items
+     * @return boolean
+     */
 
     public static boolean stringContainsItemFromList(String inputStr, String[] items) {
         return Arrays.stream(items).anyMatch(inputStr.toUpperCase() ::contains);
     }
+    /**
+     * Returns and stores mode analysis of tweets from a global cache
+     * @param searchQuery
+     * @return String
+     */
 
     public static String getTweetSentiments(String searchQuery){
-        if ( GlobalSentiments.containsKey(searchQuery))
-              return GlobalSentiments.get(searchQuery);
+
+        searchQuery=searchQuery+" -filter:retweets";
+        if ( GlobalSentiments.containsKey(searchQuery)) {
+            return GlobalSentiments.get(searchQuery);
+        }
         return "Could not analyse Sentiments Due to Error/less no of Tweets on this Topic";
 
- }
+    }
+
+    /**
+     * Rendered the HTML for mode analysis and adds emoticons
+     * @param mood,percentage
+     * @return String
+     */
+    public static String renderSentimentsHTML(String mood,double percentage){
+
+        String emoticon="";
+        if (mood.equals(Mode.HAPPY.toString())) emoticon="\uD83D\uDE0C";
+        else if (mood.equals(Mode.SAD.toString())) emoticon="\uD83D\uDE1E";
+        else emoticon="\uD83D\uDE11";
+        emoticon= "\uD83D\uDCCA"  +emoticon+" "+" Tweets are " +mood ;
+        return emoticon;
+
+    }
 //suhel ends
 
     private  Function<QueryResult,String> formatResult = (result) -> {

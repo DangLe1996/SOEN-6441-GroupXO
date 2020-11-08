@@ -34,12 +34,12 @@ public class HomeController extends Controller {
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
-
-
+	GetTweets globalGetTweet;
 
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
+    	this.globalGetTweet = new GetTweets();
         this.form = formFactory.form(Search.class);
         this.messagesApi = messagesApi;
 
@@ -70,7 +70,7 @@ public class HomeController extends Controller {
         	try {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
-				return new GetTweets().GetTweets_keyword(searchquery.getSearchString(),currentUserID)
+				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
 						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
 
 
