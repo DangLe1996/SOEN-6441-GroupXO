@@ -147,49 +147,7 @@ public class GetTweets {
 
 
 
-
-
-
-
-    /**
-     * Takes a string keyword and return a HTML formatted string showing the last 10 tweets contains the given keyword.
-     * Only returns tweets with language of english.
-     *
-     * @param keyword : The keyword to looks up tweets
-     * @return : HTML formatter string
-     * @throws TwitterException
-     */
-    public  CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException {
-        if (keyword.length() < 2) { //Suhel --should not query letters
-            return CompletableFuture.completedFuture("Cannot process empty string/Single Letter");
-        }
-
-        if (GlobalCache.containsKey(keyword)) {
-
-            System.out.println("Data retrieved from Global Cache");
-            return CompletableFuture.completedFuture(
-                    GlobalCache.get(keyword)
-            );
-        }
-
-        Query query = new Query(keyword + " -filter:retweets");
-        query.count(10);
-        query.lang("en");
-
-        System.out.println("New look up event");
-        return invokeTwitterServer(query)
-                .thenApply(result -> formatSentimental.apply(result))
-                .thenApply(result -> formatResult.apply(result))
-                .thenApply(tweet -> {
-                    GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
-                    return GlobalCache.get(keyword);
-                });
-    }
-
-
-    //Suhel Starts --
-    private static Function<QueryResult, QueryResult> formatSentimental = (result) -> {
-
+    private  BiFunction<QueryResult, String, QueryResult> formatSentimental = (result, keyword) ->{
 
         String modeString = "";
         int queryResultSize = result.getTweets().size();
@@ -221,9 +179,50 @@ public class GetTweets {
             modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),0);
 
         }
-        GlobalSentiments.put(result.getQuery(), modeString); //cache with a key
+        GlobalSentiments.put(keyword, modeString); //cache with a key
         return result;
     };
+
+
+
+
+    /**
+     * Takes a string keyword and return a HTML formatted string showing the last 10 tweets contains the given keyword.
+     * Only returns tweets with language of english.
+     *
+     * @param keyword : The keyword to looks up tweets
+     * @return : HTML formatter string
+     * @throws TwitterException
+     */
+    public  CompletionStage<String> GetTweets_keyword(String keyword) throws TwitterException {
+        if (keyword.length() < 2) { //Suhel --should not query letters
+            return CompletableFuture.completedFuture("Cannot process empty string/Single Letter");
+        }
+
+        if (GlobalCache.containsKey(keyword)) {
+
+            System.out.println("Data retrieved from Global Cache");
+            return CompletableFuture.completedFuture(
+                    GlobalCache.get(keyword)
+            );
+        }
+
+        Query query = new Query(keyword + " -filter:retweets");
+        query.count(10);
+        query.lang("en");
+
+        System.out.println("New look up event");
+        return invokeTwitterServer(query)
+                .thenApply(result -> formatSentimental.apply(result,keyword))
+                .thenApply(result -> formatResult.apply(result))
+                .thenApply(tweet -> {
+                    GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
+                    return GlobalCache.get(keyword);
+                });
+    }
+
+
+
 
     /**
      * Returns a boolean after matching a tweet text with provided list of happy/sad strings
@@ -242,7 +241,7 @@ public class GetTweets {
 
     public static String getTweetSentiments(String searchQuery){
 
-        searchQuery=searchQuery+" -filter:retweets";
+
         if ( GlobalSentiments.containsKey(searchQuery)) {
             return GlobalSentiments.get(searchQuery);
         }

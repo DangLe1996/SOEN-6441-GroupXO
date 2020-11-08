@@ -126,7 +126,7 @@ public class GetTweetsTest extends WithApplication {
 
         CompletionStage<String> a= gt.GetTweets_keyword(testKeyWord);
         System.out.println(a.toCompletableFuture().get());
-        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are SAD"));
+        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are HAPPY"));
 
     }
 
@@ -156,7 +156,7 @@ public class GetTweetsTest extends WithApplication {
 
         CompletionStage<String> a= gt.GetTweets_keyword(testKeyWord);
         System.out.println(a.toCompletableFuture().get());
-        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are HAPPY"));
+        assertThat(a.toCompletableFuture().get(),containsString("Tweets are HAPPY"));
 
     }
 
@@ -166,7 +166,7 @@ public class GetTweetsTest extends WithApplication {
 
         GetTweets gt = new GetTweets(twitter);
         CompletionStage<String> a= gt.GetTweets_keyword("a");
-        assertThat(a.toCompletableFuture().get().toString(),containsString("Cannot process empty string"));
+        assertThat(a.toCompletableFuture().get(),containsString("Cannot process empty string"));
 
     }
 
