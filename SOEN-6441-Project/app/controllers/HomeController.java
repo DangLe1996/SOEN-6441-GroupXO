@@ -168,7 +168,6 @@ public class HomeController extends Controller {
 	 */
     public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
-
 		return  globalGetTweet.GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));

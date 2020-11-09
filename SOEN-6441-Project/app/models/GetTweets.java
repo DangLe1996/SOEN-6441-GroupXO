@@ -208,7 +208,7 @@ public class GetTweets extends AbstractModule {
         }
 
         Query query = new Query(keyword + " -filter:retweets");
-        query.count(10);
+        query.count(250);
         query.lang("en");
 
         System.out.println("New look up event");
