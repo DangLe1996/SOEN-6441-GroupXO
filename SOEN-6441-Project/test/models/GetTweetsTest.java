@@ -126,7 +126,7 @@ public class GetTweetsTest extends WithApplication {
 
         CompletionStage<String> a= gt.GetTweets_keyword(testKeyWord);
         System.out.println(a.toCompletableFuture().get());
-        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are HAPPY"));
+        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are SAD"));
 
     }
 

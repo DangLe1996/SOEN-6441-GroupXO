@@ -14,9 +14,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 
+import com.google.inject.AbstractModule;
 import twitter4j.*;
 
-public class GetTweets {
+public class GetTweets extends AbstractModule {
 
 
 
@@ -85,7 +86,6 @@ public class GetTweets {
                 .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum)));
     }
 
-
     /**
      * Lambda BiFunction that takes a search query and its result, then return a formatted HTML string.
      */
@@ -117,7 +117,7 @@ public class GetTweets {
     public CompletionStage<sessionData> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
 
         sessionData currentUser = sessionData.getUser(UserID);
-        if (searchQuery.length() < 1) {
+        if (searchQuery.length() < 2) {
             return CompletableFuture.completedFuture(currentUser);
         }
 
@@ -267,10 +267,8 @@ public class GetTweets {
 //suhel ends
 
     private  Function<QueryResult,String> formatResult = (result) -> {
-        try {
-            //System.out.println("here it is" +result.getTweets());
 
-            return result.getTweets().parallelStream()
+             return result.getTweets().parallelStream()
                     .map(s -> {
                         return "\n" +
                                 "<tr>\n" +
@@ -282,12 +280,7 @@ public class GetTweets {
                     .limit(10) //suhel
                     .reduce("",
                             String::concat);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            return "<tr> a test ResultSet</tr>";
-        }
+
     };
 
 
