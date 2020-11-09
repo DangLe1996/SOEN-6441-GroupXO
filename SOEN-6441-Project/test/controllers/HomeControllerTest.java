@@ -13,7 +13,7 @@ import play.Application;
 import play.Environment;
 import play.api.inject.guice.GuiceApplicationBuilder;
 import play.api.test.CSRFTokenHelper;
-
+import play.test.Helpers;
 import play.core.j.JavaResultExtractor;
 
 import play.core.server.AkkaHttpServer;
@@ -43,13 +43,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static play.mvc.Http.RequestBuilder;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static play.mvc.Http.Status.OK;
+import static play.test.Helpers.GET;
+import static play.test.Helpers.route;
 
 //import org.apache.http.util.EntityUtils;
 import play.http.HttpEntity;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HomeControllerTest extends WithApplication {
-    private static final  Integer OK = 200;
     @Mock
     private static Twitter mockTwitter;
     @Mock
@@ -150,16 +152,14 @@ public class HomeControllerTest extends WithApplication {
 
     }
 
-
-
     @Test
     public void testHomePage() {
         for (int i = 1; i < 10; i++) {
             Http.RequestBuilder request = new Http.RequestBuilder()
-                    .method(Helpers.GET)
+                    .method(GET)
                     .uri("/");
 
-            Result result = Helpers.route(app, request);
+            Result result = route(app, request);
             assertEquals(OK, result.status());
             String resultString = result.session().get("Twitter").orElse("no user created");
 
@@ -168,8 +168,6 @@ public class HomeControllerTest extends WithApplication {
 
         }
     }
-
-
 
     @Test
     public void testException() throws TwitterException, ExecutionException, InterruptedException {
@@ -199,6 +197,7 @@ public class HomeControllerTest extends WithApplication {
 
         CompletionStage<Result> result =homeController.gettweet(request.build());
 
+//        assertThat(result,is(null));
         //String resultString =result.toCompletableFuture().get().toString();
         //System.out.println(resultString);
 
@@ -209,7 +208,7 @@ public class HomeControllerTest extends WithApplication {
     public void setDummyQueriesAndFurtherMocks( String testKeyWord ) throws TwitterException {
 
         Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
-        inputQuery.count(10);
+        inputQuery.count(250);
         inputQuery.lang("en");
         List<Status> fakeTweets=buildStatusList(1,"HAPPY");
         when(mockTwitter.search(inputQuery)).thenReturn(queryResult);
