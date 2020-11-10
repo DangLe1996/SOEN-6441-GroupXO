@@ -44,6 +44,7 @@ public class GetTweetsTest extends WithApplication {
 
     private static String testKeyWord = "america";
 
+    static int maxSize = 250;
     private static CompletableFuture<QueryResult> aCachedQueryResult;
 
     @Mock
@@ -74,7 +75,7 @@ public class GetTweetsTest extends WithApplication {
         testKeyWord=testKeyWord+timestamp;
         GetTweets gt = new GetTweets(twitter);
         Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
-        inputQuery.count(10);
+        inputQuery.count(maxSize);
         inputQuery.lang("en");
 
         //Creats some fake tweets
@@ -107,7 +108,7 @@ public class GetTweetsTest extends WithApplication {
         testKeyWord=testKeyWord+timestamp;
         GetTweets gt = new GetTweets(twitter);
         Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
-        inputQuery.count(10);
+        inputQuery.count(maxSize);
         inputQuery.lang("en");
 
         //Creats some fake tweets
@@ -126,7 +127,7 @@ public class GetTweetsTest extends WithApplication {
 
         CompletionStage<String> a= gt.GetTweets_keyword(testKeyWord);
         System.out.println(a.toCompletableFuture().get());
-        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are HAPPY"));
+        assertThat(a.toCompletableFuture().get().toString(),containsString("Tweets are SAD"));
 
     }
 
@@ -137,7 +138,7 @@ public class GetTweetsTest extends WithApplication {
         testKeyWord=testKeyWord+timestamp;
         GetTweets gt = new GetTweets(twitter);
         Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
-        inputQuery.count(10);
+        inputQuery.count(maxSize);
         inputQuery.lang("en");
 
         //Creats some fake tweets

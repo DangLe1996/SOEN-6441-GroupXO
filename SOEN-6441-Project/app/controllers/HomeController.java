@@ -34,14 +34,23 @@ public class HomeController extends Controller {
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
+    @Inject
 	GetTweets globalGetTweet;
+
+
+
+	public void setGlobalGetTweet(GetTweets globalGetTweet) {
+		this.globalGetTweet = globalGetTweet;
+	}
+
 
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
-    	this.globalGetTweet = new GetTweets();
+
         this.form = formFactory.form(Search.class);
         this.messagesApi = messagesApi;
+		this.globalGetTweet = new GetTweets(); //gt;
 
     }
 
@@ -132,7 +141,7 @@ public class HomeController extends Controller {
 	 * @see models.GetTweets#GetKeywordStats(String) 
 	 */
     public CompletionStage<Result> keyword(String searchQuery) throws TwitterException {
-		return new GetTweets().GetKeywordStats(searchQuery)
+		return globalGetTweet.GetKeywordStats(searchQuery)
 				.thenApply(wc -> {
 							LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
 							wc.entrySet()
@@ -159,8 +168,7 @@ public class HomeController extends Controller {
 	 */
     public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
-
-		return  new GetTweets().GetTweets_keyword(searchQuery)
+		return  globalGetTweet.GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 
