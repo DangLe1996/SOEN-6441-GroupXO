@@ -64,7 +64,7 @@ public class GetTweets {
 	 * of the words.
 	 *
 	 * @param SearchQuery
-	 * @return
+	 * @return  
 	 * @throws TwitterException
 	 */
 	public CompletionStage<Map<String, Integer>> GetKeywordStats(String SearchQuery) throws TwitterException {
