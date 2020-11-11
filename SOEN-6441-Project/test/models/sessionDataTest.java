@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+
+
 import static org.hamcrest.CoreMatchers.*;
 
 class sessionDataTest {
@@ -21,6 +23,7 @@ class sessionDataTest {
 
     @AfterEach
     void tearDown() {
+    	System.out.println("in teardown");
         sessionData.cleanUpSessions();
 
     }
@@ -55,7 +58,7 @@ class sessionDataTest {
         assertThat(testUser.getQuery().size(),is(3));
 
     }
-
+    
     @Test
     void insertCacheWithExisting(){
         testUser.insertCache("test2","this is test 2");

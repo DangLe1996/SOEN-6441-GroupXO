@@ -1,17 +1,15 @@
-name := """SOEN-6441-Project"""
+name := """play-java-hello-world-tutorial"""
 organization := "com.example"
 
 version := "1.0-SNAPSHOT"
 
-
-
-
-lazy val root = (project.in( file("."))).enablePlugins(PlayJava)
-
-
-
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 scalaVersion := "2.13.1"
+
+libraryDependencies += guice
+libraryDependencies += "org.twitter4j" % "twitter4j-core" % "4.0.2"
+libraryDependencies += "org.twitter4j" % "twitter4j-stream" % "4.0.7"
 
 
 libraryDependencies += guice
@@ -27,6 +25,3 @@ libraryDependencies += "org.mockito" % "mockito-junit-jupiter" % "3.6.0" % Test
 libraryDependencies += "org.junit.platform" % "junit-platform-launcher" % "1.7.0" % Test
 // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
 libraryDependencies += "org.junit.platform" % "junit-platform-runner" % "1.7.0" % Test
-
-
-

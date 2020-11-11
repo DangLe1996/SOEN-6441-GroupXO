@@ -1,307 +1,322 @@
 package controllers;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.google.inject.Guice;
+
+
 import models.GetTweets;
-import models.GetTweetsTest;
-import models.sessionData;
-import org.eclipse.jetty.util.Callback;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
+import org.junit.*;
+
 import org.junit.runner.RunWith;
-import org.mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import org.hamcrest.core.StringContains;
 import play.Application;
-import play.ApplicationLoader;
 import play.Environment;
-import play.api.inject.guice.GuiceableModule;
-import play.inject.guice.GuiceApplicationBuilder;
+import play.api.inject.guice.GuiceApplicationBuilder;
+import play.api.test.CSRFTokenHelper;
+
+import play.core.j.JavaResultExtractor;
+
+import play.core.server.AkkaHttpServer;
+import play.data.Form;
+import play.data.FormFactory;
+import play.i18n.MessagesApi;
 import play.inject.guice.GuiceApplicationLoader;
+import play.mvc.*;
+
 import play.mvc.Http;
 import play.mvc.Result;
 import play.test.Helpers;
 import play.test.WithApplication;
 import twitter4j.*;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static play.mvc.Http.Status.OK;
-import static play.test.Helpers.GET;
-import static play.test.Helpers.POST;
-import static play.test.Helpers.route;
-import static play.test.Helpers.*;
-
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import java.util.*;
+import play.test.*;
+import play.libs.F.*;
 
 import javax.inject.Inject;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ExecutionException;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static play.mvc.Http.RequestBuilder;
+import static org.mockito.Mockito.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static play.test.Helpers.*;
 
 
-@ExtendWith(MockitoExtension.class)
+//import org.apache.http.util.EntityUtils;
+import play.http.HttpEntity;
+
+@RunWith(MockitoJUnitRunner.class)
 public class HomeControllerTest extends WithApplication {
-
-
+    private static final  Integer OK = 200;
     @Mock
-    final sessionData sdata=mock(sessionData.class);
-    @Inject
-    Application application;
-    final GetTweets getTweetsMock = mock(GetTweets.class);
-    @Before
-    public void setup() {
-        Module testModule = new AbstractModule() {
-            @Override
-            public void configure() {
-                bind(GetTweets.class).toInstance(getTweetsMock);
-            }
-        };
-        GuiceApplicationBuilder builder = new GuiceApplicationLoader()
-                .builder(new ApplicationLoader.Context(Environment.simple()))
-                .overrides(testModule);
-        Guice.createInjector(builder.applicationModule()).injectMembers(this);
-        Helpers.start(application);
-    }
-
-//
-//    @Inject
-//    Application application;
-//
-//    final GetTweets getTweetsMock = mock(GetTweets.class);
-////
-////    @Mock
-////    Twitter twitter = mock(Twitter.class);
-//
-//
-//    @Before
-//    public void setup() {
-//        Module testModule = new AbstractModule() {
-//            @Override
-//            public void configure() {
-//                bind(GetTweets.class).toInstance(getTweetsMock);
-//            }
-//        };
-//        GuiceApplicationBuilder builder = new GuiceApplicationLoader()
-//                .builder(new ApplicationLoader.Context(Environment.simple()))
-//                .overrides(testModule);
-//        Guice.createInjector(builder.applicationModule()).injectMembers(this);
-//        Helpers.start(application);
-//    }
-//
-////    @Before
-////    public void setup() {
-////        Module testModule = new AbstractModule() {
-////            @Override
-////            public void configure() {
-////                bind(GetTweets.class).toInstance(getTweetsMock);
-////                bind(Twitter.class).toInstance(twitter);
-////            }
-////        };
-////
-////        GuiceApplicationBuilder builder = new GuiceApplicationLoader()
-////                .builder(new ApplicationLoader.Context(Environment.simple()))
-////                .overrides(GuiceableModule.guiceable(testModule));
-////        Guice.createInjector(builder.applicationModule()).injectMembers(this);
-////
-////        Helpers.start(application);
-////    }
-//
-//
+    private static Twitter mockTwitter;
+    @Mock
+    private static QueryResult queryResult = mock(QueryResult.class);
+    @InjectMocks
+    GetTweets getTweets=new GetTweets(mockTwitter);
 
     @Test
-    public void testHomeController() throws Exception {
+    public void testHomeController() throws TwitterException, ExecutionException, InterruptedException {
+        String testKeyWord="canada";
 
-        sessionData sdata = mock(sessionData.class);
+        FormFactory formFactory=null;
 
-        when(sdata.getCache()).thenReturn((Hashtable<String, String>) new Hashtable<>().put("test", "123"));
+        RequestBuilder request=requestBuilder(testKeyWord);
+        setDummyQueriesAndFurtherMocks(testKeyWord);
 
-        ArrayList aList = new ArrayList();
-        aList.add("test");
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
 
-        when(sdata.getQuery()).thenReturn(aList);
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
 
-        CompletionStage<sessionData> test = new CompletableFuture<>();
+        homeController.setGlobalGetTweet(getTweets);
 
-        test.toCompletableFuture().complete(sdata);
+        CompletionStage<Result> result =homeController.gettweet(request.build());
 
-        running(application, () -> {
+        String resultString =contentAsString(result.toCompletableFuture().get());
 
-            Http.RequestBuilder request = new Http.RequestBuilder()
-                    .method(POST)
-                    .session("Twitter", "sessionData{sessionID='play1'}")
-                .bodyForm(ImmutableMap.of("searchString", "abcd"))
-                .uri("/");
+        assertThat(resultString,StringContains.containsString("Montreal"));
+        
+    /*    CompletionStage<Result> result2 =homeController.gettweet(request.build());
 
+        String resultString2 =contentAsString(result.toCompletableFuture().get());
 
-            try {
-
-                when(getTweetsMock.GetTweets_keyword("abcd", "sessionData{sessionID='play1'}")).thenReturn(test);
-            } catch (TwitterException e) {
-                e.printStackTrace();
-            }
-            Result result = route(app, request);
-            assertEquals(OK, result.status());
-        });
+        assertThat(resultString2,StringContains.containsString("Montreal"));
+        
+        */
     }
+    @Test
+    public void testHomeController_cache() throws TwitterException, ExecutionException, InterruptedException {
+        String testKeyWord="canada";
+
+        FormFactory formFactory=null;
+
+      //  RequestBuilder request=requestBuilder(testKeyWord);
+        
+        Map<String, String> hm
+        = new HashMap<String, String>();
+hm.put("searchString", testKeyWord);
+
+RequestBuilder request=Helpers.fakeRequest()
+        .bodyForm(hm)
+        .session("Twitter","play1")
+        .method(Helpers.POST);
+
+CSRFTokenHelper.addCSRFToken(request);
+        setDummyQueriesAndFurtherMocks(testKeyWord);
+
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+
+        homeController.setGlobalGetTweet(getTweets);
+
+        CompletionStage<Result> result =homeController.gettweet(request.build());
+
+        String resultString =contentAsString(result.toCompletableFuture().get());
+
+        assertThat(resultString,StringContains.containsString("Montreal"));
+        
+        CompletionStage<Result> result2 =homeController.gettweet(request.build());
+
+    }
+    
+    @Test
+    public void testkeyword() throws TwitterException, ExecutionException, InterruptedException {
+        String testKeyWord="canada";
+
+        FormFactory formFactory=null;
+
+        RequestBuilder request=requestBuilder(testKeyWord);
+        setDummyQueriesAndFurtherMocks(testKeyWord);
+
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+
+        homeController.setGlobalGetTweet(getTweets);
+
+        CompletionStage<Result> result =homeController.keyword(testKeyWord);
+
+        String resultString =contentAsString(result.toCompletableFuture().get());
+
+        assertThat(resultString,StringContains.containsString("Indians:1"));
+        assertThat(resultString,StringContains.containsString("HAPPY:1"));
+
+    }
+    
 
     @Test
-    public void testIndex() {
-        Http.RequestBuilder request = new Http.RequestBuilder()
-                .method(GET)
-                .uri("/");
+    public void testBoundFormHasError() throws TwitterException, ExecutionException, InterruptedException {
 
-        Result result = route(app, request);
-        assertEquals(OK, result.status());
+        String testKeyWord=null;
+        FormFactory formFactory=null;
+        RequestBuilder request=Helpers.fakeRequest()
+                //.bodyForm(hm)
+                .session("Twitter","Twitter")
+                .method(Helpers.POST);
+
+        setDummyQueriesAndFurtherMocks(testKeyWord);
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+        homeController.setGlobalGetTweet(getTweets);
+        CompletionStage<Result> result =homeController.gettweet(request.build());
+        //String resultString =result.toCompletableFuture().get().java
+        //JavaResultExtractor
+
+
+
+
+        //String header = JavaResultExtractor.getHeaders(result.toCompletableFuture().get().header()).get("Content-Type");
+
+
+        //assertThat(resultString,contains("montreal"));
+        //assertThat("A","a");
+
+
+    }
+    
+
+    @Test
+    public void testErrorInModel() throws TwitterException, ExecutionException, InterruptedException {
+
+        String testKeyWord="canada";
+        FormFactory formFactory=null;
+        RequestBuilder request=requestBuilder(testKeyWord);
+        //setDummyQueriesAndFurtherMocks(testKeyWord);
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+        homeController.setGlobalGetTweet(getTweets);
+
+        CompletionStage<Result> result =homeController.gettweet(request.build());
+
+        String resultString =contentAsString(result.toCompletableFuture().get());
+
+      //  assertThat(resultString,StringContains.containsString("montreal"));
+
+       // System.out.println("testErrorInModel : "+ resultString);
+
     }
 
 
-    //    private static String testHashtag = "zonauang";
-//
-//    @Mock
-//    Twitter twitter = mock(Twitter.class);
-//
-//    @Mock
-//    QueryResult queryResult = mock(QueryResult.class);
-//
-//    @Mock
-//    Status status = mock(Status.class);
-//
-//    @Spy
-//     List<Status> results ;
-//
-//    @InjectMocks
-//     GetTweets theMock = new GetTweets(twitter);
-//
-//    @Override
-//    protected Application provideApplication() {
-//        return new GuiceApplicationBuilder().build();
-//    }
-//
-//
-//    private void setUp() throws ExecutionException, InterruptedException, TwitterException {
-//
-//        List<CompletableFuture> tasks = new ArrayList<>();
-//
-//        results = new ArrayList<>();
-//       when(status.getText()).thenReturn("this is a test");
-//        results.add(status);
-//        results.add(status);
-//        results.add(status);
-//
-//         when(queryResult.getTweets()).thenReturn(results);
-//        Query inputQuery = new Query(testHashtag + " -filter:retweets");
-//        inputQuery.count(10);
-//        inputQuery.lang("en");
-//
-//
-//        when(twitter.search(inputQuery)).thenReturn(queryResult);
-//
-//
-//    }
-//
-//    /**
-//     * Test session management. Multiple user enter sites and the session management
-//     * keep track correctly.
-//     */
+
     @Test
     public void testHomePage() {
         for (int i = 1; i < 10; i++) {
             Http.RequestBuilder request = new Http.RequestBuilder()
-                    .method(GET)
+                    .method(Helpers.GET)
                     .uri("/");
 
-            Result result = route(app, request);
+            Result result = Helpers.route(app, request);
             assertEquals(OK, result.status());
             String resultString = result.session().get("Twitter").orElse("no user created");
 
-            String testuser = String.format("sessionData{sessionID='play%d'}", i);
+            String testuser = String.format("sessionData{sessionID='play%d'}", i + 2);
             assertThat(resultString, is(testuser));
 
         }
     }
+
+
+
+    @Test
+    public void testException() throws TwitterException, ExecutionException, InterruptedException {
+
+        String testKeyWord="canada";
+        FormFactory formFactory=null;
+        //RequestBuilder request=requestBuilder(testKeyWord);
+        //setDummyQueriesAndFurtherMocks(testKeyWord);
+
+        Map<String, String> hm
+                = new HashMap<String, String>();
+        hm.put("searchString", testKeyWord);
+
+        RequestBuilder request=Helpers.fakeRequest()
+                .bodyForm(hm)
+                //.session("Twitter","facebook")
+                .method(Helpers.POST);
+
+        CSRFTokenHelper.addCSRFToken(request);
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+        homeController.setGlobalGetTweet(getTweets);
+
+        CompletionStage<Result> result =homeController.gettweet(request.build());
+
+        //String resultString =result.toCompletableFuture().get().toString();
+        //System.out.println(resultString);
+
+    }
+
+
+    //Helper Methods
+    public void setDummyQueriesAndFurtherMocks( String testKeyWord ) throws TwitterException {
+
+        Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
+        inputQuery.count(10);
+        inputQuery.lang("en");
+        List<Status> fakeTweets=buildStatusList(1,"HAPPY");
+        when(mockTwitter.search(inputQuery)).thenReturn(queryResult);
+        when(queryResult.getTweets()).thenReturn(fakeTweets);
+      //  when(queryResult.getQuery()).thenReturn(testKeyWord);
+
+    }
+
+    public RequestBuilder requestBuilder(String testKeyWord ){
+        Map<String, String> hm
+                = new HashMap<String, String>();
+        hm.put("searchString", testKeyWord);
+
+        RequestBuilder request=Helpers.fakeRequest()
+                .bodyForm(hm)
+                .session("Twitter","Twitter")
+                .method(Helpers.POST);
+
+        CSRFTokenHelper.addCSRFToken(request);
+        return request;
+    }
+
+    private List<Status> buildStatusList(int number, String tweetMode) throws TwitterException {
+        List<Status> statuses = new ArrayList<>();
+        Status aTestStatus = null;
+
+        for (int position = 0; position < number; position++) {
+            String rawJson = "{\"contributors\": null, \"truncated\": false, \"text\": \"\\\"Montreal Indians "+tweetMode+"\", \"in_reply_to_status_id\": null, \"random_number\": 0.29391851181222817, \"id\": 373208832580648960, \"favorite_count\": 0, \"source\": \"<a href=\\\"http://twitter.com/tweetbutton\\\" rel=\\\"nofollow\\\">Tweet Button</a>\", \"retweeted\": false, \"coordinates\": null, \"entities\": {\"symbols\": [], \"user_mentions\": [], \"hashtags\": [{\"indices\": [29, 35], \"text\": \"Syria\"}, {\"indices\": [47, 52], \"text\": \"Iraq\"}, {\"indices\": [109, 120], \"text\": \"propaganda\"}, {\"indices\": [121, 132], \"text\": \"MiddleEast\"}, {\"indices\": [133, 137], \"text\": \"war\"}], \"urls\": [{\"url\": \"http://t.co/FQU4QMIxPF\", \"indices\": [86, 108], \"expanded_url\": \"http://huff.to/1dinit0\", \"display_url\": \"huff.to/1dinit0\"}]}, \"in_reply_to_screen_name\": null, \"id_str\": \"373208832580648960\", \"retweet_count\": 0, \"in_reply_to_user_id\": null, \"favorited\": false, \"user\": {\"follow_request_sent\": null, \"profile_use_background_image\": true, \"geo_enabled\": false, \"verified\": false, \"profile_image_url_https\": \"https://si0.twimg.com/profile_images/3537112264/5ebce8651eb68383030dc01836215da1_normal.jpeg\", \"profile_sidebar_fill_color\": \"FFF7CC\", \"id\": 1360644582, \"profile_text_color\": \"0C3E53\", \"followers_count\": 27, \"profile_sidebar_border_color\": \"F2E195\", \"location\": \"Detroit \\u2663 Toronto\", \"default_profile_image\": false, \"id_str\": \"1360644582\", \"utc_offset\": -14400, \"statuses_count\": 1094, \"description\": \"Exorcising the sins of personal ignorance and accepted lies through reductionist analysis. Politics, economics, and science posts can be found here.\", \"friends_count\": 81, \"profile_link_color\": \"FF0000\", \"profile_image_url\": \"http://a0.twimg.com/profile_images/3537112264/5ebce8651eb68383030dc01836215da1_normal.jpeg\", \"notifications\": null, \"profile_background_image_url_https\": \"https://si0.twimg.com/images/themes/theme12/bg.gif\", \"profile_background_color\": \"BADFCD\", \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/1360644582/1366247104\", \"profile_background_image_url\": \"http://a0.twimg.com/images/themes/theme12/bg.gif\", \"name\": \"Neil Cheddie\", \"lang\": \"en\", \"following\": null, \"profile_background_tile\": false, \"favourites_count\": 4, \"screen_name\": \"Centurion480\", \"url\": null, \"created_at\": \"Thu Apr 18 00:34:18 +0000 2013\", \"contributors_enabled\": false, \"time_zone\": \"Eastern Time (US & Canada)\", \"protected\": false, \"default_profile\": false, \"is_translator\": false, \"listed_count\": 2}, \"geo\": null, \"in_reply_to_user_id_str\": null, \"possibly_sensitive\": false, \"lang\": \"en\", \"created_at\": \"Thu Aug 29 22:21:34 +0000 2013\", \"filter_level\": \"medium\", \"in_reply_to_status_id_str\": null, \"place\": null, \"_id\": {\"$oid\": \"521fc96edbef20c5d84b2dd8\"}}";
+            //System.out.println(rawJson);
+            aTestStatus = TwitterObjectFactory.createStatus(rawJson);
+            statuses.add(aTestStatus);
+        }
+        return statuses;
+    }
 }
-
-//
-//    }
-//
-//
-//    /**
-//     * Test that after the user enter the app,
-//     * it would not create a new session
-//     */
-//    @Test
-//    public void testReturnUser(){
-//
-//        Http.RequestBuilder request = new Http.RequestBuilder()
-//                .method(GET)
-//                .uri("/");
-//
-//        route(app, request);
-//
-//         request = new Http.RequestBuilder()
-//                .method(GET)
-//                .uri("/")
-//                .session("Twitter","sessionData{sessionID='play1'}");
-//        Result result = route(app, request);
-//        assertEquals(OK, result.status());
-//        String resultString = result.session().get("Twitter").orElse("no user created");
-//        String testuser = String.format("sessionData{sessionID='play1'}" );
-//        assertThat(resultString, is(testuser));
-//
-//    }
-//
-//    @Test
-//    public void testHashTag() throws ExecutionException, InterruptedException, TwitterException {
-//
-//        setUp();
-//        Http.RequestBuilder request = new Http.RequestBuilder()
-//                .method(GET)
-//                .uri("/hashtag?s="+ testHashtag);
-//        Result result = route(app, request);
-//
-//        assertEquals(OK, result.status());
-//
-//    }
-//
-//
-//    @Test
-//    public void testGetLocation(){
-//
-//        String location = "Montreal";
-//
-//        Http.RequestBuilder request = new Http.RequestBuilder()
-//                .method(GET)
-//                .uri("/location?s="+ location);
-//        Result result = route(app, request);
-//
-//        assertEquals(OK, result.status());
-//        assertThat(contentAsString(result).contains(location),is(true));
-//    }
-//
-//
-//    @Test
-//    public void testGetTweets() {
-////        Http.RequestBuilder request = Helpers.fakeRequest()
-////                .method(POST)
-////                .session("Twitter","Twitter")
-////                .bodyForm(ImmutableMap.of("searchString", "A SEARCH STRING"))
-////                .uri("/");
-////
-////        Result result = route(app, request);
-////        assertEquals(SEE_OTHER, result.status());
-//
-//
-//    }
-
-

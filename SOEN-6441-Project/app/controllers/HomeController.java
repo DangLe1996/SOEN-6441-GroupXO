@@ -34,14 +34,23 @@ public class HomeController extends Controller {
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
+    @Inject
 	GetTweets globalGetTweet;
+
+
+
+	public void setGlobalGetTweet(GetTweets globalGetTweet) {
+		this.globalGetTweet = globalGetTweet;
+	}
+
 
     @Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
-    	this.globalGetTweet = new GetTweets();
+
         this.form = formFactory.form(Search.class);
         this.messagesApi = messagesApi;
+		this.globalGetTweet = new GetTweets(); //gt;
 
     }
 
@@ -70,15 +79,18 @@ public class HomeController extends Controller {
         	try {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
+				System.out.println("Current User is in home " + currentUserID);
 				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
 						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
-
 
 			}catch (NullPointerException ex){
 				System.out.println("Null pointer exception in gettweet method");
         		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
 			}
-
+	        catch (Exception ex){
+				System.out.println("Exception gettweet method");
+	    		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
+			}
         }      
     }
 
@@ -132,21 +144,8 @@ public class HomeController extends Controller {
 	 * @see models.GetTweets#GetKeywordStats(String) 
 	 */
     public CompletionStage<Result> keyword(String searchQuery) throws TwitterException {
-		return new GetTweets().GetKeywordStats(searchQuery)
-				.thenApply(wc -> {
-							LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
-							wc.entrySet()
-									.parallelStream()
-									.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-									.forEachOrdered(swc -> sortedwc.put(swc.getKey(), swc.getValue()));
-
-							String result = "";
-							for (String s : sortedwc.keySet()) {
-								result = result + "\n" + s + " \t\t: \t\t" + sortedwc.get(s);
-							}
-							return ok(views.html.wordstats.render(searchQuery, result));
-						}
-				);
+		return globalGetTweet.GetKeywordStats(searchQuery)
+				.thenApply(result -> ok(views.html.wordstats.render(searchQuery, result)));
 	}
 //
 
@@ -160,7 +159,7 @@ public class HomeController extends Controller {
     public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
 
 
-		return  new GetTweets().GetTweets_keyword(searchQuery)
+		return  globalGetTweet.GetTweets_keyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 
