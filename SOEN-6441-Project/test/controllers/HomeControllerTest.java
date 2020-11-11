@@ -2,6 +2,7 @@ package controllers;
 
 
 
+import com.google.common.collect.ImmutableMap;
 import models.GetTweets;
 import org.junit.*;
 
@@ -89,33 +90,24 @@ public class HomeControllerTest extends WithApplication {
         String resultString =contentAsString(result.toCompletableFuture().get());
 
         assertThat(resultString,StringContains.containsString("Montreal"));
-        
-    /*    CompletionStage<Result> result2 =homeController.gettweet(request.build());
 
-        String resultString2 =contentAsString(result.toCompletableFuture().get());
-
-        assertThat(resultString2,StringContains.containsString("Montreal"));
-        
-        */
     }
     @Test
     public void testHomeController_cache() throws TwitterException, ExecutionException, InterruptedException {
         String testKeyWord="canada";
 
         FormFactory formFactory=null;
-
-      //  RequestBuilder request=requestBuilder(testKeyWord);
         
         Map<String, String> hm
         = new HashMap<String, String>();
-hm.put("searchString", testKeyWord);
+        hm.put("searchString", testKeyWord);
 
-RequestBuilder request=Helpers.fakeRequest()
+        RequestBuilder request=Helpers.fakeRequest()
         .bodyForm(hm)
         .session("Twitter","play1")
         .method(Helpers.POST);
 
-CSRFTokenHelper.addCSRFToken(request);
+        CSRFTokenHelper.addCSRFToken(request);
         setDummyQueriesAndFurtherMocks(testKeyWord);
 
         FormFactory mockFormFactory = mock(FormFactory.class);
@@ -184,18 +176,6 @@ CSRFTokenHelper.addCSRFToken(request);
         HomeController homeController=new HomeController(mockFormFactory,messageAPI);
         homeController.setGlobalGetTweet(getTweets);
         CompletionStage<Result> result =homeController.gettweet(request.build());
-        //String resultString =result.toCompletableFuture().get().java
-        //JavaResultExtractor
-
-
-
-
-        //String header = JavaResultExtractor.getHeaders(result.toCompletableFuture().get().header()).get("Content-Type");
-
-
-        //assertThat(resultString,contains("montreal"));
-        //assertThat("A","a");
-
 
     }
     
@@ -219,19 +199,18 @@ CSRFTokenHelper.addCSRFToken(request);
 
         String resultString =contentAsString(result.toCompletableFuture().get());
 
-      //  assertThat(resultString,StringContains.containsString("montreal"));
-
-       // System.out.println("testErrorInModel : "+ resultString);
-
     }
 
 
 
     @Test
     public void testHomePage() {
+        String userId="Twitter";
         for (int i = 1; i < 10; i++) {
+             if (i==5) userId="NoExist";
             Http.RequestBuilder request = new Http.RequestBuilder()
                     .method(Helpers.GET)
+                    .session(userId,"play1") //10nov
                     .uri("/");
 
             Result result = Helpers.route(app, request);
@@ -242,6 +221,39 @@ CSRFTokenHelper.addCSRFToken(request);
             assertThat(resultString, is(testuser));
 
         }
+    }
+
+
+    @Test
+    public void testPostMethod() throws TwitterException, ExecutionException, InterruptedException {
+        System.out.println("************ testPostMethod");
+        String testKeyWord="australia";
+        FormFactory formFactory=null;
+        Map<String, String> hm
+                = new HashMap<String, String>();
+        hm.put("searchString", testKeyWord);
+        RequestBuilder request=Helpers.fakeRequest()
+                .bodyForm(hm)
+                .session("Twitter","play30")
+                .method(Helpers.POST);
+        CSRFTokenHelper.addCSRFToken(request);
+        setDummyQueriesAndFurtherMocks(testKeyWord);
+        FormFactory mockFormFactory = mock(FormFactory.class);
+        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=mock(MessagesApi.class);
+        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
+
+        HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+
+        homeController.setGlobalGetTweet(getTweets);
+
+        CompletionStage<Result> result =homeController.gettweet(request.build());
+        String resultString =contentAsString(result.toCompletableFuture().get());
+        assertThat(resultString,StringContains.containsString("Montreal"));
+        CompletionStage<Result> result2 =homeController.gettweet(request.build());
+        String resultString2 =contentAsString(result.toCompletableFuture().get());
+        assertThat(resultString2,StringContains.containsString("Montreal"));
+
     }
 
 
@@ -274,8 +286,6 @@ CSRFTokenHelper.addCSRFToken(request);
 
         CompletionStage<Result> result =homeController.gettweet(request.build());
 
-        //String resultString =result.toCompletableFuture().get().toString();
-        //System.out.println(resultString);
 
     }
 
