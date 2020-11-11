@@ -80,14 +80,14 @@ public class HomeController extends Controller {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
 				System.out.println("Current User is in home " + currentUserID);
-				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
-						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
+				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(), currentUserID)
+						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
 
-			}catch (NullPointerException ex){
+			/*}catch (NullPointerException ex){
 				System.out.println("Null pointer exception in gettweet method");
         		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
-			}
-	        catch (Exception ex){
+			} */
+			}catch (Exception ex){
 				System.out.println("Exception gettweet method");
 	    		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
 			}
@@ -108,9 +108,10 @@ public class HomeController extends Controller {
     	if(request.session().get("Twitter").isPresent()){
 			 currentUserID = request.session().get("Twitter").get();
 			 currenUser  = sessionData.getUser(currentUserID);
-			if(currenUser == null) {
+
+			 /*if(currenUser == null) {
 				currenUser = new sessionData();
-			}
+			} */ //10nov
 		}
     	else{
 			currenUser = new sessionData();
