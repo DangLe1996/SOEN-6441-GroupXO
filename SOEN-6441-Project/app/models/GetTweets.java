@@ -18,7 +18,10 @@ import static java.util.stream.Collectors.groupingBy;
 import com.google.inject.AbstractModule;
 import twitter4j.*;
 
+import javax.inject.Inject;
+
 public class GetTweets extends AbstractModule {
+
 
 
 
@@ -70,37 +73,37 @@ public class GetTweets extends AbstractModule {
      */
     public CompletableFuture<List<String>> GetKeywordStats(String SearchQuery) throws TwitterException{
 
-    	if ( GlobalWordStatsCache.containsKey(SearchQuery)) {
+        if ( GlobalWordStatsCache.containsKey(SearchQuery)) {
             return CompletableFuture.completedFuture(GlobalWordStatsCache.get(SearchQuery));
         }
-    	else {
-	        Query query = new Query(SearchQuery + " -filter:retweets");
-	        query.count(10);
-	        query.lang("en");
-	        List<String> removewords = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "as", "able", "about", "above", "according", "accordingly", "across", "actually", "after", "afterwards", "again", "against", "aint", "all", "allow", "allows", "almost", "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "an", "and", "another", "any", "anybody", "anyhow", "anyone", "anything", "anyway", "anyways", "anywhere", "apart", "appear", "appreciate", "appropriate", "are", "arent", "around", "as", "aside", "ask", "asking", "associated", "at", "available", "away", "awfully", "be", "became", "because", "become", "becomes", "becoming", "been", "before", "beforehand", "behind", "being", "believe", "below", "beside", "besides", "best", "better", "between", "beyond", "both", "brief", "but", "by", "cmon", "cs", "came", "can", "cant", "cannot", "cant", "cause", "causes", "certain", "certainly", "changes", "clearly", "co", "com", "come", "comes", "concerning", "consequently", "consider", "considering", "contain", "containing", "contains", "corresponding", "could", "couldnt", "course", "currently", "definitely", "described", "despite", "did", "didnt", "different", "do", "does", "doesnt", "doing", "dont", "done", "down", "downwards", "during", "each", "edu", "eg", "eight", "either", "else", "elsewhere", "enough", "entirely", "especially", "et", "etc", "even", "ever", "every", "everybody", "everyone", "everything", "everywhere", "ex", "exactly", "example", "except", "far", "few", "ff", "fifth", "first", "five", "followed", "following", "follows", "for", "former", "formerly", "forth", "four", "from", "further", "furthermore", "get", "gets", "getting", "given", "gives", "go", "goes", "going", "gone", "got", "gotten", "greetings", "had", "hadnt", "happens", "hardly", "has", "hasnt", "have", "havent", "having", "he", "hes", "hello", "help", "hence", "her", "here", "heres", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "hi", "him", "himself", "his", "hither", "hopefully", "how", "howbeit", "however", "i", "id", "ill", "im", "ive", "ie", "if", "ignored", "immediate", "in", "inasmuch", "inc", "indeed", "indicate", "indicated", "indicates", "inner", "insofar", "instead", "into", "inward", "is", "isnt", "it", "itd", "itll", "its", "its", "itself", "just", "keep", "keeps", "kept", "know", "knows", "known", "last", "lately", "later", "latter", "latterly", "least", "less", "lest", "let", "lets", "like", "liked", "likely", "little", "look", "looking", "looks", "ltd", "mainly", "many", "may", "maybe", "me", "mean", "meanwhile", "merely", "might", "more", "moreover", "most", "mostly", "much", "must", "my", "myself", "name", "namely", "nd", "near", "nearly", "necessary", "need", "needs", "neither", "never", "nevertheless", "new", "next", "nine", "no", "nobody", "non", "none", "noone", "nor", "normally", "not", "nothing", "novel", "now", "nowhere", "obviously", "of", "off", "often", "oh", "ok", "okay", "old", "on", "once", "one", "ones", "only", "onto", "or", "other", "others", "otherwise", "ought", "our", "ours", "ourselves", "out", "outside", "over", "overall", "own", "particular", "particularly", "per", "perhaps", "placed", "please", "plus", "possible", "presumably", "probably", "provides", "que", "quite", "qv", "rather", "rd", "re", "really", "reasonably", "regarding", "regardless", "regards", "relatively", "respectively", "right", "said", "same", "saw", "say", "saying", "says", "second", "secondly", "see", "seeing", "seem", "seemed", "seeming", "seems", "seen", "self", "selves", "sensible", "sent", "serious", "seriously", "seven", "several", "shall", "she", "should", "shouldnt", "since", "six", "so", "some", "somebody", "somehow", "someone", "something", "sometime", "sometimes", "somewhat", "somewhere", "soon", "sorry", "specified", "specify", "specifying", "still", "sub", "such", "sup", "sure", "ts", "take", "taken", "tell", "tends", "th", "than", "thank", "thanks", "thanx", "that", "thats", "thats", "the", "their", "theirs", "them", "themselves", "then", "thence", "there", "theres", "thereafter", "thereby", "therefore", "therein", "theres", "thereupon", "these", "they", "theyd", "theyll", "theyre", "theyve", "think", "third", "this", "thorough", "thoroughly", "those", "though", "three", "through", "throughout", "thru", "thus", "to", "together", "too", "took", "toward", "towards", "tried", "tries", "truly", "try", "trying", "twice", "two", "un", "under", "unfortunately", "unless", "unlikely", "until", "unto", "up", "upon", "us", "use", "used", "useful", "uses", "using", "usually", "value", "various", "very", "via", "viz", "vs", "want", "wants", "was", "wasnt", "way", "we", "wed", "well", "were", "weve", "welcome", "well", "went", "were", "werent", "what", "whats", "whatever", "when", "whence", "whenever", "where", "wheres", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whos", "whoever", "whole", "whom", "whose", "why", "will", "willing", "wish", "with", "within", "without", "wont", "wonder", "would", "would", "wouldnt", "yes", "yet", "you", "youd", "youll", "youre", "youve", "your", "yours", "yourself", "yourselves", "zero");
+        else {
+            Query query = new Query(SearchQuery + " -filter:retweets");
+            query.count(10);
+            query.lang("en");
+            List<String> removewords = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "as", "able", "about", "above", "according", "accordingly", "across", "actually", "after", "afterwards", "again", "against", "aint", "all", "allow", "allows", "almost", "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "an", "and", "another", "any", "anybody", "anyhow", "anyone", "anything", "anyway", "anyways", "anywhere", "apart", "appear", "appreciate", "appropriate", "are", "arent", "around", "as", "aside", "ask", "asking", "associated", "at", "available", "away", "awfully", "be", "became", "because", "become", "becomes", "becoming", "been", "before", "beforehand", "behind", "being", "believe", "below", "beside", "besides", "best", "better", "between", "beyond", "both", "brief", "but", "by", "cmon", "cs", "came", "can", "cant", "cannot", "cant", "cause", "causes", "certain", "certainly", "changes", "clearly", "co", "com", "come", "comes", "concerning", "consequently", "consider", "considering", "contain", "containing", "contains", "corresponding", "could", "couldnt", "course", "currently", "definitely", "described", "despite", "did", "didnt", "different", "do", "does", "doesnt", "doing", "dont", "done", "down", "downwards", "during", "each", "edu", "eg", "eight", "either", "else", "elsewhere", "enough", "entirely", "especially", "et", "etc", "even", "ever", "every", "everybody", "everyone", "everything", "everywhere", "ex", "exactly", "example", "except", "far", "few", "ff", "fifth", "first", "five", "followed", "following", "follows", "for", "former", "formerly", "forth", "four", "from", "further", "furthermore", "get", "gets", "getting", "given", "gives", "go", "goes", "going", "gone", "got", "gotten", "greetings", "had", "hadnt", "happens", "hardly", "has", "hasnt", "have", "havent", "having", "he", "hes", "hello", "help", "hence", "her", "here", "heres", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "hi", "him", "himself", "his", "hither", "hopefully", "how", "howbeit", "however", "i", "id", "ill", "im", "ive", "ie", "if", "ignored", "immediate", "in", "inasmuch", "inc", "indeed", "indicate", "indicated", "indicates", "inner", "insofar", "instead", "into", "inward", "is", "isnt", "it", "itd", "itll", "its", "its", "itself", "just", "keep", "keeps", "kept", "know", "knows", "known", "last", "lately", "later", "latter", "latterly", "least", "less", "lest", "let", "lets", "like", "liked", "likely", "little", "look", "looking", "looks", "ltd", "mainly", "many", "may", "maybe", "me", "mean", "meanwhile", "merely", "might", "more", "moreover", "most", "mostly", "much", "must", "my", "myself", "name", "namely", "nd", "near", "nearly", "necessary", "need", "needs", "neither", "never", "nevertheless", "new", "next", "nine", "no", "nobody", "non", "none", "noone", "nor", "normally", "not", "nothing", "novel", "now", "nowhere", "obviously", "of", "off", "often", "oh", "ok", "okay", "old", "on", "once", "one", "ones", "only", "onto", "or", "other", "others", "otherwise", "ought", "our", "ours", "ourselves", "out", "outside", "over", "overall", "own", "particular", "particularly", "per", "perhaps", "placed", "please", "plus", "possible", "presumably", "probably", "provides", "que", "quite", "qv", "rather", "rd", "re", "really", "reasonably", "regarding", "regardless", "regards", "relatively", "respectively", "right", "said", "same", "saw", "say", "saying", "says", "second", "secondly", "see", "seeing", "seem", "seemed", "seeming", "seems", "seen", "self", "selves", "sensible", "sent", "serious", "seriously", "seven", "several", "shall", "she", "should", "shouldnt", "since", "six", "so", "some", "somebody", "somehow", "someone", "something", "sometime", "sometimes", "somewhat", "somewhere", "soon", "sorry", "specified", "specify", "specifying", "still", "sub", "such", "sup", "sure", "ts", "take", "taken", "tell", "tends", "th", "than", "thank", "thanks", "thanx", "that", "thats", "thats", "the", "their", "theirs", "them", "themselves", "then", "thence", "there", "theres", "thereafter", "thereby", "therefore", "therein", "theres", "thereupon", "these", "they", "theyd", "theyll", "theyre", "theyve", "think", "third", "this", "thorough", "thoroughly", "those", "though", "three", "through", "throughout", "thru", "thus", "to", "together", "too", "took", "toward", "towards", "tried", "tries", "truly", "try", "trying", "twice", "two", "un", "under", "unfortunately", "unless", "unlikely", "until", "unto", "up", "upon", "us", "use", "used", "useful", "uses", "using", "usually", "value", "various", "very", "via", "viz", "vs", "want", "wants", "was", "wasnt", "way", "we", "wed", "well", "were", "weve", "welcome", "well", "went", "were", "werent", "what", "whats", "whatever", "when", "whence", "whenever", "where", "wheres", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whos", "whoever", "whole", "whom", "whose", "why", "will", "willing", "wish", "with", "within", "without", "wont", "wonder", "would", "would", "wouldnt", "yes", "yet", "you", "youd", "youll", "youre", "youve", "your", "yours", "yourself", "yourselves", "zero");
 
-	        CompletableFuture<List<String>> wordstat_sorted =
-	        		  invokeTwitterServer(query)
-	                 .thenApply(result -> result.getTweets()
-							              .parallelStream()
-							              .map(s -> s.getText().split(" "))
-							              .flatMap(Arrays::stream)
-							              .filter(t -> t.matches("[a-zA-Z]+"))
-							              .filter(t -> !removewords.contains(t))
-							              .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum))
-						       )
-	                 .thenApply(wordstat_unsorted ->  wordstat_unsorted.entrySet()
-	                		 						 .parallelStream()
-						     						 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-						     						 .map(swc -> {return swc.getKey() + ":" + swc.getValue() + "\n";})
-						     						 .collect(Collectors.toList())
-	                		   )
-	                 .thenApply(word_sorted -> { GlobalWordStatsCache.put((SearchQuery),word_sorted);
-								         	     return word_sorted;
-	                 							}
-	         			      );
-	        return wordstat_sorted;
-    	}
+            CompletableFuture<List<String>> wordstat_sorted =
+                    invokeTwitterServer(query)
+                            .thenApply(result -> result.getTweets()
+                                    .parallelStream()
+                                    .map(s -> s.getText().split(" "))
+                                    .flatMap(Arrays::stream)
+                                    .filter(t -> t.matches("[a-zA-Z]+"))
+                                    .filter(t -> !removewords.contains(t))
+                                    .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum))
+                            )
+                            .thenApply(wordstat_unsorted ->  wordstat_unsorted.entrySet()
+                                    .parallelStream()
+                                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                                    .map(swc -> {return swc.getKey() + ":" + swc.getValue() + "\n";})
+                                    .collect(Collectors.toList())
+                            )
+                            .thenApply(word_sorted -> { GlobalWordStatsCache.put((SearchQuery),word_sorted);
+                                        return word_sorted;
+                                    }
+                            );
+            return wordstat_sorted;
+        }
     }
 
 
@@ -165,10 +168,6 @@ public class GetTweets extends AbstractModule {
 
 
 
-
-
-
-
     /**
      * Takes a string keyword and return a HTML formatted string showing the last 10 tweets contains the given keyword.
      * Only returns tweets with language of english.
@@ -191,12 +190,12 @@ public class GetTweets extends AbstractModule {
         }
 
         Query query = new Query(keyword + " -filter:retweets");
-        query.count(10);
+        query.count(250);
         query.lang("en");
 
         System.out.println("New look up event");
         return invokeTwitterServer(query)
-                .thenApply(result -> formatSentimental.apply(result))
+                .thenApply(result -> formatSentimental.apply(result,keyword))
                 .thenApply(result -> formatResult.apply(result))
                 .thenApply(tweet -> {
                     GlobalCache.put(keyword, tweetDisplayPageFormat.apply(keyword, tweet));
@@ -205,43 +204,7 @@ public class GetTweets extends AbstractModule {
     }
 
 
-    //Suhel Starts --
-    private static Function<QueryResult, QueryResult> formatSentimental = (result) -> {
 
-
-        String modeString = "";
-        int queryResultSize = result.getTweets().size();
-        Map<Mode, List<Status>> analyse;
-
-        //Stream Grouping based on tweet Text
-        analyse = result.getTweets().parallelStream()
-                .collect(groupingBy(s -> {
-                    if (stringContainsItemFromList(s.getText(), happy)) return Mode.HAPPY;
-                    else if (stringContainsItemFromList(s.getText(), sad)) return Mode.SAD;
-                    else return Mode.NEUTRAL;
-                }));
-
-        if (analyse.containsKey(Mode.HAPPY)) {
-            double indicator = (analyse.get(Mode.HAPPY).size() * 100 / queryResultSize);
-            if (indicator >= 70) {
-                modeString=renderSentimentsHTML(Mode.HAPPY.toString(),indicator);
-
-            }
-        }
-        if (analyse.containsKey(Mode.SAD)) {
-            double indicator = (analyse.get(Mode.SAD).size() * 100 / queryResultSize);
-            if (indicator >= 70) {
-                modeString=renderSentimentsHTML(Mode.SAD.toString(),indicator);
-
-            }
-        }
-        if ("".equals(modeString)) {
-            modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),0);
-
-        }
-        GlobalSentiments.put(keyword, modeString); //cache with a key
-        return result;
-    };
 
     /**
      * Returns a boolean after matching a tweet text with provided list of happy/sad strings
@@ -287,21 +250,58 @@ public class GetTweets extends AbstractModule {
 
     private  Function<QueryResult,String> formatResult = (result) -> {
 
-             return result.getTweets().parallelStream()
-                    .map(s -> {
-                        return "\n" +
-                                "<tr>\n" +
-                                "		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
-                                "		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
-                                "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
-                                "</tr>\n";
-                    })
-                    .limit(10) //suhel
-                    .reduce("",
-                            String::concat);
+        return result.getTweets().parallelStream()
+                .map(s -> {
+                    return "\n" +
+                            "<tr>\n" +
+                            "		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
+                            "		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+                            "</tr>\n";
+                })
+                .limit(10) //suhel
+                .reduce("",
+                        String::concat);
 
     };
 
+
+
+    private  BiFunction<QueryResult, String, QueryResult> formatSentimental = (result, keyword) ->{
+
+        String modeString = "";
+        int queryResultSize = result.getTweets().size();
+        Map<Mode, List<Status>> analyse;
+
+        //Stream Grouping based on tweet Text
+        analyse = result.getTweets().parallelStream()
+                .collect(groupingBy(s -> {
+                    if (stringContainsItemFromList(s.getText(), happy)) return Mode.HAPPY;
+                    else if (stringContainsItemFromList(s.getText(), sad)) return Mode.SAD;
+                    else return Mode.NEUTRAL;
+                }));
+
+        if (analyse.containsKey(Mode.HAPPY)) {
+            double indicator = (analyse.get(Mode.HAPPY).size() * 100 / queryResultSize);
+            if (indicator >= 70) {
+                modeString=renderSentimentsHTML(Mode.HAPPY.toString(),indicator);
+
+            }
+        }
+        if (analyse.containsKey(Mode.SAD)) {
+            double indicator = (analyse.get(Mode.SAD).size() * 100 / queryResultSize);
+            if (indicator >= 70) {
+                modeString=renderSentimentsHTML(Mode.SAD.toString(),indicator);
+
+            }
+        }
+        if ("".equals(modeString)) {
+            modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),0);
+
+        }
+        GlobalSentiments.put(keyword, modeString); //cache with a key
+        return result;
+    };
 
 
     private CompletableFuture<QueryResult> invokeTwitterServer(Query query) throws TwitterException {

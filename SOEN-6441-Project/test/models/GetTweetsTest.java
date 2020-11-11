@@ -48,6 +48,8 @@ public class GetTweetsTest extends WithApplication {
     private static CompletableFuture<QueryResult> aCachedQueryResult;
 
     @Mock
+    private static sessionData sessionData = mock(models.sessionData.class);
+    @Mock
     private static Twitter twitter = mock(Twitter.class);
     @Mock
     private static Status status = mock(Status.class);
@@ -56,8 +58,8 @@ public class GetTweetsTest extends WithApplication {
 
     private static QueryResult queryResult = mock(QueryResult.class);
 
-    @InjectMocks
-    private GetTweets AGetTweet;
+
+    private GetTweets AGetTweet = new GetTweets();
 
 
     private static List<Status> results = new ArrayList<>();
@@ -67,6 +69,11 @@ public class GetTweetsTest extends WithApplication {
         return new GuiceApplicationBuilder().build();
 
     }
+
+
+
+
+
 
     @Test
     public void testGetTweets_keyword() throws ExecutionException, InterruptedException, TwitterException {
@@ -271,17 +278,7 @@ public class GetTweetsTest extends WithApplication {
 
     }
 
-  /*  @Test
-    public void call_actual_for_sentiments() throws TwitterException {
 
-        Twitter twitter = new TwitterFactory().getInstance();
-        GetTweets gt= new GetTweets(twitter);
-        CompletionStage<String> a=gt.GetTweets_keyword("donald trump");
-
-		GetTweets gt1 = new GetTweets(twitter1);
-		CompletableFuture<QueryResult> statuses = gt.invokeTwitterServer(new Query("a thing"));
-		assertNull(statuses.toCompletableFuture().get());
-*/
     private List<Status> buildStatusList(int number,String tweetMode) throws TwitterException {
         List<Status> statuses = new ArrayList<>();
         Status aTestStatus = null;

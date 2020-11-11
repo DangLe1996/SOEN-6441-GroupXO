@@ -1,8 +1,14 @@
 package models;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javax.inject.Inject;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +18,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 class sessionDataTest {
 
+    @Inject sessionData sessionData;
     private static sessionData testUser;
     @BeforeEach
     void setUp() {

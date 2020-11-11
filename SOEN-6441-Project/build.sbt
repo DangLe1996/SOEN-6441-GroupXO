@@ -9,7 +9,12 @@ version := "1.0-SNAPSHOT"
 lazy val root = (project.in( file("."))).enablePlugins(PlayJava)
 
 
+val jacocoVersion = "0.8.5"
 
+dependencyOverrides ++= Seq(
+  "org.jacoco" % "org.jacoco.core" % jacocoVersion % Test,
+  "org.jacoco" % "org.jacoco.report" % jacocoVersion % Test,
+  "org.jacoco" % "org.jacoco.agent" % jacocoVersion % Test)
 
 scalaVersion := "2.13.1"
 

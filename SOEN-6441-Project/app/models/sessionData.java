@@ -1,10 +1,11 @@
 package models;
 
+import com.google.inject.AbstractModule;
 import scala.math.Equiv;
 
 import java.util.*;
 
-public class sessionData {
+public class sessionData extends AbstractModule {
 
 
     /**
@@ -16,7 +17,6 @@ public class sessionData {
      * Store userSession of all user entered the system, using user's sessionID as key.
      */
     public static Hashtable<String,sessionData> userCache = new Hashtable<>();
-
 
     /**
      * Store the list of latest 10 keywords that user looks up
@@ -56,8 +56,7 @@ public class sessionData {
      * @param userID : key to retrieve user information from userCache
      * @return: sessionData object of the user with given userID
      */
-    public static sessionData getUser(String userID){
-
+    public static  sessionData getUser(String userID){
 
 
         if(userID == null )return new sessionData();

@@ -39,6 +39,7 @@ public class HomeController extends Controller {
 
 
 
+
 	public void setGlobalGetTweet(GetTweets globalGetTweet) {
 		this.globalGetTweet = globalGetTweet;
 	}
@@ -65,11 +66,10 @@ public class HomeController extends Controller {
 	/**
 	 * Handle user request to see the last 10 tweets for a given keyword.
 	 * @param request : Http request contains search query and session information.
-	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session.
-	 * @throws TwitterException: exception from twitter4j server.
+	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session
 	 * @see models.GetTweets#GetTweets_keyword(String)
 	 */
-    public CompletionStage<Result> gettweet(Http.Request request) throws TwitterException{
+    public CompletionStage<Result> gettweet(Http.Request request) {
     	final Form<Search> boundForm = form.bindFromRequest(request);
 
         if (boundForm.hasErrors()) {
@@ -97,8 +97,8 @@ public class HomeController extends Controller {
 	/**
 	 * This method display the Home Page. If the request does not contain any user information, a new user session will be created and attached.
 	 * Else, user information (terms that user already searched for) is retrieved from the userCache in sessionData class.
-	 * @param request
-	 * @return CompletionStage<Result> that display the homePage.
+	 * @param request Holder for session Data
+	 * @return Html display the homePage.
 	 * @see models.sessionData#getUser(String)
 	 */
     public CompletionStage<Result> homePage(Http.Request request) {

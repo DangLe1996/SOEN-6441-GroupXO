@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="ProjectDoc" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/scopes/ProjectDoc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/commons/CommonHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_jacoco_org_jacoco_agent_0_8_2_runtime_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_jacoco_org_jacoco_agent_0_8_5_runtime_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/GetTweetsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/GetTweetsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/sessionDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/sessionDataTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +38,28 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SOEN-6441-Project" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SOEN-6441-Project" type="f1a62948:ProjectNode" />
+                <item name="SOEN-6441-Project" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,6 +76,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="NamedScopeManager">
+    <order>
+      <scope name="ProjectDoc" />
+    </order>
+  </component>
   <component name="Play2ProjectSettings">
     <option name="LANGUAGE_IMPORTS">
       <array>
@@ -41,8 +89,8 @@
         <option value="java.lang._" />
         <option value="play.mvc._" />
         <option value="_root_.play.twirl.api.Txt" />
-        <option value="play.api.data.Field" />
         <option value="play.data._" />
+        <option value="play.api.data.Field" />
         <option value="scala.jdk.CollectionConverters._" />
         <option value="_root_.play.twirl.api.JavaScript" />
         <option value="play.api.templates.PlayMagic._" />
@@ -65,6 +113,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -73,8 +122,13 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.32873562" />
+    <property name="settings.editor.selected.configurable" value="coverage" />
   </component>
-  <component name="RunManager" selected="JUnit.HomeControllerTest.testHomePage">
+  <component name="RunManager" selected="JUnit.models in SOEN-6441-Project">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -88,32 +142,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
-      <extension name="coverage">
+      <useClassPathOnly />
+      <extension name="coverage" track_test_folders="true" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
         <pattern>
           <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="controllers.javascript.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.HomeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeControllerTest.testHomeController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GetTweetsTest.testGetTweetWithUserIDEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controllers.*" />
+          <option name="PATTERN" value="models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.HomeControllerTest" />
-      <option name="METHOD_NAME" value="testHomeController" />
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.GetTweetsTest" />
+      <option name="METHOD_NAME" value="testGetTweetWithUserIDEmptyString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,20 +259,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.HomeControllerTest.testHomeController" />
-      <item itemvalue="JUnit.HomeControllerTest.testHomePage" />
+      <item itemvalue="JUnit.All in SOEN-6441-Project" />
       <item itemvalue="Play 2 App.play run" />
-      <item itemvalue="JUnit.HomeControllerTest" />
+      <item itemvalue="JUnit.HomeControllerTest.testHomePage" />
       <item itemvalue="JUnit.models in SOEN-6441-Project" />
+      <item itemvalue="JUnit.GetTweetsTest.testGetTweetWithUserIDEmptyString" />
       <item itemvalue="JUnit.controllers in SOEN-6441-Project" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HomeControllerTest.testHomePage" />
-        <item itemvalue="JUnit.controllers in SOEN-6441-Project" />
         <item itemvalue="JUnit.models in SOEN-6441-Project" />
-        <item itemvalue="JUnit.HomeControllerTest" />
-        <item itemvalue="JUnit.HomeControllerTest.testHomeController" />
+        <item itemvalue="JUnit.controllers in SOEN-6441-Project" />
+        <item itemvalue="JUnit.GetTweetsTest.testGetTweetWithUserIDEmptyString" />
+        <item itemvalue="JUnit.HomeControllerTest.testHomePage" />
+        <item itemvalue="JUnit.All in SOEN-6441-Project" />
       </list>
     </recent_temporary>
   </component>
@@ -220,6 +286,8 @@
       <updated>1604873621245</updated>
       <workItem from="1604873631629" duration="7845000" />
       <workItem from="1604956847581" duration="2040000" />
+      <workItem from="1605124014608" duration="4069000" />
+      <workItem from="1605128369052" duration="6463000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -271,94 +339,138 @@
     <option name="LAST_COMMIT_MESSAGE" value="code clean up and test updated" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604893454923">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604893454923" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130485516" />
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1605130483606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130483606" />
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605130334642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130334642" />
     <state x="715" y="223" key="#xdebugger.evaluate" timestamp="1604878273709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="715" y="223" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604878273709" />
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605133897206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133897206" />
     <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1604958767445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604958767445" />
-    <state width="459" height="466" key="DebuggerActiveHint" timestamp="1604897533434">
+    <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605126887524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="459" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604897533434" />
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1604974781535">
+    <state width="459" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605126887524" />
+    <state width="1877" height="294" key="GridCell.Tab.0.bottom" timestamp="1605138564221">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604974781535" />
-    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1604974781535">
+    <state width="1877" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138564221" />
+    <state width="1877" height="294" key="GridCell.Tab.0.center" timestamp="1605138564221">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604974781535" />
-    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1604974781535">
+    <state width="1877" height="294" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138564221" />
+    <state width="1877" height="294" key="GridCell.Tab.0.left" timestamp="1605138564220">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604974781535" />
-    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1604974781535">
+    <state width="1877" height="294" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138564220" />
+    <state width="1877" height="294" key="GridCell.Tab.0.right" timestamp="1605138564221">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604974781535" />
-    <state width="1877" height="186" key="GridCell.Tab.1.bottom" timestamp="1604950551468">
+    <state width="1877" height="294" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138564221" />
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom" timestamp="1605133232443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604950551468" />
-    <state width="1877" height="186" key="GridCell.Tab.1.center" timestamp="1604950551468">
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133232443" />
+    <state width="1877" height="292" key="GridCell.Tab.1.center" timestamp="1605133232442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604950551468" />
-    <state width="1877" height="186" key="GridCell.Tab.1.left" timestamp="1604950551468">
+    <state width="1877" height="292" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133232442" />
+    <state width="1877" height="292" key="GridCell.Tab.1.left" timestamp="1605133232442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604950551468" />
-    <state width="1877" height="186" key="GridCell.Tab.1.right" timestamp="1604950551468">
+    <state width="1877" height="292" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133232442" />
+    <state width="1877" height="292" key="GridCell.Tab.1.right" timestamp="1605133232442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604950551468" />
+    <state width="1877" height="292" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133232442" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1605124387258">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124387258" />
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605124387269">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124387269" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1605129685710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605129685710" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604958775667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604958775667" />
-    <state x="953" y="0" width="974" height="1047" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604974774487">
+    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605124698481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="953" y="0" width="974" height="1047" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604974774487" />
-    <state x="1920" y="320" width="1216" height="717" maximized="true" key="dock-window-1" timestamp="1604895497705">
+    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124698481" />
+    <state x="1959" y="171" width="1030" height="813" key="dock-window-1" timestamp="1605138160587">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="1920" y="320" width="1216" height="717" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604895497705" />
-    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2" timestamp="1604958371933">
+    <state x="1959" y="171" width="1030" height="813" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138160587" />
+    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2" timestamp="1605124439878">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1604958371933" />
+    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124439878" />
+    <state x="752" y="358" width="971" height="396" key="scopes" timestamp="1605133881246">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="358" width="971" height="396" key="scopes/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133881246" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>118</line>
+          <line>121</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1604957095229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605128901550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testException.ic" NAME="HomeControllerTest.testException Coverage Results" MODIFIED="1604957686976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1604957754145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.exec" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605130623831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+      <FILTER>controllers.*</FILTER>
+      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1605130736948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_tesHashTag.ic" NAME="HomeControllerTest.tesHashTag Coverage Results" MODIFIED="1605128880308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$models_in_SOEN_6441_Project.ic" NAME="models in SOEN-6441-Project Coverage Results" MODIFIED="1605138564181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
