@@ -73,22 +73,19 @@ public class HomeController extends Controller {
     	final Form<Search> boundForm = form.bindFromRequest(request);
 
         if (boundForm.hasErrors()) {
-			System.out.println("Error with bound form in HomeController.gettweet method");
             return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
         } else {
         	try {
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
-				System.out.println("Current User is in home " + currentUserID);
-				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
-						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
+				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(), currentUserID)
+						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
 
-			}catch (NullPointerException ex){
+			/*}catch (NullPointerException ex){
 				System.out.println("Null pointer exception in gettweet method");
         		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
-			}
-	        catch (Exception ex){
-				System.out.println("Exception gettweet method");
+			} */
+			}catch (Exception ex){
 	    		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
 			}
         }      
@@ -108,15 +105,15 @@ public class HomeController extends Controller {
     	if(request.session().get("Twitter").isPresent()){
 			 currentUserID = request.session().get("Twitter").get();
 			 currenUser  = sessionData.getUser(currentUserID);
-			if(currenUser == null) {
+
+			 /*if(currenUser == null) {
 				currenUser = new sessionData();
-			}
+			} */ //10nov
 		}
     	else{
 			currenUser = new sessionData();
 			currentUserID = currenUser.toString();
 		}
-		System.out.println("Current user: " + currentUserID);
 
 		return CompletableFuture.completedFuture(displayHomePage.apply(currenUser,request));
 
