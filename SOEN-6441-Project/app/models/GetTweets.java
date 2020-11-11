@@ -137,25 +137,32 @@ public class GetTweets extends AbstractModule {
      */
     public CompletionStage<sessionData> GetTweets_keyword(String searchQuery, String UserID) throws TwitterException {
 
-        sessionData currentUser = sessionData.getUser(UserID);
+       sessionData currentUser = sessionData.getUser(UserID);
+       
         if (searchQuery.length() < 2) {
             return CompletableFuture.completedFuture(currentUser);
         }
 
         if (GlobalCache.containsKey(searchQuery)) {
+
             List<String> userQuery = currentUser.getQuery();
+           
+
             if (userQuery.contains(searchQuery)) {
                 userQuery.remove(searchQuery);
                 userQuery.add(0, searchQuery);
             } else {
+                
+
                 currentUser.insertCache(searchQuery, GlobalCache.get(searchQuery));
             }
             return CompletableFuture.completedFuture(currentUser);
 
         } else {
-            System.out.println("Current User is " + currentUser);
 
+            
             return GetTweets_keyword(searchQuery).thenApply(result -> {
+                
                 GlobalCache.put(searchQuery, result);
                 currentUser.insertCache(searchQuery, result);
                 return currentUser;
@@ -183,7 +190,6 @@ public class GetTweets extends AbstractModule {
 
         if (GlobalCache.containsKey(keyword)) {
 
-            System.out.println("Data retrieved from Global Cache");
             return CompletableFuture.completedFuture(
                     GlobalCache.get(keyword)
             );
@@ -193,7 +199,6 @@ public class GetTweets extends AbstractModule {
         query.count(250);
         query.lang("en");
 
-        System.out.println("New look up event");
         return invokeTwitterServer(query)
                 .thenApply(result -> formatSentimental.apply(result,keyword))
                 .thenApply(result -> formatResult.apply(result))
@@ -308,9 +313,11 @@ public class GetTweets extends AbstractModule {
 
         return CompletableFuture.supplyAsync( () -> {
             try {
-                return twitter.search(query);
-            } catch (Exception e) {
-                e.printStackTrace();
+                
+                QueryResult qr= twitter.search(query);
+                return qr;
+            } catch (Exception e) {  
+                //e.printStackTrace();
                 return null;
             }
         });

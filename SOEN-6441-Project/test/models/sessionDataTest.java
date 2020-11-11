@@ -6,7 +6,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import play.Application;
+import play.inject.guice.GuiceApplicationBuilder;
+import play.test.WithApplication;
 
 import javax.inject.Inject;
 
@@ -16,46 +20,60 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static org.hamcrest.CoreMatchers.*;
 
-class sessionDataTest {
+public class sessionDataTest  extends WithApplication {
+
+    @Override
+    protected Application provideApplication() {
+        return new GuiceApplicationBuilder().build();
+    }
+
 
     @Inject sessionData sessionData;
     private static sessionData testUser;
-    @BeforeEach
-    void setUp() {
+    //@BeforeEach
+    public void setUp() {
         for(int i = 0; i < 3; i++){
             new sessionData();
         }
         testUser =  new sessionData();
     }
 
-    @AfterEach
-    void tearDown() {
-    	System.out.println("in teardown");
+    //@AfterEach
+    public  void tearDown() {
+
         sessionData.cleanUpSessions();
 
     }
 
     @Test
-    void getTestUser() {
+    public  void getTestUser() {
+        setUp();
+
         assertThat(sessionData.userCache.size(),is(4));
         assertThat(sessionData.getUser(testUser.toString()),is(equalTo(testUser)));
+        tearDown();
     }
 
     @Test
-    void getInvalidUser(){
+    public  void getInvalidUser(){
+        setUp();
         assertThat(sessionData.getUser(null).getSessionID(),is("play5"));
         assertThat(sessionData.getUser("badID").getSessionID(),is("play6"));
+        tearDown();
     }
     @Test
-    void testToString() {
+    public  void testToString() {
+        setUp();
         assertThat(testUser.toString(),is("sessionData{" +
                 "sessionID='" + "play4" + '\'' +
                 '}'));
+        tearDown();
     }
 
 
     @Test
-    void insertNewCache() {
+    public  void insertNewCache() {
+        setUp();
 
         testUser.insertCache("test1","this is test 1");
         testUser.insertCache("test2","this is test 2");
@@ -63,20 +81,25 @@ class sessionDataTest {
 
         assertThat(testUser.getCache().size(),is(3));
         assertThat(testUser.getQuery().size(),is(3));
-
+        tearDown();
     }
     
     @Test
-    void insertCacheWithExisting(){
+    public  void insertCacheWithExisting(){
+        setUp();
         testUser.insertCache("test2","this is test 2");
         testUser.insertCache("test2","this is test 2.1");
 
         assertThat(testUser.getCache().size(),is(1));
         assertThat(testUser.getQuery().size(),is(1));
+        tearDown();
     }
 
     @Test
-    void testCacheMaxSize(){
+    public void testCacheMaxSize(){
+        setUp();
+
+        //sessionData testUser=new sessionData() ;
         for(int i = 0; i < 12; i++){
             String keyword = "test" + i;
             String result = "this is test " + i;
@@ -86,6 +109,7 @@ class sessionDataTest {
         assertThat(testUser.getQuery().size(),is(10));
         assertThat(testUser.getQuery().get(0),is("test11"));
         assertThat(testUser.getCache().get("test11"),is("this is test 11"));
+        tearDown();
     }
 
 

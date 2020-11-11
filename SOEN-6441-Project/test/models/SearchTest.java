@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-class SearchTest {
+public class SearchTest {
 
 
 
     @Test
-    void testCorrectString() {
+    public void testCorrectString() {
         String searchPhrase = "this is test search";
         Search testSearch = new Search();
         testSearch.setSearchString(searchPhrase);
@@ -21,7 +21,7 @@ class SearchTest {
     }
 
     @Test
-    void testEmptyString() {
+    public void testEmptyString() {
         String searchPhrase = " ";
         Search testSearch = new Search();
         testSearch.setSearchString(searchPhrase);
@@ -29,7 +29,7 @@ class SearchTest {
 
     }
     @Test
-    void testNullString() {
+    public void testNullString() {
         String searchPhrase = null;
         Search testSearch = new Search();
         testSearch.setSearchString(searchPhrase);
