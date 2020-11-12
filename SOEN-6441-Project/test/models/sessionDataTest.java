@@ -30,7 +30,7 @@ public class sessionDataTest  extends WithApplication {
 
     @Inject sessionData sessionData;
     private static sessionData testUser;
-    //@BeforeEach
+    @Before
     public void setUp() {
         for(int i = 0; i < 3; i++){
             new sessionData();
@@ -38,42 +38,64 @@ public class sessionDataTest  extends WithApplication {
         testUser =  new sessionData();
     }
 
-    //@AfterEach
+    @After
     public  void tearDown() {
 
         sessionData.cleanUpSessions();
 
     }
 
+
+    @Test
+    public void testCleanUp(){
+        sessionData.cleanUpSessions();
+        assertThat(sessionData.userCache.size(),is(0));
+    }
+
+
+
+    /**
+     * Test that session data are correctly kept. After running set up, there should be 4 recorded users.
+     */
     @Test
     public  void getTestUser() {
-        setUp();
+
 
         assertThat(sessionData.userCache.size(),is(4));
         assertThat(sessionData.getUser(testUser.toString()),is(equalTo(testUser)));
-        tearDown();
+
     }
 
+    /**
+     * Test that when provided invalid user key, system create and return a new valid user.
+     */
     @Test
     public  void getInvalidUser(){
-        setUp();
+
         assertThat(sessionData.getUser(null).getSessionID(),is("play5"));
         assertThat(sessionData.getUser("badID").getSessionID(),is("play6"));
-        tearDown();
+
     }
+
+    /**
+     * Test toString function
+     */
     @Test
     public  void testToString() {
-        setUp();
+
         assertThat(testUser.toString(),is("sessionData{" +
                 "sessionID='" + "play4" + '\'' +
                 '}'));
-        tearDown();
+
     }
 
 
+    /**
+     * Test that user's local cache and query record and return data correctly.
+     */
     @Test
     public  void insertNewCache() {
-        setUp();
+
 
         testUser.insertCache("test1","this is test 1");
         testUser.insertCache("test2","this is test 2");
@@ -81,23 +103,31 @@ public class sessionDataTest  extends WithApplication {
 
         assertThat(testUser.getCache().size(),is(3));
         assertThat(testUser.getQuery().size(),is(3));
-        tearDown();
+
     }
-    
+
+    /**
+     * Test that once a search term is entered into cache, it would not create duplicate
+     * once a search with same keyword return a different result. Rather it would
+     * replace the curent version
+     */
     @Test
     public  void insertCacheWithExisting(){
-        setUp();
+
         testUser.insertCache("test2","this is test 2");
         testUser.insertCache("test2","this is test 2.1");
 
         assertThat(testUser.getCache().size(),is(1));
         assertThat(testUser.getQuery().size(),is(1));
-        tearDown();
+
     }
 
+    /**
+     * Test that cache and query size is kept to 10 last searches.
+     */
     @Test
     public void testCacheMaxSize(){
-        setUp();
+
 
         //sessionData testUser=new sessionData() ;
         for(int i = 0; i < 12; i++){
@@ -109,7 +139,7 @@ public class sessionDataTest  extends WithApplication {
         assertThat(testUser.getQuery().size(),is(10));
         assertThat(testUser.getQuery().get(0),is("test11"));
         assertThat(testUser.getCache().get("test11"),is("this is test 11"));
-        tearDown();
+
     }
 
 

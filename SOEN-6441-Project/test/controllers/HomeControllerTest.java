@@ -2,11 +2,10 @@ package controllers;
 
 
 
-import com.google.common.collect.ImmutableMap;
 import models.GetTweets;
-import models.Search;
 import org.junit.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -14,32 +13,18 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import org.hamcrest.core.StringContains;
 import play.Application;
-import play.Environment;
 import play.api.inject.guice.GuiceApplicationBuilder;
 import play.api.test.CSRFTokenHelper;
 
-import play.core.j.JavaResultExtractor;
-
-import play.core.server.AkkaHttpServer;
-import play.data.Form;
 import play.data.FormFactory;
-import play.i18n.Messages;
 import play.i18n.MessagesApi;
-import play.inject.guice.GuiceApplicationLoader;
-import play.mvc.*;
 
 import play.mvc.Http;
 import play.mvc.Result;
 import play.test.Helpers;
 import play.test.WithApplication;
-import play.twirl.api.Content;
 import twitter4j.*;
-import java.util.*;
-import play.test.*;
-import play.libs.F.*;
 
-import javax.inject.Inject;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +44,7 @@ import static play.test.Helpers.*;
 
 
 //import org.apache.http.util.EntityUtils;
-import play.http.HttpEntity;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class HomeControllerTest extends WithApplication {
@@ -270,9 +255,6 @@ public class HomeControllerTest extends WithApplication {
     public void testException() throws TwitterException, ExecutionException, InterruptedException {
 
         String testKeyWord="canada";
-        FormFactory formFactory=null;
-        //RequestBuilder request=requestBuilder(testKeyWord);
-        //setDummyQueriesAndFurtherMocks(testKeyWord);
 
         Map<String, String> hm
                 = new HashMap<String, String>();
@@ -334,24 +316,12 @@ public class HomeControllerTest extends WithApplication {
         return request;
     }
 
-    @Test
-    public void tesHashTag() throws TwitterException, ExecutionException, InterruptedException {
 
-        GetTweets getTweetsTest = mock(GetTweets.class);
 
-        when(getTweetsTest.GetTweets_keyword("test")).thenReturn(CompletableFuture.completedFuture("this is a test"));
 
-        Application testApp = new play.inject.guice.GuiceApplicationBuilder()
-                .overrides(bind(GetTweets.class).toInstance(getTweetsTest))
-                .build();
 
-        Http.RequestBuilder request = new Http.RequestBuilder()
-                .method(GET)
-                .uri("/hashtag?s=test");
 
-        Result result = route(testApp, request);
-        assertThat(contentAsString(result).contains("this is a test"),is(true));
-    }
+
     private List<Status> buildStatusList(int number, String tweetMode) throws TwitterException {
         List<Status> statuses = new ArrayList<>();
         Status aTestStatus = null;

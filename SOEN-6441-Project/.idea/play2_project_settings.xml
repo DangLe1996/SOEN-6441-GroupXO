@@ -6,7 +6,7 @@
         <entry key="SOEN-6441-Project">
           <value>
             <ProjectSettingsEntry>
-              <option name="playDistrPath" value="$PROJECT_DIR$/null/Coursier/cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.13/2.8.2/play_2.13-2.8.2.jar" />
+              <option name="playDistrPath" value="$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.13/2.8.2/play_2.13-2.8.2.jar" />
             </ProjectSettingsEntry>
           </value>
         </entry>

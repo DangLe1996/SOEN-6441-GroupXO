@@ -6,6 +6,7 @@
 
 
 GET   /							controllers.HomeController.homePage(request: Request)
+
 POST  /                    controllers.HomeController.gettweet(request: Request)
 
 GET   /user							controllers.HomeController.user(request: Request, s: String)
