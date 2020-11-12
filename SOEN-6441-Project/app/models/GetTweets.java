@@ -18,6 +18,9 @@ import twitter4j.*;
 
 import javax.security.sasl.AuthenticationException;
 
+/**
+ * Handles the request of getting TwitterAPI
+ */
 public class GetTweets extends AbstractModule {
 
 
@@ -57,15 +60,11 @@ public class GetTweets extends AbstractModule {
     public enum Mode {
         HAPPY, SAD, NEUTRAL
     }
-    /**
-     * map to capture the tweet sentiment statitics
-     */
-
 
     /**
      * This method return a word-level statistics for the last 250 tweeets that contains a given SearchQuery, counting words in descending order
      * by frequency of the words.
-     *
+     * @author: Girish
      * @param SearchQuery
      * @return
      * @throws TwitterException
@@ -216,6 +215,7 @@ public class GetTweets extends AbstractModule {
     }
     /**
      * Returns and stores mode analysis of tweets from a global cache
+     * @author: Suhel
      * @param searchQuery
      * @return String
      */
@@ -232,6 +232,7 @@ public class GetTweets extends AbstractModule {
 
     /**
      * Rendered the HTML for mode analysis and adds emoticons
+     * @author: Suhel
      * @param mood,percentage
      * @return String
      */
@@ -244,8 +245,11 @@ public class GetTweets extends AbstractModule {
         return emoticon;
 
     }
-//suhel ends
 
+
+    /**
+     * Get 10 tweets from Query result and adding HTML tags to display on screen.
+     */
     private  Function<QueryResult,String> formatResult = (result) -> {
 
         return result.getTweets().parallelStream()
@@ -264,7 +268,9 @@ public class GetTweets extends AbstractModule {
     };
 
 
-
+    /**
+     * Calculate the percentage of Happy or Sad tweet and store the result in GlobalSentiments Hashmap.
+     */
     private  BiFunction<QueryResult, String, QueryResult> formatSentimental = (result, keyword) ->{
 
         String modeString = "";
@@ -302,6 +308,11 @@ public class GetTweets extends AbstractModule {
     };
 
 
+    /**
+     * Invoke Live Twitter server
+     * @param query : search query to send to Twitter
+     * @return: Query Result that include Tweets containing search query parameter.
+     */
     private CompletableFuture<QueryResult> invokeTwitterServer(Query query)   {
         return CompletableFuture.supplyAsync( () -> {
             try {

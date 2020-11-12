@@ -12,10 +12,8 @@
     <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/twitter4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/twitter4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/RoutingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/RoutingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/GetTweetsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/GetTweetsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +260,7 @@
       <workItem from="1604956847581" duration="2040000" />
       <workItem from="1605124014608" duration="4069000" />
       <workItem from="1605128369052" duration="16667000" />
-      <workItem from="1605195388316" duration="9454000" />
+      <workItem from="1605195388316" duration="10664000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -313,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605201493855</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="testing completed (maybe).">
+      <created>1605205148953</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605205148953</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +342,8 @@
     <MESSAGE value="code clean up and test updated" />
     <MESSAGE value="JavaDoc modify" />
     <MESSAGE value="Added Routing Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Routing Test" />
+    <MESSAGE value="testing completed (maybe)." />
+    <option name="LAST_COMMIT_MESSAGE" value="testing completed (maybe)." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -364,14 +370,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202114765" />
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605133897206">
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605205592731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133897206" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1605201492246">
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205592731" />
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1605205147781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605201492246" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205147781" />
     <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605202106591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -380,22 +386,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605201769551" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605204660189">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605205338012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605204660189" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1605204660188">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1605205338012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605204660188" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1605204660188">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1605205338012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605204660188" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1605204660188">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1605205338012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605204660188" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
     <state width="1877" height="292" key="GridCell.Tab.1.bottom" timestamp="1605202158528">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -420,14 +426,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138976163" />
+    <state x="615" y="240" key="RollbackChangesDialog" timestamp="1605205494233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="615" y="240" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205494233" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1605196339062">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605196339062" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605138698717">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605205155327">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138698717" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205155327" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -454,12 +464,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>129</line>
+          <line>128</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>149</line>
+          <line>148</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -474,17 +484,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>147</line>
+          <line>146</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>182</line>
+          <line>181</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>305</line>
+          <line>316</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -504,7 +514,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>154</line>
+          <line>153</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -524,7 +534,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605204203525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605205033853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>

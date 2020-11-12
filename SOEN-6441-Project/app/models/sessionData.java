@@ -5,6 +5,9 @@ import scala.math.Equiv;
 
 import java.util.*;
 
+/**
+ * Handle userCache, including UserID, list of searched queries and results
+ */
 public class sessionData extends AbstractModule {
 
 
