@@ -6,7 +6,6 @@ import java.util.concurrent.CompletionStage;
 import models.Search;
 import models.sessionData;
 import twitter4j.*;
-import java.util.Map;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
@@ -15,10 +14,6 @@ import play.mvc.*;
 import javax.inject.Inject;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.function.BiFunction;
 
 import static play.libs.Scala.asScala;
@@ -39,6 +34,7 @@ public class HomeController extends Controller {
 
 
 
+
 	public void setGlobalGetTweet(GetTweets globalGetTweet) {
 		this.globalGetTweet = globalGetTweet;
 	}
@@ -50,7 +46,7 @@ public class HomeController extends Controller {
 
         this.form = formFactory.form(Search.class);
         this.messagesApi = messagesApi;
-		this.globalGetTweet = new GetTweets(); //gt;
+
 
     }
 
@@ -65,28 +61,22 @@ public class HomeController extends Controller {
 	/**
 	 * Handle user request to see the last 10 tweets for a given keyword.
 	 * @param request : Http request contains search query and session information.
-	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session.
-	 * @throws TwitterException: exception from twitter4j server.
-	 * @see models.GetTweets#GetTweets_keyword(String)
+	 * @return : display tweets_display with code 200 if the request is handled sucessfully. If there is an error, return to HomePage with new session
+	 * @see models.GetTweets#GetTweetsWithKeyword(String)
 	 */
-    public CompletionStage<Result> gettweet(Http.Request request) throws TwitterException{
-    	final Form<Search> boundForm = form.bindFromRequest(request);
+    public CompletionStage<Result> gettweet(Http.Request request) {
+    	final Form<Search> boundForm = form.bindFromRequest(request,"searchString");
 
         if (boundForm.hasErrors()) {
-			System.out.println("Error with bound form in HomeController.gettweet method");
             return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
         } else {
-        	try {
+
 				Search searchquery = boundForm.get();
 				String currentUserID = request.session().get("Twitter").get();
-				return globalGetTweet.GetTweets_keyword(searchquery.getSearchString(),currentUserID)
-						.thenApply(currentUser -> displayHomePage.apply(currentUser,request));
+				return globalGetTweet.GetTweetsWithUser(searchquery.getSearchString(), currentUserID)
+						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
 
 
-			}catch (NullPointerException ex){
-				System.out.println("Null pointer exception in gettweet method");
-        		return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
-			}
 
         }      
     }
@@ -94,8 +84,8 @@ public class HomeController extends Controller {
 	/**
 	 * This method display the Home Page. If the request does not contain any user information, a new user session will be created and attached.
 	 * Else, user information (terms that user already searched for) is retrieved from the userCache in sessionData class.
-	 * @param request
-	 * @return CompletionStage<Result> that display the homePage.
+	 * @param request Holder for session Data
+	 * @return Html display the homePage.
 	 * @see models.sessionData#getUser(String)
 	 */
     public CompletionStage<Result> homePage(Http.Request request) {
@@ -105,15 +95,13 @@ public class HomeController extends Controller {
     	if(request.session().get("Twitter").isPresent()){
 			 currentUserID = request.session().get("Twitter").get();
 			 currenUser  = sessionData.getUser(currentUserID);
-			if(currenUser == null) {
-				currenUser = new sessionData();
-			}
+
+
 		}
     	else{
 			currenUser = new sessionData();
 			currentUserID = currenUser.toString();
 		}
-		System.out.println("Current user: " + currentUserID);
 
 		return CompletableFuture.completedFuture(displayHomePage.apply(currenUser,request));
 
@@ -137,25 +125,11 @@ public class HomeController extends Controller {
 	 * @author: Girish
 	 * @param searchQuery: the term that user want to see word analysis
 	 * @return: A new page that display word-level statistics.
-	 * @throws TwitterException
 	 * @see models.GetTweets#GetKeywordStats(String) 
 	 */
-    public CompletionStage<Result> keyword(String searchQuery) throws TwitterException {
+    public CompletionStage<Result> keyword(String searchQuery)  {
 		return globalGetTweet.GetKeywordStats(searchQuery)
-				.thenApply(wc -> {
-							LinkedHashMap<String, Integer> sortedwc = new LinkedHashMap<>();
-							wc.entrySet()
-									.parallelStream()
-									.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-									.forEachOrdered(swc -> sortedwc.put(swc.getKey(), swc.getValue()));
-
-							String result = "";
-							for (String s : sortedwc.keySet()) {
-								result = result + "\n" + s + " \t\t: \t\t" + sortedwc.get(s);
-							}
-							return ok(views.html.wordstats.render(searchQuery, result));
-						}
-				);
+				.thenApply(result -> ok(views.html.wordstats.render(searchQuery, result)));
 	}
 //
 
@@ -164,11 +138,11 @@ public class HomeController extends Controller {
 	 * @author: Dang Le
 	 * @param searchQuery : the hashtag that user want to search for
 	 * @return: A new page that display the last 10 tweets that use that hashtag
-	 * @throws TwitterException: exception from twitter4j if the tweets are not retrieved successfully.
 	 */
-    public CompletionStage<Result> hashtag(String searchQuery) throws TwitterException {
+    public CompletionStage<Result> hashtag(String searchQuery)  {
 
-		return  globalGetTweet.GetTweets_keyword(searchQuery)
+
+		return  globalGetTweet.GetTweetsWithKeyword(searchQuery)
 				.thenApply(tweet -> {
 					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
 
