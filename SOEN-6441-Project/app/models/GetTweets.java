@@ -66,7 +66,7 @@ public class GetTweets extends AbstractModule {
      * by frequency of the words.
      * @author: Girish
      * @param SearchQuery
-     * @return
+     * @return list of string containing words and its count
      * @throws TwitterException
      */
     public CompletableFuture<List<String>> GetKeywordStats(String SearchQuery) {
