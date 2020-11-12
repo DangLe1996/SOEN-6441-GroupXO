@@ -57,8 +57,6 @@ public class HomeControllerTest extends WithApplication {
     GetTweets getTweets=new GetTweets(mockTwitter);
 
 
-
-
     @Test
     public void testHomeController() throws TwitterException, ExecutionException, InterruptedException {
         String testKeyWord="canada";
@@ -216,12 +214,18 @@ public class HomeControllerTest extends WithApplication {
     }
 
 
+    /**
+     *
+     * Testing the getTweet method.
+     * @throws TwitterException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @Test
     public void testPostMethod() throws TwitterException, ExecutionException, InterruptedException {
 
-
         String testKeyWord="australia";
-        FormFactory formFactory=null;
+
         Map<String, String> hm
                 = new HashMap<String, String>();
         hm.put("searchString", testKeyWord);
@@ -231,12 +235,13 @@ public class HomeControllerTest extends WithApplication {
                 .method(Helpers.POST);
         CSRFTokenHelper.addCSRFToken(request);
         setDummyQueriesAndFurtherMocks(testKeyWord);
-        FormFactory mockFormFactory = mock(FormFactory.class);
-        mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
-        MessagesApi messageAPI=mock(MessagesApi.class);
-        messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
 
+        FormFactory mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
+        MessagesApi messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
         HomeController homeController=new HomeController(mockFormFactory,messageAPI);
+
+
+
 
         homeController.setGlobalGetTweet(getTweets);
 
@@ -251,7 +256,7 @@ public class HomeControllerTest extends WithApplication {
 
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void testException() throws TwitterException, ExecutionException, InterruptedException {
 
         String testKeyWord="canada";
@@ -293,12 +298,12 @@ public class HomeControllerTest extends WithApplication {
     public void setDummyQueriesAndFurtherMocks( String testKeyWord ) throws TwitterException {
 
         Query inputQuery = new Query(testKeyWord+ " -filter:retweets");
-        inputQuery.count(10);
+        inputQuery.count(250);
         inputQuery.lang("en");
         List<Status> fakeTweets=buildStatusList(1,"HAPPY");
         when(mockTwitter.search(inputQuery)).thenReturn(queryResult);
         when(queryResult.getTweets()).thenReturn(fakeTweets);
-        //  when(queryResult.getQuery()).thenReturn(testKeyWord);
+
 
     }
 

@@ -178,10 +178,6 @@ public class RoutingTest  extends WithApplication {
     @Test
     public void testGetTweetWithMissingSearch(){
 
-        String searchString = "this is a test";
-
-        testUser.insertCache(searchString,"this is test result");
-
 
         Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(POST)
