@@ -65,7 +65,7 @@ public class GetTweets extends AbstractModule {
      * This method return a word-level statistics for the last 250 tweeets that contains a given SearchQuery, counting words in descending order
      * by frequency of the words.
      * @author: Girish
-     * @param SearchQuery
+     * @param SearchQuery: keyword that user want to looks up tweets
      * @return list of string containing words and its count
      * @throws TwitterException
      */
