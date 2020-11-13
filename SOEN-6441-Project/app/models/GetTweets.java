@@ -106,10 +106,7 @@ public class GetTweets extends AbstractModule {
                 return wordstat_sorted;
             }
 
-            catch (NullPointerException ex){
-                return CompletableFuture.completedFuture(Arrays.asList("Returned result is null" + ex.getMessage()));
-
-            }
+           
         }
     }
 
