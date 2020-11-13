@@ -105,7 +105,13 @@ public class GetTweetsTest extends WithApplication {
 
 
     }
-
+    
+    /**
+     * Test Word Statistic system. check if the keyword statistics are correct in descending order
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws TwitterException
+     */
     @Test
     public void testGetKeywordStats() throws ExecutionException, InterruptedException, TwitterException {
         String testKeyWord="concordia";
