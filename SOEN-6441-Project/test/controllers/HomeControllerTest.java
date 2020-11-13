@@ -340,3 +340,4 @@ public class HomeControllerTest extends WithApplication {
         return statuses;
     }
 }
+
