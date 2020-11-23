@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: sessionData</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">models</a> ]
+</div>
+
+<h1>Coverage Summary for Class: sessionData (models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">sessionData</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (30/ 30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package models;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.google.inject.AbstractModule;
+<i>4</i>&nbsp;import scala.math.Equiv;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.*;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * Handle userCache, including UserID, list of searched queries and results
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public class sessionData extends AbstractModule {
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * Incrementor that increase every time a new user enter the application. Used to create unique identification.
+<i>16</i>&nbsp;     */
+<b class="fc"><i>17</i>&nbsp;    private static int currentID = 0;</b>
+<b class="fc"><i>18</i>&nbsp;    private int maximumCacheSize = 10;</b>
+<i>19</i>&nbsp;    /**
+<i>20</i>&nbsp;     * Store userSession of all user entered the system, using user&#39;s sessionID as key.
+<i>21</i>&nbsp;     */
+<b class="fc"><i>22</i>&nbsp;    public static Hashtable&lt;String,sessionData&gt; userCache = new Hashtable&lt;&gt;();</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    /**
+<i>25</i>&nbsp;     * Store the list of latest 10 keywords that user looks up
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    private List&lt;String&gt; queries;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * Store the result of the latest 10 keywords user looks up in a LinkedHashMap, using the search keyword as key
+<i>30</i>&nbsp;     */
+<i>31</i>&nbsp;    private Hashtable&lt;String,String&gt; localCache;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * Unique identification string for user.
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    private String sessionID ;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    /**
+<i>38</i>&nbsp;     * Constructor for sesstionData. It automatically increment currentID to create a unique key, then
+<i>39</i>&nbsp;     * create a new session ID. The user is added to userCache, which userID as key and store user SessionData.
+<i>40</i>&nbsp;     */
+<b class="fc"><i>41</i>&nbsp;    public sessionData(){</b>
+<b class="fc"><i>42</i>&nbsp;        queries = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>43</i>&nbsp;        localCache = new Hashtable&lt;&gt;();</b>
+<b class="fc"><i>44</i>&nbsp;        currentID ++;</b>
+<b class="fc"><i>45</i>&nbsp;        this.sessionID =  &quot;play&quot; + currentID;</b>
+<b class="fc"><i>46</i>&nbsp;        userCache.put(this.toString(),this);</b>
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public static void cleanUpSessions(){
+<b class="fc"><i>50</i>&nbsp;        userCache = new Hashtable&lt;&gt;();</b>
+<b class="fc"><i>51</i>&nbsp;        currentID =  0;</b>
+<b class="fc"><i>52</i>&nbsp;    }</b>
+<i>53</i>&nbsp;    /**
+<i>54</i>&nbsp;     * Return user information with given userID
+<i>55</i>&nbsp;     * If user exist in userCache, returns that sessionData.
+<i>56</i>&nbsp;     * If user does not exist, creates and returns a new sessionData.
+<i>57</i>&nbsp;     * If the userID exist in userCache but the object is corrupted,
+<i>58</i>&nbsp;     * removes user key from userCache and return a new user sessionData.
+<i>59</i>&nbsp;     * @param userID : key to retrieve user information from userCache
+<i>60</i>&nbsp;     * @return: sessionData object of the user with given userID
+<i>61</i>&nbsp;     */
+<i>62</i>&nbsp;    public static  sessionData getUser(String userID){
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;        if(userID == null )return new sessionData();</b>
+<b class="fc"><i>66</i>&nbsp;        if(userCache.containsKey(userID) == false) return new sessionData();</b>
+<b class="fc"><i>67</i>&nbsp;        return userCache.get(userID);</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<b class="fc"><i>72</i>&nbsp;    public String getSessionID() {return sessionID;}</b>
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;    /**
+<i>75</i>&nbsp;     * @return &quot;sessionData{&quot; + &quot;sessionID=&#39;&quot; + sessionID + &#39;\&#39;&#39; + &#39;}&#39;
+<i>76</i>&nbsp;     */
+<i>77</i>&nbsp;    @Override
+<i>78</i>&nbsp;    public String toString() {
+<b class="fc"><i>79</i>&nbsp;        return &quot;sessionData{&quot; +</b>
+<i>80</i>&nbsp;                &quot;sessionID=&#39;&quot; + sessionID + &#39;\&#39;&#39; +
+<i>81</i>&nbsp;                &#39;}&#39;;
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    /**
+<i>85</i>&nbsp;     * @return Current User&#39;s queries.
+<i>86</i>&nbsp;     */
+<i>87</i>&nbsp;    public List&lt;String&gt; getQuery(){
+<b class="fc"><i>88</i>&nbsp;        return this.queries;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    /**
+<i>92</i>&nbsp;     * @return User&#39;s search history, which stored in localCache.
+<i>93</i>&nbsp;     * @see models.sessionData#localCache
+<i>94</i>&nbsp;     */
+<i>95</i>&nbsp;    public Hashtable&lt;String,String&gt; getCache(){
+<b class="fc"><i>96</i>&nbsp;        return this.localCache;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    /**
+<i>100</i>&nbsp;     * This method insert search term and its result into current user&#39;s local cache and queries.
+<i>101</i>&nbsp;     * If the local cache size is more than 10, it removes the last entries before adding the new entry
+<i>102</i>&nbsp;     * into the beginning of the list.
+<i>103</i>&nbsp;     * @param searchTerm: they keyword that user wants to looks up
+<i>104</i>&nbsp;     * @param result: 10 latest tweets contain the searchTerm, retrieved from twitter4j.
+<i>105</i>&nbsp;     * @see models.sessionData#localCache
+<i>106</i>&nbsp;     * @see models.sessionData#queries
+<i>107</i>&nbsp;     */
+<i>108</i>&nbsp;    public void insertCache(String searchTerm, String result){
+<b class="fc"><i>109</i>&nbsp;        while(localCache.size() &gt;= maximumCacheSize){</b>
+<b class="fc"><i>110</i>&nbsp;            String key = this.queries.get(localCache.size() - 1);</b>
+<b class="fc"><i>111</i>&nbsp;            this.localCache.remove(key);</b>
+<b class="fc"><i>112</i>&nbsp;            this.queries.remove(key);</b>
+<b class="fc"><i>113</i>&nbsp;        }</b>
+<b class="fc"><i>114</i>&nbsp;        if(this.queries.contains(searchTerm)){</b>
+<b class="fc"><i>115</i>&nbsp;            this.queries.remove(searchTerm);</b>
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;        }
+<b class="fc"><i>118</i>&nbsp;        this.localCache.put(searchTerm,result);</b>
+<b class="fc"><i>119</i>&nbsp;        this.queries.add(0,searchTerm);</b>
+<b class="fc"><i>120</i>&nbsp;    }</b>
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;
+<i>124</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-11-12 17:08</div>
+</div>
+</body>
+</html>
