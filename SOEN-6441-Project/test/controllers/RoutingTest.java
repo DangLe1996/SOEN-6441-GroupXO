@@ -1,5 +1,6 @@
 package controllers;
 
+import akka.actor.ActorSystem;
 import models.GetTweets;
 import models.sessionData;
 import org.junit.After;
@@ -43,7 +44,7 @@ public class RoutingTest  extends WithApplication {
         FormFactory mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
 
         MessagesApi messageAPIMock = new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
-
+        ActorSystem actorSystem = new GuiceApplicationBuilder().injector().instanceOf(ActorSystem.class);
 
         HomeController homeControllerMock = new HomeController(mockFormFactory,messageAPIMock);
 

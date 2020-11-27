@@ -9,7 +9,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="java 15 compatible">
+      <change afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actors/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actors/TimeActor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tweets/Tweet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tweets/TweetHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tweets/TweetUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/HashtagDisplay.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_actor_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_actor_typed_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_protobuf_v3_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_slf4j_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_stream_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/RoutingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/RoutingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/GetTweetsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/GetTweetsTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +77,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -76,11 +103,11 @@
         <option value="java.lang._" />
         <option value="play.mvc._" />
         <option value="_root_.play.twirl.api.Txt" />
-        <option value="play.data._" />
         <option value="play.api.data.Field" />
+        <option value="play.data._" />
+        <option value="scala.jdk.CollectionConverters._" />
         <option value="play.api.templates.PlayMagic._" />
         <option value="_root_.play.twirl.api.JavaScript" />
-        <option value="scala.jdk.CollectionConverters._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />
@@ -110,24 +137,19 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.32873562" />
-    <property name="settings.editor.selected.configurable" value="coverage" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
-  <component name="RunManager" selected="JUnit.All in SOEN-6441-Project">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in SOEN-6441-Project (1)">
+    <configuration name="All in SOEN-6441-Project (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -135,7 +157,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetTweetsTest.check_Twitter_invoke_exception" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOEN-6441-Project-build" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetTweetsTest.testGetTweets_keyword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <extension name="coverage">
         <pattern>
@@ -145,7 +175,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="models" />
       <option name="MAIN_CLASS_NAME" value="models.GetTweetsTest" />
-      <option name="METHOD_NAME" value="check_Twitter_invoke_exception" />
+      <option name="METHOD_NAME" value="testGetTweets_keyword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,7 +196,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoutingTest.testGetTweetWithMissingSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoutingTest.testHomePageRouteWithNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <extension name="coverage">
         <pattern>
@@ -176,22 +206,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="controllers" />
       <option name="MAIN_CLASS_NAME" value="controllers.RoutingTest" />
-      <option name="METHOD_NAME" value="testGetTweetWithMissingSearch" />
+      <option name="METHOD_NAME" value="testHomePageRouteWithNewUser" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="models in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -226,20 +242,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Play 2 App.play run" />
       <item itemvalue="JUnit.HomeControllerTest" />
-      <item itemvalue="JUnit.RoutingTest.testGetTweetWithMissingSearch" />
       <item itemvalue="JUnit.All in SOEN-6441-Project" />
-      <item itemvalue="JUnit.models in SOEN-6441-Project" />
-      <item itemvalue="JUnit.GetTweetsTest.check_Twitter_invoke_exception" />
+      <item itemvalue="JUnit.GetTweetsTest.testGetTweets_keyword" />
+      <item itemvalue="JUnit.All in SOEN-6441-Project (1)" />
+      <item itemvalue="JUnit.RoutingTest.testHomePageRouteWithNewUser" />
+      <item itemvalue="Play 2 App.play run" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in SOEN-6441-Project" />
-        <item itemvalue="JUnit.GetTweetsTest.check_Twitter_invoke_exception" />
-        <item itemvalue="JUnit.models in SOEN-6441-Project" />
+        <item itemvalue="JUnit.All in SOEN-6441-Project (1)" />
+        <item itemvalue="JUnit.RoutingTest.testHomePageRouteWithNewUser" />
         <item itemvalue="JUnit.HomeControllerTest" />
-        <item itemvalue="JUnit.RoutingTest.testGetTweetWithMissingSearch" />
+        <item itemvalue="JUnit.All in SOEN-6441-Project" />
+        <item itemvalue="JUnit.GetTweetsTest.testGetTweets_keyword" />
       </list>
     </recent_temporary>
   </component>
@@ -256,6 +272,12 @@
       <workItem from="1605124014608" duration="4069000" />
       <workItem from="1605128369052" duration="16667000" />
       <workItem from="1605195388316" duration="10771000" />
+      <workItem from="1606240287647" duration="2514000" />
+      <workItem from="1606332228725" duration="16228000" />
+      <workItem from="1606409878461" duration="593000" />
+      <workItem from="1606439069517" duration="1502000" />
+      <workItem from="1606442199765" duration="3918000" />
+      <workItem from="1606502349532" duration="1138000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -320,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605206146556</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="merged with main">
+      <created>1606146815798</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606146815798</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,6 +365,9 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modified tweets sentimental" />
     <MESSAGE value="test Guice" />
@@ -346,7 +378,8 @@
     <MESSAGE value="Added Routing Test" />
     <MESSAGE value="testing completed (maybe)." />
     <MESSAGE value="Added JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc" />
+    <MESSAGE value="merged with main" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with main" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -357,6 +390,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605197691186" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1606446344080">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606446344080" />
     <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1605130483606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -373,14 +410,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202114765" />
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605205592731">
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606338331923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205592731" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1605206145129">
+    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606146815036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605206145129" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606146815036" />
     <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605202106591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -389,38 +426,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605201769551" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605205338012">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1606448224600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1605205338012">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606448224600" />
+    <state width="1157" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519794" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1606448224600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1605205338012">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606448224600" />
+    <state width="1157" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1606448224600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1605205338012">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606448224600" />
+    <state width="1157" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1606448224600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205338012" />
-    <state width="1877" height="292" key="GridCell.Tab.1.bottom" timestamp="1605202158528">
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606448224600" />
+    <state width="1157" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom" timestamp="1606357185872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202158528" />
-    <state width="1877" height="292" key="GridCell.Tab.1.center" timestamp="1605202158528">
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606357185872" />
+    <state width="1877" height="292" key="GridCell.Tab.1.center" timestamp="1606357185871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202158528" />
-    <state width="1877" height="292" key="GridCell.Tab.1.left" timestamp="1605202158528">
+    <state width="1877" height="292" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606357185871" />
+    <state width="1877" height="292" key="GridCell.Tab.1.left" timestamp="1606357185871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202158528" />
-    <state width="1877" height="292" key="GridCell.Tab.1.right" timestamp="1605202158528">
+    <state width="1877" height="292" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606357185871" />
+    <state width="1877" height="292" key="GridCell.Tab.1.right" timestamp="1606357185872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="292" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605202158528" />
+    <state width="1877" height="292" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606357185872" />
     <state x="184" y="86" key="MergeDialog" timestamp="1605138976152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -433,10 +474,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="615" y="240" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205494233" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1605196339062">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1606441744418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605196339062" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605206169086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -449,14 +490,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124698481" />
-    <state x="1959" y="171" width="1030" height="813" maximized="true" key="dock-window-1" timestamp="1605195441600">
+    <state x="1920" y="0" width="1216" height="1027" maximized="true" key="dock-window-1" timestamp="1606441306890">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="1959" y="171" width="1030" height="813" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605139363767" />
-    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2" timestamp="1605124439878">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1920" y="0" width="1216" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441306890" />
+    <state x="2012" y="65" width="782" height="718" maximized="true" key="dock-window-2" timestamp="1606410334082">
+      <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="604" y="119" width="1216" height="717" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124439878" />
+    <state x="2012" y="65" width="782" height="718" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606410334082" />
     <state x="752" y="358" width="971" height="396" key="scopes" timestamp="1605133881246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -467,37 +508,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>128</line>
+          <line>131</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>148</line>
+          <line>151</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>320</line>
+          <line>315</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>333</line>
+          <line>328</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>146</line>
+          <line>149</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>181</line>
+          <line>184</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>316</line>
+          <line>319</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -517,17 +558,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/models/GetTweets.java</url>
-          <line>153</line>
+          <line>156</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/controllers/RoutingTest.java</url>
-          <line>168</line>
+          <line>155</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
+          <line>168</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>314</line>
+          <line>309</line>
           <properties class="models.GetTweetsTest" method="testUserSessionsWithGetString">
             <option name="EMULATED" value="true" />
           </properties>
@@ -537,7 +591,13 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605205033853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605218878219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+      <FILTER>controllers.HomeController</FILTER>
+      <FILTER>controllers.HomeControllerTest</FILTER>
+      <FILTER>controllers.RoutingTest</FILTER>
+      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>

@@ -8,14 +8,6 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project.in( file("."))).enablePlugins(PlayJava)
 
-
-//val jacocoVersion = "0.8.6"
-//
-//dependencyOverrides ++= Seq(
-//  "org.jacoco" % "org.jacoco.core" % jacocoVersion % Test,
-//  "org.jacoco" % "org.jacoco.report" % jacocoVersion % Test,
-//  "org.jacoco" % "org.jacoco.agent" % jacocoVersion % Test)
-
 scalaVersion := "2.13.1"
 
 
@@ -32,6 +24,7 @@ libraryDependencies += "org.mockito" % "mockito-junit-jupiter" % "3.6.0" % Test
 libraryDependencies += "org.junit.platform" % "junit-platform-launcher" % "1.7.0" % Test
 // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
 libraryDependencies += "org.junit.platform" % "junit-platform-runner" % "1.7.0" % Test
-
+//val AkkaVersion = "2.6.10"
+//libraryDependencies += "com.typesafe.akka" %% "akka-stream-typed" % AkkaVersion
 
 

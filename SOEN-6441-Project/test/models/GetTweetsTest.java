@@ -81,6 +81,7 @@ public class GetTweetsTest extends WithApplication {
 
 
         assertThat(a.toCompletableFuture().get(),containsString("Montreal"));
+        assertThat(a.toCompletableFuture().get(),containsString("href=/keyword?s=concordia"));
 
 
 

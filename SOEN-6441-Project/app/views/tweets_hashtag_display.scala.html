@@ -1,25 +1,27 @@
-
-
-@(hashTag: String, result: String)
+@(request: play.mvc.Http.Request, hashTag: String, result: String)
 
 <!DOCTYPE html>
 <html>
-<head>
-	<div id="header" >
-		<a href="@routes.HomeController.homePage()"> <h1  align=center>Welcome to TweeterLytics</h1> </a>
-	</div>
-</head>
+    <head>
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+        <script type='text/javascript' src='@routes.Assets.at("javascripts/HashtagDisplay.js")'></script>
 
-	<body>
+        <div id="header" >
+            <a href="@routes.HomeController.homePage()"> <h1 align=center>Welcome to TweeterLytics</h1> </a>
+        </div>
+    </head>
 
-			<table>
-			@Html(result);
-	<tr class="blank_row">
-		<td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
-	</tr>
-	</table>
-	</body>
+    <body data-ws-url="@routes.HomeController.HashTagWs().webSocketURL(request)">
 
+		<div id="test"></div>
+
+        <table>
+            @Html(result);
+            <tr class="blank_row">
+                <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+            </tr>
+        </table>
+    </body>
 
 
 </html>

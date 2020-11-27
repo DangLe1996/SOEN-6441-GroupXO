@@ -1,15 +1,24 @@
 package controllers;
 
+import actors.HashtagActor;
+import actors.TimeActor;
+import actors.UserActor;
+import akka.NotUsed;
+import akka.actor.*;
+import akka.stream.Materializer;
+import akka.stream.javadsl.Flow;
 import models.GetTweets;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import models.Search;
 import models.sessionData;
+import play.libs.streams.ActorFlow;
 import twitter4j.*;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
 import play.mvc.*;
+import views.html.tweets_hashtag_display;
 
 import javax.inject.Inject;
 
@@ -25,6 +34,10 @@ import static play.libs.Scala.asScala;
 public class HomeController extends Controller {
 
 
+	@com.google.inject.Inject
+	private ActorSystem actorSystem;
+	@com.google.inject.Inject
+	private Materializer materializer;
 	
     private Form<Search> form ;
     private MessagesApi messagesApi;
@@ -32,15 +45,13 @@ public class HomeController extends Controller {
     @Inject
 	GetTweets globalGetTweet;
 
-
-
-
 	public void setGlobalGetTweet(GetTweets globalGetTweet) {
 		this.globalGetTweet = globalGetTweet;
 	}
 
 
-    @Inject
+
+	@Inject
     public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
 
 
@@ -48,7 +59,8 @@ public class HomeController extends Controller {
         this.messagesApi = messagesApi;
 
 
-    }
+
+	}
 
 	/**
 	 * Lambda function to render tweets_display view.
@@ -139,14 +151,22 @@ public class HomeController extends Controller {
 	 * @param searchQuery : the hashtag that user want to search for
 	 * @return: A new page that display the last 10 tweets that use that hashtag
 	 */
-    public CompletionStage<Result> hashtag(String searchQuery)  {
+    public CompletionStage<Result> hashtag(Http.Request request,String searchQuery)  {
 
 
 		return  globalGetTweet.GetTweetsWithKeyword(searchQuery)
 				.thenApply(tweet -> {
-					return ok(views.html.tweets_hashtag_display.render(searchQuery, tweet));
+					final Result ok = ok(tweets_hashtag_display.render(request, searchQuery, tweet));
+					return ok;
 
 				});
     }
-    
+
+
+
+	public WebSocket HashTagWs(){
+
+	return WebSocket.Text.accept(request -> ActorFlow.actorRef(HashtagActor::props, actorSystem, materializer));
+
+	}
 }

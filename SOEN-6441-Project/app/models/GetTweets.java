@@ -255,10 +255,10 @@ public class GetTweets extends AbstractModule {
         return result.getTweets().parallelStream()
                 .map(s -> {
                     return "\n" +
-                            "<tr>\n" +
+                            "<tr class=\"status\" >\n" +
                             "		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
                             "		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
-                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?hashTag=$1>#$1</a>") + "</td>\n" +
                             "</tr>\n";
                 })
                 .limit(10)
