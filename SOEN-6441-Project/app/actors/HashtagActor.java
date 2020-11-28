@@ -34,7 +34,6 @@ public class HashtagActor extends AbstractActor {
                 .match(String.class,msg -> {
                     getTweeterStream(msg);
                     System.out.println("I got your message " + msg);
-                    ws.tell("I received your message: " + msg, self());
                 })
 
                 .build();
@@ -51,7 +50,9 @@ public class HashtagActor extends AbstractActor {
 
             @Override
             public void onStatus(Status status) {
-                ws.tell(formatResult.apply(status),self());
+                if(status != null ) {
+                    ws.tell(formatResult.apply(status), self());
+                }
             }
             @Override
             public void onDeletionNotice(StatusDeletionNotice arg) {
@@ -71,65 +72,27 @@ public class HashtagActor extends AbstractActor {
         TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
 
         twitterStream.addListener(listener);
+        searchString = "#"+searchString;
+        FilterQuery filter = new FilterQuery(searchString);
 
 
-        twitterStream.filter(searchString);
-        twitterStream.sample();
+        twitterStream.filter(filter);
 
 
     }
 
     private Function<Status,String> formatResult = (s) -> {
 
-                    return "\n" +
+        String userLocation = s.getUser().getLocation() != null ? s.getUser().getLocation() :  " ";
+        String userName = s.getUser().getScreenName() != null ? s.getUser().getScreenName() :  " ";
+                    return
                             "<tr class=\"status\" >\n" +
-                            "		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
-                            "		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
+                            "		<td><a href=/user?s=" + userName.replaceAll(" ", "+") + "> " +userName + "</a></td>\n" +
+                            "		<td><a href=/location?s=" +userLocation.replaceAll(" ", "+") + ">" + userLocation + "</a></td>\n" +
                             "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?hashTag=$1>#$1</a>") + "</td>\n" +
                             "</tr>\n";
 
     };
-//    private static class getTweet{
-//        private final ActorRef replyTo;
-//        public  getTweet(String searchString, ActorRef replyTo){
-//            this.replyTo = replyTo;
-//            StatusListener listener = new StatusListener() {
-//
-//                @Override
-//                public void onException(Exception e) {
-//                    e.printStackTrace();
-//                }
-//
-//                @Override
-//                public void onStatus(Status status) {
-//
-//                }
-//                @Override
-//                public void onDeletionNotice(StatusDeletionNotice arg) {
-//                }
-//                @Override
-//                public void onScrubGeo(long userId, long upToStatusId) {
-//                }
-//                @Override
-//                public void onStallWarning(StallWarning warning) {
-//                }
-//
-//                @Override
-//                public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
-//                }
-//            };
-//
-//            TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
-//
-//            twitterStream.addListener(listener);
-//
-//
-//            twitterStream.filter(searchString);
-//            twitterStream.sample();
-//
-//        }
-//
-//    }
 
 
 }

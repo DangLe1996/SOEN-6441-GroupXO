@@ -10,16 +10,10 @@
             <a href="@routes.HomeController.homePage()"> <h1 align=center>Welcome to TweeterLytics</h1> </a>
         </div>
     </head>
-
     <body data-ws-url="@routes.HomeController.HashTagWs().webSocketURL(request)">
 
-		<div id="test"></div>
-
-        <table>
+        <table id="TweetTable">
             @Html(result);
-            <tr class="blank_row">
-                <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
-            </tr>
         </table>
     </body>
 

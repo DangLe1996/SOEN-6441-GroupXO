@@ -117,12 +117,13 @@ public class GetTweets extends AbstractModule {
     /**
      * Lambda BiFunction that takes a search query and its result, then return a formatted HTML string.
      */
-    private static final BiFunction<String, String, String> tweetDisplayPageFormat = (searchquery, result) -> "		<tr>\n" +
+    private static final BiFunction<String, String, String> tweetDisplayPageFormat = (searchquery, result) ->
+            "		<tr class = \"Header\">\n" +
             "			<th>Search terms:</th>\n" +
             "			<th><a href=/keyword?s=" + searchquery.replaceAll(" ", "+") + ">" + searchquery  + "</a></th>\n" +
             "	<th>"+ getTweetSentiments(searchquery) +"</th>" +
             "		</tr>\n" +
-            "		<tr>\n" +
+            "		<tr class = \"Header\">\n" +
             "			<th>User</th>\n" +
             "			<th>Location</th>\n" +
             "			<th>Tweet Text</th>\n" +
