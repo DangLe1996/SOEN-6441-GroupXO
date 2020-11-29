@@ -46,7 +46,8 @@ public class RoutingTest  extends WithApplication {
         MessagesApi messageAPIMock = new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
         ActorSystem actorSystem = new GuiceApplicationBuilder().injector().instanceOf(ActorSystem.class);
 
-        HomeController homeControllerMock = new HomeController(mockFormFactory,messageAPIMock);
+
+        HomeController homeControllerMock = new HomeController(mockFormFactory,messageAPIMock,actorSystem);
 
         homeControllerMock.setGlobalGetTweet(getTweetsTest);
 

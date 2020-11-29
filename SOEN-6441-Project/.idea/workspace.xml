@@ -10,12 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Module.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actors/HashtagActorParent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actors/UserParentActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/actors/HashtagActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/HashtagDisplay.scala.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_hashtag_display.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/RoutingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/RoutingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,13 +134,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in SOEN-6441-Project (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -269,7 +275,8 @@
       <workItem from="1606409878461" duration="593000" />
       <workItem from="1606439069517" duration="1502000" />
       <workItem from="1606442199765" duration="3918000" />
-      <workItem from="1606502349532" duration="7295000" />
+      <workItem from="1606502349532" duration="7745000" />
+      <workItem from="1606581140311" duration="16091000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -348,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606508966217</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="working hashtag websocket">
+      <created>1606524648775</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606524648775</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +393,8 @@
     <MESSAGE value="Added JavaDoc" />
     <MESSAGE value="merged with main" />
     <MESSAGE value="WebSocket hashtag added" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebSocket hashtag added" />
+    <MESSAGE value="working hashtag websocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="working hashtag websocket" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -390,10 +405,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605197691186" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1606446344080">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1606607903513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606446344080" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606607903513" />
     <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1605130483606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -414,10 +429,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606508964875">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606524647969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606508964875" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606524647969" />
     <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605202106591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -478,10 +493,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606524629907">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606524686414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606524629907" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606524686414" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -490,10 +505,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124698481" />
-    <state x="1876" y="306" width="1216" height="1027" maximized="true" key="dock-window-1" timestamp="1606510609403">
+    <state x="1876" y="306" width="1216" height="1027" maximized="true" key="dock-window-1" timestamp="1606611751574">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="1876" y="306" width="1216" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606510609403" />
+    <state x="1876" y="306" width="1216" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606611751574" />
     <state x="2012" y="65" width="782" height="718" maximized="true" key="dock-window-2" timestamp="1606410334082">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
@@ -543,12 +558,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/controllers/HomeControllerTest.java</url>
-          <line>75</line>
+          <line>81</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/controllers/HomeControllerTest.java</url>
-          <line>79</line>
+          <line>85</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -563,12 +578,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/controllers/RoutingTest.java</url>
-          <line>155</line>
+          <line>156</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/HomeController.java</url>
-          <line>168</line>
+          <line>184</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -576,7 +591,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
-          <line>21</line>
+          <line>34</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

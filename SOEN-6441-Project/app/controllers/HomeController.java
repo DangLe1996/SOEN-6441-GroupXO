@@ -1,17 +1,29 @@
 package controllers;
 
 import actors.HashtagActor;
+import actors.HashtagActorParent;
 import actors.TimeActor;
 import actors.UserActor;
 import akka.NotUsed;
 import akka.actor.*;
+import akka.actor.typed.Scheduler;
+import akka.actor.typed.javadsl.Adapter;
+import akka.actor.typed.javadsl.AskPattern;
 import akka.stream.Materializer;
 import akka.stream.javadsl.Flow;
+import com.fasterxml.jackson.databind.JsonNode;
 import models.GetTweets;
+import static akka.pattern.Patterns.ask;
+import static akka.pattern.Patterns.pipe;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import models.Search;
 import models.sessionData;
+import org.slf4j.Logger;
+import play.libs.F;
 import play.libs.streams.ActorFlow;
 import twitter4j.*;
 import play.data.Form;
@@ -21,6 +33,7 @@ import play.mvc.*;
 import views.html.tweets_hashtag_display;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 
 import java.util.function.BiFunction;
@@ -38,11 +51,18 @@ public class HomeController extends Controller {
 	private ActorSystem actorSystem;
 	@com.google.inject.Inject
 	private Materializer materializer;
-	
+
+
+
+	private ActorRef ActorParentHashtag;
+
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
-    @Inject
+
+	private final Logger logger = org.slf4j.LoggerFactory.getLogger("controllers.HomeController");
+
+	@Inject
 	GetTweets globalGetTweet;
 
 	public void setGlobalGetTweet(GetTweets globalGetTweet) {
@@ -52,13 +72,12 @@ public class HomeController extends Controller {
 
 
 	@Inject
-    public HomeController(FormFactory formFactory, MessagesApi messagesApi) {
+	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem as) {
 
-
-        this.form = formFactory.form(Search.class);
-        this.messagesApi = messagesApi;
-
-
+		this.form = formFactory.form(Search.class);
+		this.messagesApi = messagesApi;
+		this.actorSystem = as;
+		this.ActorParentHashtag = this.actorSystem.actorOf(Props.create(HashtagActorParent.class),"HashtagParent");
 
 	}
 
@@ -144,7 +163,6 @@ public class HomeController extends Controller {
 				.thenApply(result -> ok(views.html.wordstats.render(searchQuery, result)));
 	}
 //
-
 	/**
 	 * Handle user request to see latest 10 tweets with a given hashtag
 	 * @author: Dang Le
@@ -154,19 +172,20 @@ public class HomeController extends Controller {
     public CompletionStage<Result> hashtag(Http.Request request,String searchQuery)  {
 
 
-		return  globalGetTweet.GetTweetsWithKeyword(searchQuery)
+		return  globalGetTweet.GetTweetsWithKeyword("#"+searchQuery)
 				.thenApply(tweet -> {
 					final Result ok = ok(tweets_hashtag_display.render(request, searchQuery, tweet));
 					return ok;
-
 				});
     }
 
 
-
 	public WebSocket HashTagWs(){
 
-	return WebSocket.Text.accept(request -> ActorFlow.actorRef(HashtagActor::props, actorSystem, materializer));
+	return WebSocket.Text.accept(request -> ActorFlow.actorRef(wsout -> {
+		return HashtagActor.props(wsout,ActorParentHashtag);
+	}, actorSystem, materializer));
 
 	}
+
 }

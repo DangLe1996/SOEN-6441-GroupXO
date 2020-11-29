@@ -1,98 +1,84 @@
 package actors;
 
 import akka.actor.AbstractActor;
-import akka.actor.Actor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import twitter4j.*;
+import akka.actor.Status;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.function.Function;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Keeps track of actors that subscribed to a search hashtag query and also which hashtag this actor is responsible for.
  */
 public class HashtagActor extends AbstractActor {
 
-
     private final ActorRef ws; //keep track of actor ref
+    private final ActorRef replyTo;
 
-    public HashtagActor( ActorRef ws) {
+
+
+
+    List<String> lasTweets = new ArrayList<>();
+    private String QueryString;
+
+    public static Props props(ActorRef ws, ActorRef replyTo){
+
+        return Props.create(HashtagActor.class,ws, replyTo);
+    }
+
+    public HashtagActor( ActorRef ws, ActorRef replyTo) {
+
         this.ws = ws;
+        this.replyTo = replyTo;
         System.out.println("Hashtag Actor Created");
 
     }
-    public static Props props(ActorRef wsout){
 
-        return Props.create(HashtagActor.class,wsout);
-    }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
                 .match(String.class,msg -> {
-                    getTweeterStream(msg);
-                    System.out.println("I got your message " + msg);
+                    QueryString = msg;
+                    replyTo.tell(new HashtagActorParent.registerNewHashtag(msg),getSelf());
                 })
-
+                .match(updateStatus.class,msg -> {
+                    updateResult(msg.htmlCode);
+                })
+                .matchEquals("KillSwitch", msg -> {
+                    System.out.println("Actor terminated");
+                    context().stop(self());})
                 .build();
-    }
-
-    private void getTweeterStream(String searchString){
-
-        StatusListener listener = new StatusListener() {
-
-            @Override
-            public void onException(Exception e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onStatus(Status status) {
-                if(status != null ) {
-                    ws.tell(formatResult.apply(status), self());
-                }
-            }
-            @Override
-            public void onDeletionNotice(StatusDeletionNotice arg) {
-            }
-            @Override
-            public void onScrubGeo(long userId, long upToStatusId) {
-            }
-            @Override
-            public void onStallWarning(StallWarning warning) {
-            }
-
-            @Override
-            public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
-            }
-        };
-
-        TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
-
-        twitterStream.addListener(listener);
-        searchString = "#"+searchString;
-        FilterQuery filter = new FilterQuery(searchString);
-
-
-        twitterStream.filter(filter);
-
 
     }
 
-    private Function<Status,String> formatResult = (s) -> {
+    private void updateResult(String status){
 
-        String userLocation = s.getUser().getLocation() != null ? s.getUser().getLocation() :  " ";
-        String userName = s.getUser().getScreenName() != null ? s.getUser().getScreenName() :  " ";
-                    return
-                            "<tr class=\"status\" >\n" +
-                            "		<td><a href=/user?s=" + userName.replaceAll(" ", "+") + "> " +userName + "</a></td>\n" +
-                            "		<td><a href=/location?s=" +userLocation.replaceAll(" ", "+") + ">" + userLocation + "</a></td>\n" +
-                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?hashTag=$1>#$1</a>") + "</td>\n" +
-                            "</tr>\n";
+        if(lasTweets.size()>=30){
+            var temp = lasTweets.stream().limit(10).collect(Collectors.toList());
+            lasTweets = temp;
 
-    };
+        }
+        if(! lasTweets.contains(status)) {
+            lasTweets.add(status);
+            ws.tell(status, ActorRef.noSender());
+        }
+
+    }
+
+    public static class updateStatus{
+        private final String htmlCode;
+
+        updateStatus(String htmlCode) {
+            this.htmlCode = htmlCode;
+        }
+    }
+
+
 
 
 }

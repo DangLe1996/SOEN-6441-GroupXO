@@ -3,11 +3,15 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.javadsl.Behaviors;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.libs.Json;
 
 public final class UserActor extends AbstractActor {
 
+
+    public interface Message {};
 
     private final ActorRef ws; //keep track of actor ref
 
@@ -22,6 +26,8 @@ public final class UserActor extends AbstractActor {
      * @return
      */
     public static Props props (ActorRef wsout){
+
+
 
         return Props.create(UserActor.class, wsout); //props call UserActor Constructor, with the parameter of wsout. Then the wsout initialize ws.
     }
@@ -73,5 +79,12 @@ public final class UserActor extends AbstractActor {
     }
 
 
+//    public static Behavior<Message> create(String id, akka.actor.typed.ActorRef<HashtagActor> hashtagActor) {
+//        return Behaviors.setup(context -> new UserActor(id, hashtagActor, context).behavior());
+//    }
+
+    public interface Factory {
+        Behavior<Message> create(String id);
+    }
 
 }
