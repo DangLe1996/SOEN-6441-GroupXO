@@ -10,17 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActorParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActorParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/TimeActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/UserParentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserParentActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_display.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +266,7 @@
       <workItem from="1606442199765" duration="3918000" />
       <workItem from="1606502349532" duration="7745000" />
       <workItem from="1606581140311" duration="16400000" />
-      <workItem from="1606785642504" duration="4007000" />
+      <workItem from="1606785642504" duration="4412000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -369,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606624222148</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="working hashtag websocket with user changes">
+      <created>1606789751104</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606789751104</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,10 +434,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606624221267">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606789749549">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606624221267" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606789749549" />
     <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605202106591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -501,10 +498,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606624231376">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606789755514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606624231376" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606789755514" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

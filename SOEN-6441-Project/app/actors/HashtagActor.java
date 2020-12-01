@@ -44,6 +44,7 @@ public class HashtagActor extends AbstractActor {
         return receiveBuilder()
                 .match(String.class,msg -> {
                     QueryString = msg;
+
                     replyTo.tell(new HashtagActorParent.registerNewHashtag(msg),getSelf());
                 })
                 .match(updateStatus.class,msg -> {
