@@ -11,32 +11,12 @@ import com.typesafe.config.Config;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserParentActor {
+public class UserParentActor  {
 
     private UserParentActor() {}
 
-    public static final class Create {
-        final String id;
-        final ActorRef<Flow<JsonNode, JsonNode, NotUsed>> replyTo;
 
-        public Create(String id, ActorRef<Flow<JsonNode, JsonNode, NotUsed>> replyTo) {
-            this.id = id;
-            this.replyTo = replyTo;
-        }
-    }
 
-    public static Behavior<Create> create(UserActor.Factory childFactory, Config config) {
-        return Behaviors.setup(context -> {
-
-            Behavior<Create> behavior = Behaviors.receive(Create.class)
-                    .onMessage(Create.class, create -> {
-                        ActorRef<UserActor.Message> child = context.spawn(childFactory.create(create.id), "userActor-" + create.id);
-                        return Behaviors.same();
-                    })
-                    .build();
-            return Behaviors.logMessages(behavior);
-        });
-    }
 
 
 }

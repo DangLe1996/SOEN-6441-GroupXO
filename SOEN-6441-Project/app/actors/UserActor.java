@@ -3,88 +3,30 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.actor.typed.Behavior;
-import akka.actor.typed.javadsl.Behaviors;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import play.libs.Json;
+import models.sessionData;
 
 public final class UserActor extends AbstractActor {
 
-
-    public interface Message {};
-
     private final ActorRef ws; //keep track of actor ref
+    private final sessionData userData;
 
-    public UserActor(ActorRef ws) {
-        System.out.println("New User Actor Created " + ws.hashCode());
+    public UserActor(ActorRef ws, sessionData userData) {
         this.ws = ws;
+        this.userData = userData;
     }
 
-    /**
-     * To Generate new User Actor.
-     * @param wsout
-     * @return
-     */
-    public static Props props (ActorRef wsout){
-
-
-
-        return Props.create(UserActor.class, wsout); //props call UserActor Constructor, with the parameter of wsout. Then the wsout initialize ws.
+    public static Props props( ActorRef ws, sessionData sessionData ){
+        return Props.create(UserActor.class,ws, sessionData);
     }
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TimeMessage.class, this::sendTime)
-                .match(HashtagStatus.class,this::sendHashtag)
+                .match(String.class, this::addNewQuery )
                 .build();
     }
 
-    /**
-     * Every time a new user enter, tell the timeActor Register Msg class and pass in self as parameter.
-     */
-    @Override
-    public void preStart() {
-        System.out.println("New Time Actor Created " + self().hashCode());
-        context().actorSelection("/user/timeActor/")
-                .tell(new TimeActor.RegisterMsg(), self());
+    private void addNewQuery(String query){
+
     }
-
-    private void sendHashtag(HashtagStatus mesg){
-        final ObjectNode response = Json.newObject();
-        response.put("hastagStatus",mesg.status);
-        ws.tell(response,self());
-    }
-
-    private void sendTime(TimeMessage msg){
-        final ObjectNode response = Json.newObject();
-        response.put("time",msg.time);
-        ws.tell(response,self());
-    }
-
-    public static class TimeMessage{
-        public final String time;
-
-        public TimeMessage(String time) {
-            this.time = time;
-        }
-    }
-
-    public static class HashtagStatus{
-        public final String status;
-
-        public HashtagStatus(String status) {
-            this.status = status;
-        }
-    }
-
-
-//    public static Behavior<Message> create(String id, akka.actor.typed.ActorRef<HashtagActor> hashtagActor) {
-//        return Behaviors.setup(context -> new UserActor(id, hashtagActor, context).behavior());
-//    }
-
-    public interface Factory {
-        Behavior<Message> create(String id);
-    }
-
 }

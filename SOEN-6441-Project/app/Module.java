@@ -4,15 +4,17 @@ import actors.UserActor;
 import akka.actor.*;
 import com.google.inject.AbstractModule;
 import play.libs.akka.AkkaGuiceSupport;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
 
 import javax.inject.Provider;
 
-public class Module extends AbstractModule implements AkkaGuiceSupport {
+public class Module extends AbstractModule  {
     @Override
     protected void configure() {
 
 
-//        bindActor(AbstractActor.class,"HashtagParent");
+//       bind(TwitterStream.class).toInstance(new TwitterStreamFactory().getInstance());
 
     }
 

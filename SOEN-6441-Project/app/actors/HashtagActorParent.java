@@ -5,6 +5,7 @@ import akka.actor.ActorRef;
 import akka.actor.Props;
 import twitter4j.*;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,12 +13,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
 
-@Singleton
+
 public class HashtagActorParent extends AbstractActor {
 
 
     private Set<String> trackKeywords = new HashSet<>();
-    private TwitterStream twitterStream ;
+
+    @Singleton @Inject
+    TwitterStream twitterStream ;
 
     HashMap<String, ActorRef> ChildActors = new HashMap<>();
 
@@ -33,7 +36,7 @@ public class HashtagActorParent extends AbstractActor {
 
     private HashtagActorParent(){
         System.out.println("Hashtag Parent Actor Created: " + getSelf().path());
-        twitterStream = new TwitterStreamFactory().getInstance();
+       twitterStream = new TwitterStreamFactory().getInstance();
     }
 
 

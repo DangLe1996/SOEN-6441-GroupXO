@@ -2,7 +2,6 @@ package controllers;
 
 import actors.HashtagActor;
 import actors.HashtagActorParent;
-import actors.TimeActor;
 import actors.UserActor;
 import akka.NotUsed;
 import akka.actor.*;
@@ -127,7 +126,6 @@ public class HomeController extends Controller {
 			 currentUserID = request.session().get("Twitter").get();
 			 currenUser  = sessionData.getUser(currentUserID);
 
-
 		}
     	else{
 			currenUser = new sessionData();
@@ -182,9 +180,15 @@ public class HomeController extends Controller {
 
 	public WebSocket HashTagWs(){
 
-	return WebSocket.Text.accept(request -> ActorFlow.actorRef(wsout -> {
-		return HashtagActor.props(wsout,ActorParentHashtag);
-	}, actorSystem, materializer));
+    	Flow<String,String,?> test = ActorFlow.actorRef(wsout -> {
+			return HashtagActor.props(wsout,ActorParentHashtag);
+		}, actorSystem, materializer);
+
+	return WebSocket.Text.accept(request -> {
+		String  currentUserID = request.session().get("Twitter").get();
+
+		return test;
+	});
 
 	}
 

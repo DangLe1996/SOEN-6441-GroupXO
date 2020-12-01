@@ -13,9 +13,11 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
 import com.typesafe.config.ConfigException;
 import twitter4j.*;
 
+import javax.inject.Singleton;
 import javax.security.sasl.AuthenticationException;
 
 /**
