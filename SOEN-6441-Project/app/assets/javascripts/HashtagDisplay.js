@@ -16,8 +16,11 @@ ws.onmessage = function(event){
 }
 const tableID = "TweetTable";
 
+ws.on('disconnect', function () {
+    ws.send("KillSwitch")
+});
 
-ws.onclose = () => ws.send("KillSwitch");
+
 
 
 function addRow(tableID, textToAdd) {

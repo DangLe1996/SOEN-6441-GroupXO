@@ -60,7 +60,7 @@ public class HashtagActor extends AbstractActor {
     private void updateResult(String status){
 
         if(lasTweets.size()>=30){
-            var temp = lasTweets.stream().limit(10).collect(Collectors.toList());
+            List<String> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
             lasTweets = temp;
 
         }

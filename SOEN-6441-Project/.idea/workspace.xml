@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
-    </list>
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +264,7 @@
       <workItem from="1606442199765" duration="3918000" />
       <workItem from="1606502349532" duration="7745000" />
       <workItem from="1606581140311" duration="16400000" />
-      <workItem from="1606785642504" duration="4412000" />
+      <workItem from="1606785642504" duration="5133000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -366,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606789751104</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="file clean up">
+      <created>1606790156635</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606790156635</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +404,8 @@
     <MESSAGE value="WebSocket hashtag added" />
     <MESSAGE value="working hashtag websocket" />
     <MESSAGE value="working hashtag websocket with user changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="working hashtag websocket with user changes" />
+    <MESSAGE value="file clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="file clean up" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -434,10 +440,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606789749549">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606790155195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606789749549" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606790155195" />
     <state width="459" height="466" key="DebuggerActiveHint" timestamp="1605202106591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -498,10 +504,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606789755514">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606790163166">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606789755514" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606790163166" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
