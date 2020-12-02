@@ -3,12 +3,9 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.actor.Status;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -45,7 +42,7 @@ public class HashtagActor extends AbstractActor {
                 .match(String.class,msg -> {
                     QueryString = msg;
 
-                    replyTo.tell(new HashtagActorParent.registerNewHashtag(msg),getSelf());
+                    replyTo.tell(new TwitterStreamActor.registerNewHashtag(msg),getSelf());
                 })
                 .match(updateStatus.class,msg -> {
                     updateResult(msg.htmlCode);

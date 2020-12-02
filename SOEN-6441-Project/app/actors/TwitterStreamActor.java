@@ -7,25 +7,23 @@ import twitter4j.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
 
-
-public class HashtagActorParent extends AbstractActor {
+@Singleton
+public class TwitterStreamActor extends AbstractActor {
 
 
     private Set<String> trackKeywords = new HashSet<>();
 
-    @Singleton @Inject
     TwitterStream twitterStream ;
 
     HashMap<String, ActorRef> ChildActors = new HashMap<>();
 
     public static Props prop (){
-        return Props.create(HashtagActorParent.class);
+        return Props.create(TwitterStreamActor.class);
     }
 
 
@@ -34,9 +32,11 @@ public class HashtagActorParent extends AbstractActor {
 
     }
 
-    private HashtagActorParent(){
+    private TwitterStreamActor(){
         System.out.println("Hashtag Parent Actor Created: " + getSelf().path());
        twitterStream = new TwitterStreamFactory().getInstance();
+
+        initTwitterStream();
     }
 
 
@@ -47,34 +47,66 @@ public class HashtagActorParent extends AbstractActor {
         }
     }
 
-    public static class registerNewChild{
-        private final ActorRef wsout;
-
-        public registerNewChild(ActorRef wsout) {
-            this.wsout = wsout;
+    static class registerNewSearchQuery{
+        private final String searchQuery;
+        public registerNewSearchQuery(String searchQuery) {
+            this.searchQuery = searchQuery;
         }
     }
+
 
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(registerNewChild.class, msg -> {
-                    sender().tell(propNewChild(msg.wsout),getSelf());
-                })
-                .match(registerNewHashtag.class, msg ->{
-                    ChildActors.put(msg.hashtagString,sender());
-                    trackKeywords.add("#"+msg.hashtagString);
-                    updateTwitterStream();
-                    System.out.println("I got your message " + msg.hashtagString);
-                        })
 
+                .match(registerNewHashtag.class, msg ->{
+                    addNewHashtag(msg.hashtagString);
+                        })
+                .match(registerNewSearchQuery.class, msg ->{
+                    addNewQuery(msg.searchQuery);
+                })
+                .match(removeChild.class, msg -> removeChild(msg.actorRef))
                 .build();
+    }
+
+    private void removeChild(ActorRef actor){
+        ChildActors.values().remove(actor);
+    }
+    private void addNewQuery(String msg){
+        ChildActors.put(msg,sender());
+        trackKeywords.add(msg);
+        updateTwitterStream();
+        System.out.println("I got your query from Twitter " + msg);
+    }
+    private void addNewHashtag(String msg){
+        ChildActors.put(msg,sender());
+        trackKeywords.add("#"+msg);
+        updateTwitterStream();
+        System.out.println("I got your hashtag " + msg);
+    }
+
+    static class removeChild{
+        private final ActorRef actorRef;
+        removeChild(ActorRef actorRef) {
+            this.actorRef = actorRef;
+        }
     }
 
     private void updateTwitterStream(){
 
+        FilterQuery filter = new FilterQuery();
+        int n = trackKeywords.size();
+        String arr[] = new String[n];
+        arr = trackKeywords.toArray(arr);
+        System.out.println("Twitter stream have " + arr);
+        filter.track( arr);
+        twitterStream.filter(filter);
 
+    }
+
+
+    public void initTwitterStream(){
         StatusListener listener = new StatusListener() {
 
             @Override
@@ -107,20 +139,9 @@ public class HashtagActorParent extends AbstractActor {
             public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
             }
         };
-        twitterStream.cleanUp();
+
         twitterStream.addListener(listener);
-        FilterQuery filter = new FilterQuery();
-        int n = trackKeywords.size();
-        String arr[] = new String[n];
-        arr = trackKeywords.toArray(arr);
-
-        System.out.println("Twitter stream have " + arr);
-        filter.track( arr);
-        twitterStream.filter(filter);
-
     }
-
-
 
     private Function<Status,String> formatResult = (s) -> {
 

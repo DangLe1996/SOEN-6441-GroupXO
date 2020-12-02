@@ -1,6 +1,8 @@
 package controllers;
 
 import akka.actor.ActorSystem;
+
+import akka.stream.Materializer;
 import models.GetTweets;
 import models.sessionData;
 import org.junit.After;
@@ -10,14 +12,12 @@ import play.Application;
 import play.api.inject.guice.GuiceApplicationBuilder;
 import play.api.test.CSRFTokenHelper;
 import play.data.FormFactory;
-import play.filters.csrf.CSRF;
 import play.i18n.MessagesApi;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.test.WithApplication;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -35,6 +35,10 @@ public class RoutingTest  extends WithApplication {
 
     private static  sessionData testUser;
 
+//    @ClassRule
+//    public static final TestKitJunitResource testKit = new TestKitJunitResource();
+
+    static ActorSystem system;
 
     @Before
     public void initialize(){
@@ -44,10 +48,17 @@ public class RoutingTest  extends WithApplication {
         FormFactory mockFormFactory = new GuiceApplicationBuilder().injector().instanceOf(FormFactory.class);
 
         MessagesApi messageAPIMock = new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
-        ActorSystem actorSystem = new GuiceApplicationBuilder().injector().instanceOf(ActorSystem.class);
 
 
-        HomeController homeControllerMock = new HomeController(mockFormFactory,messageAPIMock,actorSystem);
+
+        system = ActorSystem.create();
+
+
+
+
+        Materializer mat = Materializer.createMaterializer(system);
+
+        HomeController homeControllerMock = new HomeController(mockFormFactory,messageAPIMock,system,mat);
 
         homeControllerMock.setGlobalGetTweet(getTweetsTest);
 
@@ -55,7 +66,7 @@ public class RoutingTest  extends WithApplication {
         testApp = new play.inject.guice.GuiceApplicationBuilder()
                 .overrides(bind(HomeController.class).toInstance(homeControllerMock))
                 .build();
-
+        testApp.injector().instanceOf(Materializer.class);
         testUser.insertCache("test1","test1Result");
     }
 
@@ -70,10 +81,10 @@ public class RoutingTest  extends WithApplication {
     @Test
     public void tesHashTagRoute()  {
 
-        when(getTweetsTest.GetTweetsWithKeyword("test")).thenReturn(CompletableFuture.completedFuture("this is a test"));
+        when(getTweetsTest.GetTweetsWithKeyword("#test")).thenReturn(CompletableFuture.completedFuture("this is a test"));
         Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(GET)
-                .uri("/hashtag?s=test");
+                .uri("/hashtag?hashTag=test");
         Result result = route(testApp, request);
         assertThat(contentAsString(result).contains("this is a test"),is(true));
         assertThat(result.status(),is(OK));

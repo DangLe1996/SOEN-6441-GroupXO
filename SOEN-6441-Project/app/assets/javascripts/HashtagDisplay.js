@@ -16,12 +16,6 @@ ws.onmessage = function(event){
 }
 const tableID = "TweetTable";
 
-ws.on('disconnect', function () {
-    ws.send("KillSwitch")
-});
-
-
-
 
 function addRow(tableID, textToAdd) {
     // Get a reference to the table

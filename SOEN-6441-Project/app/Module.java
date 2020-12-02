@@ -1,13 +1,4 @@
-import actors.HashtagActor;
-import actors.HashtagActorParent;
-import actors.UserActor;
-import akka.actor.*;
 import com.google.inject.AbstractModule;
-import play.libs.akka.AkkaGuiceSupport;
-import twitter4j.TwitterStream;
-import twitter4j.TwitterStreamFactory;
-
-import javax.inject.Provider;
 
 public class Module extends AbstractModule  {
     @Override

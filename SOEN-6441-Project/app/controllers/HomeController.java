@@ -1,30 +1,19 @@
 package controllers;
 
 import actors.HashtagActor;
-import actors.HashtagActorParent;
 import actors.UserActor;
-import akka.NotUsed;
 import akka.actor.*;
-import akka.actor.typed.Scheduler;
-import akka.actor.typed.javadsl.Adapter;
-import akka.actor.typed.javadsl.AskPattern;
 import akka.stream.Materializer;
 import akka.stream.javadsl.Flow;
-import com.fasterxml.jackson.databind.JsonNode;
 import models.GetTweets;
-import static akka.pattern.Patterns.ask;
-import static akka.pattern.Patterns.pipe;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import models.Search;
 import models.sessionData;
-import org.slf4j.Logger;
-import play.libs.F;
+import play.libs.Json;
 import play.libs.streams.ActorFlow;
-import twitter4j.*;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
@@ -32,7 +21,6 @@ import play.mvc.*;
 import views.html.tweets_hashtag_display;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 
 import java.util.function.BiFunction;
@@ -46,20 +34,17 @@ import static play.libs.Scala.asScala;
 public class HomeController extends Controller {
 
 
-	@com.google.inject.Inject
+	@Inject
 	private ActorSystem actorSystem;
-	@com.google.inject.Inject
-	private Materializer materializer;
+	@Inject
+	 Materializer materializer;
 
-
-
-	private ActorRef ActorParentHashtag;
+	private ActorRef TwitterStreamActor;
 
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
 
-	private final Logger logger = org.slf4j.LoggerFactory.getLogger("controllers.HomeController");
 
 	@Inject
 	GetTweets globalGetTweet;
@@ -71,12 +56,13 @@ public class HomeController extends Controller {
 
 
 	@Inject
-	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem as) {
+	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem as, Materializer mat) {
 
 		this.form = formFactory.form(Search.class);
 		this.messagesApi = messagesApi;
 		this.actorSystem = as;
-		this.ActorParentHashtag = this.actorSystem.actorOf(Props.create(HashtagActorParent.class),"HashtagParent");
+		this.materializer = mat;
+		this.TwitterStreamActor = this.actorSystem.actorOf(Props.create(actors.TwitterStreamActor.class),"HashtagParent");
 
 	}
 
@@ -85,7 +71,7 @@ public class HomeController extends Controller {
 	 */
 	private final BiFunction<sessionData, Http.Request,Result> displayHomePage =
 			(currentUser,request) ->ok(views.html.tweets_display
-					.render(currentUser.getQuery(), currentUser.getCache(), form, request, messagesApi.preferred(request)))
+					.render(currentUser.getQuery(), currentUser.getCache(),  request, messagesApi.preferred(request)))
 					.addingToSession(request, "Twitter", currentUser.toString());
 
 	/**
@@ -100,16 +86,18 @@ public class HomeController extends Controller {
         if (boundForm.hasErrors()) {
             return CompletableFuture.completedFuture(redirect(routes.HomeController.homePage()));
         } else {
-
-				Search searchquery = boundForm.get();
+				String searchquery = boundForm.get().getSearchString();
 				String currentUserID = request.session().get("Twitter").get();
-				return globalGetTweet.GetTweetsWithUser(searchquery.getSearchString(), currentUserID)
-						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
+//				sessionData.getUser(currentUserID).userActor.tell(searchquery,ActorRef.noSender());
 
+				return globalGetTweet.GetTweetsWithUser(searchquery, currentUserID)
+						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
 
 
         }      
     }
+
+
 
 	/**
 	 * This method display the Home Page. If the request does not contain any user information, a new user session will be created and attached.
@@ -120,24 +108,40 @@ public class HomeController extends Controller {
 	 */
     public CompletionStage<Result> homePage(Http.Request request) {
 
-		sessionData currenUser = null;
+		sessionData currentUser = null;
 		String currentUserID = null;
     	if(request.session().get("Twitter").isPresent()){
 			 currentUserID = request.session().get("Twitter").get();
-			 currenUser  = sessionData.getUser(currentUserID);
+			 currentUser  = sessionData.getUser(currentUserID);
 
 		}
     	else{
-			currenUser = new sessionData();
-			currentUserID = currenUser.toString();
+			currentUser = new sessionData();
+
 		}
 
-		return CompletableFuture.completedFuture(displayHomePage.apply(currenUser,request));
 
-
+		return CompletableFuture.completedFuture(displayHomePage.apply(currentUser,request));
 
     }
 
+	HashMap<String,Flow<Json,Json,?>> userFlowsMap = new HashMap<>();
+
+
+
+	public WebSocket indexWs(){
+
+		return WebSocket.Json.accept( request -> {
+			return ActorFlow.actorRef(wsout ->{
+				String currentUserID = request.session().get("Twitter").get();
+				System.out.println("wsout value is " + wsout.toString());
+				return UserActor.props(wsout, currentUserID, globalGetTweet, TwitterStreamActor );
+			}, actorSystem, materializer);
+
+		});
+
+
+	}
 
 
     public Result user(Http.Request request,String g) {
@@ -172,22 +176,30 @@ public class HomeController extends Controller {
 
 		return  globalGetTweet.GetTweetsWithKeyword("#"+searchQuery)
 				.thenApply(tweet -> {
-					final Result ok = ok(tweets_hashtag_display.render(request, searchQuery, tweet));
+					final Result ok = ok(tweets_hashtag_display.render(request, searchQuery, tweet)).addingToSession(request,"Hashtag",searchQuery);
 					return ok;
 				});
     }
 
 
+    HashMap<String,Flow<String,String,?>> hashtagFlowsMap = new HashMap<>();
+
 	public WebSocket HashTagWs(){
 
-    	Flow<String,String,?> test = ActorFlow.actorRef(wsout -> {
-			return HashtagActor.props(wsout,ActorParentHashtag);
-		}, actorSystem, materializer);
-
 	return WebSocket.Text.accept(request -> {
-		String  currentUserID = request.session().get("Twitter").get();
 
-		return test;
+		String hashtagValue = request.session().get("Hashtag").get();
+		if(hashtagFlowsMap.keySet().contains(hashtagValue) == true){
+			return hashtagFlowsMap.get(hashtagValue);
+		}
+		else{
+			Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
+				return HashtagActor.props(wsout, TwitterStreamActor);
+			}, actorSystem, materializer);
+			hashtagFlowsMap.put(hashtagValue,temp);
+			return temp;
+		}
+
 	});
 
 	}

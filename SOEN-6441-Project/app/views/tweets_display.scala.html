@@ -3,7 +3,7 @@
 
 
 @import java.util
-@(tweets: List[String], cache: util.Hashtable[String,String], form: Form[Search])(implicit request: Request, messages: play.i18n.Messages)
+@(tweets: List[String], cache: util.Hashtable[String,String])(implicit request: Request, messages: play.i18n.Messages)
 
 <!DOCTYPE html>
 <html>
@@ -11,29 +11,39 @@
 <div id="header" >
 	<a href="@routes.HomeController.homePage()"> <h1  align=center>Welcome to TweeterLytics</h1> </a>
 </div>
+	<script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+	<script type='text/javascript' src='@routes.Assets.at("javascripts/indexDisplay.js")'></script>
+
 </head>
 
-@helper.form(routes.HomeController.gettweet()) { 
-	@helper.CSRF.formField
-	
+@*//@helper.form() { *@
+@*	@helper.CSRF.formField*@
+@*	<p align="center">*@
+@*		<input type="text" size="50" name="searchString" placeholder="Enter search term"*@
+@*			value="@form("searchString").value">*@
+@*	</p>*@
+@*	<p align="center">*@
+@*		<button id="searchTweet" onclick="addItem()">Search Tweet</button>*@
+@*	</p>*@
+
+@*//}*@
+<body data-ws-url="@routes.HomeController.indexWs().webSocketURL(request)">
+
 	<p align="center">
 		<input type="text" size="50" name="searchString" placeholder="Enter search term"
-			value="@form("searchString").value">
+		>
 	</p>
 	<p align="center">
-		<button type="submit">Search Tweet</button>
+		<button id="searchTweet" onclick="addItem()">Search Tweet</button>
 	</p>
 
-}
-<body>
-	<table>
+	<div id="myDiv">
 		@for(key <- tweets){
 		@Html(cache.get(key))
 		}
-		<tr class="blank_row">
-			<td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
-		</tr>
-	</table>
+
+	</div>
+
 </body>
 
 </html>

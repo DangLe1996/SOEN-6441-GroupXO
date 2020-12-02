@@ -3,6 +3,7 @@ package controllers;
 
 
 import akka.actor.ActorSystem;
+import akka.stream.Materializer;
 import models.GetTweets;
 import org.junit.*;
 
@@ -66,7 +67,9 @@ public class HomeControllerTest extends WithApplication {
         MessagesApi messageAPI=mock(MessagesApi.class);
         messageAPI=new GuiceApplicationBuilder().injector().instanceOf(MessagesApi.class);
         ActorSystem actorSystem = new GuiceApplicationBuilder().injector().instanceOf(ActorSystem.class);
-         homeController=new HomeController(mockFormFactory,messageAPI,actorSystem);
+        Materializer mat = Materializer.createMaterializer(actorSystem);
+
+        homeController=new HomeController(mockFormFactory,messageAPI,actorSystem,mat);
     }
 
     @Test
