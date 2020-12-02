@@ -9,25 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="working websocket index">
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/indexDisplay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActorParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/HelloWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/sessionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sessionData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tweets_display.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tweets_display.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/twitter4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/conf/twitter4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/HomeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/RoutingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/RoutingTest.java" afterDir="false" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/indexDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/indexDisplay.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +265,7 @@
       <workItem from="1606785642504" duration="11592000" />
       <workItem from="1606856156326" duration="16457000" />
       <workItem from="1606922742149" duration="7110000" />
-      <workItem from="1606937433786" duration="144000" />
+      <workItem from="1606937433786" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -396,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606791108504</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="working websocket index">
+      <created>1606937619677</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606937619677</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,10 +457,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606937476970">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606937618375">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937476970" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937618375" />
     <state width="473" height="466" key="DebuggerActiveHint" timestamp="1606871400201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -531,10 +521,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606791117854">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606937625190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606791117854" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937625190" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

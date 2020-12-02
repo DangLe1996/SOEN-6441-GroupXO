@@ -14,8 +14,9 @@ function addItem(){
         div.removeChild(elementExists);
         div.prepend(elementExists);
 
-        document.getElementsByName("searchString")[0].value = "";
+
     }
+    document.getElementsByName("searchString")[0].value = "";
 
 }
 
