@@ -10,7 +10,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class SearchTest {
 
 
-
+    /**
+     * Test that search object store and retrieve search string correctly.
+     */
     @Test
     public void testCorrectString() {
         String searchPhrase = "this is test search";
@@ -20,6 +22,9 @@ public class SearchTest {
 
     }
 
+    /**
+     * Test that if search string is empty, no exception thrown
+     */
     @Test
     public void testEmptyString() {
         String searchPhrase = " ";
@@ -28,6 +33,10 @@ public class SearchTest {
         assertThat(testSearch.getSearchString(),is(searchPhrase));
 
     }
+
+    /**
+     * Test that if search string is null, no exception thrown
+     */
     @Test
     public void testNullString() {
         String searchPhrase = null;

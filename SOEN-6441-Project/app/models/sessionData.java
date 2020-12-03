@@ -1,10 +1,16 @@
 package models;
 
+import akka.actor.ActorRef;
+import akka.stream.javadsl.Flow;
+import com.google.inject.AbstractModule;
 import scala.math.Equiv;
 
 import java.util.*;
 
-public class sessionData {
+/**
+ * Handle userCache, including UserID, list of searched queries and results
+ */
+public class sessionData extends AbstractModule {
 
 
     /**
@@ -56,8 +62,7 @@ public class sessionData {
      * @param userID : key to retrieve user information from userCache
      * @return: sessionData object of the user with given userID
      */
-    public static sessionData getUser(String userID){
-
+    public static  sessionData getUser(String userID){
 
 
         if(userID == null )return new sessionData();

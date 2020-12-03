@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="ProjectDoc" pattern="src[SOEN-6441-Project]:models.*||[SOEN-6441-Project]:controllers.HomeController||[SOEN-6441-Project]:controllers.HomeControllerTest" />
+</component>

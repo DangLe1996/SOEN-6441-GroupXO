@@ -1,28 +1,21 @@
-@(key: String, sortedwc: List[String])
+@(request: play.mvc.Http.Request, key: String, sortedwc: String)
 <!DOCTYPE html>
 <html>
 <head>
+ <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+        <script type='text/javascript' src='@routes.Assets.at("javascripts/KeywordDisplay.js")'></script>
+
 <div id="header">
 	<h1 align=center>Tweet words statistics</h1>
 	<h3 align=center>Keyword :  @key</h3>
 </div>
 
 </head>
-<body>
 
-	<table align=center>
+    <body data-ws-url="@routes.HomeController.keywordWs().webSocketURL(request)">
 
-		@for(key <- sortedwc){
-			<tr>
-
-			<td >  @key
-
-		</tr>
-		}
-		<tr class="blank_row">
-			<td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
-		</tr>
-	</table>
-</body>
+        <div id="keywordstats"></div>
+    </body>
 
 </html>
+
