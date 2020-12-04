@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ReverseAssets</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">controllers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ReverseAssets (controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReverseAssets</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    40%
+  </span>
+  <span class="absValue">
+    (2/ 5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;// @GENERATOR:play-routes-compiler
+<i>2</i>&nbsp;// @SOURCE:C:/Users/Zean Le/Documents/GitHub/SOEN-6441-GroupXO/SOEN-6441-Project/conf/routes
+<i>3</i>&nbsp;// @DATE:Thu Nov 12 12:23:22 EST 2020
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import play.api.mvc.Call
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import _root_.controllers.Assets.Asset
+<i>9</i>&nbsp;import _root_.play.libs.F
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;// @LINE:8
+<i>12</i>&nbsp;package controllers {
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;  // @LINE:8
+<i>15</i>&nbsp;  class ReverseHomeController(_prefix: =&gt; String) {
+<i>16</i>&nbsp;    def _defaultPrefix: String = {
+<i>17</i>&nbsp;      if (_prefix.endsWith(&quot;/&quot;)) &quot;&quot; else &quot;/&quot;
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;  
+<i>21</i>&nbsp;    // @LINE:12
+<i>22</i>&nbsp;    def user(s:String): Call = {
+<i>23</i>&nbsp;      
+<i>24</i>&nbsp;      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;user&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;s&quot;, s)))))
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;  
+<i>27</i>&nbsp;    // @LINE:14
+<i>28</i>&nbsp;    def keyword(s:String): Call = {
+<i>29</i>&nbsp;      
+<i>30</i>&nbsp;      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;keyword&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;s&quot;, s)))))
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;  
+<i>33</i>&nbsp;    // @LINE:13
+<i>34</i>&nbsp;    def location(s:String): Call = {
+<i>35</i>&nbsp;      
+<i>36</i>&nbsp;      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;location&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;s&quot;, s)))))
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;  
+<i>39</i>&nbsp;    // @LINE:15
+<i>40</i>&nbsp;    def hashtag(s:String): Call = {
+<i>41</i>&nbsp;      
+<i>42</i>&nbsp;      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;hashtag&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;s&quot;, s)))))
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;  
+<i>45</i>&nbsp;    // @LINE:8
+<i>46</i>&nbsp;    def homePage(): Call = {
+<i>47</i>&nbsp;      
+<i>48</i>&nbsp;      Call(&quot;GET&quot;, _prefix)
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;  
+<i>51</i>&nbsp;    // @LINE:10
+<i>52</i>&nbsp;    def gettweet(): Call = {
+<i>53</i>&nbsp;      
+<i>54</i>&nbsp;      Call(&quot;POST&quot;, _prefix)
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;  
+<i>57</i>&nbsp;  }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  // @LINE:18
+<b class="fc"><i>60</i>&nbsp;  class ReverseAssets(_prefix: =&gt; String) {</b>
+<i>61</i>&nbsp;    def _defaultPrefix: String = {
+<b class="nc"><i>62</i>&nbsp;      if (_prefix.endsWith(&quot;/&quot;)) &quot;&quot; else &quot;/&quot;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;  
+<i>66</i>&nbsp;    // @LINE:18
+<i>67</i>&nbsp;    def versioned(file:Asset): Call = {
+<b class="nc"><i>68</i>&nbsp;      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map((&quot;path&quot;, &quot;/public&quot;))); _rrc</b>
+<b class="nc"><i>69</i>&nbsp;      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;assets/&quot; + implicitly[play.api.mvc.PathBindable[Asset]].unbind(&quot;file&quot;, file))</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;  
+<i>72</i>&nbsp;  }
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;}</b>
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-11-12 17:05</div>
+</div>
+</body>
+</html>

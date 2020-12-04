@@ -13,17 +13,17 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
 import com.typesafe.config.ConfigException;
 import twitter4j.*;
 
+import javax.inject.Singleton;
 import javax.security.sasl.AuthenticationException;
 
 /**
  * Handles the request of getting TwitterAPI
  */
 public class GetTweets extends AbstractModule {
-
-
 
 
     private Twitter twitter ;
@@ -114,16 +114,22 @@ public class GetTweets extends AbstractModule {
     /**
      * Lambda BiFunction that takes a search query and its result, then return a formatted HTML string.
      */
-    private static final BiFunction<String, String, String> tweetDisplayPageFormat = (searchquery, result) -> "		<tr>\n" +
+    private static final BiFunction<String, String, String> tweetDisplayPageFormat = (searchquery, result) ->
+            "<table id=\""+searchquery+"\">" +
+            "		<tr class = \"Header\">\n" +
             "			<th>Search terms:</th>\n" +
             "			<th><a href=/keyword?s=" + searchquery.replaceAll(" ", "+") + ">" + searchquery  + "</a></th>\n" +
             "	<th>"+ getTweetSentiments(searchquery) +"</th>" +
             "		</tr>\n" +
-            "		<tr>\n" +
+            "		<tr class = \"Header\">\n" +
             "			<th>User</th>\n" +
             "			<th>Location</th>\n" +
             "			<th>Tweet Text</th>\n" +
-            "		</tr>\n" + result;
+            "		</tr>\n" + result
+            + "<tr class=\"blank_row\">\n" +
+                    "<td bgcolor=\"#FFFFFF\" colspan=\"3\"></td>\n" +
+                    "</tr>"
+                    +"</table>";
 
 
     /**
@@ -142,7 +148,9 @@ public class GetTweets extends AbstractModule {
     public CompletionStage<sessionData> GetTweetsWithUser(String searchQuery, String UserID)  {
 
        sessionData currentUser = sessionData.getUser(UserID);
-       
+
+
+
         if (searchQuery.length() < 2) {
             return CompletableFuture.completedFuture(currentUser);
         }
@@ -252,10 +260,10 @@ public class GetTweets extends AbstractModule {
         return result.getTweets().parallelStream()
                 .map(s -> {
                     return "\n" +
-                            "<tr>\n" +
+                            "<tr class=\"status\" >\n" +
                             "		<td><a href=/user?s=" + s.getUser().getScreenName().replaceAll(" ", "+") + "> " + s.getUser().getScreenName() + "</a></td>\n" +
                             "		<td><a href=/location?s=" + s.getUser().getLocation().replaceAll(" ", "+") + ">" + s.getUser().getLocation() + "</a></td>\n" +
-                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?s=$1>#$1</a>") + "</td>\n" +
+                            "		<td>" + s.getText().replaceAll("#(\\w+)+", "<a href=/hashtag?hashTag=$1>#$1</a>") + "</td>\n" +
                             "</tr>\n";
                 })
                 .limit(10)
