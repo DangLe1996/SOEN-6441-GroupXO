@@ -26,11 +26,13 @@ libraryDependencies += "org.junit.platform" % "junit-platform-launcher" % "1.7.0
 libraryDependencies += "org.junit.platform" % "junit-platform-runner" % "1.7.0" % Test
 val AkkaVersion = "2.6.10"
 libraryDependencies += "com.typesafe.akka" %% "akka-stream-typed" % AkkaVersion
-
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % AkkaVersion
 // https://mvnrepository.com/artifact/com.typesafe.akka/akka-testkit
-libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % "2.6.1" % Test
+libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % Test
 // https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed
-libraryDependencies += "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.6.0" % Test
+libraryDependencies += "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test
+// https://mvnrepository.com/artifact/com.typesafe.akka/akka-serialization-jackson
+libraryDependencies += "com.typesafe.akka" %% "akka-serialization-jackson" % AkkaVersion % Test
 
 
 

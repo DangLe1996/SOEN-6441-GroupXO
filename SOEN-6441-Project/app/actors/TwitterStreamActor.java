@@ -122,7 +122,7 @@ public class TwitterStreamActor extends AbstractActor {
 
     private void addNewHashtag(String msg) {
         ChildActors.put(msg, sender());
-        trackKeywords.add("#" + msg);
+        trackKeywords.add( msg);
         updateTwitterStream();
         System.out.println("I got your hashtag " + msg);
     }
@@ -166,6 +166,8 @@ public class TwitterStreamActor extends AbstractActor {
             @Override
             public void onStatus(Status status) {
 
+                System.out.println("New status");
+
                 ChildActors.entrySet().forEach(child -> {
 
                     analyseSentiments(child.getKey(), status);
@@ -177,7 +179,7 @@ public class TwitterStreamActor extends AbstractActor {
 
 
                     if (result.contains(child.getKey())) {
-                        HashtagActor.updateStatus reply = new HashtagActor.updateStatus(formatResult.apply(status), child.getKey());
+                        HashtagActor.updateStatus reply = new HashtagActor.updateStatus(result, child.getKey());
                         child.getValue().tell(reply, self());
                     }
                 });

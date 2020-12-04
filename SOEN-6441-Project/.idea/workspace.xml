@@ -10,14 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_paranamer_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_2_13_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_serialization_jackson_2_13_2_6_5_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_paranamer_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_2_13_2_10_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,11 +103,11 @@
         <option value="java.lang._" />
         <option value="play.mvc._" />
         <option value="_root_.play.twirl.api.Txt" />
-        <option value="play.data._" />
         <option value="play.api.data.Field" />
-        <option value="play.api.templates.PlayMagic._" />
-        <option value="_root_.play.twirl.api.JavaScript" />
+        <option value="play.data._" />
         <option value="scala.jdk.CollectionConverters._" />
+        <option value="_root_.play.twirl.api.JavaScript" />
+        <option value="play.api.templates.PlayMagic._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />
@@ -415,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606937770021</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="merged with Hashtag Keywords from Dang's branch.">
+      <created>1607100279501</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607100279501</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +474,8 @@
     <MESSAGE value="file clean up" />
     <MESSAGE value="Fix var" />
     <MESSAGE value="working websocket index" />
-    <option name="LAST_COMMIT_MESSAGE" value="working websocket index" />
+    <MESSAGE value="merged with Hashtag Keywords from Dang's branch." />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with Hashtag Keywords from Dang's branch." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -486,18 +510,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1606937769497">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607100278545">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937769497" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100278545" />
     <state width="473" height="466" key="DebuggerActiveHint" timestamp="1606871400201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="473" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606871400201" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1605201769551">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607101923946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605201769551" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
     <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1607097558416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -534,10 +558,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="342" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607097558416" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1605138976152">
+    <state x="184" y="86" key="MergeDialog" timestamp="1607100380600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138976152" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100380600" />
     <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605138976163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -550,18 +574,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606937778315">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607100286667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937778315" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100286667" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605200303562" />
-    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605124698481">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607101923946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605124698481" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
+    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607100750495">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100750495" />
     <state x="449" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606869065593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -578,6 +606,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="321" y="126" width="1216" height="707" key="dock-window-3/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937578155" />
+    <state x="636" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607100346586">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100346586" />
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1607096860240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
