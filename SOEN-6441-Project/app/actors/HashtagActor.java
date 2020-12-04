@@ -42,18 +42,14 @@ public class HashtagActor extends AbstractActor {
         return receiveBuilder()
                 .match(String.class,msg -> {
                     QueryString = msg;
-
                     replyTo.tell(new TwitterStreamActor.registerNewHashtag(msg),getSelf());
                 })
-                .match(updateStatus.class,msg -> {
+                .match(TwitterStreamActor.updateStatus.class, msg -> {
                     updateResult(msg);
                 })
                 .matchAny( msg -> {
                     addQueryFromJson(msg);
                 })
-                .matchEquals("KillSwitch", msg -> {
-                    System.out.println("Actor terminated");
-                    context().stop(self());})
                 .build();
 
     }
@@ -68,7 +64,7 @@ public class HashtagActor extends AbstractActor {
     }
 
 
-    private void updateResult(updateStatus status){
+    private void updateResult(TwitterStreamActor.updateStatus status){
 
         if(lasTweets.size()>=30){
             List<String> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
@@ -82,15 +78,7 @@ public class HashtagActor extends AbstractActor {
 
     }
 
-    public static class updateStatus{
-        private final String htmlCode;
-        private final String queryTerm;
 
-        updateStatus(String htmlCode, String queryTerm) {
-            this.htmlCode = htmlCode;
-            this.queryTerm = queryTerm;
-        }
-    }
 
 
 

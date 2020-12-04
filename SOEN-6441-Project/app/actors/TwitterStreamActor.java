@@ -1,14 +1,17 @@
 package actors;
 
 import akka.actor.AbstractActor;
+import akka.actor.AbstractActorWithTimers;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import com.google.common.collect.HashBasedTable;
+import scala.concurrent.duration.Duration;
 import twitter4j.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
@@ -23,10 +26,12 @@ import java.util.Set;
 import java.util.function.Function;
 
 @Singleton
-public class TwitterStreamActor extends AbstractActor {
+public class TwitterStreamActor extends AbstractActorWithTimers {
 
 
-    private Set<String> trackKeywords = new HashSet<>();
+    private Set<String> KeywordsQueue = new HashSet<>();
+
+    private Set<String> trackedKeywords = new HashSet<>();
 
     TwitterStream twitterStream;
 
@@ -39,19 +44,12 @@ public class TwitterStreamActor extends AbstractActor {
         return Props.create(TwitterStreamActor.class);
     }
 
-
-    public Props propNewChild(ActorRef wsout) {
-        return Props.create(HashtagActor.class, wsout, getSelf());
-
-    }
-
     private TwitterStreamActor() {
         System.out.println("Hashtag Parent Actor Created: " + getSelf().path());
         twitterStream = new TwitterStreamFactory().getInstance();
 
         initTwitterStream();
     }
-
 
     static class registerNewHashtag {
         private final String hashtagString;
@@ -91,6 +89,15 @@ public class TwitterStreamActor extends AbstractActor {
     }
     //suhel
 
+    @Override
+    public void preStart() {
+        System.out.println("Time Actor Prestart ");
+        getTimers().startPeriodicTimer("Timer", new Tick(), Duration.create(5, TimeUnit.SECONDS));
+    }
+
+    private static final class Tick {
+    }
+
 
     @Override
     public Receive createReceive() {
@@ -99,6 +106,7 @@ public class TwitterStreamActor extends AbstractActor {
                 .match(registerNewHashtag.class, msg -> {
                     addNewHashtag(msg.hashtagString);
                 })
+                .match(Tick.class, msg -> updateTwitterStream())
                 .match(registerNewSearchQuery.class, msg -> {
                     addNewQuery(msg.searchQuery);
                 })
@@ -108,50 +116,45 @@ public class TwitterStreamActor extends AbstractActor {
                 .match(removeChild.class, msg -> removeChild(msg.actorRef))
                 .build();
     }
-
     private void removeChild(ActorRef actor) {
         ChildActors.values().remove(actor);
     }
 
     private void addNewQuery(String msg) {
         ChildActors.put(msg, sender());
-        trackKeywords.add(msg);
-        updateTwitterStream();
+        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
         System.out.println("I got your query from Twitter " + msg);
     }
-
     private void addNewHashtag(String msg) {
         ChildActors.put(msg, sender());
-        trackKeywords.add( msg);
-        updateTwitterStream();
+        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
         System.out.println("I got your hashtag " + msg);
     }
-
     private void addNewKeyword(String msg) {
         KeyChildActors.put(msg, sender());
-        trackKeywords.add(msg);
-        updateTwitterStream();
+        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
         System.out.println("I got your keyword " + msg);
     }
 
     static class removeChild {
         private final ActorRef actorRef;
-
         removeChild(ActorRef actorRef) {
             this.actorRef = actorRef;
         }
     }
-
     private void updateTwitterStream() {
-
-        FilterQuery filter = new FilterQuery();
-        int n = trackKeywords.size();
-        String arr[] = new String[n];
-        arr = trackKeywords.toArray(arr);
-        System.out.println("Twitter stream have " + arr);
-        filter.track(arr);
-        twitterStream.filter(filter);
-
+        System.out.println("updateing stream");
+        if(KeywordsQueue.size() > 0) {
+            trackedKeywords.addAll(KeywordsQueue);
+            FilterQuery filter = new FilterQuery();
+            int n = KeywordsQueue.size();
+            String arr[] = new String[n];
+            arr = KeywordsQueue.toArray(arr);
+            System.out.println("Twitter stream have " + Arrays.stream(arr).reduce(String::join));
+            filter.track(arr);
+            KeywordsQueue.clear();
+            twitterStream.filter(filter);
+        }
     }
 
 
@@ -166,31 +169,28 @@ public class TwitterStreamActor extends AbstractActor {
             @Override
             public void onStatus(Status status) {
 
-                System.out.println("New status");
 
                 ChildActors.entrySet().forEach(child -> {
 
-                    analyseSentiments(child.getKey(), status);
-                    outputAnalysedSentiment(child.getKey());// good to know after each tweet stream
-                    System.out.println(" value: :" + child.getValue());
+//                    analyseSentiments(child.getKey(), status);
+//                    outputAnalysedSentiment(child.getKey());// good to know after each tweet stream
+
                     String result = formatResult.apply(status);
 
-                    System.out.println(" checkpoint 1");
-
+//                    System.out.println(" checkpoint 1");
 
                     if (result.contains(child.getKey())) {
-                        HashtagActor.updateStatus reply = new HashtagActor.updateStatus(result, child.getKey());
-                        child.getValue().tell(reply, self());
+
+                        child.getValue().tell(new updateStatus(result, child.getKey()), self());
                     }
                 });
-                KeyChildActors.entrySet().forEach(child -> {
-                    //System.out.println("in status " );
-                    //List<String> result = GetKeywordStats(status);
-                    System.out.println(" checkpoint 2");
-
-                    KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
-                    child.getValue().tell(reply, self());
-                });
+//                KeyChildActors.entrySet().forEach(child -> {
+//                    //System.out.println("in status " );
+//                    //List<String> result = GetKeywordStats(status);
+//                    System.out.println(" checkpoint 2");
+//                    KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
+//                    child.getValue().tell(reply, self());
+//                });
 
             }
 
@@ -214,6 +214,15 @@ public class TwitterStreamActor extends AbstractActor {
         twitterStream.addListener(listener);
     }
 
+    public static class updateStatus{
+        public final String htmlCode;
+        public final String queryTerm;
+
+        updateStatus(String htmlCode, String queryTerm) {
+            this.htmlCode = htmlCode;
+            this.queryTerm = queryTerm;
+        }
+    }
 
     private Function<Status, String> formatResult = (s) -> {
 
