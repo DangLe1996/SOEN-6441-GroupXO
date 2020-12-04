@@ -56,7 +56,7 @@ public class KeywordActor extends AbstractActor {
     private void updateResult(Status status){  
     	lasTweets.add(status);
 
-    	if (lasTweets.size() == 20){
+    	if (lasTweets.size() == 50){
     		String result = GetKeywordStats(lasTweets);
     		
     		 ws.tell(result, ActorRef.noSender());
