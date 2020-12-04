@@ -1,4 +1,10 @@
 package controllers;
+import actors.HashtagActor;
+import actors.KeywordActor;
+import actors.UserActor;
+import akka.actor.ActorSystem;
+import akka.actor.Props;
+import akka.actor.ActorRef;
 import akka.stream.Materializer;
 import akka.stream.javadsl.Flow;
 import models.GetTweets;
@@ -191,6 +197,19 @@ public class HomeController extends Controller {
 			}, actorSystem, materializer);
 
 	});
+
+	}
+	HashMap<String,Flow<String,String,?>> keywordFlowsMap = new HashMap<>();
+
+	public WebSocket keywordWs(){
+		System.out.println("in keyword ws");
+		return WebSocket.Text.accept(request -> {
+			Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
+				return KeywordActor.props(wsout, TwitterStreamActor);
+			}, actorSystem, materializer);
+			return temp;
+		});
+
 
 	}
 
