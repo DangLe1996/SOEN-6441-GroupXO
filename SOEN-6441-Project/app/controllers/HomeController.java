@@ -125,10 +125,6 @@ public class HomeController extends Controller {
 
     }
 
-	HashMap<String,Flow<Json,Json,?>> userFlowsMap = new HashMap<>();
-
-
-
 	public WebSocket indexWs(){
 
 		return WebSocket.Json.accept( request -> {
@@ -182,23 +178,14 @@ public class HomeController extends Controller {
     }
 
 
-    HashMap<String,Flow<String,String,?>> hashtagFlowsMap = new HashMap<>();
+    HashMap<String,Flow<Json,Json,?>> hashtagFlowsMap = new HashMap<>();
 
 	public WebSocket HashTagWs(){
 
-	return WebSocket.Text.accept(request -> {
-
-		String hashtagValue = request.session().get("Hashtag").get();
-		if(hashtagFlowsMap.keySet().contains(hashtagValue) == true){
-			return hashtagFlowsMap.get(hashtagValue);
-		}
-		else{
-			Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
+	return WebSocket.Json.accept(request -> {
+			return ActorFlow.actorRef(wsout -> {
 				return HashtagActor.props(wsout, TwitterStreamActor);
 			}, actorSystem, materializer);
-			hashtagFlowsMap.put(hashtagValue,temp);
-			return temp;
-		}
 
 	});
 

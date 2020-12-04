@@ -59,22 +59,14 @@ public final class UserActor extends AbstractActor {
             String htmlCode = sess.getCache().get(queryTerm);
 
 
-            JsonNode personJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm));
-            wsout.tell(personJson,ActorRef.noSender());
+            JsonNode updateJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm));
+            wsout.tell(updateJson,ActorRef.noSender());
 
         } );
 
     }
 
 
-    private void addNewQuery(String query){
-
-
-        TwitterStreamActor.tell( new TwitterStreamActor.registerNewSearchQuery(query ),getSelf());
-        wsout.tell("I got your message " + query, ActorRef.noSender());
-//        ws.tell("I got your message " + query,ActorRef.noSender());
-//        ParentActor.tell(new HashtagActorParent.registerNewSearchQuery(query),getSelf());
-    }
 
 
     public static class addQuery{

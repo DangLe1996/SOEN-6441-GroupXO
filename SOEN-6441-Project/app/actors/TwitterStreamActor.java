@@ -5,7 +5,6 @@ import akka.actor.ActorRef;
 import akka.actor.Props;
 import twitter4j.*;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -81,7 +80,7 @@ public class TwitterStreamActor extends AbstractActor {
     }
     private void addNewHashtag(String msg){
         ChildActors.put(msg,sender());
-        trackKeywords.add("#"+msg);
+        trackKeywords.add(msg);
         updateTwitterStream();
         System.out.println("I got your hashtag " + msg);
     }
@@ -120,7 +119,8 @@ public class TwitterStreamActor extends AbstractActor {
                 ChildActors.entrySet().forEach(child -> {
                     String result = formatResult.apply(status);
                     if(result.contains(child.getKey())) {
-                        var reply = new HashtagActor.updateStatus(formatResult.apply(status));
+
+                        var reply = new HashtagActor.updateStatus(formatResult.apply(status), child.getKey());
                         child.getValue().tell(reply, self());
                     }
                 });
