@@ -192,14 +192,10 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
                         child.getValue().tell(new updateStatus(result, child.getKey()), self());
                     }
                 });
-//                KeyChildActors.entrySet().forEach(child -> {
-//                    //System.out.println("in status " );
-//                    //List<String> result = GetKeywordStats(status);
-//                    System.out.println(" checkpoint 2");
-//                    KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
-//                    child.getValue().tell(reply, self());
-//                });
-
+                KeyChildActors.entrySet().forEach(child -> {
+                    KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
+                    child.getValue().tell(reply, self());
+                });
             }
 
             @Override
