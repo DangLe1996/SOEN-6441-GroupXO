@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/HashtagDisplay.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,11 +43,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SOEN-6441-Project" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="SOEN-6441-Project" type="f1a62948:ProjectNode" />
-                <item name="SOEN-6441-Project" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -77,11 +80,11 @@
         <option value="java.lang._" />
         <option value="play.mvc._" />
         <option value="_root_.play.twirl.api.Txt" />
-        <option value="play.api.data.Field" />
         <option value="play.data._" />
+        <option value="play.api.data.Field" />
+        <option value="play.api.templates.PlayMagic._" />
         <option value="scala.jdk.CollectionConverters._" />
         <option value="_root_.play.twirl.api.JavaScript" />
-        <option value="play.api.templates.PlayMagic._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />
@@ -104,6 +107,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -123,19 +127,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Play 2 App.play run">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <option name="PACKAGE_NAME" value="" />
@@ -278,6 +269,7 @@
       <workItem from="1606922742149" duration="7110000" />
       <workItem from="1606937433786" duration="391000" />
       <workItem from="1607096176266" duration="1481000" />
+      <workItem from="1607104044046" duration="6112000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -436,6 +428,27 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -648,24 +661,9 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605218878219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-      <FILTER>controllers.HomeController</FILTER>
-      <FILTER>controllers.HomeControllerTest</FILTER>
-      <FILTER>controllers.RoutingTest</FILTER>
-      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_check_Twitter_invoke_exception.ic" NAME="GetTweetsTest.check_Twitter_invoke_exception Coverage Results" MODIFIED="1605204616706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_testUserSessionsWithGetString.ic" NAME="GetTweetsTest.testUserSessionsWithGetString Coverage Results" MODIFIED="1605201546540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1605130736948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest.ic" NAME="RoutingTest Coverage Results" MODIFIED="1605201367746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
@@ -673,30 +671,45 @@
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_tesHashTag.ic" NAME="HomeControllerTest.tesHashTag Coverage Results" MODIFIED="1605128880308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest_testHomePageRouteWithNewUser.ic" NAME="RoutingTest.testHomePageRouteWithNewUser Coverage Results" MODIFIED="1605201442150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest__1_.ic" NAME="GetTweetsTest (1) Coverage Results" MODIFIED="1605155311329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$sessionDataTest.ic" NAME="sessionDataTest Coverage Results" MODIFIED="1605196549793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest.ic" NAME="GetTweetsTest Coverage Results" MODIFIED="1605202409526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testException.ic" NAME="HomeControllerTest.testException Coverage Results" MODIFIED="1604957686976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605218878219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+      <FILTER>controllers.HomeController</FILTER>
+      <FILTER>controllers.HomeControllerTest</FILTER>
+      <FILTER>controllers.RoutingTest</FILTER>
+      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.exec" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605130623831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
       <FILTER>controllers.*</FILTER>
       <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$sessionDataTest.ic" NAME="sessionDataTest Coverage Results" MODIFIED="1605196549793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1605130736948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest__1_.ic" NAME="GetTweetsTest (1) Coverage Results" MODIFIED="1605155311329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest_testHomePageRouteWithNewUser.ic" NAME="RoutingTest.testHomePageRouteWithNewUser Coverage Results" MODIFIED="1605201442150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_testUserSessionsWithGetString.ic" NAME="GetTweetsTest.testUserSessionsWithGetString Coverage Results" MODIFIED="1605201546540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$models_in_SOEN_6441_Project.ic" NAME="models in SOEN-6441-Project Coverage Results" MODIFIED="1605204371142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testException.ic" NAME="HomeControllerTest.testException Coverage Results" MODIFIED="1604957686976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
   </component>
 </project>

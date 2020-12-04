@@ -105,6 +105,10 @@ public class TwitterStreamActor extends AbstractActor {
                 .match(registerNewKeyword.class, msg -> {
                     addNewKeyword(msg.keyword);
                 })
+                .match(storeSentiments.class, msg -> {
+                    System.out.println("Sentiment actor said : "+msg.mode);
+                    storeAnalysedSentiment(msg.keyword,msg.msgID,msg.mode);
+                }) //suhel
                 .match(removeChild.class, msg -> removeChild(msg.actorRef))
                 .build();
     }
@@ -171,9 +175,11 @@ public class TwitterStreamActor extends AbstractActor {
                 ChildActors.entrySet().forEach(child -> {
 
                     analyseSentiments(child.getKey(), status);
-                    outputAnalysedSentiment(child.getKey());// good to know after each tweet stream
+                    // good to know after each tweet stream
                     System.out.println(" value: :" + child.getValue());
                     String result = formatResult.apply(status);
+
+                    result=result+outputAnalysedSentiment(child.getKey());//suhel
 
                     System.out.println(" checkpoint 1");
 
@@ -239,7 +245,7 @@ public class TwitterStreamActor extends AbstractActor {
         sentimentTable.put(searchQuery, msgID, mode);
     }
 
-    private void outputAnalysedSentiment(String searchQuery) {
+    private String outputAnalysedSentiment(String searchQuery) {
         System.out.println("I will output  here each sentiments after each streaming");
         int happy = 0;
         int sad = 0;
@@ -255,8 +261,9 @@ public class TwitterStreamActor extends AbstractActor {
         dynamicAnalytic = dynamicAnalytic + "  Total Happy Tweets : " + happy;
         dynamicAnalytic = dynamicAnalytic + "  Total Sad Tweets : " + sad;
         dynamicAnalytic = dynamicAnalytic + "  Total Neutral Tweets : " + (sentimentTable.row(searchQuery).size() - happy + sad);
+        dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
         System.out.println(dynamicAnalytic);
-
+        return dynamicAnalytic;
 
     }
 
