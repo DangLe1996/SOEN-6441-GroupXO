@@ -14,6 +14,13 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 import java.util.stream.Stream;
 import java.util.Map.Entry;
+import twitter4j.*;
+
+import javax.inject.Singleton;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Function;
 
 @Singleton
 public class TwitterStreamActor extends AbstractActor {
@@ -95,13 +102,8 @@ public class TwitterStreamActor extends AbstractActor {
                     addNewKeyword(msg.keyword);
                 })
                 .match(removeChild.class, msg -> removeChild(msg.actorRef))
-                .match(storeSentiments.class, msg -> {
-                    System.out.println("Sentiment actor said : "+msg.mode);
-                    storeAnalysedSentiment(msg.keyword,msg.msgID,msg.mode);
-                }) //suhel
                 .build();
     }
-
 
     private void removeChild(ActorRef actor){
         ChildActors.values().remove(actor);
@@ -119,7 +121,7 @@ public class TwitterStreamActor extends AbstractActor {
         System.out.println("I got your hashtag " + msg);
     }
     private void addNewKeyword(String msg){
-    	KeyChildActors.put(msg,sender());
+        KeyChildActors.put(msg,sender());
         trackKeywords.add(msg);
         updateTwitterStream();
         System.out.println("I got your keyword " + msg);
@@ -155,7 +157,7 @@ public class TwitterStreamActor extends AbstractActor {
 
             @Override
             public void onStatus(Status status) {
-            
+
                 ChildActors.entrySet().forEach(child -> {
 
                     analyseSentiments(child.getKey(),status);
@@ -172,15 +174,23 @@ public class TwitterStreamActor extends AbstractActor {
                     }
                 });
                 KeyChildActors.entrySet().forEach(child -> {
-                	//System.out.println("in status " );	
+                	//System.out.println("in status " );
                 	//List<String> result = GetKeywordStats(status);
                     System.out.println(" checkpoint 2");
 
                 	KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
                     child.getValue().tell(reply, self());
-                    
+
+
+                ChildActors.entrySet().forEach(child -> {
+                    String result = formatResult.apply(status);
+                    if(result.contains(child.getKey())) {
+
+                        var reply = new HashtagActor.updateStatus(formatResult.apply(status), child.getKey());
+                        child.getValue().tell(reply, self());
+                    }
                 });
-                
+
             }
             @Override
             public void onDeletionNotice(StatusDeletionNotice arg) {

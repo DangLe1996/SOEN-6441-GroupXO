@@ -1,9 +1,4 @@
 package controllers;
-
-import actors.HashtagActor;
-import actors.KeywordActor;
-import actors.UserActor;
-import akka.actor.*;
 import akka.stream.Materializer;
 import akka.stream.javadsl.Flow;
 import models.GetTweets;
@@ -126,10 +121,6 @@ public class HomeController extends Controller {
 
     }
 
-	HashMap<String,Flow<Json,Json,?>> userFlowsMap = new HashMap<>();
-
-
-
 	public WebSocket indexWs(){
 
 		return WebSocket.Json.accept( request -> {
@@ -141,8 +132,9 @@ public class HomeController extends Controller {
 
 		});
 
+    }
 
-	}
+
 
 
     public Result user(Http.Request request,String g) {
@@ -189,57 +181,17 @@ public class HomeController extends Controller {
     }
 
 
-    HashMap<String,Flow<String,String,?>> hashtagFlowsMap = new HashMap<>();
+    HashMap<String,Flow<Json,Json,?>> hashtagFlowsMap = new HashMap<>();
 
 	public WebSocket HashTagWs(){
 
-	return WebSocket.Text.accept(request -> {
-
-		String hashtagValue = request.session().get("Hashtag").get();
-		if(hashtagFlowsMap.keySet().contains(hashtagValue) == true){
-			return hashtagFlowsMap.get(hashtagValue);
-		}
-		else{
-			Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
+	return WebSocket.Json.accept(request -> {
+			return ActorFlow.actorRef(wsout -> {
 				return HashtagActor.props(wsout, TwitterStreamActor);
 			}, actorSystem, materializer);
-			hashtagFlowsMap.put(hashtagValue,temp);
-			return temp;
-		}
 
 	});
 
 	}
-	
-	 HashMap<String,Flow<String,String,?>> keywordFlowsMap = new HashMap<>();
-	
-	public WebSocket keywordWs(){
-		System.out.println("in keyword ws");
-		return WebSocket.Text.accept(request -> {
-		Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
-			return KeywordActor.props(wsout, TwitterStreamActor);
-		}, actorSystem, materializer);
-		return temp;
-		});
-		
-		/*
-		return WebSocket.Text.accept(request -> {
-
-			String keywordValue = request.session().get("keyWord").get();
-			if(keywordFlowsMap.keySet().contains(keywordValue) == true){
-				return keywordFlowsMap.get(keywordValue);
-			}
-			else{
-				Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
-					return KeywordActor.props(wsout, TwitterStreamActor);
-				}, actorSystem, materializer);
-				keywordFlowsMap.put(keywordValue,temp);
-				return temp;
-			}
-
-		});
-		*/
-
-		}
 
 }

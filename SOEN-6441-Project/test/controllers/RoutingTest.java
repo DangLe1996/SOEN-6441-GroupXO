@@ -90,6 +90,7 @@ public class RoutingTest  extends WithApplication {
         assertThat(result.status(),is(OK));
     }
 /*
+
     @Test
     public void testKeywordRoute(){
         List<String> testResult = Arrays.asList("This is test1", "this is test 2", "value of x is 3");
@@ -106,6 +107,7 @@ public class RoutingTest  extends WithApplication {
         assertThat(result.status(),is(OK));
     }
 */
+
     @Test
     public void testLocationRoute(){
         Http.RequestBuilder request = new Http.RequestBuilder()
@@ -185,7 +187,6 @@ public class RoutingTest  extends WithApplication {
 
 
     }
-    */
 
     /**
      * When trying to get tweet with missing search query, should return to home page (Code 303)
