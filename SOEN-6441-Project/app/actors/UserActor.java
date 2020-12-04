@@ -9,8 +9,10 @@ import models.sessionData;
 import play.libs.Json;
 import twitter4j.JSONObject;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletionStage;
+import java.util.stream.Collectors;
 
 public final class UserActor extends AbstractActor {
 
@@ -18,6 +20,7 @@ public final class UserActor extends AbstractActor {
     private final String userID;
     private final GetTweets globalGetTweet;
     private final ActorRef TwitterStreamActor;
+    List<String> lasTweets = new ArrayList<>();
     public static Props props(ActorRef wsout, String userID, GetTweets globalGetTweet, ActorRef streamParentActor){
 
 
@@ -37,37 +40,46 @@ public final class UserActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
+                .match(TwitterStreamActor.updateStatus.class, msg -> {
+                    updateResult(msg);
+                })
                 .matchAny(msg -> {
-
                     addQueryFromJson(msg);
                 })
-                .match(addQuery.class, msg -> {
-                    System.out.println("I got your json " + msg.queryTerm);
-                })
+
                 .build();
     }
 
+    private void updateResult(TwitterStreamActor.updateStatus status) {
+
+        if(lasTweets.size()>=30){
+            List<String> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
+            lasTweets = temp;
+        }
+        if(! lasTweets.contains(status)) {
+            lasTweets.add(status.htmlCode);
+
+            JsonNode newQueryJson = Json.toJson( new AddNewQuery(status.htmlCode,status.queryTerm,"UpdateQuery"));
+            wsout.tell(newQueryJson,ActorRef.noSender());
+
+//            wsout.tell(Json.toJson(status), ActorRef.noSender());
+        }
+    }
 
     private void addQueryFromJson(Object msg){
         JSONObject obj = new JSONObject(msg.toString());
         String queryTerm = obj.getString("queryTerm");
-
         System.out.println("I got your queryterm type " + queryTerm);
-
+        TwitterStreamActor.tell(new TwitterStreamActor.registerNewSearchQuery(queryTerm),getSelf());
         CompletionStage<sessionData> f =  globalGetTweet.GetTweetsWithUser(queryTerm,userID);
         f.thenAccept(sess ->{
             String htmlCode = sess.getCache().get(queryTerm);
-
-
-            JsonNode personJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm));
-            wsout.tell(personJson,ActorRef.noSender());
+            JsonNode newQueryJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm,"AddNewQuery"));
+            wsout.tell(newQueryJson,ActorRef.noSender());
 
         } );
 
     }
-
-
-
 
     public static class addQuery{
 
@@ -81,13 +93,14 @@ public final class UserActor extends AbstractActor {
     public static class AddNewQuery {
         private final String htmlCode;
         private final String queryTerm;
-        private final String type = "AddNewQuery";
-        AddNewQuery(String htmlCode, String queryTerm) {
+        private final String type ;
+        AddNewQuery(String htmlCode, String queryTerm, String type) {
             this.htmlCode = htmlCode;
             this.queryTerm = queryTerm;
+            this.type = type;
+
         }
     }
-
     @Override
     public void postStop() throws Exception, Exception {
         System.out.println("actor ref removed");

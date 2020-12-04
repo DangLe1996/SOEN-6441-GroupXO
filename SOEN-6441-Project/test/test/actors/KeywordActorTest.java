@@ -52,10 +52,10 @@ public class KeywordActorTest {
      final ActorRef keywordActor = system.actorOf(KeywordActor.props(subject,subject),"testclass");
      
    // ActorRef<KeywordActor> keywordActor = testKit.spawn(KeywordActor.props(subject,subject));
-    HashtagActor.updateStatus reply = new HashtagActor.updateStatus("test:1");
-    keywordActor.tell(reply,subject);
-    
-    assertEquals("test:1", testActor.data);
+//    HashtagActor.updateStatus reply = new HashtagActor.updateStatus("test:1");
+//    keywordActor.tell(reply,subject);
+//
+//    assertEquals("test:1", testActor.data);
 
     /*
     deviceActor.tell(new Device.ReadTemperature(2L, readProbe.getRef()));c

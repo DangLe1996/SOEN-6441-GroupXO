@@ -10,14 +10,12 @@ ws.onopen = () => ws.send(JSON.stringify({queryTerm: product}));
 
 ws.onmessage = function(event){
 
-    deleterow(tableID);
-    addRow(tableID,event.data);
+    deleterow(event.data);
+    addRow(event.data);
 
 }
-const tableID = "TweetTable";
 
-
-function addRow(tableID, message) {
+function addRow( message) {
 
       var sentiMentStart= message.indexOf("<CUSTOMSENTIMENT>");
       var sentiMentEnd= message.indexOf("</CUSTOMSENTIMENT>");
@@ -41,8 +39,10 @@ function addRow(tableID, message) {
 }
 
 
-function deleterow(tableID) {
-    var table = document.getElementById(tableID);
+function deleterow(message) {
+    const dataToAdd = JSON.parse(message);
+
+    var table = document.getElementById(dataToAdd.queryTerm);
     var rowCount = table.rows.length;
 
     table.deleteRow(rowCount -1);
