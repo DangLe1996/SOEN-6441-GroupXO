@@ -9,33 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_paranamer_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_2_13_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_serialization_jackson_2_13_2_6_5_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_paranamer_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_2_13_2_10_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-    </list>
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -438,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607100279501</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="working stream after merged">
+      <created>1607102291768</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1607102291768</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +456,8 @@
     <MESSAGE value="Fix var" />
     <MESSAGE value="working websocket index" />
     <MESSAGE value="merged with Hashtag Keywords from Dang's branch." />
-    <option name="LAST_COMMIT_MESSAGE" value="merged with Hashtag Keywords from Dang's branch." />
+    <MESSAGE value="working stream after merged" />
+    <option name="LAST_COMMIT_MESSAGE" value="working stream after merged" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -510,10 +492,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607100278545">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607102290982">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100278545" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102290982" />
     <state width="473" height="466" key="DebuggerActiveHint" timestamp="1606871400201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -574,10 +556,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607100286667">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607102298383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100286667" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102298383" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
