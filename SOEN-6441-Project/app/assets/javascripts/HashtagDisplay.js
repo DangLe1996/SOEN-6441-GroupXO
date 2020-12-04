@@ -20,10 +20,13 @@ const tableID = "TweetTable";
 function addRow(tableID, textToAdd) {
     // Get a reference to the table
     let tableRef = document.getElementById(tableID);
+    tableRef.row.headers(2).innerHTML="bingo";
+
 
 
     // Insert a row at the end of the table
     let newRow = tableRef.insertRow(2);
+
 
     newRow.innerHTML = textToAdd;
 
