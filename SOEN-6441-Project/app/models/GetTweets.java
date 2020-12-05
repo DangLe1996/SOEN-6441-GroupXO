@@ -293,26 +293,33 @@ public class GetTweets extends AbstractModule {
                 }));
 
         //PROJECT TWO CODE CLEANING
-        double happpyIndicator=analyse.containsKey(Mode.HAPPY)==true?analyse.get(Mode.HAPPY).size()  / queryResultSize:0.0;
-        double sadIndicator=analyse.containsKey(Mode.SAD)==true?analyse.get(Mode.SAD).size()  / queryResultSize:0.0;
-        double neutralIndicator=queryResultSize-(happpyIndicator+sadIndicator)/queryResultSize;
+        double happpyIndicator=(analyse.containsKey(Mode.HAPPY)==true?analyse.get(Mode.HAPPY).size():0.00)  / queryResultSize;
+        double sadIndicator=(analyse.containsKey(Mode.SAD)==true?analyse.get(Mode.SAD).size():0.0) / queryResultSize;
+        double neutralIndicator=1-(happpyIndicator+sadIndicator);
 
-        Double truncatedNeutralPercent= BigDecimal.valueOf(neutralIndicator*100)
-                .setScale(3, RoundingMode.HALF_UP)
+        System.out.println("queryResultSize "+queryResultSize);
+        System.out.println("happpyIndicator"+ happpyIndicator );
+        System.out.println("sad"+sadIndicator);
+        System.out.println("neutral indicator "+neutralIndicator);
+
+       Double truncatedNeutralPercent= BigDecimal.valueOf(neutralIndicator*100)
+                .setScale(3, RoundingMode.FLOOR)
                 .doubleValue();
         Double truncatedHappyPercent= BigDecimal.valueOf(happpyIndicator*100)
-                .setScale(3, RoundingMode.HALF_UP)
+                .setScale(3, RoundingMode.FLOOR)
                 .doubleValue();
         Double truncatedSadPercent= BigDecimal.valueOf(sadIndicator*100)
-                .setScale(3, RoundingMode.HALF_UP)
-                .doubleValue();
+                .setScale(3, RoundingMode.FLOOR)
+               .doubleValue();
+
+       System.out.println("Sad after truncate"+truncatedSadPercent);
 
         double thresHold=70;
         String dynamicAnalytic="";
 
-        if (happpyIndicator>=thresHold)
+        if (truncatedHappyPercent>=thresHold)
             dynamicAnalytic="Overall Mode : HAPPY \uD83D\uDE0A";
-        else if (sadIndicator>=thresHold)
+        else if (truncatedSadPercent>=thresHold)
             dynamicAnalytic="Overall Mode : SAD  \uD83D\uDE1E" ;
         else
             dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";

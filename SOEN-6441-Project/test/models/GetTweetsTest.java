@@ -184,7 +184,7 @@ public class GetTweetsTest extends WithApplication {
 
         CompletionStage<String> a= gt.GetTweetsWithKeyword(testKeyWord);
         try {
-            assertThat(a.toCompletableFuture().get(), containsString("Tweets are SAD"));
+            assertThat(a.toCompletableFuture().get(), containsString("Overall Mode : SAD"));
         }
         catch (InterruptedException ex){
             System.out.println("System was interrupted: " + ex.getMessage());
@@ -221,7 +221,7 @@ public class GetTweetsTest extends WithApplication {
         CompletionStage<String> a= gt.GetTweetsWithKeyword(testKeyWord);
 
         try {
-            assertThat(a.toCompletableFuture().get(), containsString("Tweets are HAPPY"));
+            assertThat(a.toCompletableFuture().get(), containsString("Overall Mode : HAPPY"));
         }
         catch (InterruptedException ex){
             System.out.println("System was interrupted: " + ex.getMessage());
@@ -256,7 +256,7 @@ public class GetTweetsTest extends WithApplication {
         CompletionStage<String> a= gt.GetTweetsWithKeyword(testKeyWord);
 
         try {
-            assertThat(a.toCompletableFuture().get(), containsString("Tweets are NEUTRAL"));
+            assertThat(a.toCompletableFuture().get(), containsString("Overall Mode : NEUTRAL"));
         }
         catch (InterruptedException ex){
             System.out.println("System was interrupted: " + ex.getMessage());
