@@ -80,7 +80,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     }
 
     //suhel
-    static class storeSentiments {
+    /*static class storeSentiments {
         private final String keyword;
         private final long msgID;
         private final String mode;
@@ -90,7 +90,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             this.msgID = msgID;
             this.mode = mode;
         }
-    }
+    } */
     //suhel
 
     @Override
@@ -117,8 +117,8 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
                 .match(registerNewKeyword.class, msg -> {
                     addNewKeyword(msg.keyword);
                 })
-                .match(storeSentiments.class, msg -> {
-                    System.out.println("Sentiment actor said : "+msg.mode);
+                .match(SentimentActor.storeSentiments.class, msg -> {
+                    //System.out.println("Sentiment actor said : "+msg.mode);
                     storeAnalysedSentiment(msg.keyword,msg.msgID,msg.mode);
                 }) //suhel
                 .match(removeChild.class, msg -> removeChild(msg.actorRef))
@@ -310,7 +310,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedsadPercent;
         //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedneutralPercent;
         dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
-        System.out.println(dynamicAnalytic);
+        //System.out.println(dynamicAnalytic);
         return dynamicAnalytic;
 
     }
