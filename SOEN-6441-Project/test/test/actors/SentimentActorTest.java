@@ -44,7 +44,7 @@ public class SentimentActorTest extends JUnitSuite {
 
         new TestKit(system) {
             {
-                System.out.println("invoking testSentimentActor");
+                //System.out.println("invoking testSentimentActor");
 
                 final TestKit probe = new TestKit(system);
                 final Props props = Props.create(SentimentActor.class,probe.getRef(),probe.getRef());
@@ -55,7 +55,7 @@ public class SentimentActorTest extends JUnitSuite {
                 SentimentActor.tweetStatus aNewStatus=new SentimentActor.tweetStatus(aStatus,"dummy");
                 subject.tell(aNewStatus,probe.getRef());
                 //expectMsg(Duration.ofSeconds(1) );
-                System.out.println("Did i invoke");
+                //System.out.println("Did i invoke");
 
                 within(
                         Duration.ofSeconds(10),
@@ -63,8 +63,8 @@ public class SentimentActorTest extends JUnitSuite {
                             awaitCond(probe::msgAvailable);
                             final List<Object> two = probe.receiveN(1);
                             SentimentActor.storeSentiments temp= (SentimentActor.storeSentiments) two.get(0);
-                            System.out.println(temp.keyword);
-                            System.out.println(temp.mode);
+                            //System.out.println(temp.keyword);
+                            //System.out.println(temp.mode);
                             Assert.assertEquals("HAPPY",temp.mode);
                             expectNoMessage();
                             return null;

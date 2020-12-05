@@ -297,10 +297,10 @@ public class GetTweets extends AbstractModule {
         double sadIndicator=(analyse.containsKey(Mode.SAD)==true?analyse.get(Mode.SAD).size():0.0) / queryResultSize;
         double neutralIndicator=1-(happpyIndicator+sadIndicator);
 
-        System.out.println("queryResultSize "+queryResultSize);
-        System.out.println("happpyIndicator"+ happpyIndicator );
-        System.out.println("sad"+sadIndicator);
-        System.out.println("neutral indicator "+neutralIndicator);
+        //System.out.println("queryResultSize "+queryResultSize);
+        //System.out.println("happpyIndicator"+ happpyIndicator );
+        //System.out.println("sad"+sadIndicator);
+        //System.out.println("neutral indicator "+neutralIndicator);
 
        Double truncatedNeutralPercent= BigDecimal.valueOf(neutralIndicator*100)
                 .setScale(3, RoundingMode.FLOOR)
@@ -312,7 +312,7 @@ public class GetTweets extends AbstractModule {
                 .setScale(3, RoundingMode.FLOOR)
                .doubleValue();
 
-       System.out.println("Sad after truncate"+truncatedSadPercent);
+       //System.out.println("Sad after truncate"+truncatedSadPercent);
 
         double thresHold=70;
         String dynamicAnalytic="";
@@ -324,7 +324,7 @@ public class GetTweets extends AbstractModule {
         else
             dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";
 
-        System.out.println("Overall Mode : "+dynamicAnalytic);
+        //System.out.println("Overall Mode : "+dynamicAnalytic);
 
         dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + queryResultSize;
         dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedHappyPercent;

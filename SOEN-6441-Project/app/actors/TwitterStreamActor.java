@@ -304,7 +304,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";
 
 
-        System.out.println("Overall Mode : "+dynamicAnalytic);
+        //System.out.println("Overall Mode : "+dynamicAnalytic);
         dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + totalSentiments;
         dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedhappyPercent;
         dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedsadPercent;
