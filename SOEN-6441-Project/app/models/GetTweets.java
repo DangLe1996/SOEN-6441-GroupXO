@@ -1,6 +1,8 @@
 package models;
 
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
@@ -290,26 +292,69 @@ public class GetTweets extends AbstractModule {
                     else return Mode.NEUTRAL;
                 }));
 
+        //PROJECT TWO CODE CLEANING
+        double happpyIndicator=analyse.containsKey(Mode.HAPPY)==true?analyse.get(Mode.HAPPY).size()  / queryResultSize:0.0;
+        double sadIndicator=analyse.containsKey(Mode.SAD)==true?analyse.get(Mode.SAD).size()  / queryResultSize:0.0;
+        double neutralIndicator=queryResultSize-(happpyIndicator+sadIndicator)/queryResultSize;
+
+        Double truncatedNeutralPercent= BigDecimal.valueOf(neutralIndicator*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+        Double truncatedHappyPercent= BigDecimal.valueOf(happpyIndicator*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+        Double truncatedSadPercent= BigDecimal.valueOf(sadIndicator*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double thresHold=70;
+        String dynamicAnalytic="";
+
+        if (happpyIndicator>=thresHold)
+            dynamicAnalytic="Overall Mode : HAPPY \uD83D\uDE0A";
+        else if (sadIndicator>=thresHold)
+            dynamicAnalytic="Overall Mode : SAD  \uD83D\uDE1E" ;
+        else
+            dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";
+
+        System.out.println("Overall Mode : "+dynamicAnalytic);
+
+        dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + queryResultSize;
+        dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedHappyPercent;
+        dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedSadPercent;
+        //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedNeutralPercent;
+        dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
+
+        GlobalSentiments.put(keyword, dynamicAnalytic); //cache with a key
+        return result;
+
+
+
+        //PROJECT TWO CODE CLEANING
+
+        /*
         if (analyse.containsKey(Mode.HAPPY)) {
-            double indicator = (analyse.get(Mode.HAPPY).size() * 100 / queryResultSize);
-            if (indicator >= 70) {
-                modeString=renderSentimentsHTML(Mode.HAPPY.toString(),indicator);
+            double HapppyIndicator = (analyse.get(Mode.HAPPY).size() * 100 / queryResultSize);
+            if (HapppyIndicator >= 70) {
+                modeString=renderSentimentsHTML(Mode.HAPPY.toString(),HapppyIndicator);
 
             }
         }
         if (analyse.containsKey(Mode.SAD)) {
-            double indicator = (analyse.get(Mode.SAD).size() * 100 / queryResultSize);
-            if (indicator >= 70) {
-                modeString=renderSentimentsHTML(Mode.SAD.toString(),indicator);
+            double SadndIndicator = (analyse.get(Mode.SAD).size() * 100 / queryResultSize);
+            if (SadndIndicator >= 70) {
+                modeString=renderSentimentsHTML(Mode.SAD.toString(),SadndIndicator);
 
             }
         }
         if ("".equals(modeString)) {
-            modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),0);
 
-        }
-        GlobalSentiments.put(keyword, modeString); //cache with a key
-        return result;
+            modeString=renderSentimentsHTML(Mode.NEUTRAL.toString(),neutralIndicator);
+
+        } */
+
+        //GlobalSentiments.put(keyword, modeString); //cache with a key
+        //return result;
     };
 
 

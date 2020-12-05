@@ -8,9 +8,7 @@ import twitter4j.Status;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
-import static java.util.stream.Collectors.groupingBy;
 
 public class SentimentActor extends AbstractActor {
     private final ActorRef ws;
@@ -48,9 +46,9 @@ public class SentimentActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(tweetStatus.class, msg->{
-                    System.out.println("I got a Single  tweets for ");
+
                     String mode=getTweetSentimentsPerTweets(msg.status);
-                    System.out.println("Mode of the Tweet is "+ mode);
+
                     ws.tell(new TwitterStreamActor.storeSentiments(msg.searchString,msg.status.getId(),mode),getSelf());
                 })
                 .matchAny(msg -> {

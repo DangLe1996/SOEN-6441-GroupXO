@@ -5,11 +5,14 @@ import akka.actor.AbstractActorWithTimers;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Tables;
 import scala.concurrent.duration.Duration;
 import twitter4j.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -39,6 +42,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     HashMap<String, ActorRef> KeyChildActors = new HashMap<>();
     List<Status> sentimentTweets = new ArrayList<>();
     HashBasedTable<String, Long, String> sentimentTable = HashBasedTable.create(); //suhel
+    ActorRef sentiMentActor = getContext().actorOf(SentimentActor.props(self(), getSelf()));
 
     public static Props prop() {
         return Props.create(TwitterStreamActor.class);
@@ -180,8 +184,15 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
                     // good to know after each tweet stream
                     System.out.println(" value: :" + child.getValue());
                     String result = formatResult.apply(status);
+                    String appendResult="";
 
-                    result=result+outputAnalysedSentiment(child.getKey());//suhel
+                    try{
+                        appendResult=outputAnalysedSentiment(child.getKey());
+                    }catch(Exception e){
+                        appendResult="<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
+                    }
+
+                    result=result+appendResult;//suhel
 
                     System.out.println(" checkpoint 1");
 
@@ -242,32 +253,62 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     };
 
     private void analyseSentiments(String searchWord, Status status) {
-        System.out.println("Call sentiment actor now 1234  ********************************** " + searchWord);
-        ActorRef sentiMentActor = getContext().actorOf(SentimentActor.props(self(), getSelf()));
         sentiMentActor.tell(new SentimentActor.tweetStatus(status, searchWord), getSelf());
     }
 
     private void storeAnalysedSentiment(String searchQuery, long msgID, String mode) {
-        System.out.println("I will store here each sentiment ");
         sentimentTable.put(searchQuery, msgID, mode);
     }
 
+
     private String outputAnalysedSentiment(String searchQuery) {
-        System.out.println("I will output  here each sentiments after each streaming");
-        int happy = 0;
-        int sad = 0;
+
+
         String dynamicAnalytic = "";
 
-        for (Entry<Long, String> row : sentimentTable.row(searchQuery).entrySet()) {
-            if (row.getValue().equals("HAPPY"))
-                happy = happy + 1;
-            if (row.getValue().equals("SAD"))
-                sad = sad + 1;
-        }
-        dynamicAnalytic = dynamicAnalytic + "  Total Tweets analysed : " + sentimentTable.row(searchQuery).size();
-        dynamicAnalytic = dynamicAnalytic + "  Total Happy Tweets : " + happy;
-        dynamicAnalytic = dynamicAnalytic + "  Total Sad Tweets : " + sad;
-        dynamicAnalytic = dynamicAnalytic + "  Total Neutral Tweets : " + (sentimentTable.row(searchQuery).size() - happy + sad);
+        Map<String, Map<Long, String>> makePopulatedMap= Tables.unmodifiableTable(sentimentTable).rowMap();
+
+
+            Map<String, Long> counted = makePopulatedMap.get(searchQuery).values().parallelStream()
+                    .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+            //concurrent exception is just fine, it will just pass and try to recalculate next
+
+
+        double totalSentiments=(counted.get("NEUTRAL")!=null ? counted.get("NEUTRAL"):0)+(counted.get("HAPPY")!=null ? counted.get("HAPPY"):0)+
+                (counted.get("SAD")!=null ? counted.get("SAD"):0);
+
+        double neutralPercent = ((counted.get("NEUTRAL")!=null ? counted.get("NEUTRAL"):0)  / totalSentiments);
+
+        Double truncatedneutralPercent= BigDecimal.valueOf(neutralPercent*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double happyPercent = ((counted.get("HAPPY")!=null ? counted.get("HAPPY"):0) / totalSentiments);
+
+        Double truncatedhappyPercent= BigDecimal.valueOf(happyPercent*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double sadPercent = ((counted.get("SAD")!=null ? counted.get("SAD"):0) / totalSentiments);
+        Double truncatedsadPercent= BigDecimal.valueOf(sadPercent*100)
+                .setScale(3, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        double thresHold=70.0;
+
+        if (truncatedsadPercent >= thresHold)
+            dynamicAnalytic="Overall Mode : SAD  \uD83D\uDE1E" ;
+        else if(truncatedhappyPercent>thresHold)
+            dynamicAnalytic="Overall Mode : HAPPY \uD83D\uDE0A";
+        else
+            dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";
+
+
+        System.out.println("Overall Mode : "+dynamicAnalytic);
+        dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + totalSentiments;
+        dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedhappyPercent;
+        dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedsadPercent;
+        //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedneutralPercent;
         dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
         System.out.println(dynamicAnalytic);
         return dynamicAnalytic;
