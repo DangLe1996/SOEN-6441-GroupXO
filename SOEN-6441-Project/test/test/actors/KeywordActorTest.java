@@ -1,76 +1,74 @@
 package test.actors;
-
+import actors.KeywordActor;
+import actors.SentimentActor;
+import actors.TwitterStreamActor;
+import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
-
-import actors.KeywordActor.updateStatus;
-import akka.actor.AbstractActor;
-
-import org.junit.ClassRule;
+import akka.testkit.javadsl.TestKit;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
-
-import java.util.Optional;
-import actors.KeywordActor;
-import actors.TwitterStreamActor;
-import actors.HashtagActor;
-import static org.junit.Assert.assertEquals;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.actor.AbstractActor;
+import org.scalatestplus.junit.JUnitSuite;
+import twitter4j.Status;
 
-public class KeywordActorTest {
+import java.time.Duration;
+import java.util.List;
+import static commons.CommonHelper.buildStatusList;
+
+public class KeywordActorTest extends JUnitSuite {
+
+
+
 	static ActorSystem system;
-	static class testActor extends AbstractActor{
-		public static String data;
-		  public static Props props(){
-		        return Props.create(testActor.class);
-		    }
-		  @Override
-		    public Receive createReceive() {
-		        return receiveBuilder()
-		                .match(String.class,msg -> {
-		                    this.data = msg;
-		                })
-		                .build();
 
-		    }
+	@BeforeClass
+	public static void setup() {
+		system = ActorSystem.create();
 	}
 
-  @ClassRule public static final TestKitJunitResource testKit = new TestKitJunitResource();
+	@AfterClass
+	public static void teardown() {
+		TestKit.shutdownActorSystem(system);
+		system = null;
+	}
 
-  
-  @Test
-  public static void testUpdate() {
-    TestProbe<ActorRef> testProbe = testKit.createTestProbe();
-    
-    //final Props props = new Props(testActor.class);
-     //= system.actorOf(props);
-     final ActorRef subject = system.actorOf(Props.create(testActor.class),"testclass");
+	@Test
+	public void testKeyWordActor() {
 
-     final ActorRef keywordActor = system.actorOf(KeywordActor.props(subject,subject),"testclass");
-     
-   // ActorRef<KeywordActor> keywordActor = testKit.spawn(KeywordActor.props(subject,subject));
-//    HashtagActor.updateStatus reply = new HashtagActor.updateStatus("test:1");
-//    keywordActor.tell(reply,subject);
-//
-//    assertEquals("test:1", testActor.data);
+		System.out.println("testing testKeyWordActor");
 
-    /*
-    deviceActor.tell(new Device.ReadTemperature(2L, readProbe.getRef()));c
-    Device.RespondTemperature response1 = readProbe.receiveMessage();
-    assertEquals(2L, response1.requestId);
-    assertEquals(Optional.of(24.0), response1.value);
+		new TestKit(system) {
+			{
+				//System.out.println("invoking testSentimentActor");
 
-    deviceActor.tell(new Device.RecordTemperature(3L, 55.0, recordProbe.getRef()));
-    assertEquals(3L, recordProbe.receiveMessage().requestId);
+				final TestKit probe = new TestKit(system);
+				final Props props = Props.create(KeywordActor.class,probe.getRef(),probe.getRef());
+				final ActorRef subject = system.actorOf(props);
+				subject.tell("test a keyword",probe.getRef());
+				within(
+						Duration.ofSeconds(10),
+						() -> {
+							awaitCond(probe::msgAvailable);
+							final List<Object> two = probe.receiveN(1);
+							//TwitterStreamActor.registerNewKeyword temp= (SentimentActor.storeSentiments) two.get(0);
+							//System.out.println(temp.keyword);
+							//System.out.println(temp.mode);
+							//Assert.assertEquals("HAPPY",temp.mode);
+							expectNoMessage();
+							return null;
 
-    deviceActor.tell(new Device.ReadTemperature(4L, readProbe.getRef()));
-    Device.RespondTemperature response2 = readProbe.receiveMessage();
-    assertEquals(4L, response2.requestId);
-    assertEquals(Optional.of(55.0), response2.value);
-    */
-    
-  }
+						});
+			}
+		};
+	}
+
 }
+
+

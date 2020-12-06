@@ -2,7 +2,7 @@
 <project version="4">
   <component name="AnalysisUIOptions">
     <option name="ANALYZE_TEST_SOURCES" value="false" />
-    <option name="SCOPE_TYPE" value="8" />
+    <option name="SCOPE_TYPE" value="3" />
     <option name="CUSTOM_SCOPE_NAME" value="ProjectDoc" />
   </component>
   <component name="AutoImportSettings">
@@ -33,14 +33,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="Working sentiments">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="cleaned 5 dec">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/GetTweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/GetTweets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/SentimentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/SentimentActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test/actors/SentimentActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/actors/SentimentActorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,6 +149,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Play 2 App.play run">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <option name="PACKAGE_NAME" value="" />
@@ -296,7 +306,7 @@
       <workItem from="1607096176266" duration="1481000" />
       <workItem from="1607104044046" duration="6112000" />
       <workItem from="1607132799109" duration="11354000" />
-      <workItem from="1607196862879" duration="1044000" />
+      <workItem from="1607196862879" duration="5606000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -445,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607139272900</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="cleaned 5 dec">
+      <created>1607200179641</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607200179641</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +522,8 @@
     <MESSAGE value="merged with Hashtag Keywords from Dang's branch." />
     <MESSAGE value="working stream after merged" />
     <MESSAGE value="Working sentiments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working sentiments" />
+    <MESSAGE value="cleaned 5 dec" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned 5 dec" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -536,10 +554,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606871464609" />
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606338331923">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="530" y="197" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607215148656">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
+    <state x="530" y="197" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.25.1440.816@0.25.1440.816" timestamp="1607215148656" />
     <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607102290982">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -552,26 +571,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1607097558416">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="234" key="GridCell.Tab.0.bottom" timestamp="1607284224444">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607097558416" />
     <state width="1157" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519794" />
-    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1607097558416">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="234" key="GridCell.Tab.0.bottom/0.25.1440.816@0.25.1440.816" timestamp="1607284224444" />
+    <state width="1398" height="234" key="GridCell.Tab.0.center" timestamp="1607284224444">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607097558416" />
     <state width="1157" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1607097558416">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="234" key="GridCell.Tab.0.center/0.25.1440.816@0.25.1440.816" timestamp="1607284224444" />
+    <state width="1398" height="234" key="GridCell.Tab.0.left" timestamp="1607284224444">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607097558416" />
     <state width="1157" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1607097558416">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="234" key="GridCell.Tab.0.left/0.25.1440.816@0.25.1440.816" timestamp="1607284224443" />
+    <state width="1398" height="234" key="GridCell.Tab.0.right" timestamp="1607284224444">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607097558416" />
     <state width="1157" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
+    <state width="1398" height="234" key="GridCell.Tab.0.right/0.25.1440.816@0.25.1440.816" timestamp="1607284224444" />
     <state width="1877" height="342" key="GridCell.Tab.1.bottom" timestamp="1607097558416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -604,11 +627,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607139295995">
+    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607200188513">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102298383" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607139295995" />
+    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607200188513" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -621,6 +644,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100750495" />
+    <state x="530" y="351" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607284230505">
+      <screen x="0" y="25" width="1440" height="816" />
+    </state>
+    <state x="530" y="351" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.816@0.25.1440.816" timestamp="1607284230505" />
     <state x="449" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606869065593">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

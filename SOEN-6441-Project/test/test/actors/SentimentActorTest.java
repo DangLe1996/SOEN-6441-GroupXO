@@ -19,7 +19,7 @@ import twitter4j.Status;
 import java.time.Duration;
 import java.util.List;
 import static commons.CommonHelper.buildStatusList;
-
+import static commons.CommonHelper.createMockTweets;
 public class SentimentActorTest extends JUnitSuite {
 
 
@@ -44,28 +44,32 @@ public class SentimentActorTest extends JUnitSuite {
 
         new TestKit(system) {
             {
-                //System.out.println("invoking testSentimentActor");
 
                 final TestKit probe = new TestKit(system);
                 final Props props = Props.create(SentimentActor.class,probe.getRef(),probe.getRef());
                 final ActorRef subject = system.actorOf(props);
 
-                List<Status> fakeTweets=buildStatusList(1,"HAPPY");
+                List<Status> fakeTweets=createMockTweets(1,1,1);
                 Status aStatus=fakeTweets.get(0);
                 SentimentActor.tweetStatus aNewStatus=new SentimentActor.tweetStatus(aStatus,"dummy");
+                SentimentActor.tweetStatus bNewStatus=new SentimentActor.tweetStatus(fakeTweets.get(1),"dummy");
+                SentimentActor.tweetStatus cNewStatus=new SentimentActor.tweetStatus(fakeTweets.get(2),"dummy");
                 subject.tell(aNewStatus,probe.getRef());
-                //expectMsg(Duration.ofSeconds(1) );
-                //System.out.println("Did i invoke");
-
+                subject.tell(bNewStatus,probe.getRef());
+                subject.tell(cNewStatus,probe.getRef());
+                subject.tell("AnyMessage",probe.getRef());
+                subject.tell("KillSwitch",probe.getRef());
                 within(
                         Duration.ofSeconds(10),
                         () -> {
                             awaitCond(probe::msgAvailable);
-                            final List<Object> two = probe.receiveN(1);
+                            final List<Object> two = probe.receiveN(3);
                             SentimentActor.storeSentiments temp= (SentimentActor.storeSentiments) two.get(0);
-                            //System.out.println(temp.keyword);
-                            //System.out.println(temp.mode);
                             Assert.assertEquals("HAPPY",temp.mode);
+                            SentimentActor.storeSentiments temp2= (SentimentActor.storeSentiments) two.get(1);
+                            Assert.assertEquals("SAD",temp2.mode);
+                            SentimentActor.storeSentiments temp3= (SentimentActor.storeSentiments) two.get(2);
+                            Assert.assertEquals("NEUTRAL",temp3.mode);
                             expectNoMessage();
                             return null;
 

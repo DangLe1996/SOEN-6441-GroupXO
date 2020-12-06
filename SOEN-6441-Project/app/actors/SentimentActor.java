@@ -9,7 +9,7 @@ import twitter4j.Status;
 import java.util.Arrays;
 import java.util.List;
 
-
+/*** Acts as an sentiment actor and calculates sentiments after each tweet status is received*/
 public class SentimentActor extends AbstractActor {
     private final ActorRef ws;
     private final ActorRef replyTo;
@@ -28,6 +28,7 @@ public class SentimentActor extends AbstractActor {
             this.allTweets=allTweets;
         }
     } */
+   /** Acts as an inbox */
     public static class tweetStatus{
         private final Status status;
         private final String searchString;
@@ -37,7 +38,7 @@ public class SentimentActor extends AbstractActor {
             this.searchString=searchString;
         }
     }
-
+    /** replies as this class */
     public class storeSentiments {
         public String keyword;
         public long msgID;
