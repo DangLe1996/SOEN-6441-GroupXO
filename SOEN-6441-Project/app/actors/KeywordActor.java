@@ -75,7 +75,7 @@ public class KeywordActor extends AbstractActor {
     public static class updateStatus{
         private final Status tweet;
 
-        updateStatus(Status tweet) {
+        public updateStatus(Status tweet) {
             this.tweet = tweet;
         }
     }

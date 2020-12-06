@@ -1,10 +1,12 @@
 package test.actors;
 import actors.SentimentActor;
 import actors.TwitterStreamActor;
+import actors.UserActor;
 import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
 import akka.testkit.javadsl.TestKit;
+import models.GetTweets;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -21,7 +23,8 @@ import java.time.Duration;
 import java.util.List;
 import static commons.CommonHelper.buildStatusList;
 import static commons.CommonHelper.createMockTweets;
-public class TwitterStreamActorTest extends JUnitSuite {
+
+public class UserActorTest extends JUnitSuite {
 
 
 
@@ -46,13 +49,16 @@ public class TwitterStreamActorTest extends JUnitSuite {
             {
 
                 final TestKit probe = new TestKit(system);
-                final Props props = Props.create(TwitterStreamActor.class);
-                final ActorRef subject = system.actorOf(props);
 
-                SentimentActor.storeSentiments aSentiment;
-                aSentiment = new SentimentActor.storeSentiments("TestKeyWord",1000L,"HAPPY");
-                subject.tell(aSentiment,probe.getRef());
-                //subject.tell("KillSwitch",probe.getRef());
+                final Props props0 = Props.create(TwitterStreamActor.class);
+                final ActorRef supervisor = system.actorOf(props0);
+                GetTweets gt=new GetTweets();
+                final Props props = Props.create(UserActor.class,probe.getRef(),"SYSTEM",gt,supervisor);
+                final ActorRef subject = system.actorOf(props);
+                subject.tell("AnyMessage",probe.getRef());
+                //TwitterStreamActor.updateStatus test1=new TwitterStreamActor.updateStatus("htmlcode","aSearch");
+
+
 
 
              /*   within(
@@ -68,7 +74,7 @@ public class TwitterStreamActorTest extends JUnitSuite {
     }
 
 
- }
+}
 
 
 
