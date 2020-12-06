@@ -33,12 +33,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="cleaned 5 dec">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="Test Case sentiment">
+      <change afterPath="$PROJECT_DIR$/test/test/actors/TwitterStreamActorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/actors/SentimentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/SentimentActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/actors/SentimentActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/actors/SentimentActorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +304,7 @@
       <workItem from="1607096176266" duration="1481000" />
       <workItem from="1607104044046" duration="6112000" />
       <workItem from="1607132799109" duration="11354000" />
-      <workItem from="1607196862879" duration="5606000" />
+      <workItem from="1607196862879" duration="6989000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -462,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607200179641</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Test Case sentiment">
+      <created>1607285052500</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607285052500</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +528,8 @@
     <MESSAGE value="working stream after merged" />
     <MESSAGE value="Working sentiments" />
     <MESSAGE value="cleaned 5 dec" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned 5 dec" />
+    <MESSAGE value="Test Case sentiment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Case sentiment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -567,10 +573,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="473" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606871400201" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607101923946">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="69" y="97" width="1302" height="672" key="DiffContextDialog" timestamp="1607285874053">
+      <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
+    <state x="69" y="97" width="1302" height="672" key="DiffContextDialog/0.25.1440.816@0.25.1440.816" timestamp="1607285874053" />
     <state width="1398" height="234" key="GridCell.Tab.0.bottom" timestamp="1607284224444">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
@@ -627,11 +634,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607200188513">
+    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607285076473">
       <screen x="0" y="25" width="1440" height="816" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102298383" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607200188513" />
+    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607285076473" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

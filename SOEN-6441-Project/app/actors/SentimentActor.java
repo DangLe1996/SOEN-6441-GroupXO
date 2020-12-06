@@ -39,7 +39,7 @@ public class SentimentActor extends AbstractActor {
         }
     }
     /** replies as this class */
-    public class storeSentiments {
+    public static class storeSentiments {
         public String keyword;
         public long msgID;
         public String mode;
