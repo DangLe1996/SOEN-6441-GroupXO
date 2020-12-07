@@ -3,11 +3,17 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Tables;
 import models.GetTweets;
 import twitter4j.Status;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /*** Acts as an sentiment actor and calculates sentiments after each tweet status is received*/
 public class SentimentActor extends AbstractActor {
@@ -51,6 +57,16 @@ public class SentimentActor extends AbstractActor {
         }
     }
 
+    public static class replyAnalysis {
+        public String keyword;
+        public HashBasedTable<String, Long, String> sentimentTable;
+
+        public replyAnalysis(String keyword, HashBasedTable<String, Long, String> sentimentTable) {
+            this.keyword = keyword;
+            this.sentimentTable = sentimentTable;
+        }
+    }
+
 
     public static Props props(ActorRef ws, ActorRef replyTo) {
         return Props.create(SentimentActor.class, () -> new SentimentActor( ws, replyTo));
@@ -64,6 +80,10 @@ public class SentimentActor extends AbstractActor {
                     String mode=getTweetSentimentsPerTweets(msg.status);
 
                     getSender().tell(new storeSentiments(msg.searchString,msg.status.getId(),mode),getSelf());
+                })
+                .match(replyAnalysis.class, fut -> {
+                    String result = analysedSentiment(fut.keyword, fut.sentimentTable);
+                    getSender().tell(result, getSelf());
                 })
                 .matchEquals("KillSwitch", msg -> {
                     System.out.println("Actor terminated");
@@ -98,6 +118,69 @@ public class SentimentActor extends AbstractActor {
      */
     public static boolean stringContainsItemFromList(String inputStr, String[] items) {
         return Arrays.stream(items).anyMatch(inputStr.toUpperCase() ::contains);
+    }
+
+    /**
+     * When asked by other actors, calculates sentiments and retunrs the mode afte each status is refreshed
+     *
+     * @param searchQuery ,sentimentTable
+     * @return String
+     */
+    public String analysedSentiment(String searchQuery, HashBasedTable<String, Long, String> sentimentTable) {
+        System.out.println("Trying to analyse");
+        //System.out.println("What was earlier thing?   "+GetTweets.initSentimentMap.get(searchQuery));
+        try {
+            String dynamicAnalytic = "";
+
+            Map<String, Map<Long, String>> makePopulatedMap = Tables.unmodifiableTable(sentimentTable).rowMap();
+
+            // THIS STREAM IS PROBLEM
+            Map<String, Long> counted = makePopulatedMap.get(searchQuery).values().stream()
+                    .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+            //concurrent exception is just fine, it will just pass and try to recalculate next
+            double totalSentiments = (counted.get("NEUTRAL") != null ? counted.get("NEUTRAL") : 0) + (counted.get("HAPPY") != null ? counted.get("HAPPY") : 0) +
+                    (counted.get("SAD") != null ? counted.get("SAD") : 0);
+
+            double neutralPercent = ((counted.get("NEUTRAL") != null ? counted.get("NEUTRAL") : 0) / totalSentiments);
+
+            Double truncatedneutralPercent = BigDecimal.valueOf(neutralPercent * 100)
+                    .setScale(3, RoundingMode.HALF_UP)
+                    .doubleValue();
+
+            double happyPercent = ((counted.get("HAPPY") != null ? counted.get("HAPPY") : 0) / totalSentiments);
+
+            Double truncatedhappyPercent = BigDecimal.valueOf(happyPercent * 100)
+                    .setScale(3, RoundingMode.HALF_UP)
+                    .doubleValue();
+
+            double sadPercent = ((counted.get("SAD") != null ? counted.get("SAD") : 0) / totalSentiments);
+            Double truncatedsadPercent = BigDecimal.valueOf(sadPercent * 100)
+                    .setScale(3, RoundingMode.HALF_UP)
+                    .doubleValue();
+
+            double thresHold = 70.0;
+
+            if (truncatedsadPercent >= thresHold)
+                dynamicAnalytic = "Overall Mode : SAD  \uD83D\uDE1E";
+            else if (truncatedhappyPercent > thresHold)
+                dynamicAnalytic = "Overall Mode : HAPPY \uD83D\uDE0A";
+            else
+                dynamicAnalytic = "Overall Mode : NEUTRAL \uD83D\uDE10";
+
+
+            //System.out.println("Overall Mode : "+dynamicAnalytic);
+            dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + totalSentiments;
+            dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedhappyPercent;
+            dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedsadPercent;
+            //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedneutralPercent;
+            dynamicAnalytic = "<CUSTOMSENTIMENT>" + dynamicAnalytic + "</CUSTOMSENTIMENT>";
+            //System.out.println(dynamicAnalytic);
+            return dynamicAnalytic;
+
+        } catch (Exception e) {
+            System.out.println("Will try next time");
+        }
+        return "<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
     }
 
     /**

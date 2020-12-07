@@ -4,8 +4,10 @@ import akka.actor.AbstractActor;
 import akka.actor.AbstractActorWithTimers;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import akka.pattern.Patterns;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Tables;
+import scala.concurrent.Await;
 import scala.concurrent.duration.Duration;
 import twitter4j.*;
 
@@ -14,8 +16,14 @@ import javax.inject.Singleton;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
+import scala.concurrent.ExecutionContext;
+import scala.concurrent.Future;
+import scala.concurrent.Await;
+import scala.concurrent.Promise;
+import akka.util.Timeout;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
+
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 import java.util.stream.Stream;
@@ -261,59 +269,11 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     }
 
 
-    private String outputAnalysedSentiment(String searchQuery) {
+    private String outputAnalysedSentiment(String searchQuery) throws TimeoutException, InterruptedException {
 
-
-        String dynamicAnalytic = "";
-
-        Map<String, Map<Long, String>> makePopulatedMap= Tables.unmodifiableTable(sentimentTable).rowMap();
-
-
-            Map<String, Long> counted = makePopulatedMap.get(searchQuery).values().parallelStream()
-                    .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
-            //concurrent exception is just fine, it will just pass and try to recalculate next
-
-
-        double totalSentiments=(counted.get("NEUTRAL")!=null ? counted.get("NEUTRAL"):0)+(counted.get("HAPPY")!=null ? counted.get("HAPPY"):0)+
-                (counted.get("SAD")!=null ? counted.get("SAD"):0);
-
-        double neutralPercent = ((counted.get("NEUTRAL")!=null ? counted.get("NEUTRAL"):0)  / totalSentiments);
-
-        Double truncatedneutralPercent= BigDecimal.valueOf(neutralPercent*100)
-                .setScale(3, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        double happyPercent = ((counted.get("HAPPY")!=null ? counted.get("HAPPY"):0) / totalSentiments);
-
-        Double truncatedhappyPercent= BigDecimal.valueOf(happyPercent*100)
-                .setScale(3, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        double sadPercent = ((counted.get("SAD")!=null ? counted.get("SAD"):0) / totalSentiments);
-        Double truncatedsadPercent= BigDecimal.valueOf(sadPercent*100)
-                .setScale(3, RoundingMode.HALF_UP)
-                .doubleValue();
-
-        double thresHold=70.0;
-
-        if (truncatedsadPercent >= thresHold)
-            dynamicAnalytic="Overall Mode : SAD  \uD83D\uDE1E" ;
-        else if(truncatedhappyPercent>thresHold)
-            dynamicAnalytic="Overall Mode : HAPPY \uD83D\uDE0A";
-        else
-            dynamicAnalytic="Overall Mode : NEUTRAL \uD83D\uDE10";
-
-
-        //System.out.println("Overall Mode : "+dynamicAnalytic);
-        dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + totalSentiments;
-        dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedhappyPercent;
-        dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedsadPercent;
-        //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedneutralPercent;
-        dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
-        //System.out.println(dynamicAnalytic);
-        return dynamicAnalytic;
-
+        HashBasedTable<String, Long, String>  copyOfSentiMentActor=sentimentTable;
+        Future f = Patterns.ask(sentiMentActor, new SentimentActor.replyAnalysis(searchQuery,copyOfSentiMentActor), 1000L);
+        String result = (String) Await.result(f, Duration.create(10, "second"));
+        return result;
     }
-
-
 }

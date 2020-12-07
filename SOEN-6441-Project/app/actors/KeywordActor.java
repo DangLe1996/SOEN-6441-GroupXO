@@ -3,7 +3,7 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import models.TwitterException;
+//import models.TwitterException;
 
 import java.util.ArrayList;
 import java.util.List;
