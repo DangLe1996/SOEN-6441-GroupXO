@@ -33,6 +33,7 @@ libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % Tes
 libraryDependencies += "com.typesafe.akka" %% "akka-actor-testkit-typed" % AkkaVersion % Test
 // https://mvnrepository.com/artifact/com.typesafe.akka/akka-serialization-jackson
 libraryDependencies += "com.typesafe.akka" %% "akka-serialization-jackson" % AkkaVersion % Test
+libraryDependencies += "org.scalatestplus" %% "scalatestplus-junit" % "1.0.0-M2"
 
 
 

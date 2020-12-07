@@ -1,26 +1,43 @@
 package test.actors;
-
+import actors.KeywordActor;
+import actors.SentimentActor;
+import actors.TwitterStreamActor;
+import static commons.CommonHelper.buildStatusList;
+import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
+import akka.testkit.javadsl.TestKit;
+import test.actors.KeywordActorTest.testActor;
 
-import actors.KeywordActor.updateStatus;
-import akka.actor.AbstractActor;
-
-import org.junit.ClassRule;
+import org.hamcrest.core.StringContains;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
-
-import java.util.Optional;
-import actors.KeywordActor;
-import actors.TwitterStreamActor;
-import actors.HashtagActor;
-import static org.junit.Assert.assertEquals;
-
+import org.junit.ClassRule;
+import static org.mockito.Mockito.mock;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.actor.AbstractActor;
+import org.scalatestplus.junit.JUnitSuite;
+import twitter4j.Status;
+import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.util.List;
+import static commons.CommonHelper.buildStatusList;
+import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class KeywordActorTest {
+/**
+ * Contains JUnit test cases for testing the KeywordActor Class
+ * of the application.
+ */
+
+public class KeywordActorTest extends JUnitSuite {
+
+	static String data = "";
+
 	static ActorSystem system;
 	static class testActor extends AbstractActor{
 		public static String data;
@@ -30,46 +47,59 @@ public class KeywordActorTest {
 		  @Override
 		    public Receive createReceive() {
 		        return receiveBuilder()
-		                .match(String.class,msg -> {
+		                .match(String.class,msg -> {		                
 		                    this.data = msg;
+		                    KeywordActorTest.data = msg;
 		                })
 		                .build();
 
 		    }
 	}
 
-  @ClassRule public static final TestKitJunitResource testKit = new TestKitJunitResource();
+	@BeforeClass
+	public static void setup() {
+		system = ActorSystem.create();
+	}
+
+	@AfterClass
+	public static void teardown() {
+		TestKit.shutdownActorSystem(system);
+		system = null;
+	}
+	@ClassRule public static final TestKitJunitResource testKit = new TestKitJunitResource();
 	
-  @Test
-  public static void testUpdate() {
-    TestProbe<ActorRef> testProbe = testKit.createTestProbe();
-    
-    //final Props props = new Props(testActor.class);
-     //= system.actorOf(props);
-     final ActorRef subject = system.actorOf(Props.create(testActor.class),"testclass");
+	/***
+     * Tests the KeyWordActor by mocking and supplying fake tweets
+     *  @author Girish
+     */
 
-     final ActorRef keywordActor = system.actorOf(KeywordActor.props(subject,subject),"testclass");
-     
-   // ActorRef<KeywordActor> keywordActor = testKit.spawn(KeywordActor.props(subject,subject));
-//    HashtagActor.updateStatus reply = new HashtagActor.updateStatus("test:1");
-//    keywordActor.tell(reply,subject);
-//
-//    assertEquals("test:1", testActor.data);
+	
+	@Test
+	public void testKeyWordActor() {
 
-    /*
-    deviceActor.tell(new Device.ReadTemperature(2L, readProbe.getRef()));c
-    Device.RespondTemperature response1 = readProbe.receiveMessage();
-    assertEquals(2L, response1.requestId);
-    assertEquals(Optional.of(24.0), response1.value);
+	    TestProbe<ActorRef> testProbe = testKit.createTestProbe();
 
-    deviceActor.tell(new Device.RecordTemperature(3L, 55.0, recordProbe.getRef()));
-    assertEquals(3L, recordProbe.receiveMessage().requestId);
+	    List<Status> tempstatus = buildStatusList(50,"HAPPY");
 
-    deviceActor.tell(new Device.ReadTemperature(4L, readProbe.getRef()));
-    Device.RespondTemperature response2 = readProbe.receiveMessage();
-    assertEquals(4L, response2.requestId);
-    assertEquals(Optional.of(55.0), response2.value);
-    */
-    
-  }
+	     final ActorRef subject = system.actorOf(Props.create(testActor.class),"testclass1");
+
+	     final ActorRef keywordActor = system.actorOf(KeywordActor.props(subject,subject),"testclass");
+
+	     KeywordActor.updateStatus reply = null;
+	     for(Status s: tempstatus) {
+	     reply = new KeywordActor.updateStatus(s);
+		    keywordActor.tell(reply,subject);
+	     }
+	     try {
+        	 TimeUnit.SECONDS.sleep(5);
+         } catch (InterruptedException ie)
+         {
+            
+         }
+	     assertThat( KeywordActorTest.data,StringContains.containsString("Indians:50"));
+		
+	}
+
 }
+
+
