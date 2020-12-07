@@ -79,23 +79,10 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         }
     }
 
-    //suhel
-    /*static class storeSentiments {
-        private final String keyword;
-        private final long msgID;
-        private final String mode;
 
-        public storeSentiments(String keyword, long msgID, String mode) {
-            this.keyword = keyword;
-            this.msgID = msgID;
-            this.mode = mode;
-        }
-    } */
-    //suhel
 
     @Override
     public void preStart() {
-        System.out.println("Time Actor Prestart ");
         getTimers().startPeriodicTimer("Timer", new Tick(), Duration.create(5, TimeUnit.SECONDS));
     }
 
@@ -176,8 +163,6 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
 
             @Override
             public void onStatus(Status status) {
-
-
                 ChildActors.entrySet().forEach(child -> {
 
                     analyseSentiments(child.getKey(), status);
@@ -194,9 +179,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
 
                     result=result+appendResult;//suhel
 
-                    System.out.println(" checkpoint 1");
 
-//                    System.out.println(" checkpoint 1");
 
                     if (result.contains(child.getKey())) {
 
@@ -238,7 +221,6 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             this.queryTerm = queryTerm;
         }
     }
-
     private Function<Status, String> formatResult = (s) -> {
 
         String userLocation = s.getUser().getLocation() != null ? s.getUser().getLocation() : " ";

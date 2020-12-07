@@ -39,6 +39,7 @@ public class KeywordActorTest extends JUnitSuite {
 	static String data = "";
 
 	static ActorSystem system;
+
 	static class testActor extends AbstractActor{
 		public static String data;
 		  public static Props props(){

@@ -38,7 +38,6 @@ ws.onmessage = function(event){
             break;
     }
 
-    console.log(event.data);
 }
 
 function updateTable(msg){
