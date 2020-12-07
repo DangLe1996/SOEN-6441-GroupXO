@@ -1,4 +1,4 @@
-package test.actors;
+package actors;
 import actors.SentimentActor;
 import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
@@ -53,7 +53,6 @@ public class SentimentActorTest extends JUnitSuite {
 
         new TestKit(system) {
             {
-
                 final TestKit probe = new TestKit(system);
                 final Props props = Props.create(SentimentActor.class,probe.getRef(),probe.getRef());
                 final ActorRef subject = system.actorOf(props);

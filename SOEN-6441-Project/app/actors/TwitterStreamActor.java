@@ -1,36 +1,25 @@
 package actors;
 
-import akka.actor.AbstractActor;
 import akka.actor.AbstractActorWithTimers;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.pattern.Patterns;
+import static akka.pattern.PatternsCS.ask;
 import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Tables;
-import scala.concurrent.Await;
 import scala.concurrent.duration.Duration;
 import twitter4j.*;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.*;
-import scala.concurrent.ExecutionContext;
-import scala.concurrent.Future;
-import scala.concurrent.Await;
-import scala.concurrent.Promise;
-import akka.util.Timeout;
+
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 
 import java.util.concurrent.TimeoutException;
-import java.util.stream.Collectors;
-import static java.util.stream.Collectors.groupingBy;
-import java.util.stream.Stream;
-import java.util.Map.Entry;
-import twitter4j.*;
 
-import javax.inject.Singleton;
+import static java.util.stream.Collectors.groupingBy;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -177,21 +166,16 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
                     // good to know after each tweet stream
                     System.out.println(" value: :" + child.getValue());
                     String result = formatResult.apply(status);
-                    String appendResult="";
-
-                    try{
-                        appendResult=outputAnalysedSentiment(child.getKey());
-                    }catch(Exception e){
-                        appendResult="<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
-                    }
-
-                    result=result+appendResult;//suhel
-
-
-
                     if (result.contains(child.getKey())) {
-
-                        child.getValue().tell(new updateStatus(result, child.getKey()), self());
+                        try{
+                            String finalResult = result;
+                            outputAnalysedSentiment(child.getKey()).thenAccept(r ->
+                                    child.getValue().tell(new updateStatus(finalResult + r.toString(), child.getKey()), self()));
+//                            appendResult= outputAnalysedSentiment(child.getKey());
+                        }catch(Exception e){
+                            String appendResult="<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
+                            child.getValue().tell(new updateStatus(result + appendResult, child.getKey()), self());
+                        }
                     }
                 });
                 KeyChildActors.entrySet().forEach(child -> {
@@ -251,11 +235,11 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     }
 
 
-    private String outputAnalysedSentiment(String searchQuery) throws TimeoutException, InterruptedException {
-
+    private CompletableFuture<Object> outputAnalysedSentiment(String searchQuery) throws TimeoutException, InterruptedException {
         HashBasedTable<String, Long, String>  copyOfSentiMentActor=sentimentTable;
-        Future f = Patterns.ask(sentiMentActor, new SentimentActor.replyAnalysis(searchQuery,copyOfSentiMentActor), 1000L);
-        String result = (String) Await.result(f, Duration.create(10, "second"));
-        return result;
+        CompletionStage<Object> f = ask(sentiMentActor, new SentimentActor.replyAnalysis(searchQuery,copyOfSentiMentActor), 1000L);
+        return f.toCompletableFuture();
+
+
     }
 }

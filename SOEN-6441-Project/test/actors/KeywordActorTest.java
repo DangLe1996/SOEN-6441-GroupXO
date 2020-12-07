@@ -1,17 +1,12 @@
-package test.actors;
-import actors.KeywordActor;
-import actors.SentimentActor;
-import actors.TwitterStreamActor;
+package actors;
 import static commons.CommonHelper.buildStatusList;
-import akka.actor.testkit.typed.CapturedLogEvent;
+
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
 import akka.testkit.javadsl.TestKit;
-import test.actors.KeywordActorTest.testActor;
 
 import org.hamcrest.core.StringContains;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.ClassRule;
@@ -23,9 +18,8 @@ import akka.actor.AbstractActor;
 import org.scalatestplus.junit.JUnitSuite;
 import twitter4j.Status;
 import java.util.concurrent.TimeUnit;
-import java.time.Duration;
 import java.util.List;
-import static commons.CommonHelper.buildStatusList;
+
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 

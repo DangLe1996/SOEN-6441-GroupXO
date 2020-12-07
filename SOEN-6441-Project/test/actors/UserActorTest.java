@@ -1,4 +1,5 @@
-package test.actors;
+package actors;
+import actors.HashtagActor;
 import actors.SentimentActor;
 import actors.TwitterStreamActor;
 import actors.UserActor;
@@ -7,6 +8,7 @@ import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
 import akka.testkit.javadsl.TestKit;
 import models.GetTweets;
+import models.sessionData;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -16,6 +18,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.actor.AbstractActor;
+import org.mockito.Mock;
 import org.scalatestplus.junit.JUnitSuite;
 import twitter4j.Status;
 
@@ -23,6 +26,7 @@ import java.time.Duration;
 import java.util.List;
 import static commons.CommonHelper.buildStatusList;
 import static commons.CommonHelper.createMockTweets;
+import static org.mockito.Mockito.mock;
 
 public class UserActorTest extends JUnitSuite {
 
@@ -30,9 +34,22 @@ public class UserActorTest extends JUnitSuite {
 
     static ActorSystem system;
 
+    public static ActorRef twitterStreamActor;
+    public static ActorRef testingActor;
+    public static TestKit probe;
+    public static models.sessionData testUser;
+
+    public static GetTweets getTweets = mock(GetTweets.class);
+
+
     @BeforeClass
     public static void setup() {
+
         system = ActorSystem.create();
+        probe = new TestKit(system);
+        testUser = new sessionData();
+        twitterStreamActor = probe.childActorOf(TwitterStreamActor.prop());
+        testingActor = system.actorOf(UserActor.props( probe.getTestActor(),testUser.getSessionID(),getTweets,twitterStreamActor));
     }
 
     @AfterClass
@@ -56,19 +73,8 @@ public class UserActorTest extends JUnitSuite {
                 final Props props = Props.create(UserActor.class,probe.getRef(),"SYSTEM",gt,supervisor);
                 final ActorRef subject = system.actorOf(props);
                 subject.tell("AnyMessage",probe.getRef());
-                //TwitterStreamActor.updateStatus test1=new TwitterStreamActor.updateStatus("htmlcode","aSearch");
+                TwitterStreamActor.updateStatus test1=new TwitterStreamActor.updateStatus("htmlcode","aSearch");
 
-
-
-
-             /*   within(
-                        Duration.ofSeconds(10),
-                        () -> {
-                            awaitCond(probe::msgAvailable);
-                            expectNoMessage();
-                            return null;
-
-                        });*/
             }
         };
     }

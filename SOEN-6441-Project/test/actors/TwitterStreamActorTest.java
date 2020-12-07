@@ -1,4 +1,4 @@
-package test.actors;
+package actors;
 import actors.SentimentActor;
 import actors.TwitterStreamActor;
 import akka.actor.testkit.typed.CapturedLogEvent;

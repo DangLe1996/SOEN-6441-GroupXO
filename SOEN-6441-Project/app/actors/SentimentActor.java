@@ -25,15 +25,7 @@ public class SentimentActor extends AbstractActor {
         this.replyTo = replyTo;
     }
 
-    /*public static class tweetsSet{
-        private final String queryTerm;
-        private final List<Status> allTweets;
 
-        public tweetsSet(String queryTerm, List<Status> allTweets ) {
-            this.queryTerm = queryTerm;
-            this.allTweets=allTweets;
-        }
-    } */
    /** Acts as an inbox */
     public static class tweetStatus{
         private final Status status;

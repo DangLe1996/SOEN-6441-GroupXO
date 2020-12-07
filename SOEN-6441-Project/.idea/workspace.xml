@@ -33,7 +33,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/SentimentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/SentimentActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/KeywordActorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/actors/SentimentActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/SentimentActorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/actors/TwitterStreamActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/TwitterStreamActorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/actors/UserActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/UserActorTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,6 +136,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/test/actors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -144,6 +155,9 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="actors" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="actors" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -151,14 +165,16 @@
       <recent name="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HashtagActorTest.testUpdate">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in SOEN-6441-Project">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -265,19 +281,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in SOEN-6441-Project" />
-      <item itemvalue="Play 2 App.play run" />
       <item itemvalue="JUnit.HashtagActorTest.createHashtagActor" />
       <item itemvalue="JUnit.HashtagActorTest" />
       <item itemvalue="JUnit.HashtagActorTest.testUpdate" />
       <item itemvalue="JUnit.HashtagActorTest.testSendingQuery" />
+      <item itemvalue="Play 2 App.play run" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in SOEN-6441-Project" />
         <item itemvalue="JUnit.HashtagActorTest.testUpdate" />
         <item itemvalue="JUnit.HashtagActorTest.testSendingQuery" />
         <item itemvalue="JUnit.HashtagActorTest" />
         <item itemvalue="JUnit.HashtagActorTest.createHashtagActor" />
-        <item itemvalue="JUnit.All in SOEN-6441-Project" />
       </list>
     </recent_temporary>
   </component>
@@ -310,6 +326,7 @@
       <workItem from="1607132799109" duration="11354000" />
       <workItem from="1607278613242" duration="1022000" />
       <workItem from="1607306632199" duration="7709000" />
+      <workItem from="1607373267107" duration="3547000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -549,6 +566,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130334642" />
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607375201151">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375201151" />
     <state x="1920" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607278699874">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
@@ -573,25 +594,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
-    <state width="1877" height="277" key="GridCell.Tab.0.bottom" timestamp="1607313894254">
+    <state width="1877" height="95" key="GridCell.Tab.0.bottom" timestamp="1607375887573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607313894254" />
+    <state width="1877" height="95" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375887573" />
     <state width="1157" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519794" />
-    <state width="1877" height="277" key="GridCell.Tab.0.center" timestamp="1607313894254">
+    <state width="1877" height="95" key="GridCell.Tab.0.center" timestamp="1607375887573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607313894254" />
+    <state width="1877" height="95" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375887573" />
     <state width="1157" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="277" key="GridCell.Tab.0.left" timestamp="1607313894254">
+    <state width="1877" height="95" key="GridCell.Tab.0.left" timestamp="1607375887573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607313894254" />
+    <state width="1877" height="95" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375887573" />
     <state width="1157" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="277" key="GridCell.Tab.0.right" timestamp="1607313894254">
+    <state width="1877" height="95" key="GridCell.Tab.0.right" timestamp="1607375887573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607313894254" />
+    <state width="1877" height="95" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375887573" />
     <state width="1157" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
     <state width="1877" height="342" key="GridCell.Tab.1.bottom" timestamp="1607313807700">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -634,6 +655,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605200303562" />
+    <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1607375191010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="776" y="298" key="chooseDestDirectoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375191010" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607101923946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -650,10 +675,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="449" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606869065593" />
-    <state x="1920" y="42" width="1216" height="1383" key="dock-window-1" timestamp="1607308236457">
-      <screen x="1920" y="0" width="1200" height="1880" />
+    <state x="522" y="185" width="811" height="722" key="dock-window-1" timestamp="1607375580737">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="42" width="1216" height="1383" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607308236457" />
+    <state x="522" y="185" width="811" height="722" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375580737" />
     <state x="1927" y="779" width="1216" height="704" key="dock-window-2" timestamp="1607096974717">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
@@ -705,7 +730,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/actors/HashtagActorTest.java</url>
-          <line>49</line>
+          <line>47</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -750,7 +775,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1607307274227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1607375229398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>

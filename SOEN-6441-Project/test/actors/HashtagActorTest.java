@@ -45,8 +45,6 @@ class HashtagActorTest {
         assertThat(testingActor.isTerminated(), Is.is(false));
         assertThat(twitterStreamActor.isTerminated(),Is.is(false));
 
-
-
     }
 
     @Test

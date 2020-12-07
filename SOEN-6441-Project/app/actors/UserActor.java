@@ -13,16 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
-
+import static actors.TwitterStreamActor.*;
 public final class UserActor extends AbstractActor {
 
     private final ActorRef wsout; //keep track of actor ref
     private final String userID;
     private final GetTweets globalGetTweet;
     private final ActorRef TwitterStreamActor;
-    List<String> lasTweets = new ArrayList<>();
+    List<updateStatus> lasTweets = new ArrayList<>();
     public static Props props(ActorRef wsout, String userID, GetTweets globalGetTweet, ActorRef streamParentActor){
-
 
         return Props.create(UserActor.class, wsout,userID, globalGetTweet,streamParentActor);
     }
@@ -40,7 +39,7 @@ public final class UserActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(TwitterStreamActor.updateStatus.class, msg -> {
+                .match(updateStatus.class, msg -> {
                     updateResult(msg);
                 })
                 .matchAny(msg -> {
@@ -50,14 +49,14 @@ public final class UserActor extends AbstractActor {
                 .build();
     }
 
-    private void updateResult(TwitterStreamActor.updateStatus status) {
+    private void updateResult(updateStatus status) {
 
         if(lasTweets.size()>=30){
-            List<String> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
+            List<updateStatus> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
             lasTweets = temp;
         }
         if(! lasTweets.contains(status)) {
-            lasTweets.add(status.htmlCode);
+            lasTweets.add(status);
 
             JsonNode newQueryJson = Json.toJson( new AddNewQuery(status.htmlCode,status.queryTerm,"UpdateQuery"));
             wsout.tell(newQueryJson,ActorRef.noSender());
