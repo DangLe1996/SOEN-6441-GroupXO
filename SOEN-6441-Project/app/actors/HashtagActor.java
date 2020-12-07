@@ -3,14 +3,11 @@ package actors;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import com.fasterxml.jackson.databind.JsonNode;
-import models.sessionData;
 import play.libs.Json;
 import twitter4j.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 
 /**
@@ -19,7 +16,7 @@ import java.util.stream.Collectors;
 public class HashtagActor extends AbstractActor {
 
     private final ActorRef ws; //keep track of actor ref
-    private final ActorRef replyTo;
+    private final ActorRef TwitterStreamActor;
 
 
     List<String> lasTweets = new ArrayList<>();
@@ -30,10 +27,10 @@ public class HashtagActor extends AbstractActor {
         return Props.create(HashtagActor.class,ws, replyTo);
     }
 
-    public HashtagActor( ActorRef ws, ActorRef replyTo) {
+    public HashtagActor( ActorRef ws, ActorRef TwitterStreamActor) {
 
         this.ws = ws;
-        this.replyTo = replyTo;
+        this.TwitterStreamActor = TwitterStreamActor;
         System.out.println("Hashtag Actor Created");
 
     }
@@ -42,7 +39,7 @@ public class HashtagActor extends AbstractActor {
         return receiveBuilder()
                 .match(String.class,msg -> {
                     QueryString = msg;
-                    replyTo.tell(new TwitterStreamActor.registerNewHashtag(msg),getSelf());
+                    TwitterStreamActor.tell(new TwitterStreamActor.registerNewHashtag(msg),getSelf());
                 })
                 .match(TwitterStreamActor.updateStatus.class, msg -> {
                     updateResult(msg);
@@ -59,7 +56,7 @@ public class HashtagActor extends AbstractActor {
         String queryTerm = "#"+obj.getString("queryTerm");
         System.out.println("I got your queryterm type " + queryTerm);
 
-        replyTo.tell(new TwitterStreamActor.registerNewHashtag(queryTerm),getSelf());
+        TwitterStreamActor.tell(new TwitterStreamActor.registerNewHashtag(queryTerm),getSelf());
 
     }
 
@@ -76,6 +73,12 @@ public class HashtagActor extends AbstractActor {
             ws.tell(Json.toJson(status), ActorRef.noSender());
         }
 
+    }
+
+    @Override
+    public void postStop() throws Exception, Exception {
+        System.out.println("actor ref removed");
+        TwitterStreamActor.tell( new TwitterStreamActor.removeChild(getSelf()),getSelf());
     }
 
 

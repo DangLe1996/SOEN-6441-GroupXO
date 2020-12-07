@@ -39,8 +39,7 @@ public class KeywordActorTest {
 	}
 
   @ClassRule public static final TestKitJunitResource testKit = new TestKitJunitResource();
-
-  
+	
   @Test
   public static void testUpdate() {
     TestProbe<ActorRef> testProbe = testKit.createTestProbe();
