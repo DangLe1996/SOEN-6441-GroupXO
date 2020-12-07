@@ -3,7 +3,10 @@ import actors.SentimentActor;
 import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
+import akka.pattern.Patterns;
 import akka.testkit.javadsl.TestKit;
+import com.google.common.collect.HashBasedTable;
+import org.hamcrest.core.StringContains;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -14,12 +17,18 @@ import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.actor.AbstractActor;
 import org.scalatestplus.junit.JUnitSuite;
+import scala.concurrent.Await;
+import scala.concurrent.Future;
 import twitter4j.Status;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
+
 import static commons.CommonHelper.buildStatusList;
 import static commons.CommonHelper.createMockTweets;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class SentimentActorTest extends JUnitSuite {
 
 
@@ -40,7 +49,7 @@ public class SentimentActorTest extends JUnitSuite {
     @Test
     public void testSentimentActor() {
 
-        System.out.println("testing testSentimentActor");
+        //System.out.println("testing testSentimentActor");
 
         new TestKit(system) {
             {
@@ -74,6 +83,35 @@ public class SentimentActorTest extends JUnitSuite {
                             return null;
 
                         });
+            }
+        };
+    }
+    //case 2
+
+    @Test
+    public void testSentimentActor_rendertest() throws TimeoutException, InterruptedException {
+
+        System.out.println("testing testSentimentActor_rendertest");
+
+        new TestKit(system) {
+            {
+
+                final TestKit probe = new TestKit(system);
+                final Props props = Props.create(SentimentActor.class,probe.getRef(),probe.getRef());
+                final ActorRef subject = system.actorOf(props);
+
+                HashBasedTable<String, Long, String> sentimentTable = HashBasedTable.create();
+                sentimentTable.put("TestSearch",1000L,"HAPPY");
+                sentimentTable.put("TestSearch",1001L,"HAPPY");
+                sentimentTable.put("TestSearch",1002L,"SAD");
+                sentimentTable.put("TestSearch",1003L,"HAPPY");
+                SentimentActor.replyAnalysis input =new SentimentActor.replyAnalysis("TestSearch",sentimentTable);
+
+                HashBasedTable<String, Long, String>  copyOfSentiMentActor=sentimentTable;
+                Future f = Patterns.ask(subject, new SentimentActor.replyAnalysis("TestSearch",copyOfSentiMentActor), 1000L);
+                String result = (String) Await.result(f, scala.concurrent.duration.Duration.create(10, "second"));
+                System.out.println(result);
+                assertThat( result, StringContains.containsString("Overall Mode : HAPPY"));
             }
         };
     }
