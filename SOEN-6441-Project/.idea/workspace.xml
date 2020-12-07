@@ -33,21 +33,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="Working sentiments">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/HashtagActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/HashtagActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/KeywordActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/KeywordActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/UserParentActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/indexDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/indexDisplay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/actors/KeywordActorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -323,7 +309,7 @@
       <workItem from="1607104044046" duration="6112000" />
       <workItem from="1607132799109" duration="11354000" />
       <workItem from="1607278613242" duration="1022000" />
-      <workItem from="1607306632199" duration="7087000" />
+      <workItem from="1607306632199" duration="7709000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -472,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607139272900</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Hastag Actor Test added">
+      <created>1607314124496</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607314124496</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +525,8 @@
     <MESSAGE value="merged with Hashtag Keywords from Dang's branch." />
     <MESSAGE value="working stream after merged" />
     <MESSAGE value="Working sentiments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working sentiments" />
+    <MESSAGE value="Hastag Actor Test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hastag Actor Test added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -567,10 +561,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607102290982">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607314123422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102290982" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607314123422" />
     <state width="473" height="466" key="DebuggerActiveHint" timestamp="1606871400201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -631,10 +625,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607139295995">
-      <screen x="0" y="25" width="1440" height="816" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607314130405">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607102298383" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607314130405" />
     <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607139295995" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
       <screen x="0" y="0" width="1920" height="1040" />
