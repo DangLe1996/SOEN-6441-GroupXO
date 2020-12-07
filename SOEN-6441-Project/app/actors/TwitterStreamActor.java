@@ -25,19 +25,29 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
 
+/**
+ * Responsible for getting Twitter Streams. This actor will push new tweets to all subscribers.
+ */
 @Singleton
 public class TwitterStreamActor extends AbstractActorWithTimers {
 
 
+    /**
+     * Keeps track of queue keywords. This queue will be emptied every 5 seconds
+     */
     private Set<String> KeywordsQueue = new HashSet<>();
 
-    private Set<String> trackedKeywords = new HashSet<>();
 
     TwitterStream twitterStream;
 
-    HashMap<String, ActorRef> ChildActors = new HashMap<>();
+    /**
+     * Key: keywords
+     * Value: Actors that are subscribing to the keywords.
+     */
+    HashMap<String, List<ActorRef>> ChildActors = new HashMap<>();
+
     HashMap<String, ActorRef> KeyChildActors = new HashMap<>();
-    List<Status> sentimentTweets = new ArrayList<>();
+
     HashBasedTable<String, Long, String> sentimentTable = HashBasedTable.create(); //suhel
     ActorRef sentiMentActor = getContext().actorOf(SentimentActor.props(self(), getSelf()));
 
@@ -52,14 +62,6 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         initTwitterStream();
     }
 
-    static class registerNewHashtag {
-        private final String hashtagString;
-
-        public registerNewHashtag(String hashtagString) {
-            this.hashtagString = hashtagString;
-        }
-    }
-
     static class registerNewSearchQuery {
         private final String searchQuery;
 
@@ -68,91 +70,104 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         }
     }
 
-    static class registerNewKeyword {
-        private final String keyword;
-
-        public registerNewKeyword(String keyword) {
-            this.keyword = keyword;
-        }
-    }
-
-
-
+    /**
+     * Every 5 seconds, raise a Tick message to clear out the keyword queue.
+     */
     @Override
     public void preStart() {
         getTimers().startPeriodicTimer("Timer", new Tick(), Duration.create(5, TimeUnit.SECONDS));
     }
 
+    /**
+     * trigger class
+     */
     private static final class Tick {
     }
 
-
+    /**
+     * If match Tick class, update twitter stream.
+     * If match RegisterNewSearch class, add the message into query queue
+     * If match storeSentiments class, add the message into sentimentTable.
+     * Remove child from list of subscriber if match removeChild class.
+     * @return
+     */
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-
-                .match(registerNewHashtag.class, msg -> {
-                    addNewHashtag(msg.hashtagString);
-                })
                 .match(Tick.class, msg -> updateTwitterStream())
                 .match(registerNewSearchQuery.class, msg -> {
                     addNewQuery(msg.searchQuery);
                 })
-                .match(registerNewKeyword.class, msg -> {
-                    addNewKeyword(msg.keyword);
-                })
                 .match(SentimentActor.storeSentiments.class, msg -> {
-                    //System.out.println("Sentiment actor said : "+msg.mode);
                     storeAnalysedSentiment(msg.keyword,msg.msgID,msg.mode);
-                }) //suhel
+                })
                 .match(removeChild.class, msg -> removeChild(msg.actorRef))
                 .build();
     }
+
+    /**
+     * Unsubscribe actor when they are terminated
+     * @param actor
+     */
     private void removeChild(ActorRef actor) {
         ChildActors.values().remove(actor);
     }
 
+    /**
+     * Add new keyword into queue when an actor request.
+     * @param msg keyword to keep track
+     */
     private void addNewQuery(String msg) {
-        ChildActors.put(msg, sender());
-        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
+        if(ChildActors.containsKey(msg)){
+            List<ActorRef> temp = new ArrayList<>();
+            temp.add(sender());
+            ChildActors.get(msg).stream().forEach(r -> temp.add(r));
+            ChildActors.remove(msg);
+            ChildActors.put(msg, temp);
+        }
+        else {
+            ChildActors.put(msg, List.of(sender()));
+            KeywordsQueue.add(msg);
+        }
+
         System.out.println("I got your query from Twitter " + msg);
     }
-    private void addNewHashtag(String msg) {
-        ChildActors.put(msg, sender());
-        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
-        System.out.println("I got your hashtag " + msg);
-    }
-    private void addNewKeyword(String msg) {
-        KeyChildActors.put(msg, sender());
-        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
-        System.out.println("I got your keyword " + msg);
-    }
 
+    /**
+     * Message class to remove child from childActorRef List.
+     */
     static class removeChild {
         private final ActorRef actorRef;
         removeChild(ActorRef actorRef) {
             this.actorRef = actorRef;
         }
     }
+
+    /**
+     * Update twitter stream by clearing out the KeywordsQueue and add the
+     * child elements into twitterStream.filter. This method
+     * is called every Tick(), which is 5 seconds.
+     */
     private void updateTwitterStream() {
-        System.out.println("updateing stream");
         if(KeywordsQueue.size() > 0) {
-            trackedKeywords.addAll(KeywordsQueue);
             FilterQuery filter = new FilterQuery();
             int n = KeywordsQueue.size();
             String arr[] = new String[n];
-            arr = KeywordsQueue.toArray(arr);
-            System.out.println("Twitter stream have " + Arrays.stream(arr).reduce(String::join));
+            arr = ChildActors.keySet().toArray(arr);
             filter.track(arr);
             KeywordsQueue.clear();
             twitterStream.filter(filter);
         }
     }
 
-
+    /**
+     * Initialize twitter stream by adding a Status listener into twitterStream.
+     * This listener contain OnStatus method that is executed automatically every time a new status is received from TwitterStream.
+     * When a new status is received, it checks the list of subscribers and the keyword that the subscriber is asking for.
+     * If the status contain that keyword, it push the status to the subscriber.
+     */
     public void initTwitterStream() {
         StatusListener listener = new StatusListener() {
-
             @Override
             public void onException(Exception e) {
                 e.printStackTrace();
@@ -160,24 +175,23 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
 
             @Override
             public void onStatus(Status status) {
-                ChildActors.entrySet().forEach(child -> {
 
-                    analyseSentiments(child.getKey(), status);
-                    // good to know after each tweet stream
-                    System.out.println(" value: :" + child.getValue());
-                    String result = formatResult.apply(status);
-                    if (result.contains(child.getKey())) {
-                        try{
-                            String finalResult = result;
-                            outputAnalysedSentiment(child.getKey()).thenAccept(r ->
-                                    child.getValue().tell(new updateStatus(finalResult + r.toString(), child.getKey()), self()));
-//                            appendResult= outputAnalysedSentiment(child.getKey());
-                        }catch(Exception e){
-                            String appendResult="<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
-                            child.getValue().tell(new updateStatus(result + appendResult, child.getKey()), self());
-                        }
-                    }
-                });
+                String result = formatResult.apply(status);
+                 ChildActors.entrySet().stream()
+                        .filter(child -> result.contains(child.getKey()))
+                        .findFirst().ifPresent( res -> {
+                     try{
+                         String finalResult = result;
+                         outputAnalysedSentiment(res.getKey()).thenAccept(r ->
+                                 res.getValue().forEach(ch ->
+                                         ch.tell(new updateStatus(finalResult + r.toString(), res.getKey()), self())));
+                     }catch(Exception e){
+                         String appendResult="<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
+                         res.getValue().forEach(ch ->
+                                 ch.tell(new updateStatus(result + appendResult, res.getKey()), self()));
+                     }
+                        });
+
                 KeyChildActors.entrySet().forEach(child -> {
                     KeywordActor.updateStatus reply = new KeywordActor.updateStatus(status);
                     child.getValue().tell(reply, self());
@@ -204,10 +218,12 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         twitterStream.addListener(listener);
     }
 
+    /**
+     * Response class to subscribers. Contain the html code and query term that is needed to update.
+     */
     public static class updateStatus{
         public final String htmlCode;
         public final String queryTerm;
-
         updateStatus(String htmlCode, String queryTerm) {
             this.htmlCode = htmlCode;
             this.queryTerm = queryTerm;
@@ -226,16 +242,32 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
 
     };
 
+    /**
+     * Tell the sentiment actor to analyze a particular status
+     * @param searchWord
+     * @param status
+     */
     private void analyseSentiments(String searchWord, Status status) {
         sentiMentActor.tell(new SentimentActor.tweetStatus(status, searchWord), getSelf());
     }
 
+    /**
+     * Store the sentiment into Table
+     * @param searchQuery
+     * @param msgID
+     * @param mode
+     */
     private void storeAnalysedSentiment(String searchQuery, long msgID, String mode) {
         sentimentTable.put(searchQuery, msgID, mode);
     }
 
 
-    private CompletableFuture<Object> outputAnalysedSentiment(String searchQuery) throws TimeoutException, InterruptedException {
+    /**
+     * Ask the sentiment actor for a result from analyzing tweet request.
+     * @param searchQuery key to retrieve sentimental for.
+     * @return Completeable future that contain the string of sentimental
+     */
+    private CompletableFuture<Object> outputAnalysedSentiment(String searchQuery)  {
         HashBasedTable<String, Long, String>  copyOfSentiMentActor=sentimentTable;
         CompletionStage<Object> f = ask(sentiMentActor, new SentimentActor.replyAnalysis(searchQuery,copyOfSentiMentActor), 1000L);
         return f.toCompletableFuture();

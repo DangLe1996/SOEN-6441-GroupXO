@@ -25,7 +25,6 @@ public class SentimentActor extends AbstractActor {
         this.replyTo = replyTo;
     }
 
-
    /** Acts as an inbox */
     public static class tweetStatus{
         private final Status status;
@@ -68,9 +67,7 @@ public class SentimentActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(tweetStatus.class, msg->{
-
                     String mode=getTweetSentimentsPerTweets(msg.status);
-
                     getSender().tell(new storeSentiments(msg.searchString,msg.status.getId(),mode),getSelf());
                 })
                 .match(replyAnalysis.class, fut -> {
@@ -119,7 +116,7 @@ public class SentimentActor extends AbstractActor {
      * @return String
      */
     public String analysedSentiment(String searchQuery, HashBasedTable<String, Long, String> sentimentTable) {
-        System.out.println("Trying to analyse");
+//        System.out.println("Trying to analyse");
         //System.out.println("What was earlier thing?   "+GetTweets.initSentimentMap.get(searchQuery));
         try {
             String dynamicAnalytic = "";
@@ -170,7 +167,7 @@ public class SentimentActor extends AbstractActor {
             return dynamicAnalytic;
 
         } catch (Exception e) {
-            System.out.println("Will try next time");
+//            System.out.println("Will try next time");
         }
         return "<CUSTOMSENTIMENT> \uD83D\uDEA7 Sentimate Actor is trying to Analyse Sentiments...</CUSTOMSENTIMENT>";
     }

@@ -46,16 +46,12 @@ public class HomeController extends Controller {
     private Form<Search> form ;
     private MessagesApi messagesApi;
 
-
-
 	@Inject
 	GetTweets globalGetTweet;
 
 	public void setGlobalGetTweet(GetTweets globalGetTweet) {
 		this.globalGetTweet = globalGetTweet;
 	}
-
-
 
 	@Inject
 	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem as, Materializer mat) {
@@ -90,16 +86,11 @@ public class HomeController extends Controller {
         } else {
 				String searchquery = boundForm.get().getSearchString();
 				String currentUserID = request.session().get("Twitter").get();
-//				sessionData.getUser(currentUserID).userActor.tell(searchquery,ActorRef.noSender());
-
 				return globalGetTweet.GetTweetsWithUser(searchquery, currentUserID)
 						.thenApply(currentUser -> displayHomePage.apply(currentUser, request));
 
-
-        }      
+        }
     }
-
-
 
 	/**
 	 * This method display the Home Page. If the request does not contain any user information, a new user session will be created and attached.
@@ -109,26 +100,21 @@ public class HomeController extends Controller {
 	 * @see models.sessionData#getUser(String)
 	 */
     public CompletionStage<Result> homePage(Http.Request request) {
-
 		sessionData currentUser = null;
 		String currentUserID = null;
     	if(request.session().get("Twitter").isPresent()){
 			 currentUserID = request.session().get("Twitter").get();
 			 currentUser  = sessionData.getUser(currentUserID);
-
 		}
     	else{
 			currentUser = new sessionData();
 
 		}
-
-
 		return CompletableFuture.completedFuture(displayHomePage.apply(currentUser,request));
 
     }
 
 	public WebSocket indexWs(){
-
 		return WebSocket.Json.accept( request -> {
 			return ActorFlow.actorRef(wsout ->{
 				String currentUserID = request.session().get("Twitter").get();

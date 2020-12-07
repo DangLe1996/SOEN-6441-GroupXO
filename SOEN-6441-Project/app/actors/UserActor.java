@@ -50,14 +50,12 @@ public final class UserActor extends AbstractActor {
     }
 
     private void updateResult(updateStatus status) {
-
         if(lasTweets.size()>=30){
             List<updateStatus> temp = lasTweets.stream().limit(10).collect(Collectors.toList());
             lasTweets = temp;
         }
         if(! lasTweets.contains(status)) {
             lasTweets.add(status);
-
             JsonNode newQueryJson = Json.toJson( new AddNewQuery(status.htmlCode,status.queryTerm,"UpdateQuery"));
             wsout.tell(newQueryJson,ActorRef.noSender());
 
@@ -75,7 +73,6 @@ public final class UserActor extends AbstractActor {
             String htmlCode = sess.getCache().get(queryTerm);
             JsonNode newQueryJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm,"AddNewQuery"));
             wsout.tell(newQueryJson,ActorRef.noSender());
-
         } );
 
     }

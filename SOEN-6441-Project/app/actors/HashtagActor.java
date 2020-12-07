@@ -12,13 +12,24 @@ import java.util.stream.Collectors;
 
 /**
  * Keeps track of actors that subscribed to a search hashtag query and also which hashtag this actor is responsible for.
+ * @author Dang le
  */
 public class HashtagActor extends AbstractActor {
 
-    private final ActorRef ws; //keep track of actor ref
+    /**
+     * Front end Websocket ActorREf
+     * @Author: Dang Le
+     */
+    private final ActorRef ws;
+    /**
+     * Twitter Stream actor, responsible for streaming statuses
+     */
     private final ActorRef TwitterStreamActor;
 
 
+    /**
+     * Tweets history. Used to prevent duplicate tweets
+     */
     List<TwitterStreamActor.updateStatus> lasTweets = new ArrayList<>();
 
 
@@ -70,7 +81,7 @@ public class HashtagActor extends AbstractActor {
         JSONObject obj = new JSONObject(msg.toString());
         String queryTerm = "#"+obj.getString("queryTerm");
         System.out.println("I got your queryterm type " + queryTerm);
-        TwitterStreamActor.tell(new TwitterStreamActor.registerNewHashtag(queryTerm),getSelf());
+        TwitterStreamActor.tell(new TwitterStreamActor.registerNewSearchQuery(queryTerm),getSelf());
 
     }
 
