@@ -29,6 +29,11 @@ import static commons.CommonHelper.buildStatusList;
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+/**
+ * Contains JUnit test cases for testing the KeywordActor Class
+ * of the application.
+ */
+
 public class KeywordActorTest extends JUnitSuite {
 
 	static String data = "";
@@ -63,6 +68,12 @@ public class KeywordActorTest extends JUnitSuite {
 	}
 	@ClassRule public static final TestKitJunitResource testKit = new TestKitJunitResource();
 	
+	/***
+     * Tests the KeyWordActor by mocking and supplying fake tweets
+     *  @author Girish
+     */
+
+	
 	@Test
 	public void testKeyWordActor() {
 
@@ -85,10 +96,7 @@ public class KeywordActorTest extends JUnitSuite {
          {
             
          }
-
-	     System.out.println("result " + KeywordActorTest.data);
 	     assertThat( KeywordActorTest.data,StringContains.containsString("Indians:50"));
-
 		
 	}
 
