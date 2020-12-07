@@ -243,7 +243,8 @@ public class GetTweets extends AbstractModule {
      * @param mood,percentage
      * @return String
      */
-    public static String renderSentimentsHTML(String mood,double percentage){
+    //code cleaning project two
+ /*   public static String renderSentimentsHTML(String mood,double percentage){
         String emoticon="";
         if (mood.equals(Mode.HAPPY.toString())) emoticon="\uD83D\uDE0C";
         else if (mood.equals(Mode.SAD.toString())) emoticon="\uD83D\uDE1E";
@@ -252,7 +253,7 @@ public class GetTweets extends AbstractModule {
         return emoticon;
 
     }
-
+*/
 
     /**
      * Get 10 tweets from Query result and adding HTML tags to display on screen.
@@ -296,12 +297,6 @@ public class GetTweets extends AbstractModule {
         double happpyIndicator=(analyse.containsKey(Mode.HAPPY)==true?analyse.get(Mode.HAPPY).size():0.00)  / queryResultSize;
         double sadIndicator=(analyse.containsKey(Mode.SAD)==true?analyse.get(Mode.SAD).size():0.0) / queryResultSize;
         double neutralIndicator=1-(happpyIndicator+sadIndicator);
-
-        //System.out.println("queryResultSize "+queryResultSize);
-        //System.out.println("happpyIndicator"+ happpyIndicator );
-        //System.out.println("sad"+sadIndicator);
-        //System.out.println("neutral indicator "+neutralIndicator);
-
        Double truncatedNeutralPercent= BigDecimal.valueOf(neutralIndicator*100)
                 .setScale(3, RoundingMode.FLOOR)
                 .doubleValue();
@@ -311,8 +306,6 @@ public class GetTweets extends AbstractModule {
         Double truncatedSadPercent= BigDecimal.valueOf(sadIndicator*100)
                 .setScale(3, RoundingMode.FLOOR)
                .doubleValue();
-
-       //System.out.println("Sad after truncate"+truncatedSadPercent);
 
         double thresHold=70;
         String dynamicAnalytic="";
@@ -329,9 +322,7 @@ public class GetTweets extends AbstractModule {
         dynamicAnalytic = dynamicAnalytic + "  Total Tweets= " + queryResultSize;
         dynamicAnalytic = dynamicAnalytic + "  Happy percent=   " + truncatedHappyPercent;
         dynamicAnalytic = dynamicAnalytic + "  Sad percent=   " + truncatedSadPercent;
-        //dynamicAnalytic = dynamicAnalytic + "  Neutral percent: " + truncatedNeutralPercent;
         dynamicAnalytic="<CUSTOMSENTIMENT>"+dynamicAnalytic+"</CUSTOMSENTIMENT>";
-
         GlobalSentiments.put(keyword, dynamicAnalytic); //cache with a key
         return result;
 
