@@ -7,6 +7,7 @@ import akka.actor.testkit.typed.CapturedLogEvent;
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
 import akka.testkit.javadsl.TestKit;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import models.GetTweets;
 import models.sessionData;
 import org.junit.AfterClass;
@@ -24,9 +25,12 @@ import twitter4j.Status;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import static commons.CommonHelper.buildStatusList;
 import static commons.CommonHelper.createMockTweets;
 import static org.mockito.Mockito.mock;
+
 
 public class UserActorTest extends JUnitSuite {
 
@@ -61,28 +65,47 @@ public class UserActorTest extends JUnitSuite {
     /* Tests the instance methods of the supervisor actor */
 
     @Test
-    public void JunitTestSuperVisor_Sentiments(){
+    public void userActor_test_Anymsg(){
+        System.out.println("testing :: "+ "userActor_test_Anymsg");
         new TestKit(system) {
             {
 
                 final TestKit probe = new TestKit(system);
-
                 final Props props0 = Props.create(TwitterStreamActor.class);
                 final ActorRef supervisor = system.actorOf(props0);
                 GetTweets gt=new GetTweets();
                 final Props props = Props.create(UserActor.class,probe.getRef(),"SYSTEM",gt,supervisor);
                 final ActorRef subject = system.actorOf(props);
-                subject.tell("AnyMessage",probe.getRef());
+                subject.tell("{queryTerm:anymsg}",probe.getRef());
                 TwitterStreamActor.updateStatus test1=new TwitterStreamActor.updateStatus("htmlcode","aSearch");
 
             }
         };
     }
 
+    @Test
+    public void userActor_test_Update() throws InterruptedException {
+        System.out.println("testing :: "+ "userActor_test_Update");
+        new TestKit(system) {
+            {
+
+                final TestKit probe = new TestKit(system);
+                final Props props0 = Props.create(TwitterStreamActor.class);
+                final ActorRef supervisor = system.actorOf(props0);
+                GetTweets gt=new GetTweets();
+                final Props props = Props.create(UserActor.class,probe.getRef(),"SYSTEM",gt,supervisor);
+                final ActorRef subject = system.actorOf(props);
+                TwitterStreamActor.updateStatus aStatus=new TwitterStreamActor.updateStatus("htmlCode","queryTerm");
+                subject.tell(aStatus,probe.getRef());
+                for(int i = 0; i < 32; i++) {
+                    TwitterStreamActor.updateStatus status = new TwitterStreamActor.updateStatus("this is a test code", "test" + i);
+                    TimeUnit.MILLISECONDS.sleep(10);
+                    subject.tell(status,ActorRef.noSender());
+                }
+            }
+        };
+    }
+
 
 }
-
-
-
-
 
