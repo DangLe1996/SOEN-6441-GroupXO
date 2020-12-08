@@ -65,9 +65,7 @@ public class KeywordActor extends AbstractActor {
                 .match(updateStatus.class,msg -> {
                     updateResult(msg.tweet);
                 })
-                .matchEquals("KillSwitch", msg -> {
-                    System.out.println("Actor terminated");
-                    context().stop(self());})
+
                 .build();
 
     }

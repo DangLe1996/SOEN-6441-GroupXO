@@ -74,9 +74,7 @@ public class SentimentActor extends AbstractActor {
                     String result = analysedSentiment(fut.keyword, fut.sentimentTable);
                     getSender().tell(result, getSelf());
                 })
-                .matchEquals("KillSwitch", msg -> {
-                    System.out.println("Actor terminated");
-                    context().stop(self());})
+
                 .matchAny(msg -> {
                     System.out.println("got the Bunch of Tweets");
                 })

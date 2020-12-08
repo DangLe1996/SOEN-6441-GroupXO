@@ -33,7 +33,66 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="Jacoco at 62% overall">
+    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/.css/coverage.css" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/.css/coverage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseAssets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseAssets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseHomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseHomeController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/HomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/HomeController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseAssets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseAssets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseHomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseHomeController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/routes.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/routes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/GetTweets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/GetTweets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/sessionData.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/sessionData.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Module.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/KeywordActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/KeywordActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/SentimentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/SentimentActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/actors/TwitterStreamActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/TwitterStreamActorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/actors/UserActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/UserActorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +105,9 @@
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\TestCoverage" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -99,11 +161,11 @@
         <option value="java.lang._" />
         <option value="play.mvc._" />
         <option value="_root_.play.twirl.api.Txt" />
-        <option value="play.api.data.Field" />
         <option value="play.data._" />
+        <option value="play.api.data.Field" />
+        <option value="play.api.templates.PlayMagic._" />
         <option value="scala.jdk.CollectionConverters._" />
         <option value="_root_.play.twirl.api.JavaScript" />
-        <option value="play.api.templates.PlayMagic._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />
@@ -129,7 +191,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/test/actors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/TestCoverage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -157,7 +219,7 @@
       <recent name="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Play 2 App.play run">
+  <component name="RunManager" selected="JUnit.UserActorTest.testSendQueryRequest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -192,7 +254,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashtagActorTest.createHashtagActor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserActorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <extension name="coverage">
         <pattern>
@@ -201,14 +263,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.HashtagActorTest" />
-      <option name="METHOD_NAME" value="createHashtagActor" />
+      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserActorTest.testSendQueryRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOEN-6441-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="actors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="actors" />
+      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
+      <option name="METHOD_NAME" value="testSendQueryRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashtagActorTest.testSendingQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserActorTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOEN-6441-Project" />
       <extension name="coverage">
         <pattern>
@@ -217,23 +294,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.HashtagActorTest" />
-      <option name="METHOD_NAME" value="testSendingQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashtagActorTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="actors.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.HashtagActorTest" />
+      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
       <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -270,20 +331,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in SOEN-6441-Project" />
-      <item itemvalue="JUnit.HashtagActorTest.createHashtagActor" />
-      <item itemvalue="JUnit.HashtagActorTest" />
-      <item itemvalue="JUnit.HashtagActorTest.testUpdate" />
-      <item itemvalue="JUnit.HashtagActorTest.testSendingQuery" />
       <item itemvalue="Play 2 App.play run" />
+      <item itemvalue="JUnit.UserActorTest" />
+      <item itemvalue="JUnit.UserActorTest.testUpdate" />
+      <item itemvalue="JUnit.UserActorTest.testSendQueryRequest" />
+      <item itemvalue="JUnit.All in SOEN-6441-Project" />
+      <item itemvalue="JUnit.HashtagActorTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in SOEN-6441-Project" />
-        <item itemvalue="JUnit.HashtagActorTest.testUpdate" />
-        <item itemvalue="JUnit.HashtagActorTest.testSendingQuery" />
+        <item itemvalue="JUnit.UserActorTest.testSendQueryRequest" />
         <item itemvalue="JUnit.HashtagActorTest" />
-        <item itemvalue="JUnit.HashtagActorTest.createHashtagActor" />
+        <item itemvalue="JUnit.All in SOEN-6441-Project" />
+        <item itemvalue="JUnit.UserActorTest" />
+        <item itemvalue="JUnit.UserActorTest.testUpdate" />
       </list>
     </recent_temporary>
   </component>
@@ -317,8 +378,7 @@
       <workItem from="1607278613242" duration="1022000" />
       <workItem from="1607306632199" duration="7709000" />
       <workItem from="1607373267107" duration="9410000" />
-      <workItem from="1607438172773" duration="625000" />
-      <workItem from="1607440235106" duration="4050000" />
+      <workItem from="1607438172773" duration="7636000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -488,12 +548,12 @@
       <option name="project" value="LOCAL" />
       <updated>1607382079222</updated>
     </task>
-    <task id="LOCAL-00025" summary="Jacoco at 62% overall">
-      <created>1607445709950</created>
+    <task id="LOCAL-00025" summary="fixed sentimental.">
+      <created>1607438848669</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1607445709950</updated>
+      <updated>1607438848669</updated>
     </task>
     <option name="localTasksCounter" value="26" />
     <servers />
@@ -558,8 +618,8 @@
     <MESSAGE value="Hastag Actor Test added" />
     <MESSAGE value="Update sentimental" />
     <MESSAGE value="Added Javadoc and Clean up TwitterStreamActor" />
-    <MESSAGE value="Jacoco at 62% overall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jacoco at 62% overall" />
+    <MESSAGE value="fixed sentimental." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed sentimental." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -590,67 +650,74 @@
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
     <state x="1920" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607278699874" />
-    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate" timestamp="1607380326543">
+    <state x="857" y="273" width="802" height="494" key="#xdebugger.XInspectDialog" timestamp="1607446123181">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607380326543" />
+    <state x="857" y="273" width="802" height="494" key="#xdebugger.XInspectDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446123181" />
+    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate" timestamp="1607446172886">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446172886" />
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606338331923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607382078392">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607438847361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607382078392" />
-    <state width="473" height="466" key="DebuggerActiveHint" timestamp="1607438604014">
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438847361" />
+    <state width="473" height="466" key="DebuggerActiveHint" timestamp="1607445917009">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="473" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438604014" />
-    <state x="69" y="97" width="1302" height="672" key="DiffContextDialog" timestamp="1607445593070">
-      <screen x="0" y="25" width="1440" height="816" />
+    <state width="473" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607445917009" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607101923946">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
-    <state x="69" y="97" width="1302" height="672" key="DiffContextDialog/0.25.1440.816@0.25.1440.816" timestamp="1607445593070" />
-    <state width="1877" height="372" key="GridCell.Tab.0.bottom" timestamp="1607438631948">
+    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1607447179085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
+    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607447179085" />
+    <state width="1877" height="362" key="GridCell.Tab.0.bottom" timestamp="1607449875578">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="362" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
     <state width="1157" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519794" />
-    <state width="1877" height="372" key="GridCell.Tab.0.center" timestamp="1607438631948">
+    <state width="1877" height="362" key="GridCell.Tab.0.center" timestamp="1607449875578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
+    <state width="1877" height="362" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
     <state width="1157" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="372" key="GridCell.Tab.0.left" timestamp="1607438631948">
+    <state width="1877" height="362" key="GridCell.Tab.0.left" timestamp="1607449875577">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
+    <state width="1877" height="362" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875577" />
     <state width="1157" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="372" key="GridCell.Tab.0.right" timestamp="1607438631948">
+    <state width="1877" height="362" key="GridCell.Tab.0.right" timestamp="1607449875578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
+    <state width="1877" height="362" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
     <state width="1157" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="372" key="GridCell.Tab.1.bottom" timestamp="1607438631948">
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1607446220398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
-    <state width="1877" height="372" key="GridCell.Tab.1.center" timestamp="1607438631948">
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
+    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1607446220398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
-    <state width="1877" height="372" key="GridCell.Tab.1.left" timestamp="1607438631948">
+    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
+    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1607446220398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
-    <state width="1877" height="372" key="GridCell.Tab.1.right" timestamp="1607438631948">
+    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
+    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1607446220398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="372" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438631948" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1607100380600">
+    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1607446321308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100380600" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446321308" />
     <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605138976163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -663,15 +730,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2" timestamp="1607445727239">
-      <screen x="0" y="25" width="1440" height="816" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607382084504" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607445727239" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605200303562">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607438855595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605200303562" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438855595" />
+    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607139295995" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1607443888092">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607443888092" />
     <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1607375191010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -684,6 +751,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100750495" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607446275171">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446275171" />
     <state x="731" y="318" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1607306203117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -696,10 +767,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="522" y="185" width="811" height="722" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375580737" />
-    <state x="1920" y="0" width="1216" height="1659" key="dock-window-2" timestamp="1607438469548">
+    <state x="2007" y="560" width="1216" height="1659" maximized="true" key="dock-window-2" timestamp="1607446978918">
       <screen x="1920" y="0" width="1200" height="1880" />
     </state>
-    <state x="1920" y="0" width="1216" height="1659" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438469548" />
+    <state x="2007" y="560" width="1216" height="1659" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446978918" />
     <state x="321" y="126" width="1216" height="707" key="dock-window-3" timestamp="1606937578155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -746,6 +817,16 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/actors/HashtagActorTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/actors/HashtagActorTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
           <line>83</line>
           <option name="timeStamp" value="37" />
@@ -762,8 +843,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actors/SentimentActor.java</url>
-          <line>121</line>
+          <line>119</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/actors/UserActor.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/actors/UserActor.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/actors/UserActorTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
@@ -787,56 +883,62 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1607446358454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_check_Twitter_invoke_exception.ic" NAME="GetTweetsTest.check_Twitter_invoke_exception Coverage Results" MODIFIED="1605204616706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest.ic" NAME="HashtagActorTest Coverage Results" MODIFIED="1607311802261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>actors.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_testUserSessionsWithGetString.ic" NAME="GetTweetsTest.testUserSessionsWithGetString Coverage Results" MODIFIED="1605201546540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest.ic" NAME="RoutingTest Coverage Results" MODIFIED="1605201367746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_tesHashTag.ic" NAME="HomeControllerTest.tesHashTag Coverage Results" MODIFIED="1605128880308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$sessionDataTest.ic" NAME="sessionDataTest Coverage Results" MODIFIED="1605196549793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest.ic" NAME="GetTweetsTest Coverage Results" MODIFIED="1605202409526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1607375229398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.exec" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605130623831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-      <FILTER>controllers.*</FILTER>
-      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1605130736948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest__1_.ic" NAME="GetTweetsTest (1) Coverage Results" MODIFIED="1605155311329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$UserActorTest.ic" NAME="UserActorTest Coverage Results" MODIFIED="1607446241006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>actors.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_tesHashTag.ic" NAME="HomeControllerTest.tesHashTag Coverage Results" MODIFIED="1605128880308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>controllers.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest_testHomePageRouteWithNewUser.ic" NAME="RoutingTest.testHomePageRouteWithNewUser Coverage Results" MODIFIED="1605201442150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_testUserSessionsWithGetString.ic" NAME="GetTweetsTest.testUserSessionsWithGetString Coverage Results" MODIFIED="1605201546540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest_createHashtagActor.ic" NAME="HashtagActorTest.createHashtagActor Coverage Results" MODIFIED="1607311667616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>actors.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$models_in_SOEN_6441_Project.ic" NAME="models in SOEN-6441-Project Coverage Results" MODIFIED="1605204371142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest.ic" NAME="GetTweetsTest Coverage Results" MODIFIED="1605202409526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest__1_.ic" NAME="GetTweetsTest (1) Coverage Results" MODIFIED="1605155311329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testException.ic" NAME="HomeControllerTest.testException Coverage Results" MODIFIED="1604957686976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>controllers.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.exec" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605130623831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+      <FILTER>controllers.*</FILTER>
+      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$sessionDataTest.ic" NAME="sessionDataTest Coverage Results" MODIFIED="1605196549793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$models_in_SOEN_6441_Project.ic" NAME="models in SOEN-6441-Project Coverage Results" MODIFIED="1605204371142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$UserActorTest_testSendQueryRequest.ic" NAME="UserActorTest.testSendQueryRequest Coverage Results" MODIFIED="1607449831340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>actors.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest_testUpdate.ic" NAME="HashtagActorTest.testUpdate Coverage Results" MODIFIED="1607313893935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>actors.*</FILTER>
     </SUITE>

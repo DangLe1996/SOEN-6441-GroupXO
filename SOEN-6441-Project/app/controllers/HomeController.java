@@ -175,6 +175,10 @@ public class HomeController extends Controller {
 
     HashMap<String,Flow<Json,Json,?>> hashtagFlowsMap = new HashMap<>();
 
+	/**
+	 * Create an actorRef that is responsible for handling message websocket for hashtag
+	 * @return Websocket Connection with ActorRef
+	 */
 	public WebSocket HashTagWs(){
 
 	return WebSocket.Json.accept(request -> {

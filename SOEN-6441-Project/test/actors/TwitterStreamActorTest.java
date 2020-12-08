@@ -52,17 +52,7 @@ public class TwitterStreamActorTest extends JUnitSuite {
                 SentimentActor.storeSentiments aSentiment;
                 aSentiment = new SentimentActor.storeSentiments("TestKeyWord",1000L,"HAPPY");
                 subject.tell(aSentiment,probe.getRef());
-                //subject.tell("KillSwitch",probe.getRef());
 
-
-             /*   within(
-                        Duration.ofSeconds(10),
-                        () -> {
-                            awaitCond(probe::msgAvailable);
-                            expectNoMessage();
-                            return null;
-
-                        });*/
             }
         };
     }

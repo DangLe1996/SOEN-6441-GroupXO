@@ -59,7 +59,6 @@ public final class UserActor extends AbstractActor {
             JsonNode newQueryJson = Json.toJson( new AddNewQuery(status.htmlCode,status.queryTerm,"UpdateQuery"));
             wsout.tell(newQueryJson,ActorRef.noSender());
 
-//            wsout.tell(Json.toJson(status), ActorRef.noSender());
         }
     }
 
@@ -72,24 +71,24 @@ public final class UserActor extends AbstractActor {
         f.thenAccept(sess ->{
             String htmlCode = sess.getCache().get(queryTerm);
             JsonNode newQueryJson = Json.toJson( new AddNewQuery(htmlCode,queryTerm,"AddNewQuery"));
-            wsout.tell(newQueryJson,ActorRef.noSender());
+            wsout.tell(newQueryJson,getSelf());
         } );
 
     }
 
-    public static class addQuery{
-
-        private final String queryTerm;
-
-        public addQuery(String queryTerm) {
-            this.queryTerm = queryTerm;
-        }
-    }
+//    public static class addQuery{
+//
+//        private final String queryTerm;
+//
+//        public addQuery(String queryTerm) {
+//            this.queryTerm = queryTerm;
+//        }
+//    }
 
     public static class AddNewQuery {
-        private final String htmlCode;
-        private final String queryTerm;
-        private final String type ;
+        public final String htmlCode;
+        public final String queryTerm;
+        public final String type ;
         AddNewQuery(String htmlCode, String queryTerm, String type) {
             this.htmlCode = htmlCode;
             this.queryTerm = queryTerm;
