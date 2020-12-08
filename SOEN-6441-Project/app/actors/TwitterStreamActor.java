@@ -45,12 +45,9 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
      * Value: Actors that are subscribing to the keywords.
      */
     HashMap<String, List<ActorRef>> ChildActors = new HashMap<>();
-
     HashMap<String, ActorRef> KeyChildActors = new HashMap<>();
-
     HashBasedTable<String, Long, String> sentimentTable = HashBasedTable.create(); //suhel
     ActorRef sentiMentActor = getContext().actorOf(SentimentActor.props(self(), getSelf()));
-
     public static Props prop() {
         return Props.create(TwitterStreamActor.class);
     }
@@ -177,10 +174,12 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             public void onStatus(Status status) {
 
                 String result = formatResult.apply(status);
+
                  ChildActors.entrySet().stream()
                         .filter(child -> result.contains(child.getKey()))
                         .findFirst().ifPresent( res -> {
                      try{
+                         analyseSentiments(res.getKey(),status);
                          String finalResult = result;
                          outputAnalysedSentiment(res.getKey()).thenAccept(r ->
                                  res.getValue().forEach(ch ->
