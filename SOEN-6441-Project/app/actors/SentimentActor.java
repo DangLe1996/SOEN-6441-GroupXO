@@ -17,9 +17,17 @@ import java.util.stream.Collectors;
 
 /*** Acts as an sentiment actor and calculates sentiments after each tweet status is received*/
 public class SentimentActor extends AbstractActor {
+    /** ActorRef sender reference */
     private final ActorRef ws;
+    /** ActorRef reply to  reference */
     private final ActorRef replyTo;
 
+    /** Constructor for SentimentActor
+     * 
+     * @param ws
+     * @param replyTo
+     * @author suhel
+     */
     public SentimentActor( ActorRef ws, ActorRef replyTo) {
         this.ws = ws;
         this.replyTo = replyTo;
@@ -30,6 +38,13 @@ public class SentimentActor extends AbstractActor {
         private final Status status;
         private final String searchString;
 
+       /** constructor for Sentiment.ActortweetStatus
+        * 
+        * @param status
+        * @param searchString
+        * @author suhel
+        */
+       
         public tweetStatus(Status status,String searchString) {
             this.status = status;
             this.searchString=searchString;
@@ -41,6 +56,14 @@ public class SentimentActor extends AbstractActor {
         public long msgID;
         public String mode;
 
+        /** Constructor for Sentiment.storeSentiments
+         * 
+         * @param keyword
+         * @param msgID
+         * @param mode
+         * @author suhel
+         */
+
         public storeSentiments(String keyword, long msgID, String mode) {
             this.keyword = keyword;
             this.msgID = msgID;
@@ -48,21 +71,40 @@ public class SentimentActor extends AbstractActor {
         }
     }
 
+    /* calculates async modes of tweets*/
+    
+     
     public static class replyAnalysis {
         public String keyword;
         public HashBasedTable<String, Long, String> sentimentTable;
 
+        /** constructor for Sentiment.replyAnalysis
+         * 
+         * @param keyword
+         * @param sentimentTable
+         * @author suhel
+         */
         public replyAnalysis(String keyword, HashBasedTable<String, Long, String> sentimentTable) {
             this.keyword = keyword;
             this.sentimentTable = sentimentTable;
         }
     }
 
-
+    /** Properties of the actor
+     * 
+     * @param ws
+     * @param replyTo
+     * @return
+     * @author Suhel
+     */
     public static Props props(ActorRef ws, ActorRef replyTo) {
         return Props.create(SentimentActor.class, () -> new SentimentActor( ws, replyTo));
     }
 
+    /** inbox of the actor Sentiment.replyAnalysis
+     * it can accept message as tweetStatus.class,replyAnalysis.class and any object
+     * @return
+     */
     @Override
     public Receive createReceive() {
         return receiveBuilder()
