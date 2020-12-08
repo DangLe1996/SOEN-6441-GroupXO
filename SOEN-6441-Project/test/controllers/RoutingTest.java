@@ -89,7 +89,7 @@ public class RoutingTest  extends WithApplication {
         assertThat(contentAsString(result).contains("this is a test"),is(true));
         assertThat(result.status(),is(OK));
     }
-/*
+
 
     @Test
     public void testKeywordRoute(){
@@ -106,7 +106,7 @@ public class RoutingTest  extends WithApplication {
         }
         assertThat(result.status(),is(OK));
     }
-*/
+
 
     @Test
     public void testLocationRoute(){
@@ -136,7 +136,8 @@ public class RoutingTest  extends WithApplication {
      * being added in the initialized method
      * which is in the table tabulated from the twitter result.
      */
-   /* @Test
+
+    /* @Test
     public void testHomePageRouteWithNewUser(){
         Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(GET)
