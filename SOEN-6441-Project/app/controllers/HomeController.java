@@ -20,7 +20,7 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
 import play.mvc.*;
-import views.html.tweets_hashtag_display;
+
 
 import javax.inject.Inject;
 
@@ -177,7 +177,7 @@ public class HomeController extends Controller {
 
 		return  globalGetTweet.GetTweetsWithKeyword("#"+searchQuery)
 				.thenApply(tweet -> {
-					final Result ok = ok(tweets_hashtag_display.render(request, searchQuery, tweet)).addingToSession(request,"Hashtag",searchQuery);
+					final Result ok = ok(views.html.tweets_hashtag_display.render(request, searchQuery, tweet)).addingToSession(request,"Hashtag",searchQuery);
 					return ok;
 				});
     }

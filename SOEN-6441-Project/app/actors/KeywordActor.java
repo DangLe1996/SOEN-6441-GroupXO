@@ -60,7 +60,7 @@ public class KeywordActor extends AbstractActor {
         return receiveBuilder()
                 .match(String.class,msg -> {
                     QueryString = msg;
-                    replyTo.tell(new TwitterStreamActor.registerNewSearchQuery(msg),getSelf());
+                    replyTo.tell(new TwitterStreamActor.registerNewKeyword(msg),getSelf());
                 })
                 .match(updateStatus.class,msg -> {
                     updateResult(msg.tweet);

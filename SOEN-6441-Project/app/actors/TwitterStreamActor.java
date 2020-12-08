@@ -37,6 +37,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
      */
     private Set<String> KeywordsQueue = new HashSet<>();
 
+    private Set<String> trackedKeywords = new HashSet<>();
 
     TwitterStream twitterStream;
 
@@ -67,6 +68,16 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
         }
     }
 
+
+
+    static class registerNewKeyword {
+        private final String keyword;
+
+        public registerNewKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+    }
+
     /**
      * Every 5 seconds, raise a Tick message to clear out the keyword queue.
      */
@@ -91,9 +102,13 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
+
                 .match(Tick.class, msg -> updateTwitterStream())
                 .match(registerNewSearchQuery.class, msg -> {
                     addNewQuery(msg.searchQuery);
+                })
+                .match(registerNewKeyword.class, msg -> {
+                    addNewKeyword(msg.keyword);
                 })
                 .match(SentimentActor.storeSentiments.class, msg -> {
                     storeAnalysedSentiment(msg.keyword,msg.msgID,msg.mode);
@@ -115,6 +130,7 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
      * @param msg keyword to keep track
      */
     private void addNewQuery(String msg) {
+
         if(ChildActors.containsKey(msg)){
             List<ActorRef> temp = new ArrayList<>();
             temp.add(sender());
@@ -140,6 +156,13 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             this.actorRef = actorRef;
         }
     }
+
+    private void addNewKeyword(String msg) {
+        KeyChildActors.put(msg, sender());
+        if(trackedKeywords.contains(msg) == false) KeywordsQueue.add(msg);
+        System.out.println("I got your keyword " + msg);
+    }
+
 
     /**
      * Update twitter stream by clearing out the KeywordsQueue and add the

@@ -1,42 +1,340 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_TEST_SOURCES" value="false" />
-    <option name="SCOPE_TYPE" value="8" />
-    <option name="CUSTOM_SCOPE_NAME" value="ProjectDoc" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
+    <list default="true" id="ce56603a-1540-4804-a283-5c9ba0b3ed81" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.g8/form/app/controllers/$model__Camel$Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.g8/form/app/controllers/$model__Camel$Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.g8/form/app/views/$model__camel$/form.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.g8/form/default.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.g8/form/generated-test/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.g8/form/generated-test/controllers/$model__Camel$ControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__aopalliance_aopalliance_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__aopalliance_aopalliance_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_2_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_2_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_core_1_2_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_core_1_2_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_classmate_1_3_4_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_classmate_1_3_4_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_code_findbugs_jsr305_3_0_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_code_findbugs_jsr305_3_0_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_errorprone_error_prone_annotations_2_3_4_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_errorprone_error_prone_annotations_2_3_4_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_failureaccess_1_0_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_failureaccess_1_0_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_guava_28_2_jre_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_guava_28_2_jre_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_inject_extensions_guice_assistedinject_4_2_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_inject_extensions_guice_assistedinject_4_2_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_inject_guice_4_2_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_inject_guice_4_2_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_j2objc_j2objc_annotations_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_google_j2objc_j2objc_annotations_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_novocode_junit_interface_0_11_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_novocode_junit_interface_0_11_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_squareup_okhttp3_okhttp_3_11_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_squareup_okhttp3_okhttp_3_11_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_squareup_okio_okio_1_14_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_squareup_okio_okio_1_14_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_thoughtworks_paranamer_paranamer_2_8_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_thoughtworks_paranamer_paranamer_2_8_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_http_core_2_13_10_1_12_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_http_core_2_13_10_1_12_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_parsing_2_13_10_1_12_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_parsing_2_13_10_1_12_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_config_1_4_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_config_1_4_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_build_link_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_build_link_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_filters_helpers_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_filters_helpers_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_akka_http_server_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_akka_http_server_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_exceptions_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_exceptions_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_functional_2_13_2_8_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_functional_2_13_2_8_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_guice_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_guice_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_java_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_java_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_java_forms_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_java_forms_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_json_2_13_2_8_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_json_2_13_2_8_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_logback_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_logback_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_server_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_server_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_streams_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_streams_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_test_2_13_2_8_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_play_test_2_13_2_8_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_twirl_api_2_13_1_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_play_twirl_api_2_13_1_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_ssl_config_core_2_13_0_4_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_ssl_config_core_2_13_0_4_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__commons_codec_commons_codec_1_11_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__commons_codec_commons_codec_1_11_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__commons_io_commons_io_2_6_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__commons_io_commons_io_2_6_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__commons_logging_commons_logging_1_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__commons_logging_commons_logging_1_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__commons_net_commons_net_3_6_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__commons_net_commons_net_3_6_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_jsonwebtoken_jjwt_0_9_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_jsonwebtoken_jjwt_0_9_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_activation_jakarta_activation_api_1_2_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_activation_jakarta_activation_api_1_2_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_transaction_jakarta_transaction_api_1_3_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_transaction_jakarta_transaction_api_1_3_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_validation_jakarta_validation_api_2_0_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_validation_jakarta_validation_api_2_0_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__joda_time_joda_time_2_10_5_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__joda_time_joda_time_2_10_5_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__junit_junit_4_13_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__junit_junit_4_13_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_bytebuddy_byte_buddy_1_10_15_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_bytebuddy_byte_buddy_1_10_15_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_bytebuddy_byte_buddy_agent_1_10_15_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_bytebuddy_byte_buddy_agent_1_10_15_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_jodah_typetools_0_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_jodah_typetools_0_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_2_36_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_2_36_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_core_js_2_36_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_core_js_2_36_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_cssparser_1_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_cssparser_1_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_neko_htmlunit_2_36_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__net_sourceforge_htmlunit_neko_htmlunit_2_36_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_exec_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_exec_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_lang3_3_9_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_lang3_3_9_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_text_1_7_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_commons_commons_text_1_7_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpclient_4_5_9_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpclient_4_5_9_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpcore_4_4_11_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpcore_4_4_11_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpmime_4_5_9_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apache_httpcomponents_httpmime_4_5_9_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_apiguardian_apiguardian_api_1_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_apiguardian_apiguardian_api_1_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_atteo_classindex_classindex_3_4_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_atteo_classindex_classindex_3_4_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_brotli_dec_0_1_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_brotli_dec_0_1_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_checkerframework_checker_qual_2_10_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_checkerframework_checker_qual_2_10_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_client_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_client_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_http_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_http_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_io_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_io_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_util_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_util_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_xml_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_jetty_xml_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_api_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_api_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_client_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_client_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_common_9_4_20_v20190813_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_common_9_4_20_v20190813_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_fluentlenium_fluentlenium_core_3_7_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_fluentlenium_fluentlenium_core_3_7_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_hibernate_validator_hibernate_validator_6_1_5_Final_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_hibernate_validator_hibernate_validator_6_1_5_Final_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_jacoco_org_jacoco_agent_0_8_2_runtime_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_jacoco_org_jacoco_agent_0_8_2_runtime_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_jboss_logging_jboss_logging_3_3_2_Final_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_jboss_logging_jboss_logging_3_3_2_Final_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_jupiter_junit_jupiter_api_5_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_jupiter_junit_jupiter_api_5_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_commons_1_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_commons_1_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_engine_1_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_engine_1_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_launcher_1_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_launcher_1_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_runner_1_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_runner_1_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_suite_api_1_7_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_junit_platform_junit_platform_suite_api_1_7_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_mockito_mockito_core_3_6_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_mockito_mockito_core_3_6_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_mockito_mockito_junit_jupiter_3_6_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_mockito_mockito_junit_jupiter_3_6_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_objenesis_objenesis_3_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_objenesis_objenesis_3_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_opentest4j_opentest4j_1_2_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_opentest4j_opentest4j_1_2_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_reactivestreams_reactive_streams_1_0_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_reactivestreams_reactive_streams_1_0_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_java8_compat_2_13_0_9_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_java8_compat_2_13_0_9_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_parser_combinators_2_13_1_1_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_parser_combinators_2_13_1_1_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_xml_2_13_1_2_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_xml_2_13_1_2_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_reflect_2_13_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_reflect_2_13_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_sbt_test_interface_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_sbt_test_interface_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_htmlunit_driver_2_36_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_htmlunit_driver_2_36_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_api_3_141_59_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_api_3_141_59_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_remote_driver_3_141_59_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_remote_driver_3_141_59_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_support_3_141_59_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_support_3_141_59_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_jcl_over_slf4j_1_7_30_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_jcl_over_slf4j_1_7_30_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_jul_to_slf4j_1_7_30_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_jul_to_slf4j_1_7_30_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_slf4j_api_1_7_30_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_slf4j_slf4j_api_1_7_30_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_beans_5_2_6_RELEASE_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_beans_5_2_6_RELEASE_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_context_5_2_6_RELEASE_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_context_5_2_6_RELEASE_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_core_5_2_6_RELEASE_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_springframework_spring_core_5_2_6_RELEASE_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_twitter4j_twitter4j_core_4_0_7_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_twitter4j_twitter4j_core_4_0_7_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_twitter4j_twitter4j_stream_4_0_7_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_twitter4j_twitter4j_stream_4_0_7_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__xalan_serializer_2_7_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__xalan_serializer_2_7_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__xalan_xalan_2_7_2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__xalan_xalan_2_7_2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__xerces_xercesImpl_2_12_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__xerces_xercesImpl_2_12_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__xml_apis_xml_apis_1_4_01_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__xml_apis_xml_apis_1_4_01_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN-6441-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/KeywordActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/KeywordActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/TwitterStreamActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.g8/form/app/controllers/$model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.g8/form/app/views/$model__camel$/form.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.g8/form/default.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.g8/form/generated-test/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.g8/form/generated-test/controllers/$model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__aopalliance_aopalliance_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_2_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__ch_qos_logback_logback_core_1_2_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_fasterxml_classmate_1_3_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_code_findbugs_jsr305_3_0_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_errorprone_error_prone_annotations_2_3_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_guava_failureaccess_1_0_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_guava_guava_28_2_jre_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_inject_extensions_guice_assistedinject_4_2_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_inject_guice_4_2_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_google_j2objc_j2objc_annotations_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_novocode_junit_interface_0_11_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_squareup_okhttp3_okhttp_3_11_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_squareup_okio_okio_1_14_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_thoughtworks_paranamer_paranamer_2_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_akka_akka_http_core_2_13_10_1_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_akka_akka_parsing_2_13_10_1_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_akka_akka_serialization_jackson_2_13_2_6_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_config_1_4_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_build_link_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_filters_helpers_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_akka_http_server_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_exceptions_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_functional_2_13_2_8_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_guice_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_java_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_java_forms_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_json_2_13_2_8_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_logback_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_server_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_streams_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_play_test_2_13_2_8_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_play_twirl_api_2_13_1_5_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__com_typesafe_ssl_config_core_2_13_0_4_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__commons_codec_commons_codec_1_11_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__commons_io_commons_io_2_6_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__commons_logging_commons_logging_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__commons_net_commons_net_3_6_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__io_jsonwebtoken_jjwt_0_9_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__jakarta_activation_jakarta_activation_api_1_2_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__jakarta_transaction_jakarta_transaction_api_1_3_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__jakarta_validation_jakarta_validation_api_2_0_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__javax_inject_javax_inject_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__joda_time_joda_time_2_10_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__junit_junit_4_13_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_bytebuddy_byte_buddy_1_10_15_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_bytebuddy_byte_buddy_agent_1_10_15_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_jodah_typetools_0_5_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_2_36_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_core_js_2_36_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_sourceforge_htmlunit_htmlunit_cssparser_1_5_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__net_sourceforge_htmlunit_neko_htmlunit_2_36_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_commons_commons_exec_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_commons_commons_lang3_3_9_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_commons_commons_text_1_7_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_httpcomponents_httpclient_4_5_9_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_httpcomponents_httpcore_4_4_11_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apache_httpcomponents_httpmime_4_5_9_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_apiguardian_apiguardian_api_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_atteo_classindex_classindex_3_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_brotli_dec_0_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_checkerframework_checker_qual_2_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_jetty_client_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_jetty_http_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_jetty_io_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_jetty_util_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_jetty_xml_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_api_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_client_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_eclipse_jetty_websocket_websocket_common_9_4_20_v20190813_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_fluentlenium_fluentlenium_core_3_7_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_hibernate_validator_hibernate_validator_6_1_5_Final_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_jacoco_org_jacoco_agent_0_8_2_runtime_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_jboss_logging_jboss_logging_3_3_2_Final_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_jupiter_junit_jupiter_api_5_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_platform_junit_platform_commons_1_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_platform_junit_platform_engine_1_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_platform_junit_platform_launcher_1_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_platform_junit_platform_runner_1_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_junit_platform_junit_platform_suite_api_1_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_mockito_mockito_core_3_6_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_mockito_mockito_junit_jupiter_3_6_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_objenesis_objenesis_3_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_opentest4j_opentest4j_1_2_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_reactivestreams_reactive_streams_1_0_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_lang_modules_scala_java8_compat_2_13_0_9_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_lang_modules_scala_parser_combinators_2_13_1_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_lang_modules_scala_xml_2_13_1_2_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_lang_scala_reflect_2_13_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_scala_sbt_test_interface_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_seleniumhq_selenium_htmlunit_driver_2_36_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_api_3_141_59_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_remote_driver_3_141_59_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_seleniumhq_selenium_selenium_support_3_141_59_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_slf4j_jcl_over_slf4j_1_7_30_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_slf4j_jul_to_slf4j_1_7_30_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_slf4j_slf4j_api_1_7_30_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_springframework_spring_beans_5_2_6_RELEASE_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_springframework_spring_context_5_2_6_RELEASE_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_springframework_spring_core_5_2_6_RELEASE_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_twitter4j_twitter4j_core_4_0_7_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__org_twitter4j_twitter4j_stream_4_0_7_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__xalan_serializer_2_7_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__xalan_xalan_2_7_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__xerces_xercesImpl_2_12_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/libraries/sbt__xml_apis_xml_apis_1_4_01_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/modules/SOEN-6441-Project-build.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/modules/SOEN-6441-Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/play2_project_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/play2_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/scala_compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/scopes/ProjectDoc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.settings/org.scala-ide.sdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/TestCoverage/models/.classes/Search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/Module.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/HashtagActor$updateStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/HashtagActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/KeywordActor$updateStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/KeywordActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/TwitterStreamActor$registerNewHashtag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/TwitterStreamActor$registerNewKeyword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/TwitterStreamActor$registerNewSearchQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/TwitterStreamActor$removeChild.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/TwitterStreamActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/UserActor$AddNewQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/UserActor$addQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/UserActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/actors/UserParentActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/assets/javascripts/HashtagDisplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/assets/javascripts/indexDisplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/controllers/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/models/GetTweets$Mode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/models/GetTweets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/models/Search.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/models/sessionData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/views/tweets_display.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/views/tweets_hashtag_display.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/app/views/wordstats.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conf/application.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conf/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conf/routes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/conf/twitter4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/project/plugins.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/compilation-error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/external.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/favicon0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/header-pattern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/hello-custom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/hello-one.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/play-components.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/play-request-response.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/play-stack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/play_icon_reverse.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/images/request-response.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/javascripts/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/javascripts/prism.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/stylesheets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/public/stylesheets/prism.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/bin/sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/bin/sbt-launch-lib.bash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/bin/sbt-launch.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/bin/sbt.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/conf/sbtconfig.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt-dist/conf/sbtopts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sbt.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/scripts/test-sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/actors/KeywordActorTest$testActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/actors/KeywordActorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/commons/CommonHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/controllers/HomeControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/controllers/RoutingTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/models/GetTweetsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/models/SearchTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test/models/sessionDataTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,55 +344,20 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
-  <component name="CoverageOptionsProvider">
-    <option name="myAddOrReplace" value="1" />
-  </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\TestCoverage" />
-  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="SBT">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="SOEN-6441-Project" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="Dev_Dang" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="NamedScopeManager">
-    <order>
-      <scope name="ProjectDoc" />
-    </order>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="Play2ProjectSettings">
     <option name="LANGUAGE_IMPORTS">
@@ -106,9 +369,9 @@
         <option value="_root_.play.twirl.api.Txt" />
         <option value="play.data._" />
         <option value="play.api.data.Field" />
-        <option value="play.api.templates.PlayMagic._" />
         <option value="scala.jdk.CollectionConverters._" />
         <option value="_root_.play.twirl.api.JavaScript" />
+        <option value="play.api.templates.PlayMagic._" />
         <option value="play.core.j.PlayMagicForJava._" />
         <option value="_root_.play.twirl.api.TwirlHelperImports._" />
         <option value="play.core.j.PlayFormsMagicForJava._" />
@@ -120,49 +383,27 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1k1gfnDRHXaU6gcvnm6dYxxn6UN" />
+  <component name="ProjectId" id="1lOGfZpMzqhfcnCO0P1XowsDJLS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/test/actors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/TestCoverage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.32873562" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="actors" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="actors" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Zean Le\Documents\GitHub\SOEN-6441-GroupXO\SOEN-6441-Project\test" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.UserActorTest.testSendQueryRequest">
+  <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -174,77 +415,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in SOEN-6441-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashtagActorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="actors.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.HashtagActorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserActorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="actors.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserActorTest.testSendQueryRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="actors.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
-      <option name="METHOD_NAME" value="testSendQueryRequest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserActorTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOEN-6441-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="actors.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="actors" />
-      <option name="MAIN_CLASS_NAME" value="actors.UserActorTest" />
-      <option name="METHOD_NAME" value="testUpdate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="play run" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="run play" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="SOEN-6441-Project" />
       <option name="allowRunningInParallel" value="false" />
       <option name="enableSbtGlobalPlugins" value="false" />
@@ -273,632 +444,95 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Play 2 App.play run" />
-      <item itemvalue="JUnit.UserActorTest" />
-      <item itemvalue="JUnit.UserActorTest.testUpdate" />
-      <item itemvalue="JUnit.UserActorTest.testSendQueryRequest" />
-      <item itemvalue="JUnit.All in SOEN-6441-Project" />
-      <item itemvalue="JUnit.HashtagActorTest" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.UserActorTest.testSendQueryRequest" />
-        <item itemvalue="JUnit.HashtagActorTest" />
-        <item itemvalue="JUnit.All in SOEN-6441-Project" />
-        <item itemvalue="JUnit.UserActorTest" />
-        <item itemvalue="JUnit.UserActorTest.testUpdate" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="" />
-      <created>1604873621245</created>
+      <changelist id="ce56603a-1540-4804-a283-5c9ba0b3ed81" name="Default Changelist" comment="" />
+      <created>1607460829186</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604873621245</updated>
-      <workItem from="1604873631629" duration="7845000" />
-      <workItem from="1604956847581" duration="2040000" />
-      <workItem from="1605124014608" duration="4069000" />
-      <workItem from="1605128369052" duration="16667000" />
-      <workItem from="1605195388316" duration="10771000" />
-      <workItem from="1606240287647" duration="2514000" />
-      <workItem from="1606332228725" duration="16228000" />
-      <workItem from="1606409878461" duration="593000" />
-      <workItem from="1606439069517" duration="1502000" />
-      <workItem from="1606442199765" duration="3918000" />
-      <workItem from="1606502349532" duration="7745000" />
-      <workItem from="1606581140311" duration="16400000" />
-      <workItem from="1606785642504" duration="11592000" />
-      <workItem from="1606856156326" duration="16457000" />
-      <workItem from="1606922742149" duration="7110000" />
-      <workItem from="1606937433786" duration="391000" />
-      <workItem from="1607096176266" duration="1481000" />
-      <workItem from="1607104044046" duration="6112000" />
-      <workItem from="1607132799109" duration="11354000" />
-      <workItem from="1607278613242" duration="1022000" />
-      <workItem from="1607306632199" duration="7709000" />
-      <workItem from="1607373267107" duration="9410000" />
-      <workItem from="1607438172773" duration="9188000" />
+      <updated>1607460829186</updated>
+      <workItem from="1607460836441" duration="2516000" />
     </task>
-    <task id="LOCAL-00001" summary="modified tweets sentimental">
-      <created>1604879041470</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1604879041470</updated>
-    </task>
-    <task id="LOCAL-00002" summary="test Guice">
-      <created>1604892645377</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1604892645377</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Version 45%">
-      <created>1604957817986</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1604957817986</updated>
-    </task>
-    <task id="LOCAL-00004" summary="update gettweet numbers and added home page test.">
-      <created>1604958151390</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1604958151390</updated>
-    </task>
-    <task id="LOCAL-00005" summary="code clean up and test updated">
-      <created>1604958768960</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1604958768960</updated>
-    </task>
-    <task id="LOCAL-00006" summary="JavaDoc modify">
-      <created>1605138694871</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1605138694871</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added Routing Test">
-      <created>1605201493855</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1605201493855</updated>
-    </task>
-    <task id="LOCAL-00008" summary="testing completed (maybe).">
-      <created>1605205148953</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1605205148953</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added JavaDoc">
-      <created>1605206146556</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1605206146556</updated>
-    </task>
-    <task id="LOCAL-00010" summary="merged with main">
-      <created>1606146815798</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1606146815798</updated>
-    </task>
-    <task id="LOCAL-00011" summary="WebSocket hashtag added">
-      <created>1606508966217</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1606508966217</updated>
-    </task>
-    <task id="LOCAL-00012" summary="working hashtag websocket">
-      <created>1606524648775</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606524648775</updated>
-    </task>
-    <task id="LOCAL-00013" summary="working hashtag websocket with user changes">
-      <created>1606624222147</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1606624222148</updated>
-    </task>
-    <task id="LOCAL-00014" summary="working hashtag websocket with user changes">
-      <created>1606789751104</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606789751104</updated>
-    </task>
-    <task id="LOCAL-00015" summary="file clean up">
-      <created>1606790156635</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606790156635</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Fix var">
-      <created>1606791108504</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606791108504</updated>
-    </task>
-    <task id="LOCAL-00017" summary="working websocket index">
-      <created>1606937619677</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1606937619677</updated>
-    </task>
-    <task id="LOCAL-00018" summary="working websocket index">
-      <created>1606937770021</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1606937770021</updated>
-    </task>
-    <task id="LOCAL-00019" summary="merged with Hashtag Keywords from Dang's branch.">
-      <created>1607100279501</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1607100279501</updated>
-    </task>
-    <task id="LOCAL-00020" summary="working stream after merged">
-      <created>1607102291768</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1607102291768</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Working sentiments">
-      <created>1607139272900</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139272900</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Hastag Actor Test added">
-      <created>1607314124496</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1607314124496</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Update sentimental">
-      <created>1607376877247</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1607376877247</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Added Javadoc and Clean up TwitterStreamActor">
-      <created>1607382079222</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1607382079222</updated>
-    </task>
-    <task id="LOCAL-00025" summary="fixed sentimental.">
-      <created>1607438848669</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1607438848669</updated>
-    </task>
-    <task id="LOCAL-00026" summary="jacoco working">
-      <created>1607450239889</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1607450239889</updated>
-    </task>
-    <task id="LOCAL-00027" summary="jacoco working">
-      <created>1607450327929</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1607450327930</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified tweets sentimental" />
-    <MESSAGE value="test Guice" />
-    <MESSAGE value="Version 45%" />
-    <MESSAGE value="update gettweet numbers and added home page test." />
-    <MESSAGE value="code clean up and test updated" />
-    <MESSAGE value="JavaDoc modify" />
-    <MESSAGE value="Added Routing Test" />
-    <MESSAGE value="testing completed (maybe)." />
-    <MESSAGE value="Added JavaDoc" />
-    <MESSAGE value="merged with main" />
-    <MESSAGE value="WebSocket hashtag added" />
-    <MESSAGE value="working hashtag websocket" />
-    <MESSAGE value="working hashtag websocket with user changes" />
-    <MESSAGE value="file clean up" />
-    <MESSAGE value="Fix var" />
-    <MESSAGE value="working websocket index" />
-    <MESSAGE value="merged with Hashtag Keywords from Dang's branch." />
-    <MESSAGE value="working stream after merged" />
-    <MESSAGE value="Working sentiments" />
-    <MESSAGE value="Hastag Actor Test added" />
-    <MESSAGE value="Update sentimental" />
-    <MESSAGE value="Added Javadoc and Clean up TwitterStreamActor" />
-    <MESSAGE value="fixed sentimental." />
-    <MESSAGE value="jacoco working" />
-    <option name="LAST_COMMIT_MESSAGE" value="jacoco working" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607462910899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130485516" />
-    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1605197691186">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607462910899" />
+    <state x="707" y="239" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607461597466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605197691186" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1606934183365">
+    <state x="707" y="239" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607461597466" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607461337310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606934183365" />
-    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1605130483606">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607461337310" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130483606" />
-    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605130334642">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1607463134574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605130334642" />
-    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607375201151">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134574" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1607463134574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375201151" />
-    <state x="1920" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607278699874">
-      <screen x="1920" y="0" width="1200" height="1880" />
-    </state>
-    <state x="1920" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607278699874" />
-    <state x="857" y="273" width="802" height="494" key="#xdebugger.XInspectDialog" timestamp="1607446123181">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134574" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="857" y="273" width="802" height="494" key="#xdebugger.XInspectDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446123181" />
-    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate" timestamp="1607446172886">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="979" y="376" width="744" height="594" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446172886" />
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606338331923">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607450326958">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607450326958" />
-    <state width="473" height="466" key="DebuggerActiveHint" timestamp="1607445917009">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1607463134575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="473" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607445917009" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607101923946">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463134575" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1607461326813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
-    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1607447179085">
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607461326813" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607463790550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607447179085" />
-    <state width="1877" height="362" key="GridCell.Tab.0.bottom" timestamp="1607449875578">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="362" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
-    <state width="1157" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519794" />
-    <state width="1877" height="362" key="GridCell.Tab.0.center" timestamp="1607449875578">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="362" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
-    <state width="1157" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="362" key="GridCell.Tab.0.left" timestamp="1607449875577">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="362" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875577" />
-    <state width="1157" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="362" key="GridCell.Tab.0.right" timestamp="1607449875578">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="362" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607449875578" />
-    <state width="1157" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1200.1880@1920.0.1200.1880" timestamp="1606151519793" />
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1607446220398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
-    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1607446220398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
-    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1607446220398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
-    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1607446220398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446220398" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1607446321308">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446321308" />
-    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605138976163">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605138976163" />
-    <state x="615" y="240" key="RollbackChangesDialog" timestamp="1605205494233">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="615" y="240" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605205494233" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1606441744418">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607450333605">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607450333605" />
-    <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607139295995" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1607443888092">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607443888092" />
-    <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1607375191010">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="776" y="298" key="chooseDestDirectoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375191010" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607101923946">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607101923946" />
-    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607100750495">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="953" y="0" width="974" height="1047" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100750495" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607446275171">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446275171" />
-    <state x="731" y="318" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1607306203117">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="731" y="318" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607306203117" />
-    <state x="449" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606869065593">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="449" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606869065593" />
-    <state x="522" y="185" width="811" height="722" key="dock-window-1" timestamp="1607375580737">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="522" y="185" width="811" height="722" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375580737" />
-    <state x="228" y="46" width="1216" height="1659" key="dock-window-2" timestamp="1607451749141">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="228" y="46" width="1216" height="1659" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607451749141" />
-    <state x="321" y="126" width="1216" height="707" key="dock-window-3" timestamp="1606937578155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="321" y="126" width="1216" height="707" key="dock-window-3/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606937578155" />
-    <state x="636" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607100346586">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="636" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607100346586" />
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1607096860240">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607096860240" />
-    <state x="752" y="358" width="971" height="396" key="scopes" timestamp="1605133881246">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="752" y="358" width="971" height="396" key="scopes/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1605133881246" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607463790550" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>315</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>328</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/test/controllers/HomeControllerTest.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/test/controllers/HomeControllerTest.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="30" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/actors/KeywordActor.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/actors/HashtagActorTest.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="34" />
+          <url>file://$PROJECT_DIR$/app/actors/TwitterStreamActor.java</url>
+          <line>218</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/actors/HashtagActorTest.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/HashtagActor.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/SentimentActor.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/UserActor.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actors/UserActor.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/actors/UserActorTest.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/test/models/GetTweetsTest.java</url>
-          <line>309</line>
-          <properties class="models.GetTweetsTest" method="testGetTweetSentimentsExp">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/app/actors/TwitterStreamActor.java</url>
+          <line>217</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="((RepointableActorRef)twitterStreamActor).mailboxType" custom="akka.actor.RepointableActorRef" />
-      </configuration>
-      <configuration name="Play2FrameworkRunConfigurations">
-        <watch expression="request.session().get(&quot;Hashtag&quot;).get()" />
-        <watch expression="sessionData.getUser(currentUserID).streamingFlow" />
-        <watch expression="sessionData.getUser(currentUserID).userActor" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.ic" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1607446358454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$controllers_in_SOEN_6441_Project.ic" NAME="controllers in SOEN-6441-Project Coverage Results" MODIFIED="1605138453788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_check_Twitter_invoke_exception.ic" NAME="GetTweetsTest.check_Twitter_invoke_exception Coverage Results" MODIFIED="1605204616706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest.ic" NAME="HashtagActorTest Coverage Results" MODIFIED="1607311802261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>actors.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest_testUserSessionsWithGetString.ic" NAME="GetTweetsTest.testUserSessionsWithGetString Coverage Results" MODIFIED="1605201546540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest.ic" NAME="RoutingTest Coverage Results" MODIFIED="1605201367746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1605130736948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$UserActorTest.ic" NAME="UserActorTest Coverage Results" MODIFIED="1607446241006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>actors.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_tesHashTag.ic" NAME="HomeControllerTest.tesHashTag Coverage Results" MODIFIED="1605128880308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$RoutingTest_testHomePageRouteWithNewUser.ic" NAME="RoutingTest.testHomePageRouteWithNewUser Coverage Results" MODIFIED="1605201442150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__1_.ic" NAME="All in SOEN-6441-Project (1) Coverage Results" MODIFIED="1605129730370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest_createHashtagActor.ic" NAME="HashtagActorTest.createHashtagActor Coverage Results" MODIFIED="1607311667616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>actors.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest.ic" NAME="GetTweetsTest Coverage Results" MODIFIED="1605202409526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$GetTweetsTest__1_.ic" NAME="GetTweetsTest (1) Coverage Results" MODIFIED="1605155311329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HomeControllerTest_testException.ic" NAME="HomeControllerTest.testException Coverage Results" MODIFIED="1604957686976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>controllers.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project.exec" NAME="All in SOEN-6441-Project Coverage Results" MODIFIED="1605130623831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-      <FILTER>controllers.*</FILTER>
-      <EXCLUDED_FILTER>controllers.javascript.*</EXCLUDED_FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$sessionDataTest.ic" NAME="sessionDataTest Coverage Results" MODIFIED="1605196549793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$models_in_SOEN_6441_Project.ic" NAME="models in SOEN-6441-Project Coverage Results" MODIFIED="1605204371142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$UserActorTest_testSendQueryRequest.ic" NAME="UserActorTest.testSendQueryRequest Coverage Results" MODIFIED="1607449831340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>actors.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$All_in_SOEN_6441_Project__2_.ic" NAME="All in SOEN-6441-Project (2) Coverage Results" MODIFIED="1605129810145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SOEN_6441_Project$HashtagActorTest_testUpdate.ic" NAME="HashtagActorTest.testUpdate Coverage Results" MODIFIED="1607313893935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>actors.*</FILTER>
-    </SUITE>
   </component>
 </project>
