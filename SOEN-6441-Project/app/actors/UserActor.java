@@ -76,15 +76,6 @@ public final class UserActor extends AbstractActor {
 
     }
 
-//    public static class addQuery{
-//
-//        private final String queryTerm;
-//
-//        public addQuery(String queryTerm) {
-//            this.queryTerm = queryTerm;
-//        }
-//    }
-
     public static class AddNewQuery {
         public final String htmlCode;
         public final String queryTerm;

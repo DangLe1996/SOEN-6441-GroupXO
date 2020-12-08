@@ -34,66 +34,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94d408ec-16af-470f-84d2-2161545887c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/play2_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/.css/coverage.css" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/.css/coverage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseAssets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseAssets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseHomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/.classes/ReverseHomeController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers.javascript/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/HomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/HomeController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseAssets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseAssets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseHomeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/ReverseHomeController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/.classes/routes.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/.classes/routes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/controllers/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/GetTweets.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/GetTweets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/Search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/.classes/sessionData.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/.classes/sessionData.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestCoverage/models/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/KeywordActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/KeywordActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actors/SentimentActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/SentimentActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/actors/UserActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actors/UserActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/HashtagActorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/actors/TwitterStreamActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/TwitterStreamActorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/actors/UserActorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/actors/UserActorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,7 +321,7 @@
       <workItem from="1607278613242" duration="1022000" />
       <workItem from="1607306632199" duration="7709000" />
       <workItem from="1607373267107" duration="9410000" />
-      <workItem from="1607438172773" duration="7636000" />
+      <workItem from="1607438172773" duration="9188000" />
     </task>
     <task id="LOCAL-00001" summary="modified tweets sentimental">
       <created>1604879041470</created>
@@ -555,7 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607438848669</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="jacoco working">
+      <created>1607450239889</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607450239889</updated>
+    </task>
+    <task id="LOCAL-00027" summary="jacoco working">
+      <created>1607450327929</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607450327930</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +576,8 @@
     <MESSAGE value="Update sentimental" />
     <MESSAGE value="Added Javadoc and Clean up TwitterStreamActor" />
     <MESSAGE value="fixed sentimental." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed sentimental." />
+    <MESSAGE value="jacoco working" />
+    <option name="LAST_COMMIT_MESSAGE" value="jacoco working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605130485516">
@@ -662,10 +620,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606338331923" />
-    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607438847361">
+    <state x="471" y="88" key="CommitChangelistDialog2" timestamp="1607450326958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438847361" />
+    <state x="471" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607450326958" />
     <state width="473" height="466" key="DebuggerActiveHint" timestamp="1607445917009">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -730,10 +688,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1606441744418" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607438855595">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607450333605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607438855595" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607450333605" />
     <state x="414" y="224" key="Vcs.Push.Dialog.v2/0.25.1440.816@0.25.1440.816" timestamp="1607139295995" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1607443888092">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -767,10 +725,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="522" y="185" width="811" height="722" key="dock-window-1/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607375580737" />
-    <state x="2007" y="560" width="1216" height="1659" maximized="true" key="dock-window-2" timestamp="1607446978918">
-      <screen x="1920" y="0" width="1200" height="1880" />
+    <state x="228" y="46" width="1216" height="1659" key="dock-window-2" timestamp="1607451749141">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="2007" y="560" width="1216" height="1659" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607446978918" />
+    <state x="228" y="46" width="1216" height="1659" key="dock-window-2/0.0.1920.1040/1920.0.1200.1880@0.0.1920.1040" timestamp="1607451749141" />
     <state x="321" y="126" width="1216" height="707" key="dock-window-3" timestamp="1606937578155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

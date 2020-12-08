@@ -53,13 +53,20 @@ public class HomeController extends Controller {
 		this.globalGetTweet = globalGetTweet;
 	}
 
+	/**
+	 * Constructor for Home Controller
+	 * @param formFactory
+	 * @param messagesApi
+	 * @param actorSystem :ActorSystem Injector
+	 * @param materializer : Actor Materializer
+	 */
 	@Inject
-	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem as, Materializer mat) {
+	public HomeController(FormFactory formFactory, MessagesApi messagesApi, ActorSystem actorSystem, Materializer materializer) {
 
 		this.form = formFactory.form(Search.class);
 		this.messagesApi = messagesApi;
-		this.actorSystem = as;
-		this.materializer = mat;
+		this.actorSystem = actorSystem;
+		this.materializer = materializer;
 		this.TwitterStreamActor = this.actorSystem.actorOf(Props.create(actors.TwitterStreamActor.class),"HashtagParent");
 
 	}
@@ -114,6 +121,10 @@ public class HomeController extends Controller {
 
     }
 
+	/**
+	 * Main page websocket, handle the request and push tweet result to front end.
+	 * @return
+	 */
 	public WebSocket indexWs(){
 		return WebSocket.Json.accept( request -> {
 			return ActorFlow.actorRef(wsout ->{
@@ -155,7 +166,6 @@ public class HomeController extends Controller {
 				return ok(views.html.wordstats.render(request,searchQuery, res));
 				});
 	}
-//
 	/**
 	 * Handle user request to see latest 10 tweets with a given hashtag
 	 * @author: Dang Le
@@ -173,7 +183,6 @@ public class HomeController extends Controller {
     }
 
 
-    HashMap<String,Flow<Json,Json,?>> hashtagFlowsMap = new HashMap<>();
 
 	/**
 	 * Create an actorRef that is responsible for handling message websocket for hashtag
@@ -189,10 +198,9 @@ public class HomeController extends Controller {
 	});
 
 	}
-	HashMap<String,Flow<String,String,?>> keywordFlowsMap = new HashMap<>();
 
 	public WebSocket keywordWs(){
-		System.out.println("in keyword ws");
+
 		return WebSocket.Text.accept(request -> {
 			Flow<String,String,?> temp = ActorFlow.actorRef(wsout -> {
 				return KeywordActor.props(wsout, TwitterStreamActor);
