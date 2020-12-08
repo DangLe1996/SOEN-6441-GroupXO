@@ -198,7 +198,12 @@ public class HomeController extends Controller {
 	});
 
 	}
-
+	
+	/**
+	 * Used to create a websocket for keywordactor
+	 * @author: Girish
+	 * @return: Websocket
+	 */
 	public WebSocket keywordWs(){
 
 		return WebSocket.Text.accept(request -> {
