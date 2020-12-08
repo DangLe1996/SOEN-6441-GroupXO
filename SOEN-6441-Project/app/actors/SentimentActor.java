@@ -23,7 +23,7 @@ public class SentimentActor extends AbstractActor {
     private final ActorRef replyTo;
 
     /** Constructor for SentimentActor
-     * 
+     *
      * @param ws
      * @param replyTo
      * @author suhel
@@ -39,12 +39,12 @@ public class SentimentActor extends AbstractActor {
         private final String searchString;
 
        /** constructor for Sentiment.ActortweetStatus
-        * 
+        *
         * @param status
         * @param searchString
         * @author suhel
         */
-       
+
         public tweetStatus(Status status,String searchString) {
             this.status = status;
             this.searchString=searchString;
@@ -57,7 +57,7 @@ public class SentimentActor extends AbstractActor {
         public String mode;
 
         /** Constructor for Sentiment.storeSentiments
-         * 
+         *
          * @param keyword
          * @param msgID
          * @param mode
@@ -71,15 +71,13 @@ public class SentimentActor extends AbstractActor {
         }
     }
 
-    /* calculates async modes of tweets*/
-    
-     
+    /** calculates async modes of tweets*/
     public static class replyAnalysis {
         public String keyword;
         public HashBasedTable<String, Long, String> sentimentTable;
 
         /** constructor for Sentiment.replyAnalysis
-         * 
+         *
          * @param keyword
          * @param sentimentTable
          * @author suhel
@@ -91,7 +89,7 @@ public class SentimentActor extends AbstractActor {
     }
 
     /** Properties of the actor
-     * 
+     *
      * @param ws
      * @param replyTo
      * @return
