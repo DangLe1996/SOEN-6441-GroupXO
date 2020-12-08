@@ -123,7 +123,8 @@ public class TwitterStreamActor extends AbstractActorWithTimers {
             ChildActors.put(msg, temp);
         }
         else {
-            ChildActors.put(msg, List.of(sender()));
+            //ChildActors.put(msg, List.of(sender()));
+            ChildActors.put(msg, Arrays.asList(sender()));//java 8
             KeywordsQueue.add(msg);
         }
 
