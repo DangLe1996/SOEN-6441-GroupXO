@@ -29,6 +29,7 @@ import static commons.CommonHelper.buildStatusList;
 import static commons.CommonHelper.createMockTweets;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+/** JUNIT TEST cases for SentimentActor*/
 public class SentimentActorTest extends JUnitSuite {
 
 
@@ -46,11 +47,12 @@ public class SentimentActorTest extends JUnitSuite {
             system = null;
         }
 
+    /** Tests the sentiment actor
+     * @author suhel
+     */
+
     @Test
     public void testSentimentActor() {
-
-        //System.out.println("testing testSentimentActor");
-
         new TestKit(system) {
             {
                 final TestKit probe = new TestKit(system);
@@ -85,7 +87,9 @@ public class SentimentActorTest extends JUnitSuite {
             }
         };
     }
-    //case 2
+    /** tests the sentiment actor with mock tweets
+     * @author suhel
+     * */
 
     @Test
     public void testSentimentActor_rendertest() throws TimeoutException, InterruptedException {
