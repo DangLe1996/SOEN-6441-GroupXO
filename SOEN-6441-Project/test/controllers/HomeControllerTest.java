@@ -124,24 +124,32 @@ public class HomeControllerTest extends WithApplication {
 
     @Test
     public void testkeyword() throws TwitterException, ExecutionException, InterruptedException {
+
+        System.out.println(" in testkeyword ");
         String testKeyWord="canada";
 
         FormFactory formFactory=null;
 
-        RequestBuilder request=requestBuilder(testKeyWord);
+       // RequestBuilder request=requestBuilder(testKeyWord);
         setDummyQueriesAndFurtherMocks(testKeyWord);
 
 
 
         homeController.setGlobalGetTweet(getTweets);
+        RequestBuilder request=Helpers.fakeRequest()
+                //.bodyForm(hm)
+                .session("Twitter","Twitter")
+                //.header()
+                .method(Helpers.POST);
 
-       /* CompletionStage<Result> result =homeController.keyword(request,testKeyWord);
+
+        CompletionStage<Result> result =homeController.keyword(request.build(),testKeyWord);
 
         String resultString =contentAsString(result.toCompletableFuture().get());
 
         assertThat(resultString,StringContains.containsString("Indians:1"));
         assertThat(resultString,StringContains.containsString("HAPPY:1"));
-        */
+
 
     }
 
